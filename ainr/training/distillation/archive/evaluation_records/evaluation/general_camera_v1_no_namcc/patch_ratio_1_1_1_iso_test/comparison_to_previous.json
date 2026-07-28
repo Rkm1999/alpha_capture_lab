@@ -1,0 +1,80 @@
+{
+  "previous_report": "evaluation/general_camera_v1_no_namcc/iso_test/report.json",
+  "new_report": "evaluation/general_camera_v1_no_namcc/patch_ratio_1_1_1_iso_test/report.json",
+  "images": [
+    {
+      "iso": 1600,
+      "previous_teacher_agreement_psnr": 43.89088151364038,
+      "new_teacher_agreement_psnr": 44.16376892286509,
+      "psnr_change": 0.2728874092247082,
+      "previous_teacher_agreement_ssim": 0.9816104173660278,
+      "new_teacher_agreement_ssim": 0.9829860329627991,
+      "ssim_change": 0.0013756155967712402,
+      "previous_shadow_capture": 0.7914793979419286,
+      "new_shadow_capture": 0.8570084986364398
+    },
+    {
+      "iso": 3200,
+      "previous_teacher_agreement_psnr": 41.78181006009389,
+      "new_teacher_agreement_psnr": 42.736072612577125,
+      "psnr_change": 0.954262552483236,
+      "previous_teacher_agreement_ssim": 0.965936005115509,
+      "new_teacher_agreement_ssim": 0.9685617089271545,
+      "ssim_change": 0.002625703811645508,
+      "previous_shadow_capture": 0.7483739515242801,
+      "new_shadow_capture": 0.7925057395289332
+    },
+    {
+      "iso": 6400,
+      "previous_teacher_agreement_psnr": 38.21998078589031,
+      "new_teacher_agreement_psnr": 39.71587404383564,
+      "psnr_change": 1.4958932579453332,
+      "previous_teacher_agreement_ssim": 0.9305129051208496,
+      "new_teacher_agreement_ssim": 0.9376997947692871,
+      "ssim_change": 0.0071868896484375,
+      "previous_shadow_capture": 0.6843593462229958,
+      "new_shadow_capture": 0.740964922923418
+    },
+    {
+      "iso": 12800,
+      "previous_teacher_agreement_psnr": 37.24094101004519,
+      "new_teacher_agreement_psnr": 38.23550251501325,
+      "psnr_change": 0.9945615049680612,
+      "previous_teacher_agreement_ssim": 0.9210203886032104,
+      "new_teacher_agreement_ssim": 0.9310782551765442,
+      "ssim_change": 0.01005786657333374,
+      "previous_shadow_capture": 0.6347843624629339,
+      "new_shadow_capture": 0.6641273461173393
+    },
+    {
+      "iso": 25600,
+      "previous_teacher_agreement_psnr": 32.751177566906826,
+      "new_teacher_agreement_psnr": 33.70604826282577,
+      "psnr_change": 0.9548706959189417,
+      "previous_teacher_agreement_ssim": 0.836322546005249,
+      "new_teacher_agreement_ssim": 0.8651689291000366,
+      "ssim_change": 0.028846383094787598,
+      "previous_shadow_capture": 0.4266899212474381,
+      "new_shadow_capture": 0.4758777152575838
+    },
+    {
+      "iso": 51200,
+      "previous_teacher_agreement_psnr": 29.99055074184394,
+      "new_teacher_agreement_psnr": 31.364001096980772,
+      "psnr_change": 1.373450355136832,
+      "previous_teacher_agreement_ssim": 0.7295390963554382,
+      "new_teacher_agreement_ssim": 0.7798814177513123,
+      "ssim_change": 0.05034232139587402,
+      "previous_shadow_capture": 0.468195725046385,
+      "new_shadow_capture": 0.5574402134125155
+    }
+  ],
+  "averages": {
+    "previous_psnr": 37.312556946403426,
+    "new_psnr": 38.32021124234961,
+    "previous_ssim": 0.8941568930943807,
+    "new_ssim": 0.9108960231145223,
+    "previous_shadow_capture": 0.6256471174076602,
+    "new_shadow_capture": 0.6813207393127051
+  }
+}

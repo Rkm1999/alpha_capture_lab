@@ -1,0 +1,8 @@
+{
+  "epoch": 3,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v69_w40_full_finetune",
+  "state": "failed",
+  "updated_at": "2026-07-26T15:04:23.059454+00:00"
+}

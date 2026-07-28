@@ -1,0 +1,8 @@
+{
+  "epoch": 2,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v58_w32_exact_residual_refinement",
+  "state": "failed",
+  "updated_at": "2026-07-26T06:20:12.564776+00:00"
+}

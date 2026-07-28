@@ -1,0 +1,480 @@
+{
+  "archives": [
+    {
+      "compressed_bytes": 18551540652,
+      "datafile_id": 13237336,
+      "entries": 75,
+      "name": "sony_a7r_iii_indoor2.zip",
+      "states": {
+        "downloaded": 75,
+        "existing": 0
+      },
+      "uncompressed_bytes": 19075650000,
+      "zip_entries": [
+        {
+          "compressed_size": 246136079,
+          "crc32": "83611269",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248198861,
+          "crc32": "d11c6b06",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248552640,
+          "crc32": "f0c39c20",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248316095,
+          "crc32": "02bd8716",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247198402,
+          "crc32": "52c4fe69",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245619146,
+          "crc32": "e229b5dc",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247375180,
+          "crc32": "d5299d65",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247389941,
+          "crc32": "02a55754",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246953075,
+          "crc32": "1f4a47da",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245604526,
+          "crc32": "b3d878c9",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243489342,
+          "crc32": "5c8c1bc4",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247138843,
+          "crc32": "191e5daf",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248164910,
+          "crc32": "3e80aa18",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249023743,
+          "crc32": "ed2e4ecb",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249460292,
+          "crc32": "db75d89d",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243476242,
+          "crc32": "0b162a23",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247276171,
+          "crc32": "5e450e95",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248326515,
+          "crc32": "c9de059e",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249271315,
+          "crc32": "07720e01",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249926986,
+          "crc32": "db151383",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 237534543,
+          "crc32": "b71099a7",
+          "name": "indoor/010_software/010_software_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242513598,
+          "crc32": "2905ba4c",
+          "name": "indoor/010_software/010_software_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243132834,
+          "crc32": "437753e1",
+          "name": "indoor/010_software/010_software_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242987221,
+          "crc32": "8b5c39a3",
+          "name": "indoor/010_software/010_software_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241055382,
+          "crc32": "9fa7a611",
+          "name": "indoor/010_software/010_software_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239150918,
+          "crc32": "0f98503b",
+          "name": "indoor/010_software/010_software_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243667982,
+          "crc32": "4f571cae",
+          "name": "indoor/010_software/010_software_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244406031,
+          "crc32": "8068a8df",
+          "name": "indoor/010_software/010_software_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244606078,
+          "crc32": "ad27ef54",
+          "name": "indoor/010_software/010_software_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243074091,
+          "crc32": "dd46c58a",
+          "name": "indoor/010_software/010_software_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249027162,
+          "crc32": "8f436d8d",
+          "name": "indoor/011_bookends/011_bookends_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247837512,
+          "crc32": "6bd27fea",
+          "name": "indoor/011_bookends/011_bookends_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247140265,
+          "crc32": "3657d1be",
+          "name": "indoor/011_bookends/011_bookends_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246314859,
+          "crc32": "816dd37e",
+          "name": "indoor/011_bookends/011_bookends_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245427276,
+          "crc32": "b4cec824",
+          "name": "indoor/011_bookends/011_bookends_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249757233,
+          "crc32": "336808b9",
+          "name": "indoor/011_bookends/011_bookends_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248237966,
+          "crc32": "49cd9b50",
+          "name": "indoor/011_bookends/011_bookends_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247791915,
+          "crc32": "de84bdf0",
+          "name": "indoor/011_bookends/011_bookends_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246458792,
+          "crc32": "33a35cd1",
+          "name": "indoor/011_bookends/011_bookends_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245415839,
+          "crc32": "bbc4daaf",
+          "name": "indoor/011_bookends/011_bookends_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248639509,
+          "crc32": "50f9db7e",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250551125,
+          "crc32": "e4997080",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251218134,
+          "crc32": "068d73b4",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251726745,
+          "crc32": "bf16f20a",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251420617,
+          "crc32": "ecd08bcd",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241021857,
+          "crc32": "a07d761c",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245414406,
+          "crc32": "565dc6d6",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246449653,
+          "crc32": "feb19231",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247456772,
+          "crc32": "1e29387e",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248620447,
+          "crc32": "263b3d06",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241868244,
+          "crc32": "10250d2d",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245833251,
+          "crc32": "91ef9e34",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247000314,
+          "crc32": "0421f643",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248384524,
+          "crc32": "b0b4279b",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249689227,
+          "crc32": "e2132983",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252479345,
+          "crc32": "9d44acda",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252792242,
+          "crc32": "3c63c058",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252690721,
+          "crc32": "5c0e086d",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252229714,
+          "crc32": "b5d68837",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250896366,
+          "crc32": "334b0a52",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252801515,
+          "crc32": "d02b98dc",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253417548,
+          "crc32": "c3492b07",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253413366,
+          "crc32": "9db45142",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253109658,
+          "crc32": "caf38c68",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251980231,
+          "crc32": "3e8ce98b",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243037274,
+          "crc32": "71e343b2",
+          "name": "indoor/015_books/015_books_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247415118,
+          "crc32": "0c16b655",
+          "name": "indoor/015_books/015_books_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248416323,
+          "crc32": "15c028f3",
+          "name": "indoor/015_books/015_books_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248990976,
+          "crc32": "e07876d7",
+          "name": "indoor/015_books/015_books_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248474336,
+          "crc32": "3bbc4e5b",
+          "name": "indoor/015_books/015_books_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241014737,
+          "crc32": "b027847e",
+          "name": "indoor/015_books/015_books_50mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246561428,
+          "crc32": "10f0feb4",
+          "name": "indoor/015_books/015_books_50mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247688018,
+          "crc32": "fd7428d1",
+          "name": "indoor/015_books/015_books_50mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248327562,
+          "crc32": "aec65f75",
+          "name": "indoor/015_books/015_books_50mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248073548,
+          "crc32": "5f04c296",
+          "name": "indoor/015_books/015_books_50mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    }
+  ],
+  "camera": "Sony A7R III",
+  "complete": true,
+  "dataset": "SNIC",
+  "doi": "10.7910/DVN/SGHDCP",
+  "integrity": "size_and_zip_crc32_verified",
+  "license": "MIT",
+  "noisy_isos": [
+    1600,
+    3200,
+    6400,
+    12800
+  ],
+  "schema_version": 1
+}

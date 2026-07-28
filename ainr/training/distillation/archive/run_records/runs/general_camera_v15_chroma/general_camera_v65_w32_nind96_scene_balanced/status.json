@@ -1,0 +1,8 @@
+{
+  "epoch": 41,
+  "epochs": 80,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v65_w32_nind96_scene_balanced",
+  "state": "failed",
+  "updated_at": "2026-07-26T11:43:48.902260+00:00"
+}

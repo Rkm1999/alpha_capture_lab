@@ -1,0 +1,103 @@
+project:
+  name: scunet_mobile_distillation_general_camera_v4_synthetic_shadow
+  preprocessing_version: mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3
+  seed: 20260726
+
+data:
+  cache_root: data/high_iso_targeted_synthetic/cache
+  manifest: data/high_iso_targeted_synthetic/cache/manifest.json
+  datasets: [midd, sidd, polyu_sony, nind, uhd_ll, snic_sony, synthetic_camera_jpeg]
+  source_preprocessing:
+    legacy: exact_hwc_rgb_float_0_1_v1
+    domain: exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3
+    synthetic: synthetic_camera_jpeg_linear_post_isp_covariance_v3
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+
+model:
+  base_width: 16
+  expected_parameters: 1963411
+  expected_conv_macs: 1985347584
+  input_shape: [1, 3, 192, 192]
+
+training:
+  run_name: general_camera_v4_synthetic_shadow
+  epochs: 80
+  batch_size: 16
+  workers: 4
+  samples_per_epoch: 12000
+  learning_rate: 0.000002
+  minimum_learning_rate: 0.0000004
+  optimizer: Adam
+  amp: true
+  gradient_clip_norm: 0.1
+  checkpoint_interval: 5
+  early_stopping_patience: 15
+  early_stopping_metric: target
+  early_stopping_min_delta: 0.0005
+  alpha: 0.7
+  dataset_sampling_weights:
+    midd: 0.12
+    sidd: 0.10
+    polyu_sony: 0.06
+    nind: 0.07
+    uhd_ll: 0.12
+    snic_sony: 0.15
+    synthetic_camera_jpeg: 0.38
+  record_sampling:
+    snic_sony:
+      field: iso
+      default: 1.0
+      values:
+        1600: 0.50
+        3200: 0.75
+        6400: 1.00
+        12800: 2.00
+    synthetic_camera_jpeg:
+      field: iso
+      default: 1.0
+      values:
+        12800: 0.75
+        25600: 1.00
+        51200: 1.25
+  selection_datasets: [midd, sidd, polyu_sony, nind, uhd_ll, snic_sony]
+  correction_loss:
+    enabled: true
+    shadow_luminance_threshold: 0.25
+    fine_sigma: 1.0
+    medium_sigma: 4.0
+    coarse_sigma: 12.0
+    shadow_lambda: 10.0
+    medium_coarse_lambda: 15.0
+    normalized_shadow_lambda: 0.08
+    correction_magnitude_floor: 0.005
+    correction_weight_reference: 0.02
+    correction_weight_max: 2.0
+    paired_detail_lambda: 5.0
+
+target_validation:
+  enabled: true
+  datasets:
+    nind: {}
+    snic_sony:
+      isos: [12800]
+  shadow_luminance_threshold: 0.25
+  fine_sigma: 1.0
+  medium_sigma: 4.0
+  coarse_sigma: 12.0
+  minimum_general_selection_psnr: 36.38
+  minimum_general_selection_ssim: 0.909
+  minimum_shadow_teacher_correction_capture: 0.726
+  minimum_medium_coarse_teacher_correction_capture: 0.781
+
+metrics:
+  border_crop: 1
+  ssim_window_size: 11
+  ssim_sigma: 1.5
+
+outputs:
+  runs: runs/general_camera_v4_synthetic_shadow
+  evaluation: evaluation/general_camera_v4_synthetic_shadow

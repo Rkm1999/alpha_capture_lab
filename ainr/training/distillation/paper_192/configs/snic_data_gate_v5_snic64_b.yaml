@@ -1,0 +1,72 @@
+project:
+  name: scunet_mobile_distillation_snic_data_gate_v5_snic64_b
+  preprocessing_version: exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v4_snic64
+  seed: 20260727
+
+data:
+  source_manifest: data/uhd_snic_source_manifest.json
+  source_root: ../data/sources
+  cache_root: data/snic_gate_v5_snic64_b/cache
+  manifest: data/snic_gate_v5_snic64_b/cache/manifest.json
+  datasets: [snic_sony]
+  patches_per_pair:
+    snic_sony: 64
+  validation_patches_per_pair:
+    snic_sony: 8
+  tile_size: 192
+  crop_candidates: 384
+  jpeg_quality:
+    snic_sony: 95
+
+uhd_hybrid_target:
+  thumbnail_width: 480
+  illumination_sigma_full_resolution: 128.0
+  channel_denominator_floor: 0.003
+  channel_confidence_scale: 0.025
+  minimum_gain: 0.005
+  maximum_gain: 1.25
+  gain_smoothing_sigma_thumbnail: 1.5
+  teacher_lowpass_sigma: 8.0
+  clean_detail_gain: 1.0
+  alignment_prefilter_sigma: 0.7
+  alignment_search_radius: 3
+  minimum_texture: 0.012
+  minimum_zero_shift_correlation: 0.50
+  maximum_nonzero_shift_gain: 0.018
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+  config: [4, 4, 4, 4, 4, 4, 4]
+  dimension: 64
+  cache_dtype: float16
+  cache_inference_amp: false
+  cache_batch_size: 4
+
+model:
+  base_width: 16
+  expected_parameters: 1963411
+  expected_conv_macs: 1985347584
+  input_shape: [1, 3, 192, 192]
+
+training:
+  epochs: 200
+  batch_size: 16
+  workers: 4
+  learning_rate: 0.0001
+  minimum_learning_rate: 0.00001
+  optimizer: Adam
+  amp: true
+  gradient_clip_norm: 0.1
+  checkpoint_interval: 10
+  alpha: 0.7
+
+metrics:
+  border_crop: 1
+  ssim_window_size: 11
+  ssim_sigma: 1.5
+
+outputs:
+  runs: runs/domain_expansion
+  evaluation: evaluation/snic_data_gate_v5_snic64_b

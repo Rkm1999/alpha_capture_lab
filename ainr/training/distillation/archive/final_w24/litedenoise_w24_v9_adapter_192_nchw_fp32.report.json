@@ -1,0 +1,48 @@
+{
+  "bytes": 17704356,
+  "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v9_adapter/general_camera_v9_w24_residual_adapter/target-best.pt",
+  "checkpoint_alpha": 0.7,
+  "checkpoint_epoch": 9,
+  "compute_dtype": "float32",
+  "input_layout": "NCHW",
+  "input_shape": [
+    1,
+    5,
+    192,
+    192
+  ],
+  "input_shape_signature": [
+    1,
+    5,
+    192,
+    192
+  ],
+  "maximum_absolute_error": 1.0132789611816406e-06,
+  "output": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/export/litedenoise_w24_v9_adapter_192_nchw_fp32.tflite",
+  "output_clamp": false,
+  "output_layout": "NCHW",
+  "output_shape": [
+    1,
+    3,
+    192,
+    192
+  ],
+  "output_shape_signature": [
+    1,
+    3,
+    192,
+    192
+  ],
+  "parity_threshold": 0.0001,
+  "precision": "fp32",
+  "precomputed_noise_gate": true,
+  "random_maximum_absolute_error": 1.0132789611816406e-06,
+  "real_maximum_absolute_errors": [
+    3.2782554626464844e-07,
+    2.8312206268310547e-07,
+    5.364418029785156e-07,
+    2.384185791015625e-07
+  ],
+  "sha256": "f2d14210f788ac721fc70da834039c0a852e2ab8c26822d9ab044611d2ade463",
+  "weight_storage": "float32"
+}

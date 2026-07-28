@@ -1,0 +1,1473 @@
+{
+  "checkpoint": {
+    "alpha": 0.7,
+    "base_width": 24,
+    "epoch": 124,
+    "kind": "legacy_alpha_run",
+    "label": "LiteDenoise W24 alpha 0.7",
+    "mode": "alpha_0p7",
+    "nind_gt_weight": null,
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v6_w24/general_camera_v6_w24_hard_chroma/target-best.pt",
+    "run_fingerprint": "53ce24df53d071e4a7aa45ea427f1adc5e382280116c2c4fa3d0899c1a3296d2",
+    "sha256": "9637c88a747e216595a57822d1c4bb805ca2c5dbeb593f1fe607b8c5e77666a0",
+    "short_label": "W24 alpha 0.7"
+  },
+  "crop_size": 768,
+  "images": [
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 1.0194243519329855,
+        "teacher": 1.0137363366483036
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 1258012,
+          "student_change_mae": 0.006464019417762756,
+          "student_teacher_mae": 0.0034524674993008375,
+          "student_to_teacher_correction_ratio": 0.8881875661075884,
+          "teacher_change_mae": 0.007277763914316893
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 9235817,
+          "student_change_mae": 0.01076252106577158,
+          "student_teacher_mae": 0.001994453137740493,
+          "student_to_teacher_correction_ratio": 0.9637432354028519,
+          "teacher_change_mae": 0.011167415417730808
+        },
+        "shadows_0_0p25": {
+          "pixels": 13506171,
+          "student_change_mae": 0.008949973620474339,
+          "student_teacher_mae": 0.0015300307422876358,
+          "student_to_teacher_correction_ratio": 0.9540067602722176,
+          "teacher_change_mae": 0.009381457231938839
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 53.74294662475586,
+            "ssim": 0.9926750659942627
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 51.478607177734375,
+            "ssim": 0.998059093952179
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 50.1007080078125,
+            "ssim": 0.9976022839546204
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 50.61872100830078,
+            "ssim": 0.9958876371383667
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 50.24560546875,
+            "ssim": 0.9943379759788513
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 48.937259674072266,
+            "ssim": 0.9964525699615479
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 39.06892395019531,
+            "ssim": 0.9570292830467224
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 53.0140380859375,
+            "ssim": 0.9955340623855591
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 41.601654052734375,
+            "ssim": 0.9688947200775146
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 49.786128997802734,
+            "ssim": 0.9943261742591858
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 50.566139221191406,
+            "ssim": 0.996057391166687
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 51.23273849487305,
+            "ssim": 0.9969724416732788
+          }
+        }
+      ],
+      "folder": "ISO1600_DSC00001",
+      "height": 6000,
+      "iso": 1600,
+      "source": "/home/ryu/projects/iso_test_image/DSC00001.JPG",
+      "source_sha256": "56faa86b370f8aa056fa435b4e5266b9e60307dd32fcc8aed7b18936a0bf7ee4",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.299,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 48.236472478227064,
+        "ssim_preview": 0.9942163825035095,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 36.263,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    },
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 1.0177864914262127,
+        "teacher": 0.9904880402049231
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 920071,
+          "student_change_mae": 0.007860817946493626,
+          "student_teacher_mae": 0.0034494902938604355,
+          "student_to_teacher_correction_ratio": 0.9013142621728574,
+          "teacher_change_mae": 0.008721506223082542
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 9265934,
+          "student_change_mae": 0.014136113226413727,
+          "student_teacher_mae": 0.002848509233444929,
+          "student_to_teacher_correction_ratio": 0.9285890215508492,
+          "teacher_change_mae": 0.015223218128085136
+        },
+        "shadows_0_0p25": {
+          "pixels": 13813995,
+          "student_change_mae": 0.011453002691268921,
+          "student_teacher_mae": 0.0019728101324290037,
+          "student_to_teacher_correction_ratio": 0.9425418621167178,
+          "teacher_change_mae": 0.012151187285780907
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 50.26678466796875,
+            "ssim": 0.9798710942268372
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 52.233253479003906,
+            "ssim": 0.9978667497634888
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 45.60078048706055,
+            "ssim": 0.9948593378067017
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 49.21977615356445,
+            "ssim": 0.9927117228507996
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 49.048824310302734,
+            "ssim": 0.9901351928710938
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 49.175270080566406,
+            "ssim": 0.9950059056282043
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 39.5634880065918,
+            "ssim": 0.9317789077758789
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 52.153873443603516,
+            "ssim": 0.993872344493866
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 42.6715087890625,
+            "ssim": 0.9497444033622742
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 50.42234802246094,
+            "ssim": 0.9881088137626648
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 45.467777252197266,
+            "ssim": 0.9855296015739441
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 48.06492614746094,
+            "ssim": 0.989856481552124
+          }
+        }
+      ],
+      "folder": "ISO3200_DSC00002",
+      "height": 6000,
+      "iso": 3200,
+      "source": "/home/ryu/projects/iso_test_image/DSC00002.JPG",
+      "source_sha256": "f14f2eb36396f7b36911ec28413e33ead8298348293b0d47ffdd6641a186ba52",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.421,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 47.68211107594897,
+        "ssim_preview": 0.9905442595481873,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 36.314,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    },
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 1.0085505515351647,
+        "teacher": 0.9794287996804473
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 1145062,
+          "student_change_mae": 0.010262053459882736,
+          "student_teacher_mae": 0.004269544035196304,
+          "student_to_teacher_correction_ratio": 0.8951611900835523,
+          "teacher_change_mae": 0.01146391686052084
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 8672122,
+          "student_change_mae": 0.01993386074900627,
+          "student_teacher_mae": 0.00448045926168561,
+          "student_to_teacher_correction_ratio": 0.9003477750824512,
+          "teacher_change_mae": 0.022140178829431534
+        },
+        "shadows_0_0p25": {
+          "pixels": 14182816,
+          "student_change_mae": 0.01696207746863365,
+          "student_teacher_mae": 0.0030247389804571867,
+          "student_to_teacher_correction_ratio": 0.9371140420989132,
+          "teacher_change_mae": 0.018100334331393242
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 47.94731140136719,
+            "ssim": 0.979947566986084
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 48.87604522705078,
+            "ssim": 0.9961031675338745
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 43.5704460144043,
+            "ssim": 0.992154061794281
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 45.85981750488281,
+            "ssim": 0.9884231686592102
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 44.887271881103516,
+            "ssim": 0.980269730091095
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 45.623573303222656,
+            "ssim": 0.9890211224555969
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 41.9483642578125,
+            "ssim": 0.9601142406463623
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 45.936492919921875,
+            "ssim": 0.9814386963844299
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 40.09055709838867,
+            "ssim": 0.9025698900222778
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 46.04547882080078,
+            "ssim": 0.9405056834220886
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 41.984771728515625,
+            "ssim": 0.9752958416938782
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 42.48075866699219,
+            "ssim": 0.9611079096794128
+          }
+        }
+      ],
+      "folder": "ISO6400_DSC00003",
+      "height": 6000,
+      "iso": 6400,
+      "source": "/home/ryu/projects/iso_test_image/DSC00003.JPG",
+      "source_sha256": "6ddea7d52e1cd6f892c4775eae272df761dee7ebf2c49a22c3eb33e73dcaa6cd",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.324,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 44.965229774347826,
+        "ssim_preview": 0.9841209053993225,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 38.223,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    },
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 0.9998615660342378,
+        "teacher": 0.9802112525595619
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 1309277,
+          "student_change_mae": 0.010741204023361206,
+          "student_teacher_mae": 0.0048124217428267,
+          "student_to_teacher_correction_ratio": 0.8650869206353587,
+          "teacher_change_mae": 0.012416329234838486
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 8280330,
+          "student_change_mae": 0.01902536116540432,
+          "student_teacher_mae": 0.004890928510576487,
+          "student_to_teacher_correction_ratio": 0.8899780262407759,
+          "teacher_change_mae": 0.021377338096499443
+        },
+        "shadows_0_0p25": {
+          "pixels": 14410393,
+          "student_change_mae": 0.015815656632184982,
+          "student_teacher_mae": 0.005231872666627169,
+          "student_to_teacher_correction_ratio": 0.8732741555993389,
+          "teacher_change_mae": 0.01811075769364834
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 48.071598052978516,
+            "ssim": 0.9883658289909363
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 41.92310333251953,
+            "ssim": 0.9940700531005859
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 40.11725997924805,
+            "ssim": 0.9891514778137207
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 42.18537139892578,
+            "ssim": 0.9799899458885193
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 42.39333724975586,
+            "ssim": 0.972639262676239
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 41.67887878417969,
+            "ssim": 0.9871108531951904
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 39.36977005004883,
+            "ssim": 0.9555464386940002
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 47.45977783203125,
+            "ssim": 0.9909743666648865
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 36.023433685302734,
+            "ssim": 0.8908880949020386
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 39.348976135253906,
+            "ssim": 0.8576259613037109
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 42.34113693237305,
+            "ssim": 0.986720085144043
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 42.96443557739258,
+            "ssim": 0.9766467213630676
+          }
+        }
+      ],
+      "folder": "ISO12800_DSC00004",
+      "height": 6000,
+      "iso": 12800,
+      "source": "/home/ryu/projects/iso_test_image/DSC00004.JPG",
+      "source_sha256": "dd03c4402d4b293cf43036cc507ddc45b02c98f76cc72a73ef08baadc03fd138",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.257,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 42.2163484231214,
+        "ssim_preview": 0.9762594699859619,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 39.29,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    },
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 1.0233694250841934,
+        "teacher": 1.0470951582496195
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 1061120,
+          "student_change_mae": 0.013414086773991585,
+          "student_teacher_mae": 0.0070369066670536995,
+          "student_to_teacher_correction_ratio": 0.8402885083115442,
+          "teacher_change_mae": 0.015963668003678322
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 8677716,
+          "student_change_mae": 0.025395425036549568,
+          "student_teacher_mae": 0.009135509841144085,
+          "student_to_teacher_correction_ratio": 0.8401485442588685,
+          "teacher_change_mae": 0.030227303504943848
+        },
+        "shadows_0_0p25": {
+          "pixels": 14261164,
+          "student_change_mae": 0.017023636028170586,
+          "student_teacher_mae": 0.011811690405011177,
+          "student_to_teacher_correction_ratio": 0.7057843380736243,
+          "teacher_change_mae": 0.024120166897773743
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 41.23857116699219,
+            "ssim": 0.9687283039093018
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 30.560546875,
+            "ssim": 0.9499436020851135
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 34.494903564453125,
+            "ssim": 0.9640252590179443
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 33.80954360961914,
+            "ssim": 0.9535797834396362
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 37.40599822998047,
+            "ssim": 0.9485436081886292
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 36.82036590576172,
+            "ssim": 0.9713647961616516
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 39.58384704589844,
+            "ssim": 0.9617673754692078
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 38.8903923034668,
+            "ssim": 0.9688550233840942
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 38.43675231933594,
+            "ssim": 0.9353349804878235
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 36.53697967529297,
+            "ssim": 0.8665276765823364
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 36.64168930053711,
+            "ssim": 0.9738247990608215
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 36.31275939941406,
+            "ssim": 0.9540635347366333
+          }
+        }
+      ],
+      "folder": "ISO25600_DSC00005",
+      "height": 6000,
+      "iso": 25600,
+      "source": "/home/ryu/projects/iso_test_image/DSC00005.JPG",
+      "source_sha256": "6ab0130eda67fe477bbd1497d21fbd928ad67cc7d1a228bdc6b088136c2d4c5c",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.327,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 36.0616778932329,
+        "ssim_preview": 0.9373108744621277,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 40.365,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    },
+    {
+      "composition_seam_gradient_ratio": {
+        "student": 1.0038983711677758,
+        "teacher": 0.9967405138605767
+      },
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "pixels": 1282003,
+          "student_change_mae": 0.01785126142203808,
+          "student_teacher_mae": 0.009470803663134575,
+          "student_to_teacher_correction_ratio": 0.8375795426857086,
+          "teacher_change_mae": 0.021312914788722992
+        },
+        "midtones_0p25_0p75": {
+          "pixels": 8263530,
+          "student_change_mae": 0.03427537530660629,
+          "student_teacher_mae": 0.016337847337126732,
+          "student_to_teacher_correction_ratio": 0.7798666194263008,
+          "teacher_change_mae": 0.04395030438899994
+        },
+        "shadows_0_0p25": {
+          "pixels": 14454467,
+          "student_change_mae": 0.023257575929164886,
+          "student_teacher_mae": 0.017965052276849747,
+          "student_to_teacher_correction_ratio": 0.6726413839060373,
+          "teacher_change_mae": 0.03457648679614067
+        }
+      },
+      "crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": 33.10160827636719,
+            "ssim": 0.8377440571784973
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": 31.330814361572266,
+            "ssim": 0.919251024723053
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": 32.20451736450195,
+            "ssim": 0.9048948884010315
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": 32.590965270996094,
+            "ssim": 0.9028790593147278
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": 33.04225158691406,
+            "ssim": 0.9011220335960388
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": 33.40349197387695,
+            "ssim": 0.9124155640602112
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": 34.07693862915039,
+            "ssim": 0.8865145444869995
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": 32.742942810058594,
+            "ssim": 0.8748037815093994
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": 33.24184799194336,
+            "ssim": 0.8454192876815796
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": 32.16803741455078,
+            "ssim": 0.7262235879898071
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": 32.245567321777344,
+            "ssim": 0.9271382093429565
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": 31.635780334472656,
+            "ssim": 0.8708593845367432
+          }
+        }
+      ],
+      "folder": "ISO51200_DSC00006",
+      "height": 6000,
+      "iso": 51200,
+      "source": "/home/ryu/projects/iso_test_image/DSC00006.JPG",
+      "source_sha256": "e71111aa4961606703a310c47972b364f5ed4b48a3f08342c0f6636f047bd24c",
+      "student_runtime": {
+        "batch_size": 8,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 3.266,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "teacher_agreement": {
+        "psnr": 32.716826398880144,
+        "ssim_preview": 0.8292504549026489,
+        "ssim_preview_height": 1024,
+        "ssim_preview_width": 683
+      },
+      "teacher_runtime": {
+        "batch_size": 4,
+        "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+        "core": 176,
+        "padding": 8,
+        "seconds": 40.874,
+        "tile_size": 192,
+        "tiles": 805
+      },
+      "width": 4000
+    }
+  ],
+  "input": "/home/ryu/projects/iso_test_image",
+  "preprocessing": "EXIF transpose, Pillow RGB JPEG decode, float32 RGB / 255",
+  "purpose": "external ISO-set visual validation without clean targets",
+  "schema_version": 2,
+  "teacher": {
+    "name": "scunet_color_real_psnr",
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+    "sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e"
+  }
+}

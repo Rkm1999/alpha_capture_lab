@@ -6,3 +6,6 @@ ios/Sources/**/Resources/Samples/* filter=lfs diff=lfs merge=lfs -text
 verification/**/*.jpg filter=lfs diff=lfs merge=lfs -text
 verification/**/*.JPG filter=lfs diff=lfs merge=lfs -text
 verification/**/*.png filter=lfs diff=lfs merge=lfs -text
+training/distillation/archive/final_w24/*.pt filter=lfs diff=lfs merge=lfs -text
+training/distillation/archive/final_w24/*.tflite filter=lfs diff=lfs merge=lfs -text
+training/distillation/archive/final_w24/**/*.bin filter=lfs diff=lfs merge=lfs -text

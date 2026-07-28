@@ -1,0 +1,108 @@
+project:
+  name: scunet_mobile_distillation_general_camera_v2_double_patches
+  preprocessing_version: general_camera_exact_192_rgb_paired_v2_double_train
+  # Keep validation crop coordinates identical to the v1 cache.
+  seed: 20260720
+
+data:
+  source_root: ../data/fresh_general_v1/verified
+  source_manifest: ../data/fresh_general_v1/source_manifest.json
+  cache_root: data/general_camera_v2_double_patches/cache
+  manifest: data/general_camera_v2_double_patches/cache/manifest.json
+  source_preprocessing:
+    general: general_camera_exact_192_rgb_paired_v1
+  datasets: [polyu, renoir, midd]
+  tile_size: 192
+  crop_candidates: 96
+  minimum_mask_valid_fraction: 0.9
+  patches_per_pair:
+    polyu: 32
+    renoir: 16
+    midd: 2
+  validation_patches_per_pair:
+    polyu: 16
+    renoir: 8
+    midd: 1
+  alignment_gate:
+    alignment_prefilter_sigma: 0.7
+    alignment_search_radius: 3
+    minimum_texture: 0.006
+    minimum_zero_shift_correlation: 0.35
+    maximum_nonzero_shift_gain: 0.035
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+  config: [4, 4, 4, 4, 4, 4, 4]
+  dimension: 64
+  cache_dtype: float16
+  cache_inference_amp: false
+  cache_batch_size: 4
+
+model:
+  base_width: 16
+  expected_parameters: 1963411
+  expected_conv_macs: 1985347584
+  input_shape: [1, 3, 192, 192]
+
+training:
+  run_name: general_camera_v2_double_patches_error_aware
+  epochs: 50
+  batch_size: 16
+  workers: 4
+  samples_per_epoch: 12000
+  learning_rate: 0.000002
+  minimum_learning_rate: 0.0000005
+  optimizer: Adam
+  amp: true
+  gradient_clip_norm: 0.1
+  checkpoint_interval: 5
+  alpha: 0.7
+  dataset_sampling_weights:
+    polyu: 0.3333333333333333
+    renoir: 0.3333333333333333
+    midd: 0.3333333333333334
+  difficulty_sampling:
+    enabled: true
+    index: data/general_camera_v2_double_patches/difficulty_stage3.json
+    sha256: 44f70808aa236a87b3c261abdd6c48a857649eaab85c5a21a9ac8b85e0ab76f8
+  selection_datasets: [polyu, renoir, midd]
+  correction_loss:
+    enabled: true
+    shadow_luminance_threshold: 0.25
+    fine_sigma: 1.0
+    medium_sigma: 4.0
+    coarse_sigma: 12.0
+    shadow_lambda: 10.0
+    medium_coarse_lambda: 20.0
+    normalized_shadow_lambda: 0.08
+    correction_magnitude_floor: 0.005
+    correction_weight_reference: 0.02
+    correction_weight_max: 2.0
+    paired_detail_lambda: 5.0
+  early_stopping_metric: target
+  early_stopping_patience: null
+  early_stopping_min_delta: 0.001
+
+target_validation:
+  enabled: true
+  datasets:
+    polyu: {}
+    renoir: {}
+    midd: {}
+  shadow_luminance_threshold: 0.25
+  fine_sigma: 1.0
+  medium_sigma: 4.0
+  coarse_sigma: 12.0
+  minimum_general_selection_psnr: 38.70
+  minimum_general_selection_ssim: 0.900
+
+metrics:
+  border_crop: 1
+  ssim_window_size: 11
+  ssim_sigma: 1.5
+
+outputs:
+  runs: runs/general_camera_v2_double_patches
+  evaluation: evaluation/general_camera_v2_double_patches

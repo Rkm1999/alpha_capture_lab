@@ -1,0 +1,127 @@
+{
+  "checkpoint": {
+    "epoch": 41,
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v15_chroma/general_camera_v53b_w32_expansion_only/target-best.pt",
+    "sha256": "0ecbc390b92d497d634dda4bcc873a1576b8b134b577731ac2073fecdd040dc0"
+  },
+  "results": {
+    "0.8": {
+      "selection_psnr": 36.30652151058678,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.7440548334350083,
+        "medium_coarse_teacher_correction_capture": 0.7570405910757896,
+        "row_column_chroma_teacher_correction_capture": 0.6857765455187698,
+        "shadow_chroma_teacher_correction_capture": 0.7393214012621131,
+        "shadow_teacher_correction_capture": 0.7767370784592615,
+        "very_coarse_chroma_teacher_correction_capture": 0.6663408578859907
+      },
+      "target_minimum": 0.6663408578859907,
+      "target_score": 0.6972763712460731
+    },
+    "0.9": {
+      "selection_psnr": 36.680113416368265,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8186108438150942,
+        "medium_coarse_teacher_correction_capture": 0.8131731619436914,
+        "row_column_chroma_teacher_correction_capture": 0.7392944683568513,
+        "shadow_chroma_teacher_correction_capture": 0.8079281682873564,
+        "shadow_teacher_correction_capture": 0.8205973031154002,
+        "very_coarse_chroma_teacher_correction_capture": 0.7126920371287212
+      },
+      "target_minimum": 0.7126920371287212,
+      "target_score": 0.7490373504516201
+    },
+    "0.95": {
+      "selection_psnr": 36.75949011232508,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8476642106883795,
+        "medium_coarse_teacher_correction_capture": 0.8341895901660435,
+        "row_column_chroma_teacher_correction_capture": 0.7554352306203841,
+        "shadow_chroma_teacher_correction_capture": 0.8328428787403938,
+        "shadow_teacher_correction_capture": 0.8363149000677031,
+        "very_coarse_chroma_teacher_correction_capture": 0.7257392344303074
+      },
+      "target_minimum": 0.7257392344303074,
+      "target_score": 0.7655517876079214
+    },
+    "0.975": {
+      "selection_psnr": 36.76428609354333,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8578323948680299,
+        "medium_coarse_teacher_correction_capture": 0.8412739796068287,
+        "row_column_chroma_teacher_correction_capture": 0.7597991911062033,
+        "shadow_chroma_teacher_correction_capture": 0.8407388223095226,
+        "shadow_teacher_correction_capture": 0.8411803672345339,
+        "very_coarse_chroma_teacher_correction_capture": 0.7288344474150809
+      },
+      "target_minimum": 0.7288344474150809,
+      "target_score": 0.770222157252557
+    },
+    "1.0": {
+      "selection_psnr": 36.74380014117857,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.862282833523966,
+        "medium_coarse_teacher_correction_capture": 0.8442589702211943,
+        "row_column_chroma_teacher_correction_capture": 0.7612719290342111,
+        "shadow_chroma_teacher_correction_capture": 0.8434356616063129,
+        "shadow_teacher_correction_capture": 0.8429915782745024,
+        "very_coarse_chroma_teacher_correction_capture": 0.729238957267566
+      },
+      "target_minimum": 0.729238957267566,
+      "target_score": 0.7715761394610958
+    },
+    "1.025": {
+      "selection_psnr": 36.69990228641246,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8581843333149145,
+        "medium_coarse_teacher_correction_capture": 0.8413733107776649,
+        "row_column_chroma_teacher_correction_capture": 0.7596879462119016,
+        "shadow_chroma_teacher_correction_capture": 0.839122240425039,
+        "shadow_teacher_correction_capture": 0.8406676162500092,
+        "very_coarse_chroma_teacher_correction_capture": 0.7268732620702699
+      },
+      "target_minimum": 0.7268732620702699,
+      "target_score": 0.7689290234559515
+    },
+    "1.05": {
+      "selection_psnr": 36.631948087321945,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8483789384983246,
+        "medium_coarse_teacher_correction_capture": 0.8343873895288806,
+        "row_column_chroma_teacher_correction_capture": 0.7555588221010726,
+        "shadow_chroma_teacher_correction_capture": 0.8297829823648217,
+        "shadow_teacher_correction_capture": 0.8353266664758641,
+        "very_coarse_chroma_teacher_correction_capture": 0.7219648897619901
+      },
+      "target_minimum": 0.7219648897619901,
+      "target_score": 0.7630990856085746
+    },
+    "1.1": {
+      "selection_psnr": 36.433074566058544,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8201465944565284,
+        "medium_coarse_teacher_correction_capture": 0.8136961954723976,
+        "row_column_chroma_teacher_correction_capture": 0.7405869699391147,
+        "shadow_chroma_teacher_correction_capture": 0.8026753837926724,
+        "shadow_teacher_correction_capture": 0.8192027556751708,
+        "very_coarse_chroma_teacher_correction_capture": 0.7057316382599916
+      },
+      "target_minimum": 0.7057316382599916,
+      "target_score": 0.7447024472629855
+    },
+    "1.2": {
+      "selection_psnr": 35.86327004309467,
+      "target_metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.7480720032207017,
+        "medium_coarse_teacher_correction_capture": 0.7589270056291797,
+        "row_column_chroma_teacher_correction_capture": 0.6920819903723467,
+        "shadow_chroma_teacher_correction_capture": 0.7324113588948635,
+        "shadow_teacher_correction_capture": 0.7754538171066337,
+        "very_coarse_chroma_teacher_correction_capture": 0.6554504999964466
+      },
+      "target_minimum": 0.6554504999964466,
+      "target_score": 0.6912583062665709
+    }
+  },
+  "schema_version": 1
+}

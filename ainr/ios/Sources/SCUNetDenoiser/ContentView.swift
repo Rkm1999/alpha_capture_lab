@@ -1,11 +1,11 @@
-import PhotosUI
 import SwiftUI
 import UniformTypeIdentifiers
 
 struct ContentView: View {
     @EnvironmentObject private var viewModel: DenoiseViewModel
-    @State private var photoItems: [PhotosPickerItem] = []
+    @State private var showPhotoPicker = false
     @State private var showFileImporter = false
+    @State private var showCancelConfirmation = false
 
     var body: some View {
         NavigationStack {
@@ -28,24 +28,18 @@ struct ContentView: View {
                     viewModel.report(error)
                 }
             }
-            .onChange(of: photoItems) { _, items in
-                guard !items.isEmpty else { return }
-                Task {
-                    do {
-                        var imported: [(Data, String)] = []
-                        for item in items {
-                            guard let data = try await item.loadTransferable(type: Data.self) else {
-                                throw SCUNetError(message: "A selected photo could not be loaded")
-                            }
-                            let fileExtension = item.supportedContentTypes.first?
-                                .preferredFilenameExtension ?? "jpg"
-                            imported.append((data, fileExtension))
-                        }
-                        viewModel.importPhotoData(imported)
-                    } catch {
+            .sheet(isPresented: $showPhotoPicker) {
+                PhotoLibraryPicker { result in
+                    showPhotoPicker = false
+                    switch result {
+                    case .success(let photos):
+                        guard !photos.isEmpty else { return }
+                        viewModel.importPhotoData(photos.map {
+                            ($0.data, $0.fileExtension, $0.originalName)
+                        })
+                    case .failure(let error):
                         viewModel.report(error)
                     }
-                    photoItems = []
                 }
             }
             .alert(
@@ -79,11 +73,9 @@ struct ContentView: View {
                         .font(.system(size: 42, weight: .light))
                         .foregroundStyle(.secondary)
                     HStack(spacing: 10) {
-                        PhotosPicker(
-                            selection: $photoItems,
-                            maxSelectionCount: 100,
-                            matching: .images
-                        ) {
+                        Button {
+                            showPhotoPicker = true
+                        } label: {
                             Label("Choose Photos", systemImage: "photo")
                         }
                         .buttonStyle(.borderedProminent)
@@ -132,17 +124,27 @@ struct ContentView: View {
                     Text(backend.pickerLabel)
                         .tag(backend)
                         .disabled(
-                            viewModel.highOverlap
-                                && backend == .gpuAndNeuralEngine
+                            !viewModel.isBackendAvailable(backend)
+                                || (viewModel.highOverlap
+                                    && backend == .gpuAndNeuralEngine)
                         )
                 }
             }
             .pickerStyle(.segmented)
             .disabled(viewModel.isProcessing)
             .onChange(of: viewModel.backend) { _, selected in
-                if viewModel.highOverlap && selected == .gpuAndNeuralEngine {
+                if !viewModel.isBackendAvailable(selected)
+                    || (viewModel.highOverlap && selected == .gpuAndNeuralEngine) {
                     viewModel.backend = .neuralEngine
+                    viewModel.validateBackendSelection()
                 }
+            }
+
+            if let status = viewModel.neuralEngineStatus {
+                Text(status)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+                    .frame(maxWidth: .infinity, alignment: .leading)
             }
 
             Picker("Model quality", selection: $viewModel.quality) {
@@ -152,6 +154,9 @@ struct ContentView: View {
             }
             .pickerStyle(.segmented)
             .disabled(viewModel.isProcessing)
+            .onChange(of: viewModel.quality) { _, _ in
+                viewModel.qualityDidChange()
+            }
 
             Toggle("High overlap", isOn: $viewModel.highOverlap)
                 .font(.subheadline)
@@ -183,11 +188,24 @@ struct ContentView: View {
 
             HStack(spacing: 12) {
                 if viewModel.isProcessing {
-                    Button(role: .cancel, action: viewModel.cancelProcessing) {
+                    Button(role: .cancel) {
+                        showCancelConfirmation = true
+                    } label: {
                         Label("Cancel", systemImage: "xmark")
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(.bordered)
+                    .alert(
+                        "Cancel denoising?",
+                        isPresented: $showCancelConfirmation
+                    ) {
+                        Button("Continue", role: .cancel) {}
+                        Button("Cancel denoising", role: .destructive) {
+                            viewModel.cancelProcessing()
+                        }
+                    } message: {
+                        Text("The current image and remaining batch will not be processed.")
+                    }
                 } else {
                     Button(action: viewModel.runDenoise) {
                         Label("Denoise", systemImage: "wand.and.stars")
@@ -224,11 +242,9 @@ struct ContentView: View {
     @ToolbarContentBuilder
     private var importToolbar: some ToolbarContent {
         ToolbarItemGroup(placement: .topBarTrailing) {
-            PhotosPicker(
-                selection: $photoItems,
-                maxSelectionCount: 100,
-                matching: .images
-            ) {
+            Button {
+                showPhotoPicker = true
+            } label: {
                 Image(systemName: "photo.badge.plus")
             }
             .accessibilityLabel("Choose photos")
@@ -263,4 +279,5 @@ struct ContentView: View {
         if seconds < 60 { return String(format: "%.0fs", seconds) }
         return "\(Int(seconds) / 60)m \(Int(seconds) % 60)s"
     }
+
 }

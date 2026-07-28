@@ -1,0 +1,601 @@
+{
+  "artifacts": [
+    {
+      "bytes": 3362,
+      "path": "README.md",
+      "sha256": "b03adf069b5d486a52597a022c494861542c1b885ac0943819ae119445f714e9"
+    },
+    {
+      "bytes": 15961850,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/01_dark_shelf.png",
+      "sha256": "5e7cfc366ceb2d8c92cb7d7582827c60e1ba3bf9173b89b204c8f29466efc2b7"
+    },
+    {
+      "bytes": 16547195,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/02_blue_background.png",
+      "sha256": "57bab1ae842223d63a4149d320809e4d20f0dedf5032658bcf7aeb215e21d4a3"
+    },
+    {
+      "bytes": 17582597,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/03_screen.png",
+      "sha256": "97b4492a236065a69e08736d4d79a135b105416316341ab4b76dca6e60377c79"
+    },
+    {
+      "bytes": 18192779,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/04_red_cap.png",
+      "sha256": "5d39271b703dd6067f40b0b0d9cc3c85f61918f4a91708905cda020b458a2a14"
+    },
+    {
+      "bytes": 18007807,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/05_white_figure.png",
+      "sha256": "0c75e3354aa05a8be7c8395b09e9164cae40c40e6625dc616a4fd261d072e9e8"
+    },
+    {
+      "bytes": 18719975,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/06_metal_bit.png",
+      "sha256": "8ac486881004d32f051f0f6eb0aa3108f3df41d01d418de236092b4091bd689c"
+    },
+    {
+      "bytes": 17850682,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/07_color_blocks.png",
+      "sha256": "808006f4d823b20e04c498ea665186743b52f03cba3746caf1bf30d15ae6bde1"
+    },
+    {
+      "bytes": 17183514,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/08_dark_tool.png",
+      "sha256": "756c8587b68b8483c92eabd66693132318a31611c00fc195f58197d36177119d"
+    },
+    {
+      "bytes": 17011177,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/09_dot_pattern.png",
+      "sha256": "717a87807c9b9dc0933d7f6746d34526dbef54fd21fd460bce357f92b75bc382"
+    },
+    {
+      "bytes": 17256389,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/10_black_table.png",
+      "sha256": "b23cfae8a55ac1cbd351ecfb2a7e5835a923c8927686889c44d01b905589ff20"
+    },
+    {
+      "bytes": 19036756,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/11_fine_label.png",
+      "sha256": "c209adbbe6f58d47e7d580ddc92a31cf54873c61532a83910e3a0bcecf2dd6e7"
+    },
+    {
+      "bytes": 16891640,
+      "dimensions": [
+        3840,
+        4966
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "by_region/12_bottle_desk.png",
+      "sha256": "707610bb33917dd664e5d6587299bc4a44730314d21717e90e278e52953ac11d"
+    },
+    {
+      "bytes": 43987,
+      "path": "metrics.csv",
+      "sha256": "0f8c8fcccc0a2a62f3aeac901a194dc971e5bb2cdb9cbd19f9d4f9133d66364a"
+    },
+    {
+      "bytes": 124768,
+      "path": "metrics.json",
+      "sha256": "2fcb9b89751f56d6ebfb5a436f87b83ec8cd709863aa543505161a7f4be07506"
+    },
+    {
+      "bytes": 35868904,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO12800_DSC00004.png",
+      "sha256": "2829e7da409265361a5c39f042cbfd493fac4bc39e81b226f305a3cdb0a6ca63"
+    },
+    {
+      "bytes": 26136071,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO1600_DSC00001.png",
+      "sha256": "882103ee352dc082a6b1eb0b53be24935fd08c607661ab787834dbc62be1b71f"
+    },
+    {
+      "bytes": 36680684,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO25600_DSC00005.png",
+      "sha256": "1e25f0b8508ee8787c671807893113ddd34d74542ae97b20dbc0f27f193470ae"
+    },
+    {
+      "bytes": 30820805,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO3200_DSC00002.png",
+      "sha256": "bef8c4d24577cf23e2669fb4d2821edb7e6e9fefdad2ae35fbb5d7602225f366"
+    },
+    {
+      "bytes": 44042699,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO51200_DSC00006.png",
+      "sha256": "699e4f4d01f34ceb406479de6dd0bd9d6af620c04ff047268921977dd07b42c3"
+    },
+    {
+      "bytes": 36599707,
+      "dimensions": [
+        3840,
+        9838
+      ],
+      "format": "PNG",
+      "mode": "RGB",
+      "path": "per_iso/ISO6400_DSC00003.png",
+      "sha256": "859c94c1ebe981b73ea555bbeb8abd2da0eb1878b921f85352654d6baa9b0bcb"
+    }
+  ],
+  "crop_encoding": {
+    "native_crop_size": [
+      768,
+      768
+    ],
+    "output_panels": "direct crops of existing 8-bit RGB PNG outputs",
+    "resampling": "none",
+    "sheet_format": "lossless RGB PNG",
+    "source_panels": "EXIF-transposed Pillow RGB decode of original JPEG"
+  },
+  "generator": {
+    "arguments": {
+      "baseline_report": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/report.json",
+      "full_reference_report": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/report.json",
+      "output_dir": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/iso_arm_comparison",
+      "png_compression": 6,
+      "source_dir": null,
+      "teacher_only_report": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/report.json"
+    },
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/scripts/compare_iso_arms.py",
+    "python_executable": "/home/ryu/.cache/scunet-int8-venv/bin/python",
+    "sha256": "8eb8b1c2652a4239a5816b38ba2ac60e29a2c7e9c388f9b5ae759fb963a5ad27"
+  },
+  "inference_performed": false,
+  "inputs": {
+    "checkpoints": {
+      "baseline": {
+        "bytes": 23650041,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p7/best.pt",
+        "sha256": "84ac4017edbc0f52e0827531bae3de98b2b7a8d95dc0db90fa031b2c8235026d"
+      },
+      "full_reference": {
+        "bytes": 23650681,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_full_reference/best.pt",
+        "sha256": "f6db8904fb47d545841d02171e8599f8f08e82ac69420d270158f86de575cf03"
+      },
+      "scunet_teacher": {
+        "bytes": 71982841,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+        "sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e"
+      },
+      "teacher_only": {
+        "bytes": 23650681,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_teacher_only/best.pt",
+        "sha256": "b346bee9dbc724be53a3051d8e7a1b78cde6a063e9b929d804990b8ecf626b2e"
+      }
+    },
+    "images": [
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 8795068,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO1600_DSC00001/scunet.png",
+              "sha256": "7b4d9fef50816811381df83b36ab031804d20bb6f4cede69e9ea5ac7133afa60"
+            },
+            "full_reference": {
+              "bytes": 8795068,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO1600_DSC00001/scunet.png",
+              "sha256": "7b4d9fef50816811381df83b36ab031804d20bb6f4cede69e9ea5ac7133afa60"
+            },
+            "teacher_only": {
+              "bytes": 8795068,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO1600_DSC00001/scunet.png",
+              "sha256": "7b4d9fef50816811381df83b36ab031804d20bb6f4cede69e9ea5ac7133afa60"
+            }
+          },
+          "source": {
+            "bytes": 17432576,
+            "path": "/home/ryu/projects/iso_test_image/DSC00001.JPG",
+            "sha256": "56faa86b370f8aa056fa435b4e5266b9e60307dd32fcc8aed7b18936a0bf7ee4"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 13425914,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO1600_DSC00001/student.png",
+              "sha256": "80d38cd40bff20f24a479926ad64f55a5cfc37fbab5ec1e57dd34f1d457a09a1"
+            },
+            "full_reference": {
+              "bytes": 13459689,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO1600_DSC00001/student.png",
+              "sha256": "1fcc71cfb77ab0bd386ea57a8eaae563a1e5cb568d3d719709c31c31d7a758d2"
+            },
+            "teacher_only": {
+              "bytes": 13980048,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO1600_DSC00001/student.png",
+              "sha256": "d4c22af69eea0e75ee7c0e64d046e245c1ae0d538aef9823d252c0156c9d2641"
+            }
+          }
+        },
+        "folder": "ISO1600_DSC00001",
+        "iso": 1600
+      },
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 9020426,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO3200_DSC00002/scunet.png",
+              "sha256": "507c4c8c77795aead25e23bb468f1e49b280cdb01fbb22bca79c989cec4eda60"
+            },
+            "full_reference": {
+              "bytes": 9020426,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO3200_DSC00002/scunet.png",
+              "sha256": "507c4c8c77795aead25e23bb468f1e49b280cdb01fbb22bca79c989cec4eda60"
+            },
+            "teacher_only": {
+              "bytes": 9020426,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO3200_DSC00002/scunet.png",
+              "sha256": "507c4c8c77795aead25e23bb468f1e49b280cdb01fbb22bca79c989cec4eda60"
+            }
+          },
+          "source": {
+            "bytes": 19791872,
+            "path": "/home/ryu/projects/iso_test_image/DSC00002.JPG",
+            "sha256": "f14f2eb36396f7b36911ec28413e33ead8298348293b0d47ffdd6641a186ba52"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 16489115,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO3200_DSC00002/student.png",
+              "sha256": "3e6afd463c6dc3a08b6fc5fa414caa51c10169c4451c43b6b51b7db0ab038c3f"
+            },
+            "full_reference": {
+              "bytes": 16905905,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO3200_DSC00002/student.png",
+              "sha256": "641caab5e5afd52bec0732cac74fbb27d755060aa74ae3089289c3d740b1b297"
+            },
+            "teacher_only": {
+              "bytes": 17894200,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO3200_DSC00002/student.png",
+              "sha256": "9febc77de451b24bd12aeef235b426d14e67046827fca3296bc50470b4c9d6ff"
+            }
+          }
+        },
+        "folder": "ISO3200_DSC00002",
+        "iso": 3200
+      },
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 9380528,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO6400_DSC00003/scunet.png",
+              "sha256": "60abf6d115da0b18b2faf659efb608f323d99a798123e29326e71cd778fde948"
+            },
+            "full_reference": {
+              "bytes": 9380528,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO6400_DSC00003/scunet.png",
+              "sha256": "60abf6d115da0b18b2faf659efb608f323d99a798123e29326e71cd778fde948"
+            },
+            "teacher_only": {
+              "bytes": 9380528,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO6400_DSC00003/scunet.png",
+              "sha256": "60abf6d115da0b18b2faf659efb608f323d99a798123e29326e71cd778fde948"
+            }
+          },
+          "source": {
+            "bytes": 22478848,
+            "path": "/home/ryu/projects/iso_test_image/DSC00003.JPG",
+            "sha256": "6ddea7d52e1cd6f892c4775eae272df761dee7ebf2c49a22c3eb33e73dcaa6cd"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 20571873,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO6400_DSC00003/student.png",
+              "sha256": "db251dba6d25860ce69f4682839d77cb49bba96aa4577ce42a388f9a61b2a239"
+            },
+            "full_reference": {
+              "bytes": 20690124,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO6400_DSC00003/student.png",
+              "sha256": "08d6cfaa2bedd6c3aa6afd5601f27736be4e8c3bee13e56eeecc8496b7eab737"
+            },
+            "teacher_only": {
+              "bytes": 22550906,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO6400_DSC00003/student.png",
+              "sha256": "d2e8c5c95b9bf8a8a4b4857a2d20011851b5a2ca2fcfe4325546fc88d266c128"
+            }
+          }
+        },
+        "folder": "ISO6400_DSC00003",
+        "iso": 6400
+      },
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 9740645,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO12800_DSC00004/scunet.png",
+              "sha256": "1be090df32d2c75fcfe22510e4d8de4e3cca9b8ed14d3d6d6b5d44832717a84a"
+            },
+            "full_reference": {
+              "bytes": 9740645,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO12800_DSC00004/scunet.png",
+              "sha256": "1be090df32d2c75fcfe22510e4d8de4e3cca9b8ed14d3d6d6b5d44832717a84a"
+            },
+            "teacher_only": {
+              "bytes": 9740645,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO12800_DSC00004/scunet.png",
+              "sha256": "1be090df32d2c75fcfe22510e4d8de4e3cca9b8ed14d3d6d6b5d44832717a84a"
+            }
+          },
+          "source": {
+            "bytes": 21921792,
+            "path": "/home/ryu/projects/iso_test_image/DSC00004.JPG",
+            "sha256": "dd03c4402d4b293cf43036cc507ddc45b02c98f76cc72a73ef08baadc03fd138"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 20188889,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO12800_DSC00004/student.png",
+              "sha256": "355cc2a0eecf10e360bf4392f6db6275c3aa963ea842c8741a027178735baa97"
+            },
+            "full_reference": {
+              "bytes": 20310100,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO12800_DSC00004/student.png",
+              "sha256": "0a3712eae2fdb5887e0f29f8c27067889b75062b54276d85cbf8f8cb69b22542"
+            },
+            "teacher_only": {
+              "bytes": 21058634,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO12800_DSC00004/student.png",
+              "sha256": "b6f42b1889bae7bd8fec7324cd53af6e667ab4c41a8926a582419045a4c9660e"
+            }
+          }
+        },
+        "folder": "ISO12800_DSC00004",
+        "iso": 12800
+      },
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 9634504,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO25600_DSC00005/scunet.png",
+              "sha256": "fc61b8a270a95ae883f60bea4b9b55ed748e8e94e0aedfdb53f1c32d5f800b48"
+            },
+            "full_reference": {
+              "bytes": 9634504,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO25600_DSC00005/scunet.png",
+              "sha256": "fc61b8a270a95ae883f60bea4b9b55ed748e8e94e0aedfdb53f1c32d5f800b48"
+            },
+            "teacher_only": {
+              "bytes": 9634504,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO25600_DSC00005/scunet.png",
+              "sha256": "fc61b8a270a95ae883f60bea4b9b55ed748e8e94e0aedfdb53f1c32d5f800b48"
+            }
+          },
+          "source": {
+            "bytes": 22183936,
+            "path": "/home/ryu/projects/iso_test_image/DSC00005.JPG",
+            "sha256": "6ab0130eda67fe477bbd1497d21fbd928ad67cc7d1a228bdc6b088136c2d4c5c"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 21816859,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO25600_DSC00005/student.png",
+              "sha256": "9e0574f66bcf759f2adbfc7a5fd94bb524e6523af10d65abc10650a9ed1ce066"
+            },
+            "full_reference": {
+              "bytes": 21737032,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO25600_DSC00005/student.png",
+              "sha256": "bbec02286fda9ea19539cefef9a5b1edd1fb5dba09bb6cd7f38e1aeb1d275ab1"
+            },
+            "teacher_only": {
+              "bytes": 21875914,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO25600_DSC00005/student.png",
+              "sha256": "8a12a932d1943915b09c89913628de4a379ec215cadfce36f072ba47f6d1f072"
+            }
+          }
+        },
+        "folder": "ISO25600_DSC00005",
+        "iso": 25600
+      },
+      {
+        "crop_count": 12,
+        "dimensions": [
+          4000,
+          6000
+        ],
+        "files": {
+          "scunet_copies": {
+            "baseline": {
+              "bytes": 10380317,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO51200_DSC00006/scunet.png",
+              "sha256": "fcaea65479c118c163027220dd10b1f63e31623de0981ab3cf05bcc0b41dc3b1"
+            },
+            "full_reference": {
+              "bytes": 10380317,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO51200_DSC00006/scunet.png",
+              "sha256": "fcaea65479c118c163027220dd10b1f63e31623de0981ab3cf05bcc0b41dc3b1"
+            },
+            "teacher_only": {
+              "bytes": 10380317,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO51200_DSC00006/scunet.png",
+              "sha256": "fcaea65479c118c163027220dd10b1f63e31623de0981ab3cf05bcc0b41dc3b1"
+            }
+          },
+          "source": {
+            "bytes": 22544384,
+            "path": "/home/ryu/projects/iso_test_image/DSC00006.JPG",
+            "sha256": "e71111aa4961606703a310c47972b364f5ed4b48a3f08342c0f6636f047bd24c"
+          },
+          "students": {
+            "baseline": {
+              "bytes": 27638621,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/ISO51200_DSC00006/student.png",
+              "sha256": "cdcd7dda662acdecad30b49bc589a6539973527944d8e25030294e62f6d6a13e"
+            },
+            "full_reference": {
+              "bytes": 27609087,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/ISO51200_DSC00006/student.png",
+              "sha256": "77ea853a197aff84f33086438a746f68f9f01a713fc150dfd8bc995bf07d3c28"
+            },
+            "teacher_only": {
+              "bytes": 27443037,
+              "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/ISO51200_DSC00006/student.png",
+              "sha256": "6f02f0edc694d531d6cb62d1c69d59990777d595668fa0728c3a83ae38184d25"
+            }
+          }
+        },
+        "folder": "ISO51200_DSC00006",
+        "iso": 51200
+      }
+    ],
+    "reports": {
+      "baseline": {
+        "bytes": 38178,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/iso_test_alpha_0p7/report.json",
+        "sha256": "59ed078d6c7ae0347b58f527b754101c04d8373e6f25d788b0e8eeb8986c0951"
+      },
+      "full_reference": {
+        "bytes": 38487,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_full_reference_iso_test/report.json",
+        "sha256": "b96aa3bc443f7a853bd1c14bb49e8f7deccd0ca5bbbc6c5a89f85c993343542c"
+      },
+      "teacher_only": {
+        "bytes": 38485,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/nind_teacher_only_iso_test/report.json",
+        "sha256": "2eea4948f099ab7a204bc0513053bdeb1229b3e8867cd4d5f15e70ec188aa80a"
+      }
+    },
+    "validated": {
+      "byte_identical_scunet_across_arms": true,
+      "checkpoint_and_teacher_hashes": true,
+      "distinct_student_outputs_across_arms": true,
+      "matching_crop_definitions": true,
+      "report_schema_ablation_modes_and_legacy_baseline_alpha": true,
+      "rgb_png_student_and_scunet_outputs": true,
+      "source_and_output_dimensions": true,
+      "source_hashes": true
+    }
+  },
+  "purpose": "reproducible comparison of existing alpha 0.7 baseline, teacher-only, and full-reference ISO outputs",
+  "schema_version": 1,
+  "software": {
+    "pillow": "12.2.0",
+    "platform": "Linux-7.1.3-2-cachyos-x86_64-with-glibc2.43",
+    "python": "3.12.13"
+  }
+}

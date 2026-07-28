@@ -1,0 +1,84 @@
+{
+  "images": [
+    {
+      "iso": 1600,
+      "general_psnr": 44.98354888594707,
+      "target_psnr": 45.30953875941577,
+      "psnr_delta": 0.3259898734686999,
+      "general_ssim": 0.9865545034408569,
+      "target_ssim": 0.9880966544151306,
+      "ssim_delta": 0.0015421509742736816,
+      "general_shadow": 0.8665875198532987,
+      "target_shadow": 0.8820720753543315,
+      "shadow_delta": 0.015484555501032782
+    },
+    {
+      "iso": 3200,
+      "general_psnr": 43.271534937395515,
+      "target_psnr": 43.51098615950501,
+      "psnr_delta": 0.2394512221094942,
+      "general_ssim": 0.9742626547813416,
+      "target_ssim": 0.9764449000358582,
+      "ssim_delta": 0.0021822452545166016,
+      "general_shadow": 0.8116860442033785,
+      "target_shadow": 0.815182033162881,
+      "shadow_delta": 0.0034959889595024274
+    },
+    {
+      "iso": 6400,
+      "general_psnr": 38.978487688474736,
+      "target_psnr": 39.46235122429561,
+      "psnr_delta": 0.4838635358208734,
+      "general_ssim": 0.9433665871620178,
+      "target_ssim": 0.9487383961677551,
+      "ssim_delta": 0.005371809005737305,
+      "general_shadow": 0.6965619292860346,
+      "target_shadow": 0.7077554995125825,
+      "shadow_delta": 0.011193570226547989
+    },
+    {
+      "iso": 12800,
+      "general_psnr": 37.8809644489412,
+      "target_psnr": 38.23294230552362,
+      "psnr_delta": 0.35197785658242253,
+      "general_ssim": 0.9339701533317566,
+      "target_ssim": 0.938152551651001,
+      "ssim_delta": 0.004182398319244385,
+      "general_shadow": 0.6435560059359431,
+      "target_shadow": 0.6488302800155382,
+      "shadow_delta": 0.0052742740795951315
+    },
+    {
+      "iso": 25600,
+      "general_psnr": 33.142846119383435,
+      "target_psnr": 33.519159282583814,
+      "psnr_delta": 0.3763131632003791,
+      "general_ssim": 0.8526024222373962,
+      "target_ssim": 0.8639542460441589,
+      "ssim_delta": 0.011351823806762695,
+      "general_shadow": 0.4417362528163432,
+      "target_shadow": 0.4665976056371963,
+      "shadow_delta": 0.02486135282085311
+    },
+    {
+      "iso": 51200,
+      "general_psnr": 30.434934111598206,
+      "target_psnr": 31.11875856122474,
+      "psnr_delta": 0.6838244496265347,
+      "general_ssim": 0.7577440142631531,
+      "target_ssim": 0.7785119414329529,
+      "ssim_delta": 0.020767927169799805,
+      "general_shadow": 0.48619649401420345,
+      "target_shadow": 0.5269380507899808,
+      "shadow_delta": 0.04074155677577734
+    }
+  ],
+  "averages": {
+    "general_psnr": 38.115386031956696,
+    "target_psnr": 38.52562271542476,
+    "general_ssim": 0.9080833892027537,
+    "target_ssim": 0.9156497816244761,
+    "general_shadow": 0.6577207076848669,
+    "target_shadow": 0.6745625907454184
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "best_selection_psnr": 38.41515131738392,
+  "best_selection_ssim": 0.9442462056515891,
+  "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/domain_expansion/uhd_snic_alpha_0p7_final/best_snapshot.pt",
+  "checkpoint_epoch": 195,
+  "checkpoint_sha256": "4148483859e970b41be20cf9fabae82551e24a47132fd2793534f791c925da10",
+  "created_at": "2026-07-20T02:43:32.592482+00:00",
+  "history_sha256": "2fa3e59523587ba19491cfaeb8dec0bff5a6cae79c2eb6f9b0ba0c168f53b236",
+  "model_tensors_finite": true,
+  "run_fingerprint": "9755d87a50587578670399057f023d70e9b409b9855cf2fce43f21cf6020d2ea",
+  "run_json_sha256": "79edd1d79b6e94fdd05f7f110a659595783a51d950c4abf99c9457cbb8cc5189",
+  "schema_version": 1,
+  "source_run": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/domain_expansion/uhd_snic_alpha_0p7",
+  "status_sha256": "e86e988c0cd376b97335905c47a267dc896018dd45cc2c10e260019ba7d32613"
+}

@@ -148,7 +148,9 @@ final class DenoiseProcessor {
         long inferenceNanos = 0;
         int processed = 0;
         int maximumIndex = -1;
-        float[] input = new float[TENSOR_ELEMENTS];
+        float[] input = new float[engine.inputElements()];
+        NoiseStrengthEstimator.Workspace noiseWorkspace =
+            conditionedWorkspace(input);
         while (true) {
             checkCanceled(canceled);
             int index = scheduler == null ? processed : scheduler.claim(true);
@@ -156,8 +158,14 @@ final class DenoiseProcessor {
             int row = index / columns;
             int column = index % columns;
             int stride = TILE / 2;
-            prepareTile(source, width, height, input,
-                column * stride - stride, row * stride - stride);
+            prepareTile(
+                source,
+                width,
+                height,
+                input,
+                column * stride - stride,
+                row * stride - stride,
+                noiseWorkspace);
             long inferenceStarted = SystemClock.elapsedRealtimeNanos();
             float[] output = engine.infer(input);
             inferenceNanos += SystemClock.elapsedRealtimeNanos() - inferenceStarted;
@@ -191,7 +199,9 @@ final class DenoiseProcessor {
         long started,
         ProgressListener listener
     ) throws Exception {
-        float[] input = new float[TENSOR_ELEMENTS];
+        float[] input = new float[engine.inputElements()];
+        NoiseStrengthEstimator.Workspace noiseWorkspace =
+            conditionedWorkspace(input);
         List<float[]> previousRow = null;
         for (int row = firstRow; row < rowLimit; row++) {
             checkCanceled(canceled);
@@ -200,7 +210,14 @@ final class DenoiseProcessor {
             for (int column = 0; column < columns; column++) {
                 checkCanceled(canceled);
                 int coreX = column * CORE;
-                prepareTile(source, width, height, input, coreX - PADDING, coreY - PADDING);
+                prepareTile(
+                    source,
+                    width,
+                    height,
+                    input,
+                    coreX - PADDING,
+                    coreY - PADDING,
+                    noiseWorkspace);
                 float[] output = engine.infer(input);
                 if (output.length != TENSOR_ELEMENTS) {
                     throw new IllegalStateException(
@@ -244,7 +261,9 @@ final class DenoiseProcessor {
         long inferenceNanos = 0;
         int processed = 0;
         int maximumIndex = -1;
-        float[] input = new float[TENSOR_ELEMENTS];
+        float[] input = new float[engine.inputElements()];
+        NoiseStrengthEstimator.Workspace noiseWorkspace =
+            conditionedWorkspace(input);
 
         while (true) {
             checkCanceled(canceled);
@@ -258,7 +277,8 @@ final class DenoiseProcessor {
                 height,
                 input,
                 column * CORE - PADDING,
-                row * CORE - PADDING);
+                row * CORE - PADDING,
+                noiseWorkspace);
             long inferenceStarted = SystemClock.elapsedRealtimeNanos();
             float[] output = engine.infer(input);
             long tileInference = SystemClock.elapsedRealtimeNanos() - inferenceStarted;
@@ -313,7 +333,8 @@ final class DenoiseProcessor {
         int height,
         float[] tile,
         int startX,
-        int startY
+        int startY,
+        NoiseStrengthEstimator.Workspace noiseWorkspace
     ) {
         for (int y = 0; y < TILE; y++) {
             int sourceY = reflect(startY + y, height);
@@ -326,6 +347,17 @@ final class DenoiseProcessor {
                 tile[2 * PLANE + destination] = (image[source + 2] & 0xff) / 255.0f;
             }
         }
+        if (noiseWorkspace != null) {
+            NoiseStrengthEstimator.estimateAndFill(tile, noiseWorkspace);
+        }
+    }
+
+    private static NoiseStrengthEstimator.Workspace conditionedWorkspace(float[] input) {
+        if (input.length == TENSOR_ELEMENTS) return null;
+        if (input.length == 5 * PLANE || input.length == 7 * PLANE) {
+            return new NoiseStrengthEstimator.Workspace();
+        }
+        throw new IllegalArgumentException("Unsupported model input size " + input.length);
     }
 
     private static void copyCore(

@@ -1,0 +1,201 @@
+{
+  "checkpoint_epoch": 195,
+  "checkpoint_sha256": "4148483859e970b41be20cf9fabae82551e24a47132fd2793534f791c925da10",
+  "clean_reference_validation": {
+    "overall_psnr": 38.13130290759237,
+    "overall_ssim": 0.925924473981324,
+    "samples": 1866,
+    "selection_psnr": 38.41515131738392,
+    "selection_ssim": 0.9442462056515891
+  },
+  "iso_metrics_are_student_to_scunet_agreement": true,
+  "macro": {
+    "all_iso": {
+      "delta_vs_epoch79": {
+        "psnr": -0.06852879138933332,
+        "seam_distance_to_one_reduction": -0.0004682870889098911,
+        "shadow_correction_ratio": 0.008976239826139931,
+        "shadow_teacher_mae_reduction": 0.0006447002524510026,
+        "ssim_preview": 0.008277833461761475
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.3528279943325927,
+        "seam_distance_to_one_reduction": 0.0028589162186506423,
+        "shadow_correction_ratio": 0.08550753510880094,
+        "shadow_teacher_mae_reduction": 0.0024216802945981417,
+        "ssim_preview": 0.02325919270515442
+      },
+      "final": {
+        "psnr": 38.98093950628353,
+        "shadow_correction_ratio": 0.7073656547625795,
+        "shadow_teacher_mae": 0.01004408901402106,
+        "ssim_preview": 0.915239135424296,
+        "student_seam_gradient_ratio": 1.0021201740799934
+      }
+    },
+    "high_iso_12800_plus": {
+      "delta_vs_epoch79": {
+        "psnr": 0.22289960045726076,
+        "seam_distance_to_one_reduction": 9.703057492627121e-05,
+        "shadow_correction_ratio": 0.04410627552910018,
+        "shadow_teacher_mae_reduction": 0.0014722157890597973,
+        "ssim_preview": 0.018993159135182625
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.1184281760309531,
+        "seam_distance_to_one_reduction": 0.005754544610761303,
+        "shadow_correction_ratio": 0.11570985991203825,
+        "shadow_teacher_mae_reduction": 0.0035024036963780727,
+        "ssim_preview": 0.037766774495442634
+      },
+      "final": {
+        "psnr": 34.450092161395595,
+        "shadow_correction_ratio": 0.6057095112174876,
+        "shadow_teacher_mae": 0.015441553356746832,
+        "ssim_preview": 0.8587508002916971,
+        "student_seam_gradient_ratio": 1.000782830708277
+      }
+    }
+  },
+  "per_iso": {
+    "12800": {
+      "delta_vs_epoch79": {
+        "psnr": -0.14780434123103703,
+        "seam_distance_to_one_reduction": -0.003477534405266769,
+        "shadow_correction_ratio": -0.00010130473296743325,
+        "shadow_teacher_mae_reduction": -0.00022906344383955002,
+        "ssim_preview": 0.000362396240234375
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.3848425324979274,
+        "seam_distance_to_one_reduction": 0.004379777838766752,
+        "shadow_correction_ratio": 0.09914992473109763,
+        "shadow_teacher_mae_reduction": 0.0023190323263406754,
+        "ssim_preview": 0.021585404872894287
+      },
+      "final": {
+        "psnr": 38.74121997308069,
+        "shadow_correction_ratio": 0.7169224362626102,
+        "shadow_teacher_mae": 0.008861330337822437,
+        "ssim_preview": 0.9410470724105835,
+        "student_seam_gradient_ratio": 0.9880063324986591
+      }
+    },
+    "1600": {
+      "delta_vs_epoch79": {
+        "psnr": -0.12427832209340295,
+        "seam_distance_to_one_reduction": 0.003633559813888354,
+        "shadow_correction_ratio": -0.02398914830278931,
+        "shadow_teacher_mae_reduction": 0.0002094418741762638,
+        "ssim_preview": -0.0010623931884765625
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.8460392845682065,
+        "seam_distance_to_one_reduction": -0.0007273083012211412,
+        "shadow_correction_ratio": 0.06249335493374886,
+        "shadow_teacher_mae_reduction": 0.00120110297575593,
+        "ssim_preview": 0.005480587482452393
+      },
+      "final": {
+        "psnr": 46.14470908018078,
+        "shadow_correction_ratio": 0.8639901489715894,
+        "shadow_teacher_mae": 0.002561767352744937,
+        "ssim_preview": 0.9886795878410339,
+        "student_seam_gradient_ratio": 1.0128899956056834
+      }
+    },
+    "25600": {
+      "delta_vs_epoch79": {
+        "psnr": 0.09007926317899262,
+        "seam_distance_to_one_reduction": 0.0009488001060993234,
+        "shadow_correction_ratio": 0.0395751823866034,
+        "shadow_teacher_mae_reduction": 0.0007689725607633591,
+        "ssim_preview": 0.013465523719787598
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 0.9301076920484732,
+        "seam_distance_to_one_reduction": -0.0039977605005363515,
+        "shadow_correction_ratio": 0.13314781917578367,
+        "shadow_teacher_mae_reduction": 0.003246540203690529,
+        "ssim_preview": 0.04122567176818848
+      },
+      "final": {
+        "psnr": 33.65788955914821,
+        "shadow_correction_ratio": 0.5323153183124243,
+        "shadow_teacher_mae": 0.016149993985891342,
+        "ssim_preview": 0.8696856498718262,
+        "student_seam_gradient_ratio": 1.005596562165149
+      }
+    },
+    "3200": {
+      "delta_vs_epoch79": {
+        "psnr": -0.6551045230113317,
+        "seam_distance_to_one_reduction": 0.002317870115040477,
+        "shadow_correction_ratio": -0.03622529151380538,
+        "shadow_teacher_mae_reduction": -0.0004294707905501127,
+        "ssim_preview": -0.0053618550300598145
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.670790075368899,
+        "seam_distance_to_one_reduction": 0.007831258747797554,
+        "shadow_correction_ratio": 0.05244987483174601,
+        "shadow_teacher_mae_reduction": 0.0012009870260953903,
+        "ssim_preview": 0.006542325019836426
+      },
+      "final": {
+        "psnr": 44.106360252000485,
+        "shadow_correction_ratio": 0.8081708941003453,
+        "shadow_teacher_mae": 0.004145863465964794,
+        "ssim_preview": 0.9753105640411377,
+        "student_seam_gradient_ratio": 0.999155915568137
+      }
+    },
+    "51200": {
+      "delta_vs_epoch79": {
+        "psnr": 0.7264238794238373,
+        "seam_distance_to_one_reduction": -0.008076784436238715,
+        "shadow_correction_ratio": 0.09284494893366463,
+        "shadow_teacher_mae_reduction": 0.0038767382502555847,
+        "ssim_preview": 0.04315155744552612
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.0403343035464658,
+        "seam_distance_to_one_reduction": -0.003908115179402705,
+        "shadow_correction_ratio": 0.11483183582923329,
+        "shadow_teacher_mae_reduction": 0.004941638559103012,
+        "ssim_preview": 0.05048924684524536
+      },
+      "final": {
+        "psnr": 30.951166951957894,
+        "shadow_correction_ratio": 0.5678907790774282,
+        "shadow_teacher_mae": 0.021313335746526718,
+        "ssim_preview": 0.7655196785926819,
+        "student_seam_gradient_ratio": 1.0087455974610224
+      }
+    },
+    "6400": {
+      "delta_vs_epoch79": {
+        "psnr": -0.30048870460304755,
+        "seam_distance_to_one_reduction": 0.005461245351673583,
+        "shadow_correction_ratio": -0.018246947813866154,
+        "shadow_teacher_mae_reduction": -0.00032841693609952927,
+        "ssim_preview": -0.0008882284164428711
+      },
+      "delta_vs_nind_full_reference": {
+        "psnr": 1.2448540779655843,
+        "seam_distance_to_one_reduction": 0.012076401140860948,
+        "shadow_correction_ratio": 0.05097240115119639,
+        "shadow_teacher_mae_reduction": 0.0016207806766033173,
+        "ssim_preview": 0.01423192024230957
+      },
+      "final": {
+        "psnr": 40.28429122133314,
+        "shadow_correction_ratio": 0.7549043518510801,
+        "shadow_teacher_mae": 0.007232243195176125,
+        "ssim_preview": 0.9511922597885132,
+        "student_seam_gradient_ratio": 0.9983266411813093
+      }
+    }
+  },
+  "schema_version": 1
+}

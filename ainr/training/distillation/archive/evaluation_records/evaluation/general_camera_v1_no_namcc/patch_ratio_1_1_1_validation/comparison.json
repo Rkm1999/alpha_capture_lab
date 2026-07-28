@@ -1,0 +1,128 @@
+{
+  "previous": {
+    "student_psnr": 39.480875777441355,
+    "student_ssim": 0.8920579479112926,
+    "noisy_psnr": 32.54558296127925,
+    "noisy_ssim": 0.6974774466620551,
+    "teacher_psnr": 38.556554519562496,
+    "teacher_ssim": 0.8676482800449733,
+    "student_teacher_psnr": 43.611063428219,
+    "student_teacher_ssim": 0.9449873367062812,
+    "output_luminance_drift": 0.009428486021143538,
+    "by_dataset": {
+      "midd": {
+        "student_psnr": 39.48558124730992,
+        "student_ssim": 0.8919693232794178,
+        "noisy_psnr": 32.53534004427582,
+        "noisy_ssim": 0.6970246399010265,
+        "teacher_psnr": 38.56304453585686,
+        "teacher_ssim": 0.8678364427868018,
+        "student_teacher_psnr": 43.60314182105958,
+        "student_teacher_ssim": 0.9451549234815719,
+        "output_luminance_drift": 0.009493858554514437,
+        "samples": 1782,
+        "clean_samples": 1253
+      },
+      "polyu": {
+        "student_psnr": 38.31716442108154,
+        "student_ssim": 0.9371205866336823,
+        "noisy_psnr": 35.33894062042236,
+        "noisy_ssim": 0.842190146446228,
+        "teacher_psnr": 37.917163372039795,
+        "teacher_ssim": 0.9043201804161072,
+        "student_teacher_psnr": 43.8552500406901,
+        "student_teacher_ssim": 0.9620331625143687,
+        "output_luminance_drift": 0.0011853575706481934,
+        "samples": 6,
+        "clean_samples": 4
+      },
+      "renoir": {
+        "student_psnr": 39.06717300415039,
+        "student_ssim": 0.8689899841944376,
+        "noisy_psnr": 33.09923108418783,
+        "noisy_ssim": 0.6936494708061218,
+        "teacher_psnr": 36.698412577311196,
+        "teacher_ssim": 0.7401631077130636,
+        "student_teacher_psnr": 44.584231450007515,
+        "student_teacher_ssim": 0.9141477529819195,
+        "output_luminance_drift": 0.004271941116222968,
+        "samples": 13,
+        "clean_samples": 3
+      }
+    },
+    "selection_student_psnr": 38.95663955751395,
+    "selection_student_ssim": 0.8993599647025126,
+    "selection_samples": 1260,
+    "selection_datasets": [
+      "midd",
+      "polyu",
+      "renoir"
+    ],
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "samples": 1801,
+    "seconds": 9.195130572999915
+  },
+  "ratio_1_1_1": {
+    "student_psnr": 39.356003631864276,
+    "student_ssim": 0.8869675823120541,
+    "noisy_psnr": 32.54558296127925,
+    "noisy_ssim": 0.6974774466620551,
+    "teacher_psnr": 38.556554519562496,
+    "teacher_ssim": 0.8676482800449733,
+    "student_teacher_psnr": 44.44981922910056,
+    "student_teacher_ssim": 0.9494434787557232,
+    "output_luminance_drift": 0.010328211966407656,
+    "by_dataset": {
+      "midd": {
+        "student_psnr": 39.36083945786582,
+        "student_ssim": 0.8868721763487996,
+        "noisy_psnr": 32.53534004427582,
+        "noisy_ssim": 0.6970246399010265,
+        "teacher_psnr": 38.56304453585686,
+        "teacher_ssim": 0.8678364427868018,
+        "student_teacher_psnr": 44.44871321056293,
+        "student_teacher_ssim": 0.9496418458945823,
+        "output_luminance_drift": 0.01039789673400882,
+        "samples": 1782,
+        "clean_samples": 1253
+      },
+      "polyu": {
+        "student_psnr": 38.541287422180176,
+        "student_ssim": 0.9268843531608582,
+        "noisy_psnr": 35.33894062042236,
+        "noisy_ssim": 0.842190146446228,
+        "teacher_psnr": 37.917163372039795,
+        "teacher_ssim": 0.9043201804161072,
+        "student_teacher_psnr": 43.725409825642906,
+        "student_teacher_ssim": 0.9619431296984354,
+        "output_luminance_drift": 0.0014207443843285243,
+        "samples": 6,
+        "clean_samples": 4
+      },
+      "renoir": {
+        "student_psnr": 38.42252858479818,
+        "student_ssim": 0.8735931118329366,
+        "noisy_psnr": 33.09923108418783,
+        "noisy_ssim": 0.6936494708061218,
+        "teacher_psnr": 36.698412577311196,
+        "teacher_ssim": 0.7401631077130636,
+        "student_teacher_psnr": 44.935771648700424,
+        "student_teacher_ssim": 0.9164828520554763,
+        "output_luminance_drift": 0.00488717732234643,
+        "samples": 13,
+        "clean_samples": 3
+      }
+    },
+    "selection_student_psnr": 38.77488515494806,
+    "selection_student_ssim": 0.8957832137808648,
+    "selection_samples": 1260,
+    "selection_datasets": [
+      "midd",
+      "polyu",
+      "renoir"
+    ],
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "samples": 1801,
+    "seconds": 9.16999780399965
+  }
+}

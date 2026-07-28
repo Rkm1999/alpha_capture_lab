@@ -1,6 +1,7 @@
 package com.ryu.scunetdenoiser;
 
 import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.graphics.Bitmap;
 import android.graphics.ColorSpace;
@@ -20,6 +21,8 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
 import java.util.Locale;
 import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
@@ -272,7 +275,7 @@ final class ImageStore {
         if (extension > 0) source = source.substring(0, extension);
         source = source.replaceAll("[^A-Za-z0-9._ -]", "_");
         if (source.isBlank()) source = "image";
-        return String.format(Locale.US, "%s_scunet.jpg", source);
+        return String.format(Locale.US, "%s_denoised.jpg", source);
     }
 
     private static Bitmap decode(ContentResolver resolver, Uri uri, int maximumDimension)
@@ -307,14 +310,38 @@ final class ImageStore {
             Math.max(1, (int) Math.round(height * scale)));
     }
 
-    private static String displayName(ContentResolver resolver, Uri uri) {
+    static String displayName(ContentResolver resolver, Uri uri) {
+        try (android.database.Cursor cursor = resolver.query(
+            uri,
+            new String[] {
+                MediaStore.PickerMediaColumns.DATA,
+                OpenableColumns.DISPLAY_NAME
+            },
+            null,
+            null,
+            null)) {
+            if (cursor != null && cursor.moveToFirst()) {
+                int dataColumn = cursor.getColumnIndex(MediaStore.PickerMediaColumns.DATA);
+                if (dataColumn >= 0) {
+                    String value = fileNameFromPath(cursor.getString(dataColumn));
+                    if (value != null) return value;
+                }
+                String value = cursorString(cursor, OpenableColumns.DISPLAY_NAME);
+                if (value != null) {
+                    String mediaStoreName = mediaStoreDisplayName(resolver, value);
+                    return mediaStoreName == null ? value : mediaStoreName;
+                }
+            }
+        } catch (Throwable ignored) {
+            // Older and third-party providers may reject picker-only columns.
+        }
         try (android.database.Cursor cursor = resolver.query(
             uri, new String[] {OpenableColumns.DISPLAY_NAME}, null, null, null)) {
             if (cursor != null && cursor.moveToFirst()) {
-                int column = cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME);
-                if (column >= 0) {
-                    String value = cursor.getString(column);
-                    if (value != null && !value.isBlank()) return value;
+                String value = cursorString(cursor, OpenableColumns.DISPLAY_NAME);
+                if (value != null) {
+                    String mediaStoreName = mediaStoreDisplayName(resolver, value);
+                    return mediaStoreName == null ? value : mediaStoreName;
                 }
             }
         } catch (Throwable ignored) {
@@ -322,6 +349,57 @@ final class ImageStore {
         }
         String segment = uri.getLastPathSegment();
         return segment == null || segment.isBlank() ? "image" : segment;
+    }
+
+    private static String cursorString(android.database.Cursor cursor, String columnName) {
+        int column = cursor.getColumnIndex(columnName);
+        if (column < 0) return null;
+        String value = cursor.getString(column);
+        return value == null || value.isBlank() ? null : value;
+    }
+
+    private static String mediaStoreDisplayName(
+        ContentResolver resolver,
+        String pickerName
+    ) {
+        int extension = pickerName.lastIndexOf('.');
+        if (extension <= 0) return null;
+        String idText = pickerName.substring(0, extension);
+        for (int index = 0; index < idText.length(); index++) {
+            if (!Character.isDigit(idText.charAt(index))) return null;
+        }
+        try {
+            long id = Long.parseLong(idText);
+            Uri mediaUri = ContentUris.withAppendedId(
+                MediaStore.Images.Media.EXTERNAL_CONTENT_URI, id);
+            try (android.database.Cursor cursor = resolver.query(
+                mediaUri,
+                new String[] {MediaStore.Images.Media.DISPLAY_NAME},
+                null,
+                null,
+                null)) {
+                if (cursor == null || !cursor.moveToFirst()) return null;
+                String value = cursorString(cursor, MediaStore.Images.Media.DISPLAY_NAME);
+                return pickerName.equals(value) ? null : value;
+            }
+        } catch (RuntimeException ignored) {
+            return null;
+        }
+    }
+
+    static String fileNameFromPath(String path) {
+        if (path == null || path.isBlank()) return null;
+        String normalized = path.replace('\\', '/');
+        int separator = normalized.lastIndexOf('/');
+        String value = separator >= 0 ? normalized.substring(separator + 1) : normalized;
+        if (value.indexOf('%') >= 0) {
+            try {
+                value = URLDecoder.decode(value.replace("+", "%2B"), "UTF-8");
+            } catch (UnsupportedEncodingException impossible) {
+                throw new AssertionError(impossible);
+            }
+        }
+        return value.isBlank() ? null : value;
     }
 
     private static void checkCanceled(AtomicBoolean canceled) {

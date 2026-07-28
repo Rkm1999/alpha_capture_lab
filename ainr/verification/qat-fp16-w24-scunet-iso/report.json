@@ -1,0 +1,917 @@
+{
+  "description": "No-reference ISO comparison. PSNR/SSIM measure agreement with SCUNet, not restoration accuracy.",
+  "images": [
+    {
+      "folder": "ISO1600_DSC00001",
+      "height": 6000,
+      "iso": 1600,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.00676116335625742,
+          "psnr": 41.32055264703256
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 48.243497343283266,
+            "ssim_preview": 0.9942132830619812,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1258012,
+              "student_change_mae": 0.006461262237280607,
+              "student_teacher_mae": 0.003446366172283888,
+              "student_to_teacher_correction_ratio": 0.8877895162630348,
+              "teacher_change_mae": 0.007277921307832003
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9235817,
+              "student_change_mae": 0.010767368599772453,
+              "student_teacher_mae": 0.001983399037271738,
+              "student_to_teacher_correction_ratio": 0.9641743386975419,
+              "teacher_change_mae": 0.011167449876666069
+            },
+            "shadows_0_0p25": {
+              "pixels": 13506171,
+              "student_change_mae": 0.008948656730353832,
+              "student_teacher_mae": 0.0015300584491342306,
+              "student_to_teacher_correction_ratio": 0.9538589079969686,
+              "teacher_change_mae": 0.009381530806422234
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 48.246481516792564,
+            "ssim_preview": 0.9944078922271729,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1258012,
+              "student_change_mae": 0.006631258875131607,
+              "student_teacher_mae": 0.003020208328962326,
+              "student_to_teacher_correction_ratio": 0.911147372257996,
+              "teacher_change_mae": 0.007277921307832003
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9235817,
+              "student_change_mae": 0.010415641590952873,
+              "student_teacher_mae": 0.0021124896593391895,
+              "student_to_teacher_correction_ratio": 0.9326786066634543,
+              "teacher_change_mae": 0.011167449876666069
+            },
+            "shadows_0_0p25": {
+              "pixels": 13506171,
+              "student_change_mae": 0.008853930979967117,
+              "student_teacher_mae": 0.0016212885966524482,
+              "student_to_teacher_correction_ratio": 0.9437618617535273,
+              "teacher_change_mae": 0.009381530806422234
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 40.798868210600354,
+            "ssim_preview": 0.9840200543403625,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1258012,
+              "student_change_mae": 0.009972314350306988,
+              "student_teacher_mae": 0.008371619507670403,
+              "student_to_teacher_correction_ratio": 1.3702146435102922,
+              "teacher_change_mae": 0.007277921307832003
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9235817,
+              "student_change_mae": 0.012936066836118698,
+              "student_teacher_mae": 0.007463402114808559,
+              "student_to_teacher_correction_ratio": 1.158372500345677,
+              "teacher_change_mae": 0.011167449876666069
+            },
+            "shadows_0_0p25": {
+              "pixels": 13506171,
+              "student_change_mae": 0.01144406571984291,
+              "student_teacher_mae": 0.006660014390945435,
+              "student_to_teacher_correction_ratio": 1.219850571935312,
+              "teacher_change_mae": 0.009381530806422234
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 41.151,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 4.114,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 7.13,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 46.453,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00001.JPG",
+      "source_sha256": "56faa86b370f8aa056fa435b4e5266b9e60307dd32fcc8aed7b18936a0bf7ee4",
+      "width": 4000
+    },
+    {
+      "folder": "ISO3200_DSC00002",
+      "height": 6000,
+      "iso": 3200,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.006795085645189472,
+          "psnr": 41.27836481732703
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 47.69648364528863,
+            "ssim_preview": 0.9905450344085693,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 920071,
+              "student_change_mae": 0.007860523648560047,
+              "student_teacher_mae": 0.0034525441005825996,
+              "student_to_teacher_correction_ratio": 0.9012855228961341,
+              "teacher_change_mae": 0.008721457794308662
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9265934,
+              "student_change_mae": 0.014155812561511993,
+              "student_teacher_mae": 0.002825808711349964,
+              "student_to_teacher_correction_ratio": 0.9298844760002596,
+              "teacher_change_mae": 0.015223194845020771
+            },
+            "shadows_0_0p25": {
+              "pixels": 13813995,
+              "student_change_mae": 0.011451822705566883,
+              "student_teacher_mae": 0.001974727725610137,
+              "student_to_teacher_correction_ratio": 0.9424433810110432,
+              "teacher_change_mae": 0.012151204980909824
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 47.34884312408492,
+            "ssim_preview": 0.9919935464859009,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 920071,
+              "student_change_mae": 0.007935731671750546,
+              "student_teacher_mae": 0.003086472162976861,
+              "student_to_teacher_correction_ratio": 0.9099088545643302,
+              "teacher_change_mae": 0.008721457794308662
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9265934,
+              "student_change_mae": 0.013775140047073364,
+              "student_teacher_mae": 0.0030274672899395227,
+              "student_to_teacher_correction_ratio": 0.9048783903320373,
+              "teacher_change_mae": 0.015223194845020771
+            },
+            "shadows_0_0p25": {
+              "pixels": 13813995,
+              "student_change_mae": 0.011325848288834095,
+              "student_teacher_mae": 0.0021026902832090855,
+              "student_to_teacher_correction_ratio": 0.932076144434037,
+              "teacher_change_mae": 0.012151204980909824
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 40.706340659042525,
+            "ssim_preview": 0.9784232378005981,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 920071,
+              "student_change_mae": 0.011047863401472569,
+              "student_teacher_mae": 0.008457389660179615,
+              "student_to_teacher_correction_ratio": 1.266745039881067,
+              "teacher_change_mae": 0.008721457794308662
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 9265934,
+              "student_change_mae": 0.015954146161675453,
+              "student_teacher_mae": 0.007709280122071505,
+              "student_to_teacher_correction_ratio": 1.0480156316789024,
+              "teacher_change_mae": 0.015223194845020771
+            },
+            "shadows_0_0p25": {
+              "pixels": 13813995,
+              "student_change_mae": 0.013597442768514156,
+              "student_teacher_mae": 0.006669705733656883,
+              "student_to_teacher_correction_ratio": 1.1190201128099186,
+              "teacher_change_mae": 0.012151204980909824
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 43.604,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 3.579,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 6.935,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 44.745,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00002.JPG",
+      "source_sha256": "f14f2eb36396f7b36911ec28413e33ead8298348293b0d47ffdd6641a186ba52",
+      "width": 4000
+    },
+    {
+      "folder": "ISO6400_DSC00003",
+      "height": 6000,
+      "iso": 6400,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.006879232911502614,
+          "psnr": 41.18151447576851
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 44.97984228741403,
+            "ssim_preview": 0.9841861128807068,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1145062,
+              "student_change_mae": 0.010267641395330429,
+              "student_teacher_mae": 0.004310324788093567,
+              "student_to_teacher_correction_ratio": 0.8956543751636986,
+              "teacher_change_mae": 0.011463843286037445
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8672122,
+              "student_change_mae": 0.01996820792555809,
+              "student_teacher_mae": 0.004480414558202028,
+              "student_to_teacher_correction_ratio": 0.9018978356420575,
+              "teacher_change_mae": 0.02214021049439907
+            },
+            "shadows_0_0p25": {
+              "pixels": 14182816,
+              "student_change_mae": 0.016974136233329773,
+              "student_teacher_mae": 0.0030118259601294994,
+              "student_to_teacher_correction_ratio": 0.9377831550109581,
+              "teacher_change_mae": 0.018100278452038765
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 43.995997069365785,
+            "ssim_preview": 0.982692539691925,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1145062,
+              "student_change_mae": 0.010123484767973423,
+              "student_teacher_mae": 0.003986958414316177,
+              "student_to_teacher_correction_ratio": 0.8830794800120365,
+              "teacher_change_mae": 0.011463843286037445
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8672122,
+              "student_change_mae": 0.019532514736056328,
+              "student_teacher_mae": 0.004717408679425716,
+              "student_to_teacher_correction_ratio": 0.882219016887738,
+              "teacher_change_mae": 0.02214021049439907
+            },
+            "shadows_0_0p25": {
+              "pixels": 14182816,
+              "student_change_mae": 0.016231393441557884,
+              "student_teacher_mae": 0.0036828219890594482,
+              "student_to_teacher_correction_ratio": 0.8967482729377362,
+              "teacher_change_mae": 0.018100278452038765
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 39.498503767664,
+            "ssim_preview": 0.9754611849784851,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1145062,
+              "student_change_mae": 0.012656895443797112,
+              "student_teacher_mae": 0.009346562437713146,
+              "student_to_teacher_correction_ratio": 1.1040708711722151,
+              "teacher_change_mae": 0.011463843286037445
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8672122,
+              "student_change_mae": 0.020876534283161163,
+              "student_teacher_mae": 0.00911000743508339,
+              "student_to_teacher_correction_ratio": 0.942923929672774,
+              "teacher_change_mae": 0.02214021049439907
+            },
+            "shadows_0_0p25": {
+              "pixels": 14182816,
+              "student_change_mae": 0.018090322613716125,
+              "student_teacher_mae": 0.007368201855570078,
+              "student_to_teacher_correction_ratio": 0.9994499621456642,
+              "teacher_change_mae": 0.018100278452038765
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 45.845,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 3.72,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 6.959,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 44.749,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00003.JPG",
+      "source_sha256": "6ddea7d52e1cd6f892c4775eae272df761dee7ebf2c49a22c3eb33e73dcaa6cd",
+      "width": 4000
+    },
+    {
+      "folder": "ISO12800_DSC00004",
+      "height": 6000,
+      "iso": 12800,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.006924808259103812,
+          "psnr": 41.14926966679212
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 42.21669248461251,
+            "ssim_preview": 0.9763094782829285,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1309277,
+              "student_change_mae": 0.010744111612439156,
+              "student_teacher_mae": 0.004845849238336086,
+              "student_to_teacher_correction_ratio": 0.8653123979434245,
+              "teacher_change_mae": 0.012416454032063484
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8280330,
+              "student_change_mae": 0.019053569063544273,
+              "student_teacher_mae": 0.004929367918521166,
+              "student_to_teacher_correction_ratio": 0.8913005007566112,
+              "teacher_change_mae": 0.021377267315983772
+            },
+            "shadows_0_0p25": {
+              "pixels": 14410393,
+              "student_change_mae": 0.015823012217879295,
+              "student_teacher_mae": 0.00521833635866642,
+              "student_to_teacher_correction_ratio": 0.8736803001582102,
+              "teacher_change_mae": 0.01811075769364834
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 41.54828426733036,
+            "ssim_preview": 0.9752807021141052,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1309277,
+              "student_change_mae": 0.010676858015358448,
+              "student_teacher_mae": 0.004472722299396992,
+              "student_to_teacher_correction_ratio": 0.8598959081060655,
+              "teacher_change_mae": 0.012416454032063484
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8280330,
+              "student_change_mae": 0.018350619822740555,
+              "student_teacher_mae": 0.005556020885705948,
+              "student_to_teacher_correction_ratio": 0.8584174745768279,
+              "teacher_change_mae": 0.021377267315983772
+            },
+            "shadows_0_0p25": {
+              "pixels": 14410393,
+              "student_change_mae": 0.015351124107837677,
+              "student_teacher_mae": 0.005619020666927099,
+              "student_to_teacher_correction_ratio": 0.847624619991548,
+              "teacher_change_mae": 0.01811075769364834
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 38.40996885015755,
+            "ssim_preview": 0.9682657122612,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1309277,
+              "student_change_mae": 0.013052167370915413,
+              "student_teacher_mae": 0.00990743562579155,
+              "student_to_teacher_correction_ratio": 1.0511992664902798,
+              "teacher_change_mae": 0.012416454032063484
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8280330,
+              "student_change_mae": 0.01960734836757183,
+              "student_teacher_mae": 0.009882460348308086,
+              "student_to_teacher_correction_ratio": 0.9172055566200188,
+              "teacher_change_mae": 0.021377267315983772
+            },
+            "shadows_0_0p25": {
+              "pixels": 14410393,
+              "student_change_mae": 0.01739446073770523,
+              "student_teacher_mae": 0.008742558769881725,
+              "student_to_teacher_correction_ratio": 0.960449089537854,
+              "teacher_change_mae": 0.01811075769364834
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 47.228,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 3.83,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 6.916,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 43.935,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00004.JPG",
+      "source_sha256": "dd03c4402d4b293cf43036cc507ddc45b02c98f76cc72a73ef08baadc03fd138",
+      "width": 4000
+    },
+    {
+      "folder": "ISO25600_DSC00005",
+      "height": 6000,
+      "iso": 25600,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.006959582310096891,
+          "psnr": 41.098612275250666
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 36.05544576893886,
+            "ssim_preview": 0.9374496936798096,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1061120,
+              "student_change_mae": 0.013413251377642155,
+              "student_teacher_mae": 0.00708440225571394,
+              "student_to_teacher_correction_ratio": 0.8402252950222506,
+              "teacher_change_mae": 0.015963874757289886
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8677716,
+              "student_change_mae": 0.025441203266382217,
+              "student_teacher_mae": 0.009183009155094624,
+              "student_to_teacher_correction_ratio": 0.8416642033524858,
+              "teacher_change_mae": 0.030227260664105415
+            },
+            "shadows_0_0p25": {
+              "pixels": 14261164,
+              "student_change_mae": 0.017027463763952255,
+              "student_teacher_mae": 0.011806640774011612,
+              "student_to_teacher_correction_ratio": 0.7059452676287465,
+              "teacher_change_mae": 0.024120090529322624
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 34.717546337228654,
+            "ssim_preview": 0.897335410118103,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1061120,
+              "student_change_mae": 0.013274957425892353,
+              "student_teacher_mae": 0.006258642300963402,
+              "student_to_teacher_correction_ratio": 0.8315623636316964,
+              "teacher_change_mae": 0.015963874757289886
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8677716,
+              "student_change_mae": 0.022802243009209633,
+              "student_teacher_mae": 0.012195125222206116,
+              "student_to_teacher_correction_ratio": 0.7543602201534286,
+              "teacher_change_mae": 0.030227260664105415
+            },
+            "shadows_0_0p25": {
+              "pixels": 14261164,
+              "student_change_mae": 0.014998110011219978,
+              "student_teacher_mae": 0.0137716643512249,
+              "student_to_teacher_correction_ratio": 0.6218098556880158,
+              "teacher_change_mae": 0.024120090529322624
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 33.7949189282197,
+            "ssim_preview": 0.8951669335365295,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1061120,
+              "student_change_mae": 0.014919625595211983,
+              "student_teacher_mae": 0.011506648734211922,
+              "student_to_teacher_correction_ratio": 0.9345867354915793,
+              "teacher_change_mae": 0.015963874757289886
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8677716,
+              "student_change_mae": 0.02320851758122444,
+              "student_teacher_mae": 0.01556955836713314,
+              "student_to_teacher_correction_ratio": 0.767800888050181,
+              "teacher_change_mae": 0.030227260664105415
+            },
+            "shadows_0_0p25": {
+              "pixels": 14261164,
+              "student_change_mae": 0.016978876665234566,
+              "student_teacher_mae": 0.01491093821823597,
+              "student_to_teacher_correction_ratio": 0.7039308846952073,
+              "teacher_change_mae": 0.024120090529322624
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 46.904,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 3.843,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 6.964,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 44.204,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00005.JPG",
+      "source_sha256": "6ab0130eda67fe477bbd1497d21fbd928ad67cc7d1a228bdc6b088136c2d4c5c",
+      "width": 4000
+    },
+    {
+      "folder": "ISO51200_DSC00006",
+      "height": 6000,
+      "iso": 51200,
+      "metrics": {
+        "qat_to_fp16": {
+          "mae": 0.00728140251309264,
+          "psnr": 40.719459201950045
+        },
+        "w24": {
+          "agreement_to_scunet": {
+            "psnr": 32.76622613141741,
+            "ssim_preview": 0.830747127532959,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1282003,
+              "student_change_mae": 0.01790565997362137,
+              "student_teacher_mae": 0.009583702310919762,
+              "student_to_teacher_correction_ratio": 0.8401327988007976,
+              "teacher_change_mae": 0.0213128924369812
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8263530,
+              "student_change_mae": 0.0345003679394722,
+              "student_teacher_mae": 0.016377445310354233,
+              "student_to_teacher_correction_ratio": 0.7849853379791603,
+              "teacher_change_mae": 0.04395033419132233
+            },
+            "shadows_0_0p25": {
+              "pixels": 14454467,
+              "student_change_mae": 0.023433255031704903,
+              "student_teacher_mae": 0.017778707668185234,
+              "student_to_teacher_correction_ratio": 0.6777223404615218,
+              "teacher_change_mae": 0.03457648307085037
+            }
+          }
+        },
+        "w32_fp16": {
+          "agreement_to_scunet": {
+            "psnr": 30.323324702787588,
+            "ssim_preview": 0.7328004240989685,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1282003,
+              "student_change_mae": 0.017366234213113785,
+              "student_teacher_mae": 0.007919210940599442,
+              "student_to_teacher_correction_ratio": 0.8148229652292831,
+              "teacher_change_mae": 0.0213128924369812
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8263530,
+              "student_change_mae": 0.027777034789323807,
+              "student_teacher_mae": 0.024180768057703972,
+              "student_to_teacher_correction_ratio": 0.6320096377061948,
+              "teacher_change_mae": 0.04395033419132233
+            },
+            "shadows_0_0p25": {
+              "pixels": 14454467,
+              "student_change_mae": 0.019130902364850044,
+              "student_teacher_mae": 0.022664187476038933,
+              "student_to_teacher_correction_ratio": 0.5532923150584482,
+              "teacher_change_mae": 0.03457648307085037
+            }
+          }
+        },
+        "w32_qat": {
+          "agreement_to_scunet": {
+            "psnr": 30.04160733086348,
+            "ssim_preview": 0.7378576397895813,
+            "ssim_preview_height": 1024,
+            "ssim_preview_width": 683
+          },
+          "correction_by_input_luma": {
+            "highlights_0p75_1": {
+              "pixels": 1282003,
+              "student_change_mae": 0.018175525590777397,
+              "student_teacher_mae": 0.0125924376770854,
+              "student_to_teacher_correction_ratio": 0.8527948819954638,
+              "teacher_change_mae": 0.0213128924369812
+            },
+            "midtones_0p25_0p75": {
+              "pixels": 8263530,
+              "student_change_mae": 0.027730584144592285,
+              "student_teacher_mae": 0.026517651975154877,
+              "student_to_teacher_correction_ratio": 0.6309527482516273,
+              "teacher_change_mae": 0.04395033419132233
+            },
+            "shadows_0_0p25": {
+              "pixels": 14454467,
+              "student_change_mae": 0.021016130223870277,
+              "student_teacher_mae": 0.022482072934508324,
+              "student_to_teacher_correction_ratio": 0.6078157278404026,
+              "teacher_change_mae": 0.03457648307085037
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "scunet": {
+          "batch_size": 1,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 47.871,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w24": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 3.898,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_fp16": {
+          "batch_size": 2,
+          "composition": "whole-tile 16 px linear weighted overlap matching 8 px edge feathering",
+          "core": 176,
+          "padding": 8,
+          "seconds": 7.013,
+          "tile_size": 192,
+          "tiles": 805
+        },
+        "w32_qat": {
+          "input_scale": 0.003921568859368563,
+          "input_zero_point": -128,
+          "output_scale": 0.0048718578182160854,
+          "output_zero_point": -109,
+          "seconds": 44.093,
+          "threads_per_worker": 4,
+          "tiles": 805,
+          "workers": 2
+        }
+      },
+      "source": "/home/ryu/projects/iso_test_image/DSC00006.JPG",
+      "source_sha256": "e71111aa4961606703a310c47972b364f5ed4b48a3f08342c0f6636f047bd24c",
+      "width": 4000
+    }
+  ],
+  "models": {
+    "w24": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v9_adapter/general_camera_v9_w24_residual_adapter/target-best.pt",
+      "sha256": "ca6fc701080d7d1ef4dc8f988b7d2a1cebda957f9550f7e032d831204ae9dbeb"
+    },
+    "w32_fp16": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v15_chroma/general_camera_v84_w32_int8_scratch/epoch_200.pt",
+      "sha256": "1ae14b8085245114c37192012de7469e6e6fa91cce692fe97d5ddf6407a42a9f"
+    },
+    "w32_qat": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v15_chroma/general_camera_v85_w32_int8_qat/epoch_030.pt",
+      "sha256": "2e4fdc7cd506d7bae453ccf51c841576e52b78fc208593fa54e15bc2e31685ef"
+    },
+    "w32_qat_litert": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/export/litedenoise_w32_w8a8_qat_192_nhwc.tflite",
+      "sha256": "f4e1506adb3a60034188915b18ca6873b1c8ba56eb3f5e46e8c2278e45c9d8c1"
+    }
+  },
+  "summary": {
+    "qat_to_fp16": {
+      "mean_mae": 0.006933545832540474,
+      "mean_psnr": 41.124628847353485
+    },
+    "w24": {
+      "mean_preview_ssim_to_scunet": 0.9522417883078257,
+      "mean_psnr_to_scunet": 41.99303127682578
+    },
+    "w32_fp16": {
+      "mean_preview_ssim_to_scunet": 0.9290850857893626,
+      "mean_psnr_to_scunet": 41.03007950293165
+    },
+    "w32_qat": {
+      "mean_preview_ssim_to_scunet": 0.9231991271177927,
+      "mean_psnr_to_scunet": 37.208367957757936
+    }
+  }
+}

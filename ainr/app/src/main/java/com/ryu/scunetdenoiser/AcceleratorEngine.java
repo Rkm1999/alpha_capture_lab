@@ -20,13 +20,14 @@ final class AcceleratorEngine implements AutoCloseable {
         NPU
     }
 
-    private static final int TENSOR_ELEMENTS = 3 * 192 * 192;
+    private static final int OUTPUT_ELEMENTS = 3 * 192 * 192;
 
     private final Kind kind;
     private final Environment environment;
     private final CompiledModel model;
     private final List<TensorBuffer> inputs;
     private final List<TensorBuffer> outputs;
+    private final ModelStore.TensorSpec tensorSpec;
     private boolean closed;
 
     private AcceleratorEngine(
@@ -34,19 +35,22 @@ final class AcceleratorEngine implements AutoCloseable {
         Environment environment,
         CompiledModel model,
         List<TensorBuffer> inputs,
-        List<TensorBuffer> outputs
+        List<TensorBuffer> outputs,
+        ModelStore.TensorSpec tensorSpec
     ) {
         this.kind = kind;
         this.environment = environment;
         this.model = model;
         this.inputs = inputs;
         this.outputs = outputs;
+        this.tensorSpec = tensorSpec;
     }
 
     static AcceleratorEngine createGpu(
         Context context,
         File modelFile,
-        String modelCacheKey
+        String modelCacheKey,
+        ModelStore.TensorSpec tensorSpec
     ) throws Exception {
         File cacheDir = new File(context.getCacheDir(), "litert_gpu");
         if (!cacheDir.isDirectory() && !cacheDir.mkdirs()) {
@@ -71,15 +75,16 @@ final class AcceleratorEngine implements AutoCloseable {
             null
         ));
         CompiledModel model = CompiledModel.create(modelFile.getAbsolutePath(), options, null);
-        return createBuffers(Kind.GPU, null, model);
+        return createBuffers(Kind.GPU, null, model, tensorSpec);
     }
 
     static AcceleratorEngine createNpu(
         Context context,
         File modelFile,
-        String modelCacheKey
+        String modelCacheKey,
+        ModelStore.TensorSpec tensorSpec
     ) throws Exception {
-        NpuSupport.Vendor vendor = NpuSupport.detect();
+        NpuSupport.Vendor vendor = NpuSupport.detect(context);
         if (vendor == NpuSupport.Vendor.UNSUPPORTED) {
             throw new IllegalStateException(
                 "NPU is not supported on " + NpuSupport.deviceSummary());
@@ -126,17 +131,21 @@ final class AcceleratorEngine implements AutoCloseable {
             }
             CompiledModel model = CompiledModel.create(
                 modelFile.getAbsolutePath(), options, environment);
-            return createBuffers(Kind.NPU, environment, model);
+            return createBuffers(Kind.NPU, environment, model, tensorSpec);
         } catch (Throwable error) {
             environment.close();
-            throw error;
+            if (error instanceof Error && !(error instanceof LinkageError)) {
+                throw (Error) error;
+            }
+            throw NpuSupport.initializationFailure(vendor, error);
         }
     }
 
     private static AcceleratorEngine createBuffers(
         Kind kind,
         Environment environment,
-        CompiledModel model
+        CompiledModel model,
+        ModelStore.TensorSpec tensorSpec
     ) throws Exception {
         try {
             List<TensorBuffer> inputs = model.createInputBuffers();
@@ -148,7 +157,8 @@ final class AcceleratorEngine implements AutoCloseable {
                     "SCUNet expected one input and output, got "
                         + inputs.size() + " and " + outputs.size());
             }
-            return new AcceleratorEngine(kind, environment, model, inputs, outputs);
+            return new AcceleratorEngine(
+                kind, environment, model, inputs, outputs, tensorSpec);
         } catch (Throwable error) {
             model.close();
             throw error;
@@ -159,18 +169,67 @@ final class AcceleratorEngine implements AutoCloseable {
         return kind;
     }
 
+    int inputElements() {
+        return tensorSpec.inputElements();
+    }
+
     void warmUp() throws Exception {
-        infer(new float[TENSOR_ELEMENTS]);
+        infer(new float[inputElements()]);
     }
 
     float[] infer(float[] input) throws Exception {
         if (closed) throw new IllegalStateException(kind + " engine is closed");
-        if (input.length != TENSOR_ELEMENTS) {
+        if (input.length != inputElements()) {
             throw new IllegalArgumentException("Unexpected tensor size " + input.length);
         }
-        inputs.get(0).writeFloat(input);
+        if (tensorSpec.encoding == ModelStore.TensorEncoding.INT8_NHWC) {
+            inputs.get(0).writeInt8(quantizeNchwToNhwc(input, tensorSpec));
+        } else {
+            inputs.get(0).writeFloat(input);
+        }
         model.run(inputs, outputs);
-        return outputs.get(0).readFloat();
+        float[] output = tensorSpec.encoding == ModelStore.TensorEncoding.INT8_NHWC
+            ? dequantizeNhwcToNchw(outputs.get(0).readInt8(), tensorSpec)
+            : outputs.get(0).readFloat();
+        if (output.length != OUTPUT_ELEMENTS) {
+            throw new IllegalStateException("Unexpected output tensor size " + output.length);
+        }
+        return output;
+    }
+
+    static byte[] quantizeNchwToNhwc(float[] input, ModelStore.TensorSpec spec) {
+        int plane = DenoiseProcessor.TILE * DenoiseProcessor.TILE;
+        if (input.length != spec.inputChannels * plane) {
+            throw new IllegalArgumentException("Unexpected input tensor size " + input.length);
+        }
+        byte[] result = new byte[input.length];
+        for (int pixel = 0; pixel < plane; pixel++) {
+            int destination = pixel * spec.inputChannels;
+            for (int channel = 0; channel < spec.inputChannels; channel++) {
+                int quantized = Math.round(
+                    input[channel * plane + pixel] / spec.inputScale)
+                    + spec.inputZeroPoint;
+                result[destination + channel] =
+                    (byte) Math.max(-128, Math.min(127, quantized));
+            }
+        }
+        return result;
+    }
+
+    static float[] dequantizeNhwcToNchw(byte[] input, ModelStore.TensorSpec spec) {
+        int plane = DenoiseProcessor.TILE * DenoiseProcessor.TILE;
+        if (input.length != OUTPUT_ELEMENTS) {
+            throw new IllegalArgumentException("Unexpected output tensor size " + input.length);
+        }
+        float[] result = new float[OUTPUT_ELEMENTS];
+        for (int pixel = 0; pixel < plane; pixel++) {
+            int source = pixel * 3;
+            for (int channel = 0; channel < 3; channel++) {
+                result[channel * plane + pixel] =
+                    (input[source + channel] - spec.outputZeroPoint) * spec.outputScale;
+            }
+        }
+        return result;
     }
 
     @Override

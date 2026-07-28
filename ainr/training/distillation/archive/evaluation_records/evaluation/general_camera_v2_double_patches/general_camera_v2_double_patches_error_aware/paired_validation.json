@@ -1,0 +1,463 @@
+{
+  "checkpoints": {
+    "doubled_general": {
+      "epoch": 25,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v2_double_patches/general_camera_v2_double_patches_error_aware/best.pt",
+      "run_fingerprint": "5db7b93eff4125bd743163bd943f48ca8d04114dc9373dbeb459b8a8d4dd9004",
+      "sha256": "41f0cbd29320790eb9de0a7f3e4a97b077511cd7fffd5fe436ec8ed7f541639b"
+    },
+    "doubled_target": {
+      "epoch": 10,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v2_double_patches/general_camera_v2_double_patches_error_aware/target-best.pt",
+      "run_fingerprint": "5db7b93eff4125bd743163bd943f48ca8d04114dc9373dbeb459b8a8d4dd9004",
+      "sha256": "36b4bd68de11e1531046443ec3bfd9e500dc161aa3bfca5f2d086bc79e1e5122"
+    },
+    "previous_target": {
+      "epoch": 19,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v1_no_namcc/general_camera_v1_stage2_hard_shadow/target-best.pt",
+      "run_fingerprint": "cdb023335ed3c8d8c983c47fc81e2e4ce14770ee86f708f60667170bda26371f",
+      "sha256": "15b8e17768273e9fb90a92a289a28b5299a69c8d203817c976777217c8cc9802"
+    }
+  },
+  "comparison": {},
+  "manifest": {
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/general_camera_v2_double_patches/cache/manifest.json",
+    "sha256": "ea55ad2458e1ca95411494bf8f7442cde5b1172b4e09d34a62e5f98f29880d9b"
+  },
+  "results": {
+    "doubled_general": {
+      "by_dataset": {
+        "midd": {
+          "clean_samples": 1253,
+          "noisy_psnr": 32.53534004427582,
+          "noisy_ssim": 0.6970246399010265,
+          "output_luminance_drift": 0.01066440452419652,
+          "samples": 1782,
+          "student_psnr": 39.21137308560651,
+          "student_ssim": 0.8848479225549992,
+          "student_teacher_psnr": 46.087632338741145,
+          "student_teacher_ssim": 0.9633206685902561,
+          "teacher_psnr": 38.563044541945764,
+          "teacher_ssim": 0.8678364425965236
+        },
+        "polyu": {
+          "clean_samples": 80,
+          "noisy_psnr": 35.659251189231874,
+          "noisy_ssim": 0.8923786893486977,
+          "output_luminance_drift": 0.0014821724422896902,
+          "samples": 96,
+          "student_psnr": 39.09291923046112,
+          "student_ssim": 0.9720074363052845,
+          "student_teacher_psnr": 46.22439153989156,
+          "student_teacher_ssim": 0.9914358171323935,
+          "teacher_psnr": 39.12602334022522,
+          "teacher_ssim": 0.9664503827691078
+        },
+        "renoir": {
+          "clean_samples": 31,
+          "noisy_psnr": 31.79911010496078,
+          "noisy_ssim": 0.647219471393093,
+          "output_luminance_drift": 0.002840919841009264,
+          "samples": 104,
+          "student_psnr": 38.27288504569761,
+          "student_ssim": 0.8701819835170623,
+          "student_teacher_psnr": 45.860049101022575,
+          "student_teacher_ssim": 0.9699040691439922,
+          "teacher_psnr": 36.427193672426284,
+          "teacher_ssim": 0.8049237468550282
+        }
+      },
+      "noisy_psnr": 32.701828140667104,
+      "noisy_ssim": 0.7073504197632462,
+      "output_luminance_drift": 0.009809138789123598,
+      "samples": 1982,
+      "seconds": 5.746717607995379,
+      "selection_aggregation": "equal_mean_of_dataset_means",
+      "selection_datasets": [
+        "midd",
+        "polyu",
+        "renoir"
+      ],
+      "selection_samples": 1364,
+      "selection_student_psnr": 38.85905912058842,
+      "selection_student_ssim": 0.9090124474591154,
+      "student_psnr": 39.183096371787734,
+      "student_ssim": 0.8896266007000482,
+      "student_teacher_psnr": 46.08231459231718,
+      "student_teacher_ssim": 0.965027897610253,
+      "target_validation": {
+        "by_dataset": {
+          "midd": {
+            "medium_coarse_teacher_correction_capture": 0.8147102268255921,
+            "medium_coarse_teacher_correction_magnitude": 0.020938429455575978,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 1782,
+              "medium_coarse_teacher_correction_magnitude": 1782,
+              "shadow_fraction": 1782,
+              "shadow_teacher_correction_capture": 1722,
+              "shadow_teacher_correction_magnitude": 1722
+            },
+            "samples": 1782,
+            "shadow_contributing_samples": 1722,
+            "shadow_fraction": 0.7752982275300644,
+            "shadow_teacher_correction_capture": 0.8144268257138898,
+            "shadow_teacher_correction_magnitude": 0.04135881786347712
+          },
+          "polyu": {
+            "medium_coarse_teacher_correction_capture": 0.6426271386444569,
+            "medium_coarse_teacher_correction_magnitude": 0.00596473112818785,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 96,
+              "medium_coarse_teacher_correction_magnitude": 96,
+              "shadow_fraction": 96,
+              "shadow_teacher_correction_capture": 63,
+              "shadow_teacher_correction_magnitude": 63
+            },
+            "samples": 96,
+            "shadow_contributing_samples": 63,
+            "shadow_fraction": 0.2826659616068241,
+            "shadow_teacher_correction_capture": 0.5729000606234111,
+            "shadow_teacher_correction_magnitude": 0.01233876058240495
+          },
+          "renoir": {
+            "medium_coarse_teacher_correction_capture": 0.8966224308197315,
+            "medium_coarse_teacher_correction_magnitude": 0.021209837837467112,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 104,
+              "medium_coarse_teacher_correction_magnitude": 104,
+              "shadow_fraction": 104,
+              "shadow_teacher_correction_capture": 84,
+              "shadow_teacher_correction_magnitude": 84
+            },
+            "samples": 104,
+            "shadow_contributing_samples": 84,
+            "shadow_fraction": 0.6509814166262319,
+            "shadow_teacher_correction_capture": 0.7816297795091357,
+            "shadow_teacher_correction_magnitude": 0.03544551809318364
+          }
+        },
+        "datasets": [
+          "midd",
+          "polyu",
+          "renoir"
+        ],
+        "metric_dataset_means": {
+          "medium_coarse_teacher_correction_capture": 0.7846532654299269,
+          "shadow_teacher_correction_capture": 0.7229855552821456
+        },
+        "metric_samples": {
+          "medium_coarse_teacher_correction_capture": 1982,
+          "medium_coarse_teacher_correction_magnitude": 1982,
+          "shadow_fraction": 1982,
+          "shadow_teacher_correction_capture": 1869,
+          "shadow_teacher_correction_magnitude": 1869
+        },
+        "metrics": {
+          "medium_coarse_teacher_correction_capture": 0.8106733412302346,
+          "medium_coarse_teacher_correction_magnitude": 0.02022740596026186,
+          "shadow_fraction": 0.7449139460655692,
+          "shadow_teacher_correction_capture": 0.8048114495330982,
+          "shadow_teacher_correction_magnitude": 0.04011484740365251
+        },
+        "real_only": true,
+        "samples": 1982,
+        "score": 0.7538194103560363,
+        "score_aggregation": "equal_mean_of_per_metric_equal_dataset_means_for_shadow_and_medium_coarse_teacher_correction",
+        "shadow_contributing_samples": 1869,
+        "synthetic_samples": 0
+      },
+      "teacher_psnr": 38.54752176108598,
+      "teacher_ssim": 0.8721904174101749
+    },
+    "doubled_target": {
+      "by_dataset": {
+        "midd": {
+          "clean_samples": 1253,
+          "noisy_psnr": 32.53534004427582,
+          "noisy_ssim": 0.6970246399010265,
+          "output_luminance_drift": 0.010840101929681477,
+          "samples": 1782,
+          "student_psnr": 39.171507056769805,
+          "student_ssim": 0.8836401301783235,
+          "student_teacher_psnr": 46.05806036562765,
+          "student_teacher_ssim": 0.965000920566311,
+          "teacher_psnr": 38.563044541945764,
+          "teacher_ssim": 0.8678364425965236
+        },
+        "polyu": {
+          "clean_samples": 80,
+          "noisy_psnr": 35.659251189231874,
+          "noisy_ssim": 0.8923786893486977,
+          "output_luminance_drift": 0.001527170844686528,
+          "samples": 96,
+          "student_psnr": 39.1315821647644,
+          "student_ssim": 0.9719820097088814,
+          "student_teacher_psnr": 46.32177225748698,
+          "student_teacher_ssim": 0.9918335881084204,
+          "teacher_psnr": 39.12602334022522,
+          "teacher_ssim": 0.9664503827691078
+        },
+        "renoir": {
+          "clean_samples": 31,
+          "noisy_psnr": 31.79911010496078,
+          "noisy_ssim": 0.647219471393093,
+          "output_luminance_drift": 0.003112785858460344,
+          "samples": 104,
+          "student_psnr": 38.03365891979587,
+          "student_ssim": 0.8636452209564948,
+          "student_teacher_psnr": 46.161684623131386,
+          "student_teacher_ssim": 0.9742003576113627,
+          "teacher_psnr": 36.427193672426284,
+          "teacher_ssim": 0.8049237468550282
+        }
+      },
+      "noisy_psnr": 32.701828140667104,
+      "noisy_ssim": 0.7073504197632462,
+      "output_luminance_drift": 0.009983551851191815,
+      "samples": 1982,
+      "seconds": 5.733050814000308,
+      "selection_aggregation": "equal_mean_of_dataset_means",
+      "selection_datasets": [
+        "midd",
+        "polyu",
+        "renoir"
+      ],
+      "selection_samples": 1364,
+      "selection_student_psnr": 38.77891604711002,
+      "selection_student_ssim": 0.9064224536145665,
+      "student_psnr": 39.143305235943835,
+      "student_ssim": 0.8883670423312325,
+      "student_teacher_psnr": 46.07627089256956,
+      "student_teacher_ssim": 0.9667833007563856,
+      "target_validation": {
+        "by_dataset": {
+          "midd": {
+            "medium_coarse_teacher_correction_capture": 0.8155279797737045,
+            "medium_coarse_teacher_correction_magnitude": 0.020938429455575978,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 1782,
+              "medium_coarse_teacher_correction_magnitude": 1782,
+              "shadow_fraction": 1782,
+              "shadow_teacher_correction_capture": 1722,
+              "shadow_teacher_correction_magnitude": 1722
+            },
+            "samples": 1782,
+            "shadow_contributing_samples": 1722,
+            "shadow_fraction": 0.7752982275300644,
+            "shadow_teacher_correction_capture": 0.8157288948210274,
+            "shadow_teacher_correction_magnitude": 0.04135881786347712
+          },
+          "polyu": {
+            "medium_coarse_teacher_correction_capture": 0.6450806117306153,
+            "medium_coarse_teacher_correction_magnitude": 0.00596473112818785,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 96,
+              "medium_coarse_teacher_correction_magnitude": 96,
+              "shadow_fraction": 96,
+              "shadow_teacher_correction_capture": 63,
+              "shadow_teacher_correction_magnitude": 63
+            },
+            "samples": 96,
+            "shadow_contributing_samples": 63,
+            "shadow_fraction": 0.2826659616068241,
+            "shadow_teacher_correction_capture": 0.5762104590733846,
+            "shadow_teacher_correction_magnitude": 0.01233876058240495
+          },
+          "renoir": {
+            "medium_coarse_teacher_correction_capture": 0.8964101964464555,
+            "medium_coarse_teacher_correction_magnitude": 0.021209837837467112,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 104,
+              "medium_coarse_teacher_correction_magnitude": 104,
+              "shadow_fraction": 104,
+              "shadow_teacher_correction_capture": 84,
+              "shadow_teacher_correction_magnitude": 84
+            },
+            "samples": 104,
+            "shadow_contributing_samples": 84,
+            "shadow_fraction": 0.6509814166262319,
+            "shadow_teacher_correction_capture": 0.7943334465935117,
+            "shadow_teacher_correction_magnitude": 0.03544551809318364
+          }
+        },
+        "datasets": [
+          "midd",
+          "polyu",
+          "renoir"
+        ],
+        "metric_dataset_means": {
+          "medium_coarse_teacher_correction_capture": 0.7856729293169251,
+          "shadow_teacher_correction_capture": 0.7287576001626412
+        },
+        "metric_samples": {
+          "medium_coarse_teacher_correction_capture": 1982,
+          "medium_coarse_teacher_correction_magnitude": 1982,
+          "shadow_fraction": 1982,
+          "shadow_teacher_correction_capture": 1869,
+          "shadow_teacher_correction_magnitude": 1869
+        },
+        "metrics": {
+          "medium_coarse_teacher_correction_capture": 0.8115162760410252,
+          "medium_coarse_teacher_correction_magnitude": 0.02022740596026186,
+          "shadow_fraction": 0.7449139460655692,
+          "shadow_teacher_correction_capture": 0.8066936465047017,
+          "shadow_teacher_correction_magnitude": 0.04011484740365251
+        },
+        "real_only": true,
+        "samples": 1982,
+        "score": 0.7572152647397832,
+        "score_aggregation": "equal_mean_of_per_metric_equal_dataset_means_for_shadow_and_medium_coarse_teacher_correction",
+        "shadow_contributing_samples": 1869,
+        "synthetic_samples": 0
+      },
+      "teacher_psnr": 38.54752176108598,
+      "teacher_ssim": 0.8721904174101749
+    },
+    "previous_target": {
+      "by_dataset": {
+        "midd": {
+          "clean_samples": 1253,
+          "noisy_psnr": 32.53534004427582,
+          "noisy_ssim": 0.6970246399010265,
+          "output_luminance_drift": 0.010959788113748854,
+          "samples": 1782,
+          "student_psnr": 39.15910801959818,
+          "student_ssim": 0.8830942436712679,
+          "student_teacher_psnr": 46.3080236229431,
+          "student_teacher_ssim": 0.9672950068206498,
+          "teacher_psnr": 38.563044541945764,
+          "teacher_ssim": 0.8678364425965236
+        },
+        "polyu": {
+          "clean_samples": 80,
+          "noisy_psnr": 35.659251189231874,
+          "noisy_ssim": 0.8923786893486977,
+          "output_luminance_drift": 0.0015448878596847255,
+          "samples": 96,
+          "student_psnr": 39.10604982376098,
+          "student_ssim": 0.9720320783555507,
+          "student_teacher_psnr": 46.05477889378866,
+          "student_teacher_ssim": 0.9918363137791554,
+          "teacher_psnr": 39.12602334022522,
+          "teacher_ssim": 0.9664503827691078
+        },
+        "renoir": {
+          "clean_samples": 31,
+          "noisy_psnr": 31.79911010496078,
+          "noisy_ssim": 0.647219471393093,
+          "output_luminance_drift": 0.003206254645752219,
+          "samples": 104,
+          "student_psnr": 37.879637810491744,
+          "student_ssim": 0.8502891140599405,
+          "student_teacher_psnr": 46.12531014589163,
+          "student_teacher_ssim": 0.9754296403664809,
+          "teacher_psnr": 36.427193672426284,
+          "teacher_ssim": 0.8049237468550282
+        }
+      },
+      "noisy_psnr": 32.701828140667104,
+      "noisy_ssim": 0.7073504197632462,
+      "output_luminance_drift": 0.010096923378601625,
+      "samples": 1982,
+      "seconds": 6.131812274004915,
+      "selection_aggregation": "equal_mean_of_dataset_means",
+      "selection_datasets": [
+        "midd",
+        "polyu",
+        "renoir"
+      ],
+      "selection_samples": 1364,
+      "selection_student_psnr": 38.714931884616966,
+      "selection_student_ssim": 0.901805145362253,
+      "student_psnr": 39.12691723356499,
+      "student_ssim": 0.8875649678331384,
+      "student_teacher_psnr": 46.286170093370856,
+      "student_teacher_ssim": 0.9689105302095413,
+      "target_validation": {
+        "by_dataset": {
+          "midd": {
+            "medium_coarse_teacher_correction_capture": 0.8153344848006128,
+            "medium_coarse_teacher_correction_magnitude": 0.020938429455575978,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 1782,
+              "medium_coarse_teacher_correction_magnitude": 1782,
+              "shadow_fraction": 1782,
+              "shadow_teacher_correction_capture": 1722,
+              "shadow_teacher_correction_magnitude": 1722
+            },
+            "samples": 1782,
+            "shadow_contributing_samples": 1722,
+            "shadow_fraction": 0.7752982275300644,
+            "shadow_teacher_correction_capture": 0.8199877636842473,
+            "shadow_teacher_correction_magnitude": 0.04135881786347712
+          },
+          "polyu": {
+            "medium_coarse_teacher_correction_capture": 0.6378232408314943,
+            "medium_coarse_teacher_correction_magnitude": 0.00596473112818785,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 96,
+              "medium_coarse_teacher_correction_magnitude": 96,
+              "shadow_fraction": 96,
+              "shadow_teacher_correction_capture": 63,
+              "shadow_teacher_correction_magnitude": 63
+            },
+            "samples": 96,
+            "shadow_contributing_samples": 63,
+            "shadow_fraction": 0.2826659616068241,
+            "shadow_teacher_correction_capture": 0.5588807908315507,
+            "shadow_teacher_correction_magnitude": 0.01233876058240495
+          },
+          "renoir": {
+            "medium_coarse_teacher_correction_capture": 0.8960264634627563,
+            "medium_coarse_teacher_correction_magnitude": 0.021209837837467112,
+            "metric_samples": {
+              "medium_coarse_teacher_correction_capture": 104,
+              "medium_coarse_teacher_correction_magnitude": 104,
+              "shadow_fraction": 104,
+              "shadow_teacher_correction_capture": 84,
+              "shadow_teacher_correction_magnitude": 84
+            },
+            "samples": 104,
+            "shadow_contributing_samples": 84,
+            "shadow_fraction": 0.6509814166262319,
+            "shadow_teacher_correction_capture": 0.7987651285671052,
+            "shadow_teacher_correction_magnitude": 0.03544551809318364
+          }
+        },
+        "datasets": [
+          "midd",
+          "polyu",
+          "renoir"
+        ],
+        "metric_dataset_means": {
+          "medium_coarse_teacher_correction_capture": 0.7830613963649545,
+          "shadow_teacher_correction_capture": 0.7258778943609677
+        },
+        "metric_samples": {
+          "medium_coarse_teacher_correction_capture": 1982,
+          "medium_coarse_teacher_correction_magnitude": 1982,
+          "shadow_fraction": 1982,
+          "shadow_teacher_correction_capture": 1869,
+          "shadow_teacher_correction_magnitude": 1869
+        },
+        "metrics": {
+          "medium_coarse_teacher_correction_capture": 0.8109706534988103,
+          "medium_coarse_teacher_correction_magnitude": 0.02022740596026186,
+          "shadow_fraction": 0.7449139460655692,
+          "shadow_teacher_correction_capture": 0.8102325787513635,
+          "shadow_teacher_correction_magnitude": 0.04011484740365251
+        },
+        "real_only": true,
+        "samples": 1982,
+        "score": 0.7544696453629611,
+        "score_aggregation": "equal_mean_of_per_metric_equal_dataset_means_for_shadow_and_medium_coarse_teacher_correction",
+        "shadow_contributing_samples": 1869,
+        "synthetic_samples": 0
+      },
+      "teacher_psnr": 38.54752176108598,
+      "teacher_ssim": 0.8721904174101749
+    }
+  },
+  "schema_version": 1,
+  "validation_rows": 1982
+}

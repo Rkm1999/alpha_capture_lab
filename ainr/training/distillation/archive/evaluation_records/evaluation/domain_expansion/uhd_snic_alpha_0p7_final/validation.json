@@ -1,0 +1,140 @@
+{
+  "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/domain_expansion/uhd_snic_alpha_0p7_final/best_snapshot.pt",
+  "checkpoint_epoch": 195,
+  "checkpoint_sha256": "4148483859e970b41be20cf9fabae82551e24a47132fd2793534f791c925da10",
+  "manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/uhd_snic_mixed/cache/manifest.json",
+  "manifest_sha256": "0a7911bb4af9494c0bd1df0e9e08f23e94ff18bacb435bf3569bfcb2d6b6a2e5",
+  "metrics": {
+    "by_dataset": {
+      "midd": {
+        "clean_samples": 302,
+        "noisy_psnr": 36.84669137158931,
+        "noisy_ssim": 0.8845794384447944,
+        "output_luminance_drift": 0.001380190903950014,
+        "samples": 302,
+        "student_psnr": 41.26983201109021,
+        "student_ssim": 0.9632361211524104,
+        "student_teacher_psnr": 44.86949661078042,
+        "student_teacher_ssim": 0.9865161750885035,
+        "teacher_psnr": 39.95353101262983,
+        "teacher_ssim": 0.9535056303273763
+      },
+      "nind": {
+        "clean_samples": 164,
+        "noisy_psnr": 23.501593182726605,
+        "noisy_ssim": 0.4336549415048666,
+        "output_luminance_drift": 0.007429362513215803,
+        "samples": 164,
+        "student_psnr": 32.41570129627135,
+        "student_ssim": 0.8494496750758915,
+        "student_teacher_psnr": 36.772697378949424,
+        "student_teacher_ssim": 0.9093559111763792,
+        "teacher_psnr": 31.6181626436187,
+        "teacher_ssim": 0.7961772262777497
+      },
+      "polyu_sony": {
+        "clean_samples": 32,
+        "noisy_psnr": 29.969078481197357,
+        "noisy_ssim": 0.8020184133201838,
+        "output_luminance_drift": 0.0008127077016979456,
+        "samples": 32,
+        "student_psnr": 35.24105387926102,
+        "student_ssim": 0.9720470514148474,
+        "student_teacher_psnr": 45.80659317970276,
+        "student_teacher_ssim": 0.9926415625959635,
+        "teacher_psnr": 35.40513986349106,
+        "teacher_ssim": 0.9756060317158699
+      },
+      "sidd": {
+        "clean_samples": 352,
+        "noisy_psnr": 29.537884072823957,
+        "noisy_ssim": 0.5746786842673001,
+        "output_luminance_drift": 0.0036068886693101376,
+        "samples": 352,
+        "student_psnr": 41.33331707390872,
+        "student_ssim": 0.9493697585368698,
+        "student_teacher_psnr": 43.800445199012756,
+        "student_teacher_ssim": 0.9796963479708541,
+        "teacher_psnr": 39.37951997193423,
+        "teacher_ssim": 0.9352034980600531
+      },
+      "snic_sony": {
+        "clean_samples": 416,
+        "noisy_psnr": 25.776477914590103,
+        "noisy_ssim": 0.4983885701602468,
+        "output_luminance_drift": 0.009007370529266505,
+        "samples": 416,
+        "student_psnr": 34.86456904503015,
+        "student_ssim": 0.8976768384186121,
+        "student_teacher_psnr": 39.290194832361664,
+        "student_teacher_ssim": 0.9783498593247854,
+        "teacher_psnr": 34.28782373208266,
+        "teacher_ssim": 0.8986006651360255
+      },
+      "uhd_ll": {
+        "clean_samples": 254,
+        "noisy_psnr": 36.083751610883574,
+        "noisy_ssim": 0.8618187432683359,
+        "output_luminance_drift": 0.0019243062931733827,
+        "samples": 600,
+        "student_psnr": 39.36698457762951,
+        "student_ssim": 0.9389012587352061,
+        "student_teacher_psnr": 50.23421253840129,
+        "student_teacher_ssim": 0.9899995358784993,
+        "teacher_psnr": 39.53761644438496,
+        "teacher_ssim": 0.9407989705406775
+      }
+    },
+    "noisy_psnr": 30.41223388345618,
+    "noisy_ssim": 0.6529246663699221,
+    "output_luminance_drift": 0.004197489002835313,
+    "samples": 1866,
+    "seconds": 4.8612016959814355,
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "selection_datasets": [
+      "midd",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "selection_samples": 1356,
+    "selection_student_psnr": 38.41515131738392,
+    "selection_student_ssim": 0.9442462056515891,
+    "student_psnr": 38.13130290759237,
+    "student_ssim": 0.925924473981324,
+    "student_teacher_psnr": 44.45344405772219,
+    "student_teacher_ssim": 0.9778527126498799,
+    "teacher_psnr": 37.20538802272395,
+    "teacher_ssim": 0.9156076348778841
+  },
+  "saved_selection_psnr": 38.41515131738392,
+  "schema_version": 1,
+  "selection_psnr_delta": 0.0,
+  "training_contract": {
+    "cached_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "configured_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "datasets": [
+      "midd",
+      "nind",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "loss_weight_contract": "paired_kd_equals_alpha_teacher_only_kd_equals_1",
+    "preprocessing": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+    "selection_datasets": [
+      "midd",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "source_preprocessing": {
+      "domain": "exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+      "legacy": "exact_hwc_rgb_float_0_1_v1"
+    }
+  },
+  "validation_samples": 1866
+}

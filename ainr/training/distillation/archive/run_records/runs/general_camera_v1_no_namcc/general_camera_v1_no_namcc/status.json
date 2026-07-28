@@ -1,0 +1,79 @@
+{
+  "best_selection_psnr": 38.87320150387245,
+  "best_target_score": null,
+  "early_stopping_best_score": 38.87320150387245,
+  "early_stopping_metric": "general",
+  "epoch": 131,
+  "epochs": 200,
+  "epochs_without_improvement": 46,
+  "general_psnr_guardrail": {
+    "last_passed": null,
+    "minimum": null
+  },
+  "last_validation": {
+    "by_dataset": {
+      "midd": {
+        "clean_samples": 1253,
+        "noisy_psnr": 32.53534004427582,
+        "noisy_ssim": 0.6970246399010265,
+        "output_luminance_drift": 0.011264994329308796,
+        "samples": 1782,
+        "student_psnr": 39.258010771402056,
+        "student_ssim": 0.8856295849696837,
+        "student_teacher_psnr": 44.52564721369716,
+        "student_teacher_ssim": 0.9558729904000339,
+        "teacher_psnr": 38.563044541945764,
+        "teacher_ssim": 0.8678364425965236
+      },
+      "polyu": {
+        "clean_samples": 80,
+        "noisy_psnr": 35.659251189231874,
+        "noisy_ssim": 0.8923786893486977,
+        "output_luminance_drift": 0.001487036352045834,
+        "samples": 96,
+        "student_psnr": 39.07352230548859,
+        "student_ssim": 0.9718810454010963,
+        "student_teacher_psnr": 45.26081025600433,
+        "student_teacher_ssim": 0.9905656632035971,
+        "teacher_psnr": 39.12602334022522,
+        "teacher_ssim": 0.9664503827691078
+      },
+      "renoir": {
+        "clean_samples": 31,
+        "noisy_psnr": 31.79911010496078,
+        "noisy_ssim": 0.647219471393093,
+        "output_luminance_drift": 0.004760288185654924,
+        "samples": 104,
+        "student_psnr": 37.41870572490077,
+        "student_ssim": 0.839819738941808,
+        "student_teacher_psnr": 44.48149864490215,
+        "student_teacher_ssim": 0.9744584113359451,
+        "teacher_psnr": 36.427193672426284,
+        "teacher_ssim": 0.8049237468550282
+      }
+    },
+    "noisy_psnr": 32.701828140667104,
+    "noisy_ssim": 0.7073504197632462,
+    "output_luminance_drift": 0.010450073338008469,
+    "samples": 1982,
+    "seconds": 7.431111602927558,
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "selection_datasets": [
+      "midd",
+      "polyu",
+      "renoir"
+    ],
+    "selection_samples": 1364,
+    "selection_student_psnr": 38.583412933930475,
+    "selection_student_ssim": 0.899110123104196,
+    "student_psnr": 39.20538794609808,
+    "student_ssim": 0.8896471887876081,
+    "student_teacher_psnr": 44.55893893968445,
+    "student_teacher_ssim": 0.9585285808977517,
+    "teacher_psnr": 38.54752176108598,
+    "teacher_ssim": 0.8721904174101749
+  },
+  "run_name": "general_camera_v1_no_namcc",
+  "state": "running",
+  "updated_at": "2026-07-20T22:49:47.997057+00:00"
+}

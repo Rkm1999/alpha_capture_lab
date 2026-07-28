@@ -53,6 +53,12 @@ enum DenoiseQuality: String, CaseIterable, Identifiable, Sendable {
     }
 }
 
+enum NeuralEngineSupport: Equatable, Sendable {
+    case checking
+    case available
+    case unavailable
+}
+
 struct DenoiseProgress: Sendable {
     enum Phase: String, Sendable {
         case loading = "Loading full-resolution image"
@@ -92,16 +98,30 @@ private final class ModelSession: @unchecked Sendable {
         category: "ComputePlan"
     )
     let backend: DenoiseBackend
+    let inputChannels: Int
     private let model: MLModel
     private let inputArray: MLMultiArray
-    private let tensorCount: Int
+    let inputTensorCount: Int
+    private let outputTensorCount: Int
 
-    private init(model: MLModel, backend: DenoiseBackend, tileSize: Int) throws {
+    private init(
+        model: MLModel,
+        backend: DenoiseBackend,
+        tileSize: Int,
+        inputChannels: Int
+    ) throws {
         self.model = model
         self.backend = backend
-        tensorCount = 3 * tileSize * tileSize
+        self.inputChannels = inputChannels
+        inputTensorCount = inputChannels * tileSize * tileSize
+        outputTensorCount = 3 * tileSize * tileSize
         inputArray = try MLMultiArray(
-            shape: [1, 3, NSNumber(value: tileSize), NSNumber(value: tileSize)],
+            shape: [
+                1,
+                NSNumber(value: inputChannels),
+                NSNumber(value: tileSize),
+                NSNumber(value: tileSize),
+            ],
             dataType: .float32
         )
     }
@@ -110,6 +130,7 @@ private final class ModelSession: @unchecked Sendable {
         modelURL: URL,
         modelKey: String,
         tileSize: Int,
+        inputChannels: Int,
         backend: DenoiseBackend
     ) async throws -> ModelSession {
         let compiledURL = try await compiledModelURL(for: modelURL, modelKey: modelKey)
@@ -134,7 +155,72 @@ private final class ModelSession: @unchecked Sendable {
             contentsOf: compiledURL,
             configuration: configuration
         )
-        return try ModelSession(model: model, backend: backend, tileSize: tileSize)
+        return try ModelSession(
+            model: model,
+            backend: backend,
+            tileSize: tileSize,
+            inputChannels: inputChannels
+        )
+    }
+
+    static func supportsNeuralEngine(
+        modelURL: URL,
+        modelKey: String
+    ) async -> Bool {
+        let hasNeuralEngine = MLComputeDevice.allComputeDevices.contains { device in
+            if case .neuralEngine = device { return true }
+            return false
+        }
+        guard hasNeuralEngine else { return false }
+
+        do {
+            let compiledURL = try await compiledModelURL(
+                for: modelURL,
+                modelKey: modelKey
+            )
+            let configuration = MLModelConfiguration()
+            configuration.computeUnits = .cpuAndNeuralEngine
+
+            guard #available(iOS 17.4, *) else {
+                _ = try await MLModel.load(
+                    contentsOf: compiledURL,
+                    configuration: configuration
+                )
+                return true
+            }
+
+            let plan = try await MLComputePlan.load(
+                contentsOf: compiledURL,
+                configuration: configuration
+            )
+            guard case .program(let program) = plan.modelStructure else {
+                return false
+            }
+
+            func blockUsesNeuralEngine(
+                _ block: MLModelStructure.Program.Block
+            ) -> Bool {
+                for operation in block.operations where operation.operatorName != "const" {
+                    if let usage = plan.deviceUsage(for: operation),
+                       case .neuralEngine = usage.preferred {
+                        return true
+                    }
+                    if operation.blocks.contains(where: blockUsesNeuralEngine) {
+                        return true
+                    }
+                }
+                return false
+            }
+
+            return program.functions.values.contains {
+                blockUsesNeuralEngine($0.block)
+            }
+        } catch {
+            Self.logger.error(
+                "SCUNET_ANE_CHECK failed: \(error.localizedDescription, privacy: .public)"
+            )
+            return false
+        }
     }
 
     struct RunResult: Sendable {
@@ -145,7 +231,7 @@ private final class ModelSession: @unchecked Sendable {
     }
 
     func run(_ input: [Float]) async throws -> RunResult {
-        guard input.count == tensorCount else {
+        guard input.count == inputTensorCount else {
             throw SCUNetError(message: "SCUNet received an invalid input tile")
         }
         let inputStarted = ProcessInfo.processInfo.systemUptime
@@ -158,7 +244,7 @@ private final class ModelSession: @unchecked Sendable {
         let prediction = try await model.prediction(from: provider)
         let predictionSeconds = ProcessInfo.processInfo.systemUptime - predictionStarted
         guard let outputArray = prediction.featureValue(for: "output")?.multiArrayValue,
-              outputArray.count == tensorCount else {
+              outputArray.count == outputTensorCount else {
             throw SCUNetError(message: "Core ML returned an invalid SCUNet output")
         }
 
@@ -168,15 +254,15 @@ private final class ModelSession: @unchecked Sendable {
         case .float32:
             let values = outputArray.dataPointer.bindMemory(
                 to: Float.self,
-                capacity: tensorCount
+                capacity: outputTensorCount
             )
-            output = Array(UnsafeBufferPointer(start: values, count: tensorCount))
+            output = Array(UnsafeBufferPointer(start: values, count: outputTensorCount))
         case .float16:
             let values = outputArray.dataPointer.bindMemory(
                 to: Float16.self,
-                capacity: tensorCount
+                capacity: outputTensorCount
             )
-            output = (0..<tensorCount).map { Float(values[$0]) }
+            output = (0..<outputTensorCount).map { Float(values[$0]) }
         default:
             throw SCUNetError(message: "Core ML returned an unsupported output type")
         }
@@ -390,6 +476,17 @@ private actor TileIndexScheduler {
     }
 }
 
+private final class NoiseStrengthWorkspace {
+    var luma = [Float](repeating: 0, count: 192 * 192)
+    var residual = [Float](repeating: 0, count: 192 * 192)
+    var gradient = [Float](repeating: 0, count: 192 * 192)
+    var selection = [Float](repeating: 0, count: 192 * 192)
+    var opponentRed = [Float](repeating: 0, count: 192 * 192)
+    var opponentBlue = [Float](repeating: 0, count: 192 * 192)
+    var horizontalRed = [Float](repeating: 0, count: 192 * 192)
+    var horizontalBlue = [Float](repeating: 0, count: 192 * 192)
+}
+
 actor SCUNetProcessor {
     static let shared = SCUNetProcessor()
 
@@ -406,7 +503,6 @@ actor SCUNetProcessor {
     private static let padding = 8
     private static let core = tile - padding * 2
     private static let plane = tile * tile
-    private static let tensorCount = plane * 3
     private static let benchmarkTileLimit: Int? = argumentValue(
         prefix: "--scunet-benchmark-tiles="
     ).flatMap(Int.init)
@@ -417,6 +513,16 @@ actor SCUNetProcessor {
     }
 
     private var sessions: [SessionKey: ModelSession] = [:]
+
+    func neuralEngineSupport(for quality: DenoiseQuality) async -> Bool {
+        guard let resource = Self.modelResource(for: quality) else {
+            return false
+        }
+        return await ModelSession.supportsNeuralEngine(
+            modelURL: resource.url,
+            modelKey: "\(resource.name)_v1"
+        )
+    }
 
     func process(
         sourceURL: URL,
@@ -486,7 +592,12 @@ actor SCUNetProcessor {
             case .single(let selected): highOverlapSessions = [selected]
             case .combined(let neuralEngine, _): highOverlapSessions = [neuralEngine]
             }
-            var input = [Float](repeating: 0, count: Self.tensorCount)
+            let selectedSession = highOverlapSessions[0]
+            var input = [Float](
+                repeating: 0,
+                count: selectedSession.inputTensorCount
+            )
+            let noiseWorkspace = Self.conditionedWorkspace(input)
             var band = [Float](repeating: 0, count: source.width * Self.tile * 3)
             let weights = (0..<Self.tile).map { index -> Float in
                 let value = sin(Double.pi * (Double(index) + 0.5) / Double(Self.tile))
@@ -500,7 +611,8 @@ actor SCUNetProcessor {
                     let startY = row * stride - stride
                     let prepareStarted = ProcessInfo.processInfo.systemUptime
                     Self.prepareTile(source.rgba, width: source.width, height: source.height,
-                        destination: &input, startX: startX, startY: startY)
+                        destination: &input, startX: startX, startY: startY,
+                        noiseWorkspace: noiseWorkspace)
                     prepareSeconds += ProcessInfo.processInfo.systemUptime - prepareStarted
                     let session = highOverlapSessions[completed % highOverlapSessions.count]
                     let run = try await session.run(input)
@@ -527,7 +639,8 @@ actor SCUNetProcessor {
         } else {
         switch execution {
         case .single(let session):
-            var input = [Float](repeating: 0, count: Self.tensorCount)
+            var input = [Float](repeating: 0, count: session.inputTensorCount)
+            let noiseWorkspace = Self.conditionedWorkspace(input)
             for row in 0..<rows {
                 try Task.checkCancellation()
                 var currentRow = [[Float]]()
@@ -544,7 +657,8 @@ actor SCUNetProcessor {
                         height: source.height,
                         destination: &input,
                         startX: coreX - Self.padding,
-                        startY: coreY - Self.padding
+                        startY: coreY - Self.padding,
+                        noiseWorkspace: noiseWorkspace
                     )
                     prepareSeconds += ProcessInfo.processInfo.systemUptime - prepareStarted
 
@@ -735,9 +849,27 @@ actor SCUNetProcessor {
     ) async throws -> ModelSession {
         let sessionKey = SessionKey(backend: backend, quality: quality)
         if let existing = sessions[sessionKey] { return existing }
+        guard let resource = Self.modelResource(for: quality) else {
+            throw SCUNetError(message: "SCUNet model is missing from the app")
+        }
+
+        let created = try await ModelSession.load(
+            modelURL: resource.url,
+            modelKey: "\(resource.name)_v1",
+            tileSize: Self.tile,
+            inputChannels: quality == .highPerformance ? 5 : 3,
+            backend: backend
+        )
+        sessions[sessionKey] = created
+        return created
+    }
+
+    private static func modelResource(
+        for quality: DenoiseQuality
+    ) -> (name: String, url: URL)? {
         let resourceName: String
         if Self.tile == 192, quality == .highPerformance {
-            resourceName = "litedenoise_192_fp16"
+            resourceName = "litedenoise_192_w24"
         } else if Self.modelVariant == "baseline", Self.tile == 192, quality == .highQuality {
             resourceName = "scunet_192_baseline_fp16"
         } else {
@@ -748,17 +880,9 @@ actor SCUNetProcessor {
             withExtension: "mlpackage",
             subdirectory: "Models"
         ) else {
-            throw SCUNetError(message: "SCUNet model is missing from the app")
+            return nil
         }
-
-        let created = try await ModelSession.load(
-            modelURL: modelURL,
-            modelKey: "\(resourceName)_v1",
-            tileSize: Self.tile,
-            backend: backend
-        )
-        sessions[sessionKey] = created
-        return created
+        return (resourceName, modelURL)
     }
 
     private static func inferBand(
@@ -774,7 +898,8 @@ actor SCUNetProcessor {
         var inputCopySeconds: TimeInterval = 0
         var predictionSeconds: TimeInterval = 0
         var outputCopySeconds: TimeInterval = 0
-        var input = [Float](repeating: 0, count: tensorCount)
+        var input = [Float](repeating: 0, count: session.inputTensorCount)
+        let noiseWorkspace = conditionedWorkspace(input)
         var tiles = [InferredTile]()
         tiles.reserveCapacity(512)
 
@@ -791,7 +916,8 @@ actor SCUNetProcessor {
                 height: source.height,
                 destination: &input,
                 startX: coreX - padding,
-                startY: coreY - padding
+                startY: coreY - padding,
+                noiseWorkspace: noiseWorkspace
             )
             prepareSeconds += ProcessInfo.processInfo.systemUptime - prepareStarted
 
@@ -954,7 +1080,8 @@ actor SCUNetProcessor {
         height: Int,
         destination: inout [Float],
         startX: Int,
-        startY: Int
+        startY: Int,
+        noiseWorkspace: NoiseStrengthWorkspace?
     ) {
         for y in 0..<tile {
             let sourceY = reflect(startY + y, limit: height)
@@ -967,6 +1094,194 @@ actor SCUNetProcessor {
                 destination[plane * 2 + tileIndex] = Float(source[sourceIndex + 2]) / 255
             }
         }
+        if let noiseWorkspace {
+            estimateNoiseStrengthAndFill(
+                destination: &destination,
+                workspace: noiseWorkspace
+            )
+        }
+    }
+
+    private static func conditionedWorkspace(
+        _ input: [Float]
+    ) -> NoiseStrengthWorkspace? {
+        input.count == 5 * plane || input.count == 7 * plane
+            ? NoiseStrengthWorkspace()
+            : nil
+    }
+
+    private static func estimateNoiseStrengthAndFill(
+        destination: inout [Float],
+        workspace: NoiseStrengthWorkspace
+    ) {
+        precondition(destination.count == 5 * plane || destination.count == 7 * plane)
+        let sigmaMinimum: Float = 0.0015
+        let sigmaMaximum: Float = 0.07
+        let shadowLimit: Float = 0.5
+        let madNormalizer: Float = 0.67448975
+
+        for index in 0..<plane {
+            workspace.luma[index] = 0.2126 * destination[index]
+                + 0.7152 * destination[plane + index]
+                + 0.0722 * destination[2 * plane + index]
+        }
+        for y in 0..<tile {
+            for x in 0..<tile {
+                let index = y * tile + x
+                var sum: Float = 0
+                for offsetY in -1...1 {
+                    let sourceY = y + offsetY
+                    guard sourceY >= 0, sourceY < tile else { continue }
+                    for offsetX in -1...1 {
+                        let sourceX = x + offsetX
+                        if sourceX >= 0, sourceX < tile {
+                            sum += workspace.luma[sourceY * tile + sourceX]
+                        }
+                    }
+                }
+                workspace.residual[index] = abs(workspace.luma[index] - sum / 9)
+                let horizontalX = x < tile - 1 ? x : tile - 2
+                let verticalY = y < tile - 1 ? y : tile - 2
+                let horizontal = abs(
+                    workspace.luma[y * tile + horizontalX + 1]
+                        - workspace.luma[y * tile + horizontalX]
+                )
+                let vertical = abs(
+                    workspace.luma[(verticalY + 1) * tile + x]
+                        - workspace.luma[verticalY * tile + x]
+                )
+                workspace.gradient[index] = 0.5 * (horizontal + vertical)
+            }
+        }
+
+        var shadowCount = 0
+        for index in 0..<plane where workspace.luma[index] < shadowLimit {
+            workspace.selection[shadowCount] = workspace.gradient[index]
+            shadowCount += 1
+        }
+        let useAll = shadowCount < 64
+        let gradientCount = useAll ? plane : shadowCount
+        if useAll {
+            workspace.selection.replaceSubrange(
+                0..<plane,
+                with: workspace.gradient
+            )
+        }
+        let gradientLimit = quantile(
+            &workspace.selection,
+            count: gradientCount,
+            fraction: 0.4
+        )
+
+        var candidateCount = 0
+        for index in 0..<plane {
+            let isShadow = useAll || workspace.luma[index] < shadowLimit
+            if isShadow, workspace.gradient[index] <= gradientLimit {
+                workspace.selection[candidateCount] = workspace.residual[index]
+                candidateCount += 1
+            }
+        }
+        if candidateCount < 64 {
+            workspace.selection.replaceSubrange(
+                0..<plane,
+                with: workspace.residual
+            )
+            candidateCount = plane
+        }
+        let sigma = quantile(
+            &workspace.selection,
+            count: candidateCount,
+            fraction: 0.5
+        ) / madNormalizer
+        let clampedSigma = max(sigmaMinimum, sigma)
+        let strength = max(
+            0,
+            min(
+                1,
+                (log(clampedSigma) - log(sigmaMinimum))
+                    / (log(sigmaMaximum) - log(sigmaMinimum))
+            )
+        )
+        destination.replaceSubrange(
+            (3 * plane)..<(4 * plane),
+            with: repeatElement(strength, count: plane)
+        )
+        let gatePosition = max(0, min(1, (strength - 0.35) / (0.75 - 0.35)))
+        let gate = gatePosition * gatePosition * (3 - 2 * gatePosition)
+        if destination.count == 5 * plane {
+            destination.replaceSubrange(
+                (4 * plane)..<(5 * plane),
+                with: repeatElement(gate, count: plane)
+            )
+            return
+        }
+        for index in 0..<plane {
+            let shadow = (shadowLimit - workspace.luma[index]) / shadowLimit
+            destination[4 * plane + index] = max(0, min(1, shadow))
+            workspace.opponentRed[index] = destination[index]
+                - destination[plane + index]
+            workspace.opponentBlue[index] = destination[2 * plane + index]
+                - destination[plane + index]
+        }
+        for y in 0..<tile {
+            let row = y * tile
+            var redSum = 5 * workspace.opponentRed[row]
+            var blueSum = 5 * workspace.opponentBlue[row]
+            for x in 1...4 {
+                redSum += workspace.opponentRed[row + x]
+                blueSum += workspace.opponentBlue[row + x]
+            }
+            for x in 0..<tile {
+                let index = row + x
+                workspace.horizontalRed[index] = redSum
+                workspace.horizontalBlue[index] = blueSum
+                let added = min(tile - 1, x + 5)
+                let removed = max(0, x - 4)
+                redSum += workspace.opponentRed[row + added]
+                    - workspace.opponentRed[row + removed]
+                blueSum += workspace.opponentBlue[row + added]
+                    - workspace.opponentBlue[row + removed]
+            }
+        }
+        for x in 0..<tile {
+            var redSum = 5 * workspace.horizontalRed[x]
+            var blueSum = 5 * workspace.horizontalBlue[x]
+            for y in 1...4 {
+                redSum += workspace.horizontalRed[y * tile + x]
+                blueSum += workspace.horizontalBlue[y * tile + x]
+            }
+            for y in 0..<tile {
+                let index = y * tile + x
+                let chroma = (
+                    abs(workspace.opponentRed[index] - redSum / 81)
+                        + abs(workspace.opponentBlue[index] - blueSum / 81)
+                ) * 0.5 / 0.04
+                destination[5 * plane + index] = max(0, min(1, chroma))
+                let added = min(tile - 1, y + 5) * tile + x
+                let removed = max(0, y - 4) * tile + x
+                redSum += workspace.horizontalRed[added]
+                    - workspace.horizontalRed[removed]
+                blueSum += workspace.horizontalBlue[added]
+                    - workspace.horizontalBlue[removed]
+            }
+        }
+        destination.replaceSubrange(
+            (6 * plane)..<(7 * plane),
+            with: repeatElement(gate, count: plane)
+        )
+    }
+
+    private static func quantile(
+        _ values: inout [Float],
+        count: Int,
+        fraction: Float
+    ) -> Float {
+        values[0..<count].sort()
+        let position = Float(count - 1) * fraction
+        let lower = Int(position.rounded(.down))
+        let upper = min(count - 1, lower + 1)
+        let weight = position - Float(lower)
+        return values[lower] + weight * (values[upper] - values[lower])
     }
 
     private static func copyCore(
@@ -1372,13 +1687,9 @@ enum ImageCodec {
             )
             .trimmingCharacters(in: .whitespacesAndNewlines)
         let stem = sanitized.isEmpty ? "image" : sanitized
-        var destination = directory.appendingPathComponent("\(stem)_scunet.jpg")
+        let destination = directory.appendingPathComponent("\(stem)_denoised.jpg")
         if FileManager.default.fileExists(atPath: destination.path) {
-            let formatter = DateFormatter()
-            formatter.dateFormat = "yyyyMMdd-HHmmss"
-            destination = directory.appendingPathComponent(
-                "\(stem)_scunet_\(formatter.string(from: Date())).jpg"
-            )
+            try FileManager.default.removeItem(at: destination)
         }
         return destination
     }
@@ -1395,10 +1706,21 @@ enum ImageCodec {
         return (destination, rawName)
     }
 
-    static func importSource(data: Data, preferredExtension: String) throws -> (URL, String) {
+    static func importSource(
+        data: Data,
+        preferredExtension: String,
+        originalName: String? = nil
+    ) throws -> (URL, String) {
         let directory = try inputDirectory()
-        let fileName = "Photo-\(UUID().uuidString).\(preferredExtension)"
+        let suppliedName = originalName.map {
+            ($0 as NSString).lastPathComponent
+        }
+        let fileName = suppliedName.flatMap { $0.isEmpty ? nil : $0 }
+            ?? "Photo-\(UUID().uuidString).\(preferredExtension)"
         let destination = directory.appendingPathComponent(fileName)
+        if FileManager.default.fileExists(atPath: destination.path) {
+            try FileManager.default.removeItem(at: destination)
+        }
         try data.write(to: destination, options: .atomic)
         return (destination, fileName)
     }

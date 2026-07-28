@@ -50,6 +50,7 @@ final class DenoiseViewModel: ObservableObject {
     @Published var batchCount = 0
     @Published var alertMessage: String?
     @Published var processingStartedAt: Date?
+    @Published private(set) var neuralEngineSupport: NeuralEngineSupport = .checking
 
     private static let backendKey = "SCUNetBackend"
     private static let highOverlapKey = "SCUNetHighOverlap"
@@ -58,15 +59,23 @@ final class DenoiseViewModel: ObservableObject {
     private var sources: [ImportedSelection] = []
     private var importTask: Task<Void, Never>?
     private var processingTask: Task<Void, Never>?
+    private var supportTask: Task<Void, Never>?
     private var runID: UUID?
     private var runAfterImport = false
 
     init() {
         highOverlap = UserDefaults.standard.bool(forKey: Self.highOverlapKey)
         let saved = UserDefaults.standard.string(forKey: Self.backendKey)
-        quality = DenoiseQuality(
-            rawValue: UserDefaults.standard.string(forKey: Self.qualityKey) ?? ""
-        ) ?? .highQuality
+        if let requested = CommandLine.arguments.first(where: {
+            $0.hasPrefix("--scunet-quality=")
+        })?.split(separator: "=", maxSplits: 1).last,
+           let requestedQuality = Self.qualityArgument(String(requested)) {
+            quality = requestedQuality
+        } else {
+            quality = DenoiseQuality(
+                rawValue: UserDefaults.standard.string(forKey: Self.qualityKey) ?? ""
+            ) ?? .highQuality
+        }
         if let requested = CommandLine.arguments.first(where: {
             $0.hasPrefix("--scunet-backend=")
         })?.split(separator: "=", maxSplits: 1).last,
@@ -80,6 +89,18 @@ final class DenoiseViewModel: ObservableObject {
                 self?.loadTestImage(runWhenReady: true)
             }
         }
+        refreshNeuralEngineSupport()
+    }
+
+    private static func qualityArgument(_ value: String) -> DenoiseQuality? {
+        switch value.lowercased() {
+        case "performance", "high-performance":
+            return .highPerformance
+        case "quality", "high-quality":
+            return .highQuality
+        default:
+            return nil
+        }
     }
 
     var displayedImage: UIImage? {
@@ -88,7 +109,40 @@ final class DenoiseViewModel: ObservableObject {
     }
 
     var canRun: Bool {
-        !sources.isEmpty && !isLoadingImage && !isProcessing
+        !sources.isEmpty
+            && !isLoadingImage
+            && !isProcessing
+            && isBackendAvailable(backend)
+    }
+
+    var neuralEngineStatus: String? {
+        switch neuralEngineSupport {
+        case .checking:
+            "Checking Neural Engine compatibility"
+        case .available:
+            nil
+        case .unavailable:
+            "Neural Engine is unavailable for this model; using GPU"
+        }
+    }
+
+    func isBackendAvailable(_ candidate: DenoiseBackend) -> Bool {
+        switch candidate {
+        case .neuralEngine, .gpuAndNeuralEngine:
+            neuralEngineSupport == .available
+        case .gpu, .cpu:
+            true
+        }
+    }
+
+    func qualityDidChange() {
+        refreshNeuralEngineSupport()
+    }
+
+    func validateBackendSelection() {
+        if !isBackendAvailable(backend) {
+            backend = .gpu
+        }
     }
 
     var overallProgress: Double? {
@@ -117,16 +171,17 @@ final class DenoiseViewModel: ObservableObject {
     }
 
     func importPhotoData(_ data: Data, preferredExtension: String) {
-        importPhotoData([(data, preferredExtension)])
+        importPhotoData([(data, preferredExtension, nil)])
     }
 
-    func importPhotoData(_ items: [(Data, String)]) {
+    func importPhotoData(_ items: [(Data, String, String?)]) {
         guard !items.isEmpty else { return }
         beginImport {
-            try items.map { data, fileExtension in
+            try items.map { data, fileExtension, originalName in
                 let imported = try ImageCodec.importSource(
                     data: data,
-                    preferredExtension: fileExtension
+                    preferredExtension: fileExtension,
+                    originalName: originalName
                 )
                 return try Self.selection(url: imported.0, name: imported.1)
             }
@@ -248,8 +303,13 @@ final class DenoiseViewModel: ObservableObject {
                 }
                 try await PHPhotoLibrary.shared().performChanges {
                     for result in completed {
-                        PHAssetChangeRequest.creationRequestForAssetFromImage(
-                            atFileURL: result.url
+                        let request = PHAssetCreationRequest.forAsset()
+                        let options = PHAssetResourceCreationOptions()
+                        options.originalFilename = result.url.lastPathComponent
+                        request.addResource(
+                            with: .photo,
+                            fileURL: result.url,
+                            options: options
                         )
                     }
                 }
@@ -267,6 +327,19 @@ final class DenoiseViewModel: ObservableObject {
 
     func report(_ error: Error) {
         alertMessage = error.localizedDescription
+    }
+
+    private func refreshNeuralEngineSupport() {
+        supportTask?.cancel()
+        neuralEngineSupport = .checking
+        let selectedQuality = quality
+        supportTask = Task { [weak self] in
+            guard let self else { return }
+            let supported = await processor.neuralEngineSupport(for: selectedQuality)
+            guard !Task.isCancelled, quality == selectedQuality else { return }
+            neuralEngineSupport = supported ? .available : .unavailable
+            validateBackendSelection()
+        }
     }
 
     private func beginImport(

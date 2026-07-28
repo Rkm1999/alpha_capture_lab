@@ -1,0 +1,281 @@
+{
+  "best_selection_psnr": 36.93911088629251,
+  "best_target_score": 0.7140380195994572,
+  "early_stopping_best_score": 0.7140036084977438,
+  "early_stopping_metric": "target",
+  "epoch": 30,
+  "epochs": 30,
+  "epochs_without_improvement": 6,
+  "general_psnr_guardrail": {
+    "last_passed": true,
+    "minimum": 36.88
+  },
+  "general_ssim_guardrail": {
+    "last_passed": true,
+    "minimum": 0.9235
+  },
+  "last_validation": {
+    "by_dataset": {
+      "midd": {
+        "clean_samples": 302,
+        "noisy_psnr": 36.84669137158931,
+        "noisy_ssim": 0.8845794384447944,
+        "output_luminance_drift": 0.0011037917567157981,
+        "samples": 302,
+        "student_psnr": 40.70881680621217,
+        "student_ssim": 0.959420863958384,
+        "student_teacher_psnr": 45.84073782914522,
+        "student_teacher_ssim": 0.9894654705429708,
+        "teacher_psnr": 39.95353101262983,
+        "teacher_ssim": 0.9535056303273763
+      },
+      "nind": {
+        "clean_samples": 164,
+        "noisy_psnr": 23.501593182726605,
+        "noisy_ssim": 0.4336549415048666,
+        "output_luminance_drift": 0.006071808157352413,
+        "samples": 164,
+        "student_psnr": 32.407591691831264,
+        "student_ssim": 0.8430147970595011,
+        "student_teacher_psnr": 36.824909000861936,
+        "student_teacher_ssim": 0.9152591899037361,
+        "teacher_psnr": 31.6181626436187,
+        "teacher_ssim": 0.7961772262777497
+      },
+      "polyu_sony": {
+        "clean_samples": 32,
+        "noisy_psnr": 29.969078481197357,
+        "noisy_ssim": 0.8020184133201838,
+        "output_luminance_drift": 0.0006704942788928747,
+        "samples": 32,
+        "student_psnr": 35.36550897359848,
+        "student_ssim": 0.9750489369034767,
+        "student_teacher_psnr": 47.024470925331116,
+        "student_teacher_ssim": 0.9954223781824112,
+        "teacher_psnr": 35.40513986349106,
+        "teacher_ssim": 0.9756060317158699
+      },
+      "sidd": {
+        "clean_samples": 352,
+        "noisy_psnr": 29.537884072823957,
+        "noisy_ssim": 0.5746786842673001,
+        "output_luminance_drift": 0.002686709485715255,
+        "samples": 352,
+        "student_psnr": 40.12553295764056,
+        "student_ssim": 0.9431093023581938,
+        "student_teacher_psnr": 45.25569163127379,
+        "student_teacher_ssim": 0.982903373173692,
+        "teacher_psnr": 39.37951997193423,
+        "teacher_ssim": 0.9352034980600531
+      },
+      "snic_sony": {
+        "clean_samples": 416,
+        "noisy_psnr": 25.776477914590103,
+        "noisy_ssim": 0.4983885701602468,
+        "output_luminance_drift": 0.0037879511857262026,
+        "samples": 416,
+        "student_psnr": 34.00514855751624,
+        "student_ssim": 0.8913956659917648,
+        "student_teacher_psnr": 40.43804139357347,
+        "student_teacher_ssim": 0.976176992058754,
+        "teacher_psnr": 34.28782373208266,
+        "teacher_ssim": 0.8986006651360255
+      },
+      "synthetic_camera_jpeg": {
+        "clean_samples": 858,
+        "noisy_psnr": 20.082454614705973,
+        "noisy_ssim": 0.20242285254760917,
+        "output_luminance_drift": 0.00645167558586403,
+        "samples": 858,
+        "student_psnr": 32.94085586209953,
+        "student_ssim": 0.8854573481566422,
+        "student_teacher_psnr": 34.99182115123544,
+        "student_teacher_ssim": 0.9476110567371329,
+        "teacher_psnr": 30.156406993910426,
+        "teacher_ssim": 0.8635496643734423
+      },
+      "uhd_ll": {
+        "clean_samples": 254,
+        "noisy_psnr": 36.083751610883574,
+        "noisy_ssim": 0.8618187432683359,
+        "output_luminance_drift": 0.0018275875505059957,
+        "samples": 600,
+        "student_psnr": 38.996022261972506,
+        "student_ssim": 0.9343356068913392,
+        "student_teacher_psnr": 50.732429835001625,
+        "student_teacher_ssim": 0.9902110520998637,
+        "teacher_psnr": 39.53761644438496,
+        "teacher_ssim": 0.9407989705406775
+      }
+    },
+    "noisy_psnr": 26.685173070761614,
+    "noisy_ssim": 0.4903802776989614,
+    "output_luminance_drift": 0.003856158986955706,
+    "samples": 2724,
+    "seconds": 10.077093058993341,
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "selection_datasets": [
+      "midd",
+      "nind",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "selection_samples": 1520,
+    "selection_student_psnr": 36.93477020812853,
+    "selection_student_ssim": 0.9243875288604432,
+    "student_psnr": 35.81967089374693,
+    "student_ssim": 0.9079225458223545,
+    "student_teacher_psnr": 42.0714537785792,
+    "student_teacher_ssim": 0.9691714865433136,
+    "target_validation": {
+      "by_dataset": {
+        "nind": {
+          "medium_coarse_chroma_teacher_correction_capture": 0.8335266618466959,
+          "medium_coarse_chroma_teacher_correction_magnitude": 0.02770163018892451,
+          "medium_coarse_teacher_correction_capture": 0.8010062702545305,
+          "medium_coarse_teacher_correction_magnitude": 0.03262224489618547,
+          "metric_samples": {
+            "medium_coarse_chroma_teacher_correction_capture": 164,
+            "medium_coarse_chroma_teacher_correction_magnitude": 164,
+            "medium_coarse_teacher_correction_capture": 164,
+            "medium_coarse_teacher_correction_magnitude": 164,
+            "row_column_chroma_teacher_correction_capture": 164,
+            "row_column_chroma_teacher_correction_magnitude": 164,
+            "shadow_chroma_teacher_correction_capture": 150,
+            "shadow_chroma_teacher_correction_magnitude": 150,
+            "shadow_fraction": 164,
+            "shadow_teacher_correction_capture": 150,
+            "shadow_teacher_correction_magnitude": 150,
+            "very_coarse_chroma_teacher_correction_capture": 164,
+            "very_coarse_chroma_teacher_correction_magnitude": 164
+          },
+          "row_column_chroma_teacher_correction_capture": 0.4840817069861947,
+          "row_column_chroma_teacher_correction_magnitude": 0.013227050611465351,
+          "samples": 164,
+          "shadow_chroma_teacher_correction_capture": 0.6854249536991119,
+          "shadow_chroma_teacher_correction_magnitude": 0.061687670182436705,
+          "shadow_contributing_samples": 150,
+          "shadow_fraction": 0.31237842781648373,
+          "shadow_teacher_correction_capture": 0.6791843791802724,
+          "shadow_teacher_correction_magnitude": 0.0994912767658631,
+          "very_coarse_chroma_teacher_correction_capture": 0.5330873793218194,
+          "very_coarse_chroma_teacher_correction_magnitude": 0.002397572187985089
+        },
+        "snic_sony": {
+          "medium_coarse_chroma_teacher_correction_capture": 0.8455209456957303,
+          "medium_coarse_chroma_teacher_correction_magnitude": 0.035140848270832345,
+          "medium_coarse_teacher_correction_capture": 0.8208112768255748,
+          "medium_coarse_teacher_correction_magnitude": 0.03888291670367695,
+          "metric_samples": {
+            "medium_coarse_chroma_teacher_correction_capture": 104,
+            "medium_coarse_chroma_teacher_correction_magnitude": 104,
+            "medium_coarse_teacher_correction_capture": 104,
+            "medium_coarse_teacher_correction_magnitude": 104,
+            "row_column_chroma_teacher_correction_capture": 104,
+            "row_column_chroma_teacher_correction_magnitude": 104,
+            "shadow_chroma_teacher_correction_capture": 95,
+            "shadow_chroma_teacher_correction_magnitude": 95,
+            "shadow_fraction": 104,
+            "shadow_teacher_correction_capture": 95,
+            "shadow_teacher_correction_magnitude": 95,
+            "very_coarse_chroma_teacher_correction_capture": 104,
+            "very_coarse_chroma_teacher_correction_magnitude": 104
+          },
+          "row_column_chroma_teacher_correction_capture": 0.6365227022996316,
+          "row_column_chroma_teacher_correction_magnitude": 0.01233826583931939,
+          "samples": 104,
+          "shadow_chroma_teacher_correction_capture": 0.8454737587978965,
+          "shadow_chroma_teacher_correction_magnitude": 0.06757683569663449,
+          "shadow_contributing_samples": 95,
+          "shadow_fraction": 0.20303605640506597,
+          "shadow_teacher_correction_capture": 0.8546725850356253,
+          "shadow_teacher_correction_magnitude": 0.09238999333036574,
+          "very_coarse_chroma_teacher_correction_capture": 0.5491436152504041,
+          "very_coarse_chroma_teacher_correction_magnitude": 0.002649848689683355
+        }
+      },
+      "datasets": [
+        "nind",
+        "snic_sony"
+      ],
+      "metric_dataset_means": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8395238037712132,
+        "medium_coarse_teacher_correction_capture": 0.8109087735400526,
+        "row_column_chroma_teacher_correction_capture": 0.5603022046429131,
+        "shadow_chroma_teacher_correction_capture": 0.7654493562485043,
+        "shadow_teacher_correction_capture": 0.7669284821079488,
+        "very_coarse_chroma_teacher_correction_capture": 0.5411154972861117
+      },
+      "metric_samples": {
+        "medium_coarse_chroma_teacher_correction_capture": 268,
+        "medium_coarse_chroma_teacher_correction_magnitude": 268,
+        "medium_coarse_teacher_correction_capture": 268,
+        "medium_coarse_teacher_correction_magnitude": 268,
+        "row_column_chroma_teacher_correction_capture": 268,
+        "row_column_chroma_teacher_correction_magnitude": 268,
+        "shadow_chroma_teacher_correction_capture": 245,
+        "shadow_chroma_teacher_correction_magnitude": 245,
+        "shadow_fraction": 268,
+        "shadow_teacher_correction_capture": 245,
+        "shadow_teacher_correction_magnitude": 245,
+        "very_coarse_chroma_teacher_correction_capture": 268,
+        "very_coarse_chroma_teacher_correction_magnitude": 268
+      },
+      "metrics": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.8381811600567689,
+        "medium_coarse_chroma_teacher_correction_magnitude": 0.030588490937127552,
+        "medium_coarse_teacher_correction_capture": 0.8086917951925477,
+        "medium_coarse_teacher_correction_magnitude": 0.03505175932894336,
+        "row_column_chroma_teacher_correction_capture": 0.5432379141227522,
+        "row_column_chroma_teacher_correction_magnitude": 0.012882149058095278,
+        "shadow_chroma_teacher_correction_capture": 0.7474846944517018,
+        "shadow_chroma_teacher_correction_magnitude": 0.06397122415732973,
+        "shadow_fraction": 0.2699470598060828,
+        "shadow_teacher_correction_capture": 0.7472308263486745,
+        "shadow_teacher_correction_magnitude": 0.09673771788271106,
+        "very_coarse_chroma_teacher_correction_capture": 0.5393181574433598,
+        "very_coarse_chroma_teacher_correction_magnitude": 0.0024954705319277
+      },
+      "real_only": true,
+      "samples": 268,
+      "score": 0.7140380195994572,
+      "score_aggregation": "equal_mean_of_per_metric_equal_dataset_means",
+      "score_metrics": [
+        "shadow_teacher_correction_capture",
+        "medium_coarse_teacher_correction_capture",
+        "shadow_chroma_teacher_correction_capture",
+        "medium_coarse_chroma_teacher_correction_capture",
+        "very_coarse_chroma_teacher_correction_capture",
+        "row_column_chroma_teacher_correction_capture"
+      ],
+      "shadow_contributing_samples": 245,
+      "synthetic_samples": 0
+    },
+    "teacher_psnr": 34.662063496768525,
+    "teacher_ssim": 0.8968247338296036
+  },
+  "run_name": "general_camera_v5_chroma_blotch_tune",
+  "state": "complete",
+  "target_component_guardrail": {
+    "last_passed": true,
+    "last_values": {
+      "medium_coarse_chroma_teacher_correction_capture": 0.8395238037712132,
+      "medium_coarse_teacher_correction_capture": 0.8109087735400526,
+      "row_column_chroma_teacher_correction_capture": 0.5603022046429131,
+      "shadow_chroma_teacher_correction_capture": 0.7654493562485043,
+      "shadow_teacher_correction_capture": 0.7669284821079488,
+      "very_coarse_chroma_teacher_correction_capture": 0.5411154972861117
+    },
+    "minimums": {
+      "medium_coarse_chroma_teacher_correction_capture": 0.835,
+      "medium_coarse_teacher_correction_capture": 0.805,
+      "row_column_chroma_teacher_correction_capture": 0.526,
+      "shadow_chroma_teacher_correction_capture": 0.755,
+      "shadow_teacher_correction_capture": 0.758,
+      "very_coarse_chroma_teacher_correction_capture": 0.527
+    }
+  },
+  "updated_at": "2026-07-23T06:56:59.958532+00:00"
+}

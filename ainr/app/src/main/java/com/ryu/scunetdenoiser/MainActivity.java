@@ -1,9 +1,9 @@
 package com.ryu.scunetdenoiser;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.ClipData;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Build;
@@ -12,7 +12,6 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.SystemClock;
 import android.provider.MediaStore;
-import android.provider.OpenableColumns;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -49,7 +48,7 @@ public final class MainActivity extends Activity {
     private final ModelStore modelStore = new ModelStore();
     private final ImageStore imageStore = new ImageStore();
     private final DenoiseProcessor processor = new DenoiseProcessor();
-    private final NpuSupport.Vendor npuVendor = NpuSupport.detect();
+    private NpuSupport.Vendor npuVendor = NpuSupport.Vendor.UNSUPPORTED;
 
     private TextView sessionStatus;
     private TextView emptyPreview;
@@ -66,6 +65,7 @@ public final class MainActivity extends Activity {
     private Button chooseButton;
     private Button runButton;
     private Button cancelButton;
+    private AlertDialog cancelConfirmation;
     private Button saveButton;
 
     private final List<SelectedImage> selectedImages = new ArrayList<>();
@@ -98,6 +98,10 @@ public final class MainActivity extends Activity {
     @Override
     protected void onCreate(Bundle state) {
         super.onCreate(state);
+        npuVendor = NpuSupport.detect(this);
+        Log.i(TAG, "NPU_SUPPORT vendor=" + npuVendor
+            + " device=" + NpuSupport.deviceSummary()
+            + " android_api=" + Build.VERSION.SDK_INT);
         setContentView(R.layout.activity_main);
         bindViews();
         bindActions();
@@ -141,7 +145,7 @@ public final class MainActivity extends Activity {
     private void bindActions() {
         chooseButton.setOnClickListener(view -> openImagePicker());
         runButton.setOnClickListener(view -> startDenoising());
-        cancelButton.setOnClickListener(view -> requestCancellation());
+        cancelButton.setOnClickListener(view -> showCancelConfirmation());
         saveButton.setOnClickListener(view -> saveCompletedImage());
         backendGroup.setOnCheckedChangeListener((group, checkedId) -> updateSessionLabel());
         qualityGroup.setOnCheckedChangeListener((group, checkedId) -> {
@@ -162,22 +166,12 @@ public final class MainActivity extends Activity {
     }
 
     private void openImagePicker() {
-        Intent intent;
-        if (Build.VERSION.SDK_INT >= 33) {
-            intent = new Intent(MediaStore.ACTION_PICK_IMAGES);
-            intent.setType("image/*");
-            intent.putExtra(
-                MediaStore.EXTRA_PICK_IMAGES_MAX,
-                MediaStore.getPickImagesMaxLimit());
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        } else {
-            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.addCategory(Intent.CATEGORY_OPENABLE);
-            intent.setType("image/*");
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
-        }
+        Intent intent = new Intent(Intent.ACTION_PICK);
+        intent.setDataAndType(
+            MediaStore.Images.Media.EXTERNAL_CONTENT_URI,
+            "image/*");
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         startActivityForResult(intent, OPEN_IMAGE_REQUEST);
     }
 
@@ -234,7 +228,8 @@ public final class MainActivity extends Activity {
         selectedImages.clear();
         for (int index = 0; index < uris.size(); index++) {
             selectedImages.add(new SelectedImage(
-                uris.get(index), displayName(uris.get(index), "image_" + (index + 1))));
+                uris.get(index),
+                sourceName(uris.get(index), "image_" + (index + 1))));
         }
         Uri uri = selectedImages.get(0).uri;
         clearCompletedImage();
@@ -423,7 +418,10 @@ public final class MainActivity extends Activity {
             startNpuTicker();
             long createStarted = SystemClock.elapsedRealtime();
             AcceleratorEngine created = AcceleratorEngine.createNpu(
-                this, npuModel, modelStore.cacheKey(npuVariant));
+                this,
+                npuModel,
+                modelStore.cacheKey(npuVariant),
+                modelStore.tensorSpec(npuVariant));
             stopNpuTicker();
             try {
                 created.warmUp();
@@ -441,7 +439,10 @@ public final class MainActivity extends Activity {
             post(() -> setIndeterminate("Preparing GPU"));
             long createStarted = SystemClock.elapsedRealtime();
             AcceleratorEngine created = AcceleratorEngine.createGpu(
-                this, gpuModel, modelStore.cacheKey(gpuVariant));
+                this,
+                gpuModel,
+                modelStore.cacheKey(gpuVariant),
+                modelStore.tensorSpec(gpuVariant));
             try {
                 created.warmUp();
             } catch (Throwable error) {
@@ -500,6 +501,24 @@ public final class MainActivity extends Activity {
             ? R.string.cancel_compiler
             : R.string.cancel_tile);
         progressPercent.setText("");
+    }
+
+    private void showCancelConfirmation() {
+        if (!busy || currentCancellation.get()) return;
+        if (cancelConfirmation != null && cancelConfirmation.isShowing()) return;
+        AlertDialog dialog = new AlertDialog.Builder(this)
+            .setTitle(R.string.cancel_denoising_title)
+            .setMessage(R.string.cancel_denoising_message)
+            .setNegativeButton(R.string.continue_denoising, null)
+            .setPositiveButton(R.string.confirm_cancel, (ignored, which) -> {
+                if (busy && !currentCancellation.get()) requestCancellation();
+            })
+            .create();
+        cancelConfirmation = dialog;
+        dialog.setOnDismissListener(ignored -> {
+            if (cancelConfirmation == dialog) cancelConfirmation = null;
+        });
+        dialog.show();
     }
 
     private void startNpuTicker() {
@@ -581,6 +600,7 @@ public final class MainActivity extends Activity {
         if (value) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         } else {
+            if (cancelConfirmation != null) cancelConfirmation.dismiss();
             getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
     }
@@ -657,17 +677,9 @@ public final class MainActivity extends Activity {
         return selectedName + " + " + (selectedImages.size() - 1) + " more";
     }
 
-    private String displayName(Uri uri, String fallback) {
-        try (Cursor cursor = getContentResolver().query(
-            uri, new String[] {OpenableColumns.DISPLAY_NAME}, null, null, null)) {
-            if (cursor != null && cursor.moveToFirst()) {
-                String value = cursor.getString(0);
-                if (value != null && !value.isBlank()) return value;
-            }
-        } catch (RuntimeException ignored) {
-            // A provider may omit metadata while still allowing the image stream.
-        }
-        return fallback;
+    private String sourceName(Uri uri, String fallback) {
+        String value = ImageStore.displayName(getContentResolver(), uri);
+        return value == null || value.isBlank() ? fallback : value;
     }
 
     private static String batchStatus(int current, int total, String detail) {
@@ -763,6 +775,7 @@ public final class MainActivity extends Activity {
         compilingNpu = false;
         mainHandler.removeCallbacksAndMessages(null);
         currentCancellation.set(true);
+        if (cancelConfirmation != null) cancelConfirmation.dismiss();
         if (displayedPreview != null && !displayedPreview.isRecycled()) {
             displayedPreview.recycle();
             displayedPreview = null;

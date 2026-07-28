@@ -1,0 +1,125 @@
+{
+  "array_dtypes": {
+    "clean/float32": 4400,
+    "input/float32": 4400,
+    "teacher/float16": 4400
+  },
+  "contact_sheet": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data_gate_contact_sheet.jpg",
+  "counts": {
+    "train/midd": 1538,
+    "train/sidd": 2208,
+    "validation/midd": 302,
+    "validation/sidd": 352
+  },
+  "final_product_teacher_gate_passed": false,
+  "phase_shift_counts": {
+    "0,0": 4400
+  },
+  "public_pretraining_teacher_gate_passed": true,
+  "records": 4400,
+  "scene_groups": 1080,
+  "scene_leakage": 0,
+  "target_camera_data_present": false,
+  "target_camera_teacher_gate_passed": null,
+  "teacher_baseline": {
+    "all": {
+      "noisy_psnr": {
+        "maximum": 44.721038818359375,
+        "mean": 32.912899063996946,
+        "median": 34.57114791870117,
+        "minimum": 15.411404609680176
+      },
+      "noisy_ssim": {
+        "maximum": 0.9891652464866638,
+        "mean": 0.717782702251403,
+        "median": 0.8235641717910767,
+        "minimum": 0.07363542169332504
+      },
+      "teacher_psnr": {
+        "maximum": 50.59930419921875,
+        "mean": 39.64458317421263,
+        "median": 40.32722282409668,
+        "minimum": 20.130847930908203
+      },
+      "teacher_psnr_gain": {
+        "mean": 6.7316841102156815
+      },
+      "teacher_ssim": {
+        "maximum": 0.9944601058959961,
+        "mean": 0.9436549414006212,
+        "median": 0.9665884971618652,
+        "minimum": 0.5310197472572327
+      }
+    },
+    "midd": {
+      "noisy_psnr": {
+        "maximum": 44.721038818359375,
+        "mean": 36.84669137158931,
+        "median": 37.76078987121582,
+        "minimum": 24.90810203552246
+      },
+      "noisy_ssim": {
+        "maximum": 0.9891652464866638,
+        "mean": 0.8845794384447944,
+        "median": 0.9242808818817139,
+        "minimum": 0.4234839677810669
+      },
+      "teacher_psnr": {
+        "maximum": 47.532379150390625,
+        "mean": 39.95353101262983,
+        "median": 40.24326133728027,
+        "minimum": 28.021230697631836
+      },
+      "teacher_ssim": {
+        "maximum": 0.98740553855896,
+        "mean": 0.9535056303273763,
+        "median": 0.9656350314617157,
+        "minimum": 0.7009283304214478
+      }
+    },
+    "sidd": {
+      "noisy_psnr": {
+        "maximum": 39.64627456665039,
+        "mean": 29.537884072823957,
+        "median": 31.102230072021484,
+        "minimum": 15.411404609680176
+      },
+      "noisy_ssim": {
+        "maximum": 0.9255218505859375,
+        "mean": 0.5746786842673001,
+        "median": 0.6627886593341827,
+        "minimum": 0.07363542169332504
+      },
+      "teacher_psnr": {
+        "maximum": 50.59930419921875,
+        "mean": 39.37951997193423,
+        "median": 40.452701568603516,
+        "minimum": 20.130847930908203
+      },
+      "teacher_ssim": {
+        "maximum": 0.9944601058959961,
+        "mean": 0.9352034980600531,
+        "median": 0.9703198075294495,
+        "minimum": 0.5310197472572327
+      }
+    }
+  },
+  "teacher_cache_parity": {
+    "float16_bit_exact": true,
+    "maximum_absolute_error": 0.000244140625,
+    "mean_absolute_error": 5.44683171028737e-05,
+    "samples": 8,
+    "skipped": false
+  },
+  "teacher_cache_parity_tolerance": 0.0005,
+  "visual_alignment_signoff": {
+    "approved": true,
+    "artifact": "../data_gate_contact_sheet.jpg",
+    "date": "2026-07-19",
+    "notes": "Edges and framing align at pixel scale. No crop shift or ghosted registration was visible. This public-data signoff is not a substitute for target-camera paired validation.",
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/visual_alignment_signoff.json",
+    "reviewer": "Codex visual inspection",
+    "scope": "12 deterministic held-out MIDD/SIDD noisy, SCUNet, and clean triples"
+  },
+  "zero_shift_fraction": 1.0
+}

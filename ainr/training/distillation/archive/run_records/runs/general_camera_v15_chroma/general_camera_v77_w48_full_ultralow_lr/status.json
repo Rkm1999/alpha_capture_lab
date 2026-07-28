@@ -1,0 +1,8 @@
+{
+  "epoch": 4,
+  "epochs": 30,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v77_w48_full_ultralow_lr",
+  "state": "failed",
+  "updated_at": "2026-07-27T05:10:30.262744+00:00"
+}

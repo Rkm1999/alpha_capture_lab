@@ -14,6 +14,11 @@ import java.util.concurrent.CancellationException;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 final class ModelStore {
+    enum TensorEncoding {
+        FLOAT_NCHW,
+        INT8_NHWC
+    }
+
     enum Quality {
         HIGH_PERFORMANCE,
         HIGH_QUALITY
@@ -33,17 +38,20 @@ final class ModelStore {
         "models/scunet_192_fp16w.tflite",
         "scunet_192_fp16w.tflite",
         105_995_728L,
-        "ce4d1be1dd43218d597db3c8400bcff95ce8086baed2891e8f1b66f42aa5ef64");
+        "ce4d1be1dd43218d597db3c8400bcff95ce8086baed2891e8f1b66f42aa5ef64",
+        TensorSpec.floatNchw(3));
     private static final ModelSpec HIGH_PERFORMANCE_GPU_SPEC = new ModelSpec(
-        "models/litedenoise_high_noise_v2_epoch177.tflite",
-        "litedenoise_high_noise_v2_epoch177.tflite",
-        7_877_484L,
-        "09d85d1476bb643f6b4ca203f5664e7a2afd9a2ab0112dd9d70d05545370b21e");
+        "models/litedenoise_w24_v9_adapter_192_nchw_fp32.tflite",
+        "litedenoise_w24_v9_adapter_192_nchw_fp32.tflite",
+        17_704_356L,
+        "f2d14210f788ac721fc70da834039c0a852e2ab8c26822d9ab044611d2ade463",
+        TensorSpec.floatNchw(5));
     private static final ModelSpec HIGH_PERFORMANCE_NPU_SPEC = new ModelSpec(
-        "models/litedenoise_high_noise_v2_epoch177.tflite",
-        "litedenoise_high_noise_v2_epoch177.tflite",
-        7_877_484L,
-        "09d85d1476bb643f6b4ca203f5664e7a2afd9a2ab0112dd9d70d05545370b21e");
+        "models/litedenoise_w24_v9_adapter_192_nchw_fp32.tflite",
+        "litedenoise_w24_v9_adapter_192_nchw_fp32.tflite",
+        17_704_356L,
+        "f2d14210f788ac721fc70da834039c0a852e2ab8c26822d9ab044611d2ade463",
+        TensorSpec.floatNchw(5));
 
     File ensureInstalled(
         Context context,
@@ -108,6 +116,14 @@ final class ModelStore {
         return spec(variant).sha256;
     }
 
+    int inputElements(Variant variant) {
+        return tensorSpec(variant).inputElements();
+    }
+
+    TensorSpec tensorSpec(Variant variant) {
+        return spec(variant).tensorSpec;
+    }
+
     private static ModelSpec spec(Variant variant) {
         if (variant == Variant.HIGH_PERFORMANCE_GPU) {
             return HIGH_PERFORMANCE_GPU_SPEC;
@@ -123,12 +139,73 @@ final class ModelStore {
         final String fileName;
         final long bytes;
         final String sha256;
+        final TensorSpec tensorSpec;
 
-        ModelSpec(String asset, String fileName, long bytes, String sha256) {
+        ModelSpec(
+            String asset,
+            String fileName,
+            long bytes,
+            String sha256,
+            TensorSpec tensorSpec
+        ) {
             this.asset = asset;
             this.fileName = fileName;
             this.bytes = bytes;
             this.sha256 = sha256;
+            this.tensorSpec = tensorSpec;
+        }
+    }
+
+    static final class TensorSpec {
+        final TensorEncoding encoding;
+        final int inputChannels;
+        final float inputScale;
+        final int inputZeroPoint;
+        final float outputScale;
+        final int outputZeroPoint;
+
+        private TensorSpec(
+            TensorEncoding encoding,
+            int inputChannels,
+            float inputScale,
+            int inputZeroPoint,
+            float outputScale,
+            int outputZeroPoint
+        ) {
+            this.encoding = encoding;
+            this.inputChannels = inputChannels;
+            this.inputScale = inputScale;
+            this.inputZeroPoint = inputZeroPoint;
+            this.outputScale = outputScale;
+            this.outputZeroPoint = outputZeroPoint;
+        }
+
+        static TensorSpec floatNchw(int inputChannels) {
+            return new TensorSpec(
+                TensorEncoding.FLOAT_NCHW, inputChannels, 0.0f, 0, 0.0f, 0);
+        }
+
+        static TensorSpec int8Nhwc(
+            int inputChannels,
+            float inputScale,
+            int inputZeroPoint,
+            float outputScale,
+            int outputZeroPoint
+        ) {
+            if (inputScale <= 0.0f || outputScale <= 0.0f) {
+                throw new IllegalArgumentException("INT8 tensor scales must be positive");
+            }
+            return new TensorSpec(
+                TensorEncoding.INT8_NHWC,
+                inputChannels,
+                inputScale,
+                inputZeroPoint,
+                outputScale,
+                outputZeroPoint);
+        }
+
+        int inputElements() {
+            return inputChannels * DenoiseProcessor.TILE * DenoiseProcessor.TILE;
         }
     }
 

@@ -1,0 +1,89 @@
+project:
+  name: scunet_mobile_distillation_synthetic_camera_jpeg_gate
+  preprocessing_version: synthetic_camera_jpeg_linear_post_isp_covariance_v3
+  seed: 20260719
+
+data:
+  source_manifest: data/uhd_snic_source_manifest.json
+  source_root: ../data/sources
+  calibration_profile: data/synthetic_camera_jpeg/calibration_profiles.json
+  cache_root: data/synthetic_camera_jpeg/cache
+  manifest: data/synthetic_camera_jpeg/cache/manifest.json
+  datasets: [uhd_ll, snic_sony]
+  tile_size: 192
+  crop_candidates: 192
+  patches_per_clean_source:
+    uhd_ll: 2
+    snic_sony: 8
+  replicates_per_severity: 1
+  severity_isos: [12800, 25600, 51200]
+  holdout_exclusions:
+    - path: /home/ryu/projects/iso_test_image/DSC00001.JPG
+      sha256: 56faa86b370f8aa056fa435b4e5266b9e60307dd32fcc8aed7b18936a0bf7ee4
+    - path: /home/ryu/projects/iso_test_image/DSC00002.JPG
+      sha256: f14f2eb36396f7b36911ec28413e33ead8298348293b0d47ffdd6641a186ba52
+    - path: /home/ryu/projects/iso_test_image/DSC00003.JPG
+      sha256: 6ddea7d52e1cd6f892c4775eae272df761dee7ebf2c49a22c3eb33e73dcaa6cd
+    - path: /home/ryu/projects/iso_test_image/DSC00004.JPG
+      sha256: dd03c4402d4b293cf43036cc507ddc45b02c98f76cc72a73ef08baadc03fd138
+    - path: /home/ryu/projects/iso_test_image/DSC00005.JPG
+      sha256: 6ab0130eda67fe477bbd1497d21fbd928ad67cc7d1a228bdc6b088136c2d4c5c
+    - path: /home/ryu/projects/iso_test_image/DSC00006.JPG
+      sha256: e71111aa4961606703a310c47972b364f5ed4b48a3f08342c0f6636f047bd24c
+
+calibration:
+  dataset: snic_sony
+  split: train
+  observed_isos: [1600, 3200, 6400, 12800]
+  patches_per_pair: 4
+  crop_candidates: 96
+  low_gradient_quantile: 0.35
+  luminance_bins: [0.0, 0.03, 0.08, 0.16, 0.30, 0.50, 1.0]
+  fine_sigma: 1.0
+  medium_sigma: 4.0
+  coarse_sigma: 16.0
+  post_isp_jpeg_subsampling: [0, 2]
+  post_isp_bias_removal_sigma: 32.0
+  row_column_smoothing_sigma: 2.0
+  minimum_pixels_per_bin: 128
+  darkest_bin_read_fraction: 0.35
+  absolute_read_variance_floor: 0.00000001
+  robust_fit_iterations: 8
+  robust_fit_huber_delta: 1.5
+  variance_log2_slope_bounds: [0.25, 1.75]
+  rms_log2_slope_bounds: [0.10, 1.00]
+  shadow_multiplier_bounds: [1.0, 4.0]
+
+synthesis:
+  shadow_exponent: 1.5
+  white_balance_range: [0.995, 1.005]
+  color_matrix_jitter: 0.003
+  tone_gamma_range: [0.995, 1.005]
+  sharpen_amount_range: [0.0, 0.10]
+  sharpen_sigma_range: [0.65, 1.10]
+  jpeg_quality_range: [94, 98]
+  jpeg_subsampling: [0, 2]
+  row_column_component_scale: 0.15
+  post_isp_gain_bounds: [0.05, 4.0]
+  post_isp_gain_smoothing_sigma: 2.0
+  post_isp_match_iterations: 3
+
+supervision:
+  default:
+    label: synthetic_paired
+    gt_weight: 1.0
+    kd_weight: 0.7
+  by_source_dataset: {}
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+  cache_dtype: float16
+  cache_inference_amp: false
+  cache_batch_size: 4
+
+gate:
+  minimum_calibration_reference_payloads_per_bin: 12
+  minimum_calibration_reference_scenes_per_bin: 5
+  calibration_shadow_luminance_max: 0.25

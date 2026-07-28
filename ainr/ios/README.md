@@ -20,15 +20,23 @@ Native SwiftUI port of the standalone full-resolution SCUNet denoiser.
 - Cancel between tiles, compare original and result, then save or share the JPEG
 
 The app uses native Core ML ML Programs with FP16 weights and FP32 input and
-output tensors. High Performance uses the compact epoch-177 LiteDenoise graph;
-High Quality uses full SCUNet. Core
+output tensors. High Performance uses the selected width-24 residual-adapter
+LiteDenoise graph; High Quality uses full SCUNet. Core
 ML compiles each model on the iPhone once and the app retains separate compiled
 models in Application Support for later launches. Neural Engine is the default
 because the optimized fixed-shape graph is the fastest sustained path on the
 tested iPhone. Previously selected backend and quality settings are remembered.
 
-The checked-in LiteDenoise package is reproducible with
-[`../training/distillation/export_litedenoise_ios.py`](../training/distillation/export_litedenoise_ios.py).
+The checked-in LiteDenoise package is reproducible from the retained checkpoint
+with:
+
+```bash
+/home/ryu/.cache/ainr-coreml-venv/bin/python \
+  ../training/distillation/paper_192/scripts/export_ios_coreml.py \
+  --checkpoint ../training/distillation/archive/final_w24/target-best.pt \
+  --precomputed-noise-gate \
+  --output Sources/SCUNetDenoiser/Resources/Models/litedenoise_192_w24.mlpackage
+```
 
 The compute-unit choices constrain Core ML as follows:
 
@@ -55,6 +63,10 @@ rename a failed delegate or CPU fallback as GPU or Neural Engine execution.
 - 64-bit iPhone or iPad
 - GPU mode requires a Core ML-compatible Apple GPU
 - Neural Engine performance and graph coverage depend on the Apple SoC and iOS
+- The app checks the selected model's Core ML compute plan on the current
+  device. Neural Engine choices are disabled when the device has no ANE or the
+  selected model has no ANE placement, and a saved ANE selection falls back to
+  GPU automatically.
 - GPU + Neural Engine requires both accelerator paths and uses more memory and
   power than Neural Engine alone
 - CPU mode is the compatibility fallback and is not practical for 24 MP images
@@ -62,7 +74,11 @@ rename a failed delegate or CPU fallback as GPU or Neural Engine execution.
 The app includes the Apache-2.0 SCUNet license in its `Legal` resource folder.
 No ONNX Runtime or LiteRT runtime is linked into the current iOS build.
 
-## Verified Device Run
+## Historical Device Run
+
+These measurements describe the earlier LiteDenoise performance export and
+remain useful as an iPhone 15 Pro Max backend baseline. The selected W24 model
+must be benchmarked separately before publishing current-model figures.
 
 Tested on an iPhone 15 Pro Max running iOS 18.7.2 with the bundled 4000 x 6000
 ISO 51200 JPEG:
@@ -136,8 +152,9 @@ Install the signed IPA on a connected, trusted iPhone:
 xtool install --usb xtool/SCUNetDenoiser.ipa
 ```
 
-The model package must remain at
-`Sources/SCUNetDenoiser/Resources/Models/scunet_192_fp16.mlpackage`.
+The model packages must remain under
+`Sources/SCUNetDenoiser/Resources/Models/` as
+`litedenoise_192_w24.mlpackage` and `scunet_192_fp16.mlpackage`.
 
 ## Validation
 

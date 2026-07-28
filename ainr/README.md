@@ -43,43 +43,48 @@ Later app processes load that context instead of compiling it again. The cache
 key includes the LiteRT version and model hash, so replacing either creates a
 new cache automatically. Clearing app data also clears the compiled context.
 
-Android includes two model modes. **Performance · Distilled** uses a compact
-1,963,411-parameter LiteDenoise U-Net distilled from the official SCUNet
-teacher with correction-weighted sampling over SIDD, NIND, and MIDD.
-**Quality · SCUNet
-16-bit** uses the full
-official SCUNet color real PSNR network with FP16 weights. Both modes support
-GPU, NPU, and GPU + NPU; Quality is the default. Each model has an independent
-GPU program or NPU AOT cache key.
+Android includes two model modes. **Performance · Distilled** uses the selected
+width-24 LiteDenoise residual-adapter model distilled from the official SCUNet
+teacher. It has 4.42 million parameters and accepts RGB plus app-estimated
+noise strength and a smooth control gate. **Quality · SCUNet 16-bit** uses the
+full official SCUNet color real PSNR network with FP16 weights. Both modes
+support GPU, NPU, and GPU + NPU; Quality is the default. Each model has an
+independent GPU program or NPU AOT cache key.
 
 iOS already uses the platform equivalent. Core ML compiles the bundled model
 once, and the app retains the `.mlmodelc` artifact in Application Support for
 reuse on later launches with the selected Core ML compute units.
 
-The iOS build includes the same two quality modes: High Performance uses the
-FP16 LiteDenoise student, while High Quality uses the original FP16 SCUNet.
-Both retain FP32 image tensors and have independent persistent compilation
-caches. High Quality is the default.
+The iOS build includes the same two quality modes. High Performance uses the
+same width-24 student converted to an FP16 Core ML ML Program, while High
+Quality uses the original FP16 SCUNet. Both use FP32 app-facing image tensors
+and have independent persistent compilation caches. High Quality is the
+default.
 
 ## Compatibility
 
 - Android 10 or later
 - 64-bit Arm device
 - GPU mode requires a compatible Android OpenCL driver
-- NPU modes require Android 12 or later
+- NPU modes require Android 12 or later; vendor-specific minimum versions
+  below also apply
 - Qualcomm: Snapdragon 8 Gen 1 (SM8450 / HTP V69), 8+ Gen 1
   (SM8475 / HTP V69), 8 Gen 2 (SM8550 / HTP V73), 8 Gen 3
   (SM8650 / HTP V75), 8 Elite (SM8750 / HTP V79), and 8 Elite Gen 5
   (SM8850 / HTP V81)
-- MediaTek: SoCs accepted by LiteRT 2.1.6's MediaTek compatibility checker,
-  plus the documented Dimensity 7300, 8300, 9000, 9200, 9300, 9400, and 9500
-- Samsung: Exynos 2500 (E9955) and Exynos 2600 (E9965)
+- MediaTek on Android 15 or later: Dimensity 7300 (MT6878), 8300
+  (MT6897), 9000 (MT6983), 9200 (MT6985), 9300 (MT6989), and 9400
+  (MT6991)
+- Samsung on Android 16 or later: Exynos 2500 (E9955) and Exynos 2600
+  (E9965)
 
 Other devices can use GPU mode. NPU and GPU + NPU are disabled when the SoC is
-not supported; older Exynos devices currently use GPU. The MediaTek and
-Samsung plugins are built from the exact
-LiteRT 2.1.6 source used by the app and depend on the vendor NPU libraries
-installed by the device manufacturer.
+not supported or its matching packaged bridge/runtime files are missing.
+Older Exynos devices and MediaTek devices below Android 15 currently use GPU.
+The MediaTek and Samsung plugins are built from the exact LiteRT 2.1.6 source
+used by the app and depend on compatible vendor NPU libraries exposed by the
+device firmware. They are provisional until verified on physical target
+devices.
 
 ## Verified device run
 
@@ -88,22 +93,17 @@ Galaxy S25 SM-S931W, Android 16:
 - Orientation-aware JPEG import: verified
 - GPU processing and gallery export: verified
 - Qualcomm on-device JIT plus HTP inference: verified
+- Width-24 Performance export parity: maximum absolute error `1.02e-6`
+- Width-24 4000 x 6000 end-to-end: GPU 8.303 seconds, warm NPU 2.882
+  seconds, and GPU + NPU 2.514 seconds
 - GPU + NPU concurrent processing: verified
 - Corrected warm 512 x 768 run: NPU 1.77 seconds, dual 1.00 second
-- Performance distilled 4000 x 6000 end-to-end: GPU 8.303 seconds, warm NPU
-  2.882 seconds, and GPU + NPU 2.514 seconds
 - Quality SCUNet 4000 x 6000 end-to-end: GPU 98.058 seconds and warm NPU
   100.124 seconds at thermal level 0; GPU + NPU measured 56.207 seconds in a
   supplemental run that began at thermal level 1
 - Dynamic-scheduler 4000 x 6000 inference immediately after NPU JIT: 55.40
   seconds at thermal level 3, with 442 GPU tiles and 363 NPU tiles
 - Saved output: upright 4000 x 6000 JPEG
-- INT8 GPU representation: fully delegated and verified
-- INT8 NPU representation: compiled as one HTP graph and verified
-- First INT8 HTP compilation: 159.05 seconds with persistent AOT output
-- Warm 512 x 768 INT8 runs: GPU 2.11 seconds, NPU 1.72 seconds,
-  GPU + NPU 0.92 seconds end to end
-- Process-restart INT8 NPU run: 0.64-second AOT load and 2.58 seconds total
 
 The first corrected NPU run took about 3 minutes 9 seconds on the tested phone,
 including 3 minutes 7 seconds of JIT setup and a 512 x 768 test image. Later
@@ -113,21 +113,19 @@ XNNPACK CPU execution while the UI still identified the requested NPU mode.
 See `verification/24mp-comparison/README.md` for the controlled full-resolution
 comparison.
 
-Full-frame output comparisons between the distilled and SCUNet models across
-ISO 1600 through 51200 are in
-[`verification/distilled-vs-scunet-iso`](verification/distilled-vs-scunet-iso).
-The later denoise-focused continuation and its untouched final ISO evaluation
-are in
-[`verification/distilled-denoise-final-iso`](verification/distilled-denoise-final-iso).
-The subsequent clean-detail refinement and final ISO progression are in
-[`verification/distilled-detail-final-iso`](verification/distilled-detail-final-iso).
-The final validation-plateau checkpoint and external ISO confirmation are in
-[`verification/distilled-plateau-final-iso`](verification/distilled-plateau-final-iso).
+The final ISO 1600-51200 W24, W32, QAT, and SCUNet contact-sheet comparison is
+in
+[`verification/qat-fp16-w24-scunet-iso`](verification/qat-fp16-w24-scunet-iso).
+Training conclusions, failed approaches, retained configs, and reproducibility
+notes are in
+[`training/distillation/EXPERIMENT_RETROSPECTIVE.md`](training/distillation/EXPERIMENT_RETROSPECTIVE.md).
 
 The Qualcomm SM8750 path is verified. Other Qualcomm generations plus the
-MediaTek and Samsung paths are integrated but require testing on each target
-SoC. Successful plugin compilation does not prove that every SCUNet operation
-is supported by every vendor driver.
+MediaTek and Samsung paths require testing on each target SoC. See
+[`NPU_COMPATIBILITY.md`](NPU_COMPATIBILITY.md) for the implementation audit,
+runtime dependencies, and the distinction between packaged and verified
+support. Successful plugin compilation does not prove that every model
+operation executed on the NPU.
 
 The dynamic dual scheduler was validated with the same 24 MP ISO 51200 image.
 Its two workers overlapped for 1.81x and adapted to the concurrent hot-device
@@ -152,20 +150,22 @@ app/build/outputs/apk/debug/app-debug.apk
 ```
 
 The APK is arm64-only and intentionally large because it bundles the 101 MiB
-full FP16 SCUNet model, the compact distilled model, five Qualcomm HTP runtime
+full FP16 SCUNet model, the width-24 distilled model, five Qualcomm HTP runtime
 generations, and Qualcomm, MediaTek, and Samsung LiteRT plugin bridges.
 
 ### iOS
 
 The iOS port is in [`ios`](ios). It imports from Photos or Files, runs the
 full-resolution image as overlapping 192 x 192 tiles, shows tile progress,
-and saves or shares the completed JPEG. It loads one native FP16 Core ML
-program directly and exposes GPU, Neural Engine, GPU + Neural Engine, and CPU
-compute modes. The combined option runs independent GPU and Neural Engine
-sessions concurrently with dynamic tile scheduling and ordered, feathered
-composition. Neural Engine remains the default based on its sustained speed,
-lower memory use, and lower thermal load. The app does not identify a failed
-delegate request as accelerated execution.
+and saves or shares the completed JPEG. It loads a native Core ML ML Program
+directly and exposes GPU, Neural Engine, GPU + Neural Engine, and CPU compute
+modes. The performance program is the selected width-24 FP16 Core ML model;
+the quality program remains full SCUNet FP16. The combined option runs
+independent GPU and Neural Engine sessions concurrently with dynamic tile
+scheduling and ordered, feathered composition. Neural Engine remains the
+default based on its sustained speed, lower memory use, and lower thermal
+load. The app does not identify a failed delegate request as accelerated
+execution.
 
 Android and iOS also provide an optional **High overlap** mode for photos that
 show a checkerboard tile pattern. It advances 192 x 192 tiles by 96 pixels and

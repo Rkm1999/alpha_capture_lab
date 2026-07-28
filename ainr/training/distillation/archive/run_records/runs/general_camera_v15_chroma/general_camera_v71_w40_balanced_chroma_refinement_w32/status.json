@@ -1,0 +1,8 @@
+{
+  "epoch": 10,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v71_w40_balanced_chroma_refinement_w32",
+  "state": "failed",
+  "updated_at": "2026-07-26T17:48:39.101918+00:00"
+}

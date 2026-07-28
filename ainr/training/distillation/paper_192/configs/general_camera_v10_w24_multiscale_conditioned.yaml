@@ -1,0 +1,170 @@
+project:
+  name: scunet_mobile_distillation_general_camera_v10_w24_multiscale_conditioned
+  preprocessing_version: mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3
+  seed: 20260801
+
+data:
+  cache_root: data/high_iso_targeted_synthetic/cache
+  manifest: data/high_iso_targeted_synthetic/cache/manifest.json
+  datasets: [midd, sidd, polyu_sony, nind, uhd_ll, snic_sony, synthetic_camera_jpeg]
+  source_preprocessing:
+    legacy: exact_hwc_rgb_float_0_1_v1
+    domain: exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3
+    synthetic: synthetic_camera_jpeg_linear_post_isp_covariance_v3
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+
+model:
+  base_width: 24
+  input_channels: 6
+  noise_adapter_channels: 12
+  multiscale_adapter_channels: 16
+  noise_gate_start: 0.35
+  noise_gate_end: 0.75
+  expected_parameters: 4445523
+  expected_conv_macs: 4819378176
+  input_shape: [1, 6, 192, 192]
+  noise_conditioning:
+    enabled: true
+    estimator: dark_flat_luma_mad_v1
+    sigma_min: 0.0015
+    sigma_max: 0.07
+    shadow_luminance_limit: 0.5
+    flat_fraction: 0.4
+    jitter: 0.04
+    dropout: 0.1
+    gate_start: 0.35
+    gate_end: 0.75
+    gate_floor: 0.1
+    validation_bucket_edges: [0.4, 0.7]
+    spatial_maps:
+      enabled: true
+      shadow_luminance_limit: 0.5
+      chroma_kernel_size: 9
+      chroma_scale: 0.04
+
+training:
+  run_name: general_camera_v10_w24_multiscale_conditioned
+  epochs: 80
+  batch_size: 8
+  workers: 4
+  samples_per_epoch: 12000
+  learning_rate: 0.00002
+  minimum_learning_rate: 0.000001
+  optimizer: Adam
+  amp: true
+  gradient_clip_norm: 0.1
+  adapter_only_epochs: 8
+  checkpoint_interval: 5
+  early_stopping_patience: 20
+  early_stopping_metric: target
+  early_stopping_min_delta: 0.0001
+  alpha: 0.7
+  trainable_prefixes:
+    - noise_adapter.
+    - multiscale_adapters.
+    - up2.
+    - decoder2.
+    - up1.
+    - decoder1.
+    - up0.
+    - decoder0.
+    - output_conv.
+  dataset_sampling_weights:
+    midd: 0.13
+    sidd: 0.07
+    polyu_sony: 0.05
+    nind: 0.10
+    uhd_ll: 0.20
+    snic_sony: 0.17
+    synthetic_camera_jpeg: 0.28
+  record_sampling:
+    snic_sony:
+      field: iso
+      default: 1.0
+      values:
+        1600: 0.50
+        3200: 0.75
+        6400: 1.00
+        12800: 2.0
+    synthetic_camera_jpeg:
+      field: iso
+      default: 1.0
+      values:
+        12800: 0.50
+        25600: 1.0
+        51200: 1.5
+  difficulty_sampling:
+    enabled: true
+    index: data/general_camera_v7_extreme/difficulty_w24_e124_flat_chroma.json
+    sha256: d37ca30d07a19de03579193f754e6c113874cbf21c39d2a3650f313606271647
+    warmup_epochs: 0
+    ramp_epochs: 15
+    final_strength: 1.0
+  selection_datasets: [midd, sidd, polyu_sony, nind, uhd_ll, snic_sony]
+  correction_loss:
+    enabled: true
+    shadow_luminance_threshold: 0.25
+    flat_gradient_threshold: 0.03
+    fine_sigma: 1.0
+    medium_sigma: 4.0
+    coarse_sigma: 12.0
+    very_coarse_sigma: 24.0
+    shadow_lambda: 10.0
+    medium_coarse_lambda: 15.0
+    normalized_shadow_lambda: 0.08
+    normalized_shadow_chroma_lambda: 0.12
+    shadow_medium_coarse_chroma_lambda: 30.0
+    flat_shadow_chroma_lambda: 25.0
+    very_coarse_chroma_lambda: 30.0
+    row_column_chroma_lambda: 5.0
+    correction_magnitude_floor: 0.005
+    correction_weight_reference: 0.02
+    correction_weight_max: 2.0
+    paired_detail_lambda: 10.0
+    gate_start: 0.35
+    gate_end: 0.75
+    gate_floor: 0.1
+
+target_validation:
+  enabled: true
+  datasets:
+    nind: {}
+    snic_sony:
+      isos: [12800]
+    uhd_ll: {}
+  shadow_luminance_threshold: 0.25
+  fine_sigma: 1.0
+  medium_sigma: 4.0
+  coarse_sigma: 12.0
+  very_coarse_sigma: 24.0
+  score_aggregation: mean_min
+  minimum_metric_weight: 0.5
+  score_metrics:
+    - shadow_teacher_correction_capture
+    - medium_coarse_teacher_correction_capture
+    - shadow_chroma_teacher_correction_capture
+    - medium_coarse_chroma_teacher_correction_capture
+    - very_coarse_chroma_teacher_correction_capture
+    - row_column_chroma_teacher_correction_capture
+  minimum_general_selection_psnr: 37.265
+  minimum_general_selection_ssim: 0.9285
+  minimum_shadow_teacher_correction_capture: 0.79
+  minimum_medium_coarse_teacher_correction_capture: 0.81
+  minimum_component_capture:
+    shadow_chroma_teacher_correction_capture: 0.79
+    medium_coarse_chroma_teacher_correction_capture: 0.83
+    very_coarse_chroma_teacher_correction_capture: 0.60
+    row_column_chroma_teacher_correction_capture: 0.58
+
+metrics:
+  border_crop: 1
+  ssim_window_size: 11
+  ssim_sigma: 1.5
+
+outputs:
+  runs: runs/general_camera_v10_multiscale
+  evaluation: evaluation/general_camera_v10_multiscale

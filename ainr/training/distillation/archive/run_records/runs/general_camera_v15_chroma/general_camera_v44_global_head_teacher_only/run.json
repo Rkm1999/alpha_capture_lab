@@ -1,0 +1,712 @@
+{
+  "alpha": 1.0,
+  "array_integrity": {
+    "accepted_cache_content": {
+      "bytes": 8788478976,
+      "files": 23832,
+      "sha256": "0169db926b5dea8f1b9054fedd3b4c0060e2984e4d0d4c6ff5d570c54fb03677"
+    },
+    "legacy_domain_hash_guarantee": false,
+    "manifest_sha256": "b90e10461d3cf1d29cb235af81eb638285f5047a9c4e432ae61022691d1677ad",
+    "pinning": {
+      "exact_payload_rehash_on_load": true,
+      "status": "active",
+      "strategy": "parent_proc_fd_exact_payload_sha256_v1",
+      "synthetic_files_pinned": 23832
+    },
+    "status": "verified",
+    "synthetic_files_verified": 23832,
+    "synthetic_records": 7944
+  },
+  "batch_size": 8,
+  "checkpoint_selection": {
+    "early_stopping_metric": "target",
+    "general_metric": "selection_student_psnr",
+    "target_component_minimums": {
+      "medium_coarse_chroma_teacher_correction_capture": 0.84,
+      "medium_coarse_teacher_correction_capture": 0.82,
+      "shadow_chroma_teacher_correction_capture": 0.82,
+      "shadow_teacher_correction_capture": 0.82
+    },
+    "target_general_psnr_guardrail": 36.9,
+    "target_general_ssim_guardrail": 0.915,
+    "target_metric": "target_validation.score"
+  },
+  "config": {
+    "_config_path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/configs/general_camera_v44_w24_global_head_teacher_only.yaml",
+    "data": {
+      "cache_root": "data/high_iso_targeted_synthetic_v4_nind12_snic16_uhd8/cache",
+      "datasets": [
+        "midd",
+        "sidd",
+        "polyu_sony",
+        "nind",
+        "uhd_ll",
+        "snic_sony",
+        "synthetic_camera_jpeg"
+      ],
+      "manifest": "data/high_iso_targeted_synthetic_v4_nind12_snic16_uhd8/cache/manifest.json",
+      "source_preprocessing": {
+        "domain": "exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+        "legacy": "exact_hwc_rgb_float_0_1_v1",
+        "synthetic": "synthetic_camera_jpeg_linear_post_isp_covariance_v3"
+      }
+    },
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 24,
+      "chroma_head_channels": 48,
+      "chroma_head_dilations": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "chroma_head_noise_floor": 1.0,
+      "chroma_head_spatial_floor": 1.0,
+      "chroma_head_use_rgb": true,
+      "chroma_unet_head_channels": 12,
+      "expected_conv_macs": 6202884096,
+      "expected_parameters": 5637389,
+      "global_chroma_head_blocks": 5,
+      "global_chroma_head_channels": 64,
+      "global_chroma_head_use_bottleneck": true,
+      "input_channels": 6,
+      "input_shape": [
+        1,
+        6,
+        192,
+        192
+      ],
+      "multiscale_adapter_channels": 16,
+      "multiscale_chroma_floor": 0.2,
+      "multiscale_spatial_gate": true,
+      "noise_adapter_channels": 12,
+      "noise_conditioning": {
+        "dropout": 0.1,
+        "enabled": true,
+        "estimator": "dark_flat_luma_mad_v1",
+        "flat_fraction": 0.4,
+        "gate_end": 0.75,
+        "gate_floor": 0.1,
+        "gate_start": 0.35,
+        "jitter": 0.04,
+        "shadow_luminance_limit": 0.5,
+        "sigma_max": 0.07,
+        "sigma_min": 0.0015,
+        "spatial_maps": {
+          "chroma_kernel_size": 9,
+          "chroma_scale": 0.04,
+          "enabled": true,
+          "shadow_luminance_limit": 0.5
+        },
+        "validation_bucket_edges": [
+          0.4,
+          0.7
+        ]
+      },
+      "noise_gate_end": 0.75,
+      "noise_gate_start": 0.35
+    },
+    "outputs": {
+      "evaluation": "evaluation/general_camera_v15_chroma",
+      "runs": "runs/general_camera_v15_chroma"
+    },
+    "project": {
+      "name": "scunet_mobile_distillation_general_camera_v44_global_head_teacher_only",
+      "preprocessing_version": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3",
+      "seed": 20260724
+    },
+    "target_validation": {
+      "coarse_sigma": 12.0,
+      "datasets": {
+        "nind": {},
+        "snic_sony": {
+          "isos": [
+            12800
+          ]
+        },
+        "uhd_ll": {}
+      },
+      "enabled": true,
+      "fine_sigma": 1.0,
+      "medium_sigma": 4.0,
+      "minimum_component_capture": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.84,
+        "medium_coarse_teacher_correction_capture": 0.82,
+        "shadow_chroma_teacher_correction_capture": 0.82,
+        "shadow_teacher_correction_capture": 0.82
+      },
+      "minimum_general_selection_psnr": 36.9,
+      "minimum_general_selection_ssim": 0.915,
+      "minimum_metric_weight": 0.5,
+      "score_aggregation": "mean_min",
+      "score_metrics": [
+        "shadow_teacher_correction_capture",
+        "medium_coarse_teacher_correction_capture",
+        "shadow_chroma_teacher_correction_capture",
+        "medium_coarse_chroma_teacher_correction_capture",
+        "very_coarse_chroma_teacher_correction_capture",
+        "row_column_chroma_teacher_correction_capture"
+      ],
+      "shadow_luminance_threshold": 0.25,
+      "very_coarse_sigma": 24.0
+    },
+    "teacher": {
+      "checkpoint": "../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+      "checkpoint_name": "scunet_color_real_psnr",
+      "repository": "../data/sources/scunet"
+    },
+    "training": {
+      "adapter_only_epochs": 0,
+      "alpha": 1.0,
+      "amp": true,
+      "batch_size": 8,
+      "checkpoint_interval": 2,
+      "clean_l1_lambda": 0.0,
+      "correction_loss": {
+        "coarse_sigma": 12.0,
+        "correction_magnitude_floor": 0.005,
+        "correction_weight_max": 2.0,
+        "correction_weight_reference": 0.02,
+        "enabled": true,
+        "fine_sigma": 1.0,
+        "flat_gradient_threshold": 0.03,
+        "flat_shadow_chroma_lambda": 0.0,
+        "gate_end": 0.7,
+        "gate_floor": 0.15,
+        "gate_start": 0.3,
+        "initial_scale": 1.0,
+        "medium_coarse_lambda": 4.0,
+        "medium_sigma": 4.0,
+        "normalized_row_column_chroma_lambda": 1.5,
+        "normalized_row_column_chroma_mse_lambda": 2.0,
+        "normalized_shadow_chroma_lambda": 0.5,
+        "normalized_shadow_lambda": 0.5,
+        "normalized_very_coarse_chroma_lambda": 6.0,
+        "normalized_very_coarse_chroma_mse_lambda": 5.0,
+        "paired_detail_lambda": 0.0,
+        "pyramid_chroma_lambda": 10.0,
+        "pyramid_chroma_scales": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "ramp_epochs": 2,
+        "row_column_chroma_lambda": 0.0,
+        "shadow_lambda": 4.0,
+        "shadow_luminance_threshold": 0.25,
+        "shadow_medium_coarse_chroma_lambda": 10.0,
+        "target_chroma_magnitude_floor": 0.0001,
+        "very_coarse_chroma_lambda": 0.0,
+        "very_coarse_sigma": 24.0,
+        "warmup_epochs": 0
+      },
+      "dataset_sampling_weights": {
+        "midd": 0.00625,
+        "nind": 0.325,
+        "polyu_sony": 0.00625,
+        "sidd": 0.00625,
+        "snic_sony": 0.325,
+        "synthetic_camera_jpeg": 0.00625,
+        "uhd_ll": 0.325
+      },
+      "difficulty_sampling": {
+        "enabled": true,
+        "final_strength": 0.5,
+        "index": "data/general_camera_v34_chroma/difficulty_v33_nind12_snic16_uhd8.json",
+        "ramp_epochs": 1,
+        "sha256": "0426bce3e519b2e018e5f1e2c2783e5023dda6d9207b436342657e77948f0250",
+        "warmup_epochs": 0
+      },
+      "early_stopping_metric": "target",
+      "early_stopping_min_delta": 0.0001,
+      "early_stopping_patience": 15,
+      "epochs": 20,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 1e-05,
+      "minimum_learning_rate": 5e-07,
+      "optimizer": "Adam",
+      "paired_kd_weight_override": 1.0,
+      "record_sampling": {
+        "snic_sony": {
+          "default": 1.0,
+          "field": "iso",
+          "values": {
+            "1600": 0.25,
+            "3200": 0.45,
+            "6400": 1.0,
+            "12800": 3.0
+          }
+        },
+        "synthetic_camera_jpeg": {
+          "default": 1.0,
+          "field": "iso",
+          "values": {
+            "12800": 0.35,
+            "25600": 1.0,
+            "51200": 2.0
+          }
+        }
+      },
+      "run_name": "general_camera_v44_global_head_teacher_only",
+      "samples_per_epoch": 12000,
+      "selection_datasets": [
+        "midd",
+        "sidd",
+        "polyu_sony",
+        "nind",
+        "uhd_ll",
+        "snic_sony"
+      ],
+      "trainable_prefixes": [
+        "global_chroma_head."
+      ],
+      "workers": 4
+    }
+  },
+  "dataset_counts": {
+    "train/midd": 1538,
+    "train/nind": 1548,
+    "train/polyu_sony": 96,
+    "train/sidd": 2208,
+    "train/snic_sony": 3840,
+    "train/synthetic_camera_jpeg": 7086,
+    "train/uhd_ll": 16000,
+    "validation/midd": 302,
+    "validation/nind": 164,
+    "validation/polyu_sony": 32,
+    "validation/sidd": 352,
+    "validation/snic_sony": 416,
+    "validation/synthetic_camera_jpeg": 858,
+    "validation/uhd_ll": 600
+  },
+  "dataset_sampling_weights": {
+    "midd": 0.00625,
+    "nind": 0.325,
+    "polyu_sony": 0.00625,
+    "sidd": 0.00625,
+    "snic_sony": 0.325,
+    "synthetic_camera_jpeg": 0.00625,
+    "uhd_ll": 0.325
+  },
+  "diagnostic_limits": {
+    "max_train_batches": null,
+    "max_val_batches": null
+  },
+  "difficulty_curriculum": {
+    "final_strength": 0.5,
+    "ramp_epochs": 1,
+    "warmup_epochs": 0
+  },
+  "difficulty_sampling": {
+    "bin_weights": [
+      0.55,
+      0.85,
+      1.25,
+      1.85
+    ],
+    "dataset_bin_counts": {
+      "midd": {
+        "0": 384,
+        "1": 385,
+        "2": 384,
+        "3": 385
+      },
+      "nind": {
+        "0": 387,
+        "1": 387,
+        "2": 387,
+        "3": 387
+      },
+      "polyu_sony": {
+        "0": 24,
+        "1": 24,
+        "2": 24,
+        "3": 24
+      },
+      "sidd": {
+        "0": 552,
+        "1": 552,
+        "2": 552,
+        "3": 552
+      },
+      "snic_sony": {
+        "0": 960,
+        "1": 960,
+        "2": 960,
+        "3": 960
+      },
+      "synthetic_camera_jpeg": {
+        "0": 1771,
+        "1": 1772,
+        "2": 1771,
+        "3": 1772
+      },
+      "uhd_ll": {
+        "0": 4000,
+        "1": 4000,
+        "2": 4000,
+        "3": 4000
+      }
+    },
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/general_camera_v34_chroma/difficulty_v33_nind12_snic16_uhd8.json",
+    "records": 32316,
+    "sha256": "0426bce3e519b2e018e5f1e2c2783e5023dda6d9207b436342657e77948f0250"
+  },
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "cuda_runtime": "12.8",
+    "dataset_manifest_sha256": "b90e10461d3cf1d29cb235af81eb638285f5047a9c4e432ae61022691d1677ad",
+    "pid": 652334,
+    "platform": "linux",
+    "preprocessing_version": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3",
+    "project_commit": "0b7b158ed0febaa871315b785b4371bc8f7cd0e4",
+    "project_dirty": true,
+    "python": "3.12.13 (main, May  8 2026, 18:32:55) [Clang 22.1.3 ]",
+    "teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "teacher_repo_commit": "52e440a80a655b01e0b41e9dd9bfe599bc11625e",
+    "torch": "2.9.0+cu128"
+  },
+  "epochs_effective": 20,
+  "initial_model_sha256": "080c9376adb92e6ed292ba13e5a43b197ea1724979c17ef5556c50237f6f4af2",
+  "initialization": {
+    "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v15_chroma/general_camera_v37_global_head_mse/target-best.pt",
+    "checkpoint_sha256": "f1fc2d9b419af0098231ac0cf8875af240a76c068350e25436824dd8c0a4044a",
+    "mode": "model_only",
+    "model_load": "exact",
+    "optimizer": "reset",
+    "rng": "reset_from_config_seed",
+    "scaler": "reset",
+    "scheduler": "reset",
+    "source_epoch": 4,
+    "source_input_channels": 6,
+    "source_model_sha256": "080c9376adb92e6ed292ba13e5a43b197ea1724979c17ef5556c50237f6f4af2",
+    "source_run_name": "general_camera_v37_global_head_mse"
+  },
+  "loss_coefficients": {
+    "clean_l1": 0.0,
+    "clean_mse": 0.0,
+    "paired_teacher_mse": 1000.0,
+    "teacher_only_mse": 1000.0
+  },
+  "run_fingerprint": "178f7018f69a973f98502646592de71773eb080de2d04ef09a000f06faa34461",
+  "run_fingerprint_payload": {
+    "datasets": [
+      "midd",
+      "sidd",
+      "polyu_sony",
+      "nind",
+      "uhd_ll",
+      "snic_sony",
+      "synthetic_camera_jpeg"
+    ],
+    "diagnostic_limits": {
+      "max_train_batches": null,
+      "max_val_batches": null
+    },
+    "initialization": {
+      "checkpoint_sha256": "f1fc2d9b419af0098231ac0cf8875af240a76c068350e25436824dd8c0a4044a",
+      "mode": "model_only",
+      "model_load": "exact",
+      "optimizer": "reset",
+      "rng": "reset_from_config_seed",
+      "scaler": "reset",
+      "scheduler": "reset",
+      "source_epoch": 4,
+      "source_input_channels": 6,
+      "source_model_sha256": "080c9376adb92e6ed292ba13e5a43b197ea1724979c17ef5556c50237f6f4af2",
+      "source_run_name": "general_camera_v37_global_head_mse"
+    },
+    "manifest_sha256": "b90e10461d3cf1d29cb235af81eb638285f5047a9c4e432ae61022691d1677ad",
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 24,
+      "chroma_head_channels": 48,
+      "chroma_head_dilations": [
+        1,
+        2,
+        4,
+        8
+      ],
+      "chroma_head_noise_floor": 1.0,
+      "chroma_head_spatial_floor": 1.0,
+      "chroma_head_use_rgb": true,
+      "chroma_unet_head_channels": 12,
+      "expected_conv_macs": 6202884096,
+      "expected_parameters": 5637389,
+      "global_chroma_head_blocks": 5,
+      "global_chroma_head_channels": 64,
+      "global_chroma_head_use_bottleneck": true,
+      "input_channels": 6,
+      "input_shape": [
+        1,
+        6,
+        192,
+        192
+      ],
+      "multiscale_adapter_channels": 16,
+      "multiscale_chroma_floor": 0.2,
+      "multiscale_spatial_gate": true,
+      "noise_adapter_channels": 12,
+      "noise_conditioning": {
+        "dropout": 0.1,
+        "enabled": true,
+        "estimator": "dark_flat_luma_mad_v1",
+        "flat_fraction": 0.4,
+        "gate_end": 0.75,
+        "gate_floor": 0.1,
+        "gate_start": 0.35,
+        "jitter": 0.04,
+        "shadow_luminance_limit": 0.5,
+        "sigma_max": 0.07,
+        "sigma_min": 0.0015,
+        "spatial_maps": {
+          "chroma_kernel_size": 9,
+          "chroma_scale": 0.04,
+          "enabled": true,
+          "shadow_luminance_limit": 0.5
+        },
+        "validation_bucket_edges": [
+          0.4,
+          0.7
+        ]
+      },
+      "noise_gate_end": 0.75,
+      "noise_gate_start": 0.35
+    },
+    "preprocessing_version": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3",
+    "seed": 20260724,
+    "source_preprocessing": {
+      "domain": "exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+      "legacy": "exact_hwc_rgb_float_0_1_v1",
+      "synthetic": "synthetic_camera_jpeg_linear_post_isp_covariance_v3"
+    },
+    "source_sha256": {
+      "scripts/common.py": "66de393969dd9f308417606a9d2900b955075b11a4a2b79adaa0c92e154860c6",
+      "scripts/train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db",
+      "scripts/train_mixed.py": "60e2ec96fd0e4e9cfef337acb2483ebaa705b45515c86356459f473b9fbf9698",
+      "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+      "src/mixed_dataset.py": "dfdaab3ef1c05f329e113cfe05a506b45a476ff588daabddb55d5782ce041e9e",
+      "src/student.py": "af697998cc7b95b03c1d194949d0106d06a2c9d9716a7f9f73970414f8deedb4",
+      "src/weighted_losses.py": "5fafbbefa847121cc37f193cea903a2b1dc210b1923ad1c1762f189c78a776ec"
+    },
+    "target_validation": {
+      "coarse_sigma": 12.0,
+      "datasets": {
+        "nind": {},
+        "snic_sony": {
+          "isos": [
+            12800
+          ]
+        },
+        "uhd_ll": {}
+      },
+      "enabled": true,
+      "fine_sigma": 1.0,
+      "medium_sigma": 4.0,
+      "minimum_component_capture": {
+        "medium_coarse_chroma_teacher_correction_capture": 0.84,
+        "medium_coarse_teacher_correction_capture": 0.82,
+        "shadow_chroma_teacher_correction_capture": 0.82,
+        "shadow_teacher_correction_capture": 0.82
+      },
+      "minimum_general_selection_psnr": 36.9,
+      "minimum_general_selection_ssim": 0.915,
+      "minimum_metric_weight": 0.5,
+      "score_aggregation": "mean_min",
+      "score_metrics": [
+        "shadow_teacher_correction_capture",
+        "medium_coarse_teacher_correction_capture",
+        "shadow_chroma_teacher_correction_capture",
+        "medium_coarse_chroma_teacher_correction_capture",
+        "very_coarse_chroma_teacher_correction_capture",
+        "row_column_chroma_teacher_correction_capture"
+      ],
+      "shadow_luminance_threshold": 0.25,
+      "very_coarse_sigma": 24.0
+    },
+    "training": {
+      "adapter_only_epochs": 0,
+      "alpha": 1.0,
+      "amp": true,
+      "batch_size": 8,
+      "checkpoint_interval": 2,
+      "clean_l1_lambda": 0.0,
+      "correction_loss": {
+        "coarse_sigma": 12.0,
+        "correction_magnitude_floor": 0.005,
+        "correction_weight_max": 2.0,
+        "correction_weight_reference": 0.02,
+        "enabled": true,
+        "fine_sigma": 1.0,
+        "flat_gradient_threshold": 0.03,
+        "flat_shadow_chroma_lambda": 0.0,
+        "gate_end": 0.7,
+        "gate_floor": 0.15,
+        "gate_start": 0.3,
+        "initial_scale": 1.0,
+        "medium_coarse_lambda": 4.0,
+        "medium_sigma": 4.0,
+        "normalized_row_column_chroma_lambda": 1.5,
+        "normalized_row_column_chroma_mse_lambda": 2.0,
+        "normalized_shadow_chroma_lambda": 0.5,
+        "normalized_shadow_lambda": 0.5,
+        "normalized_very_coarse_chroma_lambda": 6.0,
+        "normalized_very_coarse_chroma_mse_lambda": 5.0,
+        "paired_detail_lambda": 0.0,
+        "pyramid_chroma_lambda": 10.0,
+        "pyramid_chroma_scales": [
+          1,
+          2,
+          4,
+          8,
+          16,
+          32
+        ],
+        "ramp_epochs": 2,
+        "row_column_chroma_lambda": 0.0,
+        "shadow_lambda": 4.0,
+        "shadow_luminance_threshold": 0.25,
+        "shadow_medium_coarse_chroma_lambda": 10.0,
+        "target_chroma_magnitude_floor": 0.0001,
+        "very_coarse_chroma_lambda": 0.0,
+        "very_coarse_sigma": 24.0,
+        "warmup_epochs": 0
+      },
+      "dataset_sampling_weights": {
+        "midd": 0.00625,
+        "nind": 0.325,
+        "polyu_sony": 0.00625,
+        "sidd": 0.00625,
+        "snic_sony": 0.325,
+        "synthetic_camera_jpeg": 0.00625,
+        "uhd_ll": 0.325
+      },
+      "difficulty_sampling": {
+        "enabled": true,
+        "final_strength": 0.5,
+        "index": "data/general_camera_v34_chroma/difficulty_v33_nind12_snic16_uhd8.json",
+        "ramp_epochs": 1,
+        "sha256": "0426bce3e519b2e018e5f1e2c2783e5023dda6d9207b436342657e77948f0250",
+        "warmup_epochs": 0
+      },
+      "early_stopping_metric": "target",
+      "early_stopping_min_delta": 0.0001,
+      "early_stopping_patience": 15,
+      "epochs": 20,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 1e-05,
+      "minimum_learning_rate": 5e-07,
+      "optimizer": "Adam",
+      "paired_kd_weight_override": 1.0,
+      "record_sampling": {
+        "snic_sony": {
+          "default": 1.0,
+          "field": "iso",
+          "values": {
+            "1600": 0.25,
+            "3200": 0.45,
+            "6400": 1.0,
+            "12800": 3.0
+          }
+        },
+        "synthetic_camera_jpeg": {
+          "default": 1.0,
+          "field": "iso",
+          "values": {
+            "12800": 0.35,
+            "25600": 1.0,
+            "51200": 2.0
+          }
+        }
+      },
+      "run_name": "general_camera_v44_global_head_teacher_only",
+      "samples_per_epoch": 12000,
+      "selection_datasets": [
+        "midd",
+        "sidd",
+        "polyu_sony",
+        "nind",
+        "uhd_ll",
+        "snic_sony"
+      ],
+      "trainable_prefixes": [
+        "global_chroma_head."
+      ],
+      "workers": 4
+    }
+  },
+  "run_name": "general_camera_v44_global_head_teacher_only",
+  "samples_per_epoch": 12000,
+  "selection_datasets": [
+    "midd",
+    "nind",
+    "polyu_sony",
+    "sidd",
+    "snic_sony",
+    "uhd_ll"
+  ],
+  "started_at": "2026-07-25T23:30:59.863590+00:00",
+  "train_dataset_counts": {
+    "midd": 1538,
+    "nind": 1548,
+    "polyu_sony": 96,
+    "sidd": 2208,
+    "snic_sony": 3840,
+    "synthetic_camera_jpeg": 7086,
+    "uhd_ll": 16000
+  },
+  "train_samples": 32316,
+  "training_contract": {
+    "cached_paired_kd_weights": [
+      0.7
+    ],
+    "cached_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "configured_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "datasets": [
+      "midd",
+      "nind",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "synthetic_camera_jpeg",
+      "uhd_ll"
+    ],
+    "effective_paired_kd_weight": 1.0,
+    "loss_weight_contract": "paired_kd_runtime_override_teacher_only_kd_equals_1",
+    "manifest_sha256": "b90e10461d3cf1d29cb235af81eb638285f5047a9c4e432ae61022691d1677ad",
+    "preprocessing": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3",
+    "selection_datasets": [
+      "midd",
+      "nind",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "source_preprocessing": {
+      "domain": "exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+      "legacy": "exact_hwc_rgb_float_0_1_v1",
+      "synthetic": "synthetic_camera_jpeg_linear_post_isp_covariance_v3"
+    },
+    "target_validation_datasets": [
+      "nind",
+      "snic_sony",
+      "uhd_ll"
+    ]
+  },
+  "validation_samples": 2724
+}

@@ -1,0 +1,268 @@
+{
+  "alpha": 0.7,
+  "array_integrity": {
+    "legacy_domain_hash_guarantee": false,
+    "manifest_sha256": "4cf1037dc625a9610251c7fbbf44925353bb1f4cd904f5e51d01ebf1aec8f569",
+    "status": "not_applicable",
+    "synthetic_files_verified": 0,
+    "synthetic_records": 0
+  },
+  "batch_size": 16,
+  "checkpoint_selection": {
+    "early_stopping_metric": "general",
+    "general_metric": "selection_student_psnr",
+    "target_general_psnr_guardrail": null,
+    "target_metric": null
+  },
+  "config": {
+    "_config_path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/configs/general_camera_v1_no_namcc.yaml",
+    "data": {
+      "alignment_gate": {
+        "alignment_prefilter_sigma": 0.7,
+        "alignment_search_radius": 3,
+        "maximum_nonzero_shift_gain": 0.035,
+        "minimum_texture": 0.006,
+        "minimum_zero_shift_correlation": 0.35
+      },
+      "cache_root": "data/general_camera_v1_no_namcc/cache",
+      "crop_candidates": 64,
+      "datasets": [
+        "polyu",
+        "renoir",
+        "midd"
+      ],
+      "manifest": "data/general_camera_v1_no_namcc/cache/manifest.json",
+      "minimum_mask_valid_fraction": 0.9,
+      "patches_per_pair": {
+        "midd": 1,
+        "polyu": 1,
+        "renoir": 1
+      },
+      "source_manifest": "../data/fresh_general_v1/source_manifest.json",
+      "source_preprocessing": {
+        "general": "general_camera_exact_192_rgb_paired_v1"
+      },
+      "source_root": "../data/fresh_general_v1/verified",
+      "tile_size": 192
+    },
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 16,
+      "expected_conv_macs": 1985347584,
+      "expected_parameters": 1963411,
+      "input_shape": [
+        1,
+        3,
+        192,
+        192
+      ]
+    },
+    "outputs": {
+      "evaluation": "evaluation/general_camera_v1_no_namcc",
+      "runs": "runs/general_camera_v1_no_namcc"
+    },
+    "project": {
+      "name": "scunet_mobile_distillation_general_camera_v1_no_namcc",
+      "preprocessing_version": "general_camera_exact_192_rgb_paired_v1",
+      "seed": 20260720
+    },
+    "teacher": {
+      "cache_batch_size": 4,
+      "cache_dtype": "float16",
+      "cache_inference_amp": false,
+      "checkpoint": "../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+      "checkpoint_name": "scunet_color_real_psnr",
+      "config": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "dimension": 64,
+      "repository": "../data/sources/scunet"
+    },
+    "training": {
+      "alpha": 0.7,
+      "amp": true,
+      "batch_size": 16,
+      "checkpoint_interval": 10,
+      "dataset_sampling_weights": {
+        "midd": 0.3333333333333334,
+        "polyu": 0.3333333333333333,
+        "renoir": 0.3333333333333333
+      },
+      "early_stopping_metric": "general",
+      "early_stopping_min_delta": 0.003,
+      "early_stopping_patience": null,
+      "epochs": 200,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-05,
+      "optimizer": "Adam",
+      "run_name": "general_camera_v1_no_namcc",
+      "samples_per_epoch": 12000,
+      "selection_datasets": [
+        "polyu",
+        "renoir",
+        "midd"
+      ],
+      "workers": 4
+    }
+  },
+  "dataset_counts": {
+    "train/midd": 15838,
+    "train/polyu": 34,
+    "train/renoir": 49,
+    "validation/midd": 1782,
+    "validation/polyu": 6,
+    "validation/renoir": 13
+  },
+  "dataset_sampling_weights": {
+    "midd": 0.3333333333333334,
+    "polyu": 0.3333333333333333,
+    "renoir": 0.3333333333333333
+  },
+  "diagnostic_limits": {
+    "max_train_batches": null,
+    "max_val_batches": null
+  },
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "cuda_runtime": "12.8",
+    "dataset_manifest_sha256": "4cf1037dc625a9610251c7fbbf44925353bb1f4cd904f5e51d01ebf1aec8f569",
+    "pid": 2100015,
+    "platform": "linux",
+    "preprocessing_version": "general_camera_exact_192_rgb_paired_v1",
+    "project_commit": "0b7b158ed0febaa871315b785b4371bc8f7cd0e4",
+    "project_dirty": true,
+    "python": "3.12.13 (main, May  8 2026, 18:32:55) [Clang 22.1.3 ]",
+    "teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "teacher_repo_commit": "52e440a80a655b01e0b41e9dd9bfe599bc11625e",
+    "torch": "2.9.0+cu128"
+  },
+  "epochs_effective": 200,
+  "initial_model_sha256": "3ed821d24002f323384cc03f2d08fc357aa9e7a3b8a0ae1b4fab804d4a14b5f3",
+  "initialization": null,
+  "loss_coefficients": {
+    "clean_l1": 50.0,
+    "clean_mse": 300.00000000000006,
+    "paired_teacher_mse": 700.0,
+    "teacher_only_mse": 1000.0
+  },
+  "run_fingerprint": "70aeca8ad341da951c64ed52a7ba0a42240c59461e395ecc0e1d640892aee7f0",
+  "run_fingerprint_payload": {
+    "datasets": [
+      "polyu",
+      "renoir",
+      "midd"
+    ],
+    "diagnostic_limits": {
+      "max_train_batches": null,
+      "max_val_batches": null
+    },
+    "initialization": null,
+    "manifest_sha256": "4cf1037dc625a9610251c7fbbf44925353bb1f4cd904f5e51d01ebf1aec8f569",
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 16,
+      "expected_conv_macs": 1985347584,
+      "expected_parameters": 1963411,
+      "input_shape": [
+        1,
+        3,
+        192,
+        192
+      ]
+    },
+    "preprocessing_version": "general_camera_exact_192_rgb_paired_v1",
+    "seed": 20260720,
+    "source_preprocessing": {
+      "general": "general_camera_exact_192_rgb_paired_v1"
+    },
+    "source_sha256": {
+      "scripts/common.py": "66de393969dd9f308417606a9d2900b955075b11a4a2b79adaa0c92e154860c6",
+      "scripts/train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db",
+      "scripts/train_mixed.py": "b8040e24b81451210274c39df2ca71dd8cca2104d63f3aaaa697d348d3127ff1",
+      "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+      "src/mixed_dataset.py": "dfdaab3ef1c05f329e113cfe05a506b45a476ff588daabddb55d5782ce041e9e",
+      "src/student.py": "7ee1668d154f2c688608044a94fe4601b3ed59dde125e5ff473074d6c8cd9187",
+      "src/weighted_losses.py": "ce910e5e8af6ea89923d0d22e1f8e4f6e4a44d42e96122a7975d22032747fa86"
+    },
+    "target_validation": null,
+    "training": {
+      "alpha": 0.7,
+      "amp": true,
+      "batch_size": 16,
+      "checkpoint_interval": 10,
+      "dataset_sampling_weights": {
+        "midd": 0.3333333333333334,
+        "polyu": 0.3333333333333333,
+        "renoir": 0.3333333333333333
+      },
+      "early_stopping_metric": "general",
+      "early_stopping_min_delta": 0.003,
+      "early_stopping_patience": null,
+      "epochs": 200,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-05,
+      "optimizer": "Adam",
+      "run_name": "general_camera_v1_no_namcc",
+      "samples_per_epoch": 12000,
+      "selection_datasets": [
+        "polyu",
+        "renoir",
+        "midd"
+      ],
+      "workers": 4
+    }
+  },
+  "run_name": "general_camera_v1_no_namcc",
+  "samples_per_epoch": 12000,
+  "selection_datasets": [
+    "midd",
+    "polyu",
+    "renoir"
+  ],
+  "started_at": "2026-07-21T00:33:47.532998+00:00",
+  "train_dataset_counts": {
+    "midd": 15838,
+    "polyu": 34,
+    "renoir": 49
+  },
+  "train_samples": 15921,
+  "training_contract": {
+    "cached_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "configured_teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "datasets": [
+      "midd",
+      "polyu",
+      "renoir"
+    ],
+    "loss_weight_contract": "paired_kd_equals_alpha_teacher_only_kd_equals_1",
+    "manifest_sha256": "4cf1037dc625a9610251c7fbbf44925353bb1f4cd904f5e51d01ebf1aec8f569",
+    "preprocessing": "general_camera_exact_192_rgb_paired_v1",
+    "selection_datasets": [
+      "midd",
+      "polyu",
+      "renoir"
+    ],
+    "source_preprocessing": {
+      "general": "general_camera_exact_192_rgb_paired_v1"
+    },
+    "target_validation_datasets": []
+  },
+  "validation_samples": 1801
+}

@@ -1,0 +1,21 @@
+__pycache__/
+*.pyc
+
+# Reproducible local training artifacts.
+data/cache/
+data/*/cache/
+runs/
+interrupted/
+smoke_run/
+smoke_domain/
+
+# Large rendered evaluation outputs; keep summary and selection records.
+evaluation/**/images/
+evaluation/**/visual_review/
+evaluation/**/comparison_contact_sheet.jpg
+evaluation/**/per_image.jsonl
+evaluation/iso_test_*/**/*.png
+evaluation/iso_test_*/**/*.jpg
+
+# Release these as binary assets rather than committing them to Git.
+export/*.tflite

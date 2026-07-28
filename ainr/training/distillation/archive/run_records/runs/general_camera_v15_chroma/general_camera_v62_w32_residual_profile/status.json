@@ -1,0 +1,8 @@
+{
+  "epoch": 4,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v62_w32_residual_profile",
+  "state": "failed",
+  "updated_at": "2026-07-26T08:12:27.513042+00:00"
+}

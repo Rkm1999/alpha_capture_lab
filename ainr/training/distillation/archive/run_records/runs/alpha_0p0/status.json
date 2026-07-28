@@ -1,0 +1,18 @@
+{
+  "alpha": 0.0,
+  "best_psnr": 41.55140220280452,
+  "epoch": 200,
+  "epochs": 200,
+  "last_validation": {
+    "noisy_psnr": 32.912899063996946,
+    "noisy_ssim": 0.717782702251403,
+    "samples": 654,
+    "seconds": 1.8071506249252707,
+    "student_psnr": 41.526692413773375,
+    "student_ssim": 0.9566246541815067,
+    "teacher_psnr": 39.64458317421263,
+    "teacher_ssim": 0.9436549414006212
+  },
+  "state": "complete",
+  "updated_at": "2026-07-19T08:52:34.953410+00:00"
+}

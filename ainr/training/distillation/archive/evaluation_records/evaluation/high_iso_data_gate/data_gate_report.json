@@ -1,0 +1,1233 @@
+{
+  "alignment": {
+    "issues": [
+      {
+        "camera": "unknown",
+        "crop": [
+          3428,
+          357,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2637651264667511,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 21.909186664379433,
+        "phase_shift": [
+          0,
+          -3
+        ],
+        "scene": "nind_books",
+        "shadow_fraction": 0.5320366753472222,
+        "shadow_teacher_correction_mae": 0.05674193799495697,
+        "split": "train",
+        "teacher_correction_mae": 0.06270012259483337,
+        "teacher_psnr_gain": 13.388533987691098,
+        "teacher_reference_psnr": 35.29772065207053,
+        "texture": 0.012942222878336906
+      },
+      {
+        "camera": "X-T1",
+        "crop": [
+          1623,
+          2408,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.35905808210372925,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 22.839215381956215,
+        "phase_shift": [
+          26,
+          0
+        ],
+        "scene": "nind_museel-yombe",
+        "shadow_fraction": 0.019368489583333332,
+        "shadow_teacher_correction_mae": 0.091224305331707,
+        "split": "train",
+        "teacher_correction_mae": 0.05263793468475342,
+        "teacher_psnr_gain": 14.515609962693112,
+        "teacher_reference_psnr": 37.35482534464933,
+        "texture": 0.011246848851442337
+      },
+      {
+        "camera": "X-T1",
+        "crop": [
+          2035,
+          2425,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.3619961738586426,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 22.75014244121508,
+        "phase_shift": [
+          -1,
+          0
+        ],
+        "scene": "nind_museel-yombe",
+        "shadow_fraction": 0.011528862847222222,
+        "shadow_teacher_correction_mae": 0.09552186727523804,
+        "split": "train",
+        "teacher_correction_mae": 0.053036026656627655,
+        "teacher_psnr_gain": 14.214152565970874,
+        "teacher_reference_psnr": 36.96429500718595,
+        "texture": 0.011500027030706406
+      },
+      {
+        "camera": "X-T1",
+        "crop": [
+          1103,
+          2539,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.19953781366348267,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 21.818014506550462,
+        "phase_shift": [
+          -41,
+          0
+        ],
+        "scene": "nind_museel-centrifuge",
+        "shadow_fraction": 0.6342230902777778,
+        "shadow_teacher_correction_mae": 0.056779053062200546,
+        "split": "train",
+        "teacher_correction_mae": 0.060052745044231415,
+        "teacher_psnr_gain": 12.750187956762218,
+        "teacher_reference_psnr": 34.56820246331268,
+        "texture": 0.012255914509296417
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          565,
+          1627,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.5976919531822205,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 17.487690427940546,
+        "phase_shift": [
+          -49,
+          0
+        ],
+        "scene": "nind_saint-remi-c",
+        "shadow_fraction": 0.004557291666666667,
+        "shadow_teacher_correction_mae": 0.3203297555446625,
+        "split": "train",
+        "teacher_correction_mae": 0.10211368650197983,
+        "teacher_psnr_gain": 20.76210121922443,
+        "teacher_reference_psnr": 38.249791647164976,
+        "texture": 0.008486734703183174
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2327,
+          1020,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.5218880772590637,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 16.345455813354622,
+        "phase_shift": [
+          0,
+          22
+        ],
+        "scene": "nind_saint-remi-c",
+        "shadow_fraction": 0.0263671875,
+        "shadow_teacher_correction_mae": 0.3047431707382202,
+        "split": "train",
+        "teacher_correction_mae": 0.11870595067739487,
+        "teacher_psnr_gain": 19.657750240970937,
+        "teacher_reference_psnr": 36.00320605432556,
+        "texture": 0.00860616099089384
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2805,
+          44,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.4146067798137665,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 18.713566109465425,
+        "phase_shift": [
+          0,
+          -38
+        ],
+        "scene": "nind_homarus-americanus",
+        "shadow_fraction": 0.058403862847222224,
+        "shadow_teacher_correction_mae": 0.19830505549907684,
+        "split": "train",
+        "teacher_correction_mae": 0.09046729654073715,
+        "teacher_psnr_gain": 20.885316979787774,
+        "teacher_reference_psnr": 39.5988830892532,
+        "texture": 0.01070316880941391
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          3297,
+          570,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.6099354028701782,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 22.665800375975707,
+        "phase_shift": [
+          0,
+          79
+        ],
+        "scene": "nind_homarus-americanus",
+        "shadow_fraction": 0.0,
+        "shadow_teacher_correction_mae": 0.0,
+        "split": "train",
+        "teacher_correction_mae": 0.05722963809967041,
+        "teacher_psnr_gain": 19.404999713737475,
+        "teacher_reference_psnr": 42.07080008971318,
+        "texture": 0.006814336404204369
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          3428,
+          357,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2663012444972992,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 20.901644425683834,
+        "phase_shift": [
+          0,
+          -3
+        ],
+        "scene": "nind_books",
+        "shadow_fraction": 0.5259602864583334,
+        "shadow_teacher_correction_mae": 0.06288322806358337,
+        "split": "train",
+        "teacher_correction_mae": 0.0706062912940979,
+        "teacher_psnr_gain": 13.351812532288648,
+        "teacher_reference_psnr": 34.25345695797248,
+        "texture": 0.012942222878336906
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2805,
+          44,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.4257015585899353,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 22.21175657277678,
+        "phase_shift": [
+          0,
+          -29
+        ],
+        "scene": "nind_homarus-americanus",
+        "shadow_fraction": 0.009738498263888888,
+        "shadow_teacher_correction_mae": 0.17513154447078705,
+        "split": "train",
+        "teacher_correction_mae": 0.06043209135532379,
+        "teacher_psnr_gain": 18.185168226607786,
+        "teacher_reference_psnr": 40.396924799384564,
+        "texture": 0.01070316880941391
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          3297,
+          570,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.6123678684234619,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 26.436278906635383,
+        "phase_shift": [
+          -1,
+          0
+        ],
+        "scene": "nind_homarus-americanus",
+        "shadow_fraction": 0.0,
+        "shadow_teacher_correction_mae": 0.0,
+        "split": "train",
+        "teacher_correction_mae": 0.03729256987571716,
+        "teacher_psnr_gain": 16.895855071789068,
+        "teacher_reference_psnr": 43.33213397842445,
+        "texture": 0.006814336404204369
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          757,
+          1570,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.6570258736610413,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 28.979866107098474,
+        "phase_shift": [
+          0,
+          1
+        ],
+        "scene": "nind_ottignies",
+        "shadow_fraction": 0.00048828125,
+        "shadow_teacher_correction_mae": 0.09351500123739243,
+        "split": "train",
+        "teacher_correction_mae": 0.026760607957839966,
+        "teacher_psnr_gain": 11.876245321197104,
+        "teacher_reference_psnr": 40.85611142829558,
+        "texture": 0.010402288287878036
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2789,
+          1405,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.14924150705337524,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 13.51155603393831,
+        "phase_shift": [
+          0,
+          25
+        ],
+        "scene": "nind_drowning",
+        "shadow_fraction": 0.7977159288194444,
+        "shadow_teacher_correction_mae": 0.11645516753196716,
+        "split": "train",
+        "teacher_correction_mae": 0.17041932046413422,
+        "teacher_psnr_gain": 12.402187435151772,
+        "teacher_reference_psnr": 25.913743469090083,
+        "texture": 0.016583038493990898
+      },
+      {
+        "camera": "X-T1",
+        "crop": [
+          87,
+          1641,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.09388186037540436,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 19.64872059025932,
+        "phase_shift": [
+          0,
+          -3
+        ],
+        "scene": "nind_museel-snakeandmask",
+        "shadow_fraction": 0.9769422743055556,
+        "shadow_teacher_correction_mae": 0.07863473892211914,
+        "split": "train",
+        "teacher_correction_mae": 0.08120152354240417,
+        "teacher_psnr_gain": 3.2444497486236124,
+        "teacher_reference_psnr": 22.893170338882932,
+        "texture": 0.007502409629523754
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2805,
+          44,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.42751815915107727,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 24.801508235422677,
+        "phase_shift": [
+          0,
+          -10
+        ],
+        "scene": "nind_homarus-americanus",
+        "shadow_fraction": 0.001681857638888889,
+        "shadow_teacher_correction_mae": 0.1523936241865158,
+        "split": "train",
+        "teacher_correction_mae": 0.044514790177345276,
+        "teacher_psnr_gain": 17.018084832177077,
+        "teacher_reference_psnr": 41.819593067599754,
+        "texture": 0.01070316880941391
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          565,
+          1627,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.6104815006256104,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 21.41567910219824,
+        "phase_shift": [
+          23,
+          0
+        ],
+        "scene": "nind_saint-remi-c",
+        "shadow_fraction": 0.00016276041666666666,
+        "shadow_teacher_correction_mae": 0.26814165711402893,
+        "split": "train",
+        "teacher_correction_mae": 0.06512659788131714,
+        "teacher_psnr_gain": 19.801950236321083,
+        "teacher_reference_psnr": 41.21762933851932,
+        "texture": 0.008486734703183174
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2327,
+          1020,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.5392372608184814,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 20.14251848559404,
+        "phase_shift": [
+          0,
+          19
+        ],
+        "scene": "nind_saint-remi-c",
+        "shadow_fraction": 0.0015462239583333333,
+        "shadow_teacher_correction_mae": 0.27103284001350403,
+        "split": "train",
+        "teacher_correction_mae": 0.07660111784934998,
+        "teacher_psnr_gain": 18.02412432585053,
+        "teacher_reference_psnr": 38.16664281144457,
+        "texture": 0.00860616099089384
+      },
+      {
+        "camera": "X-T1",
+        "crop": [
+          614,
+          275,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.4845866560935974,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 14.558230736933357,
+        "phase_shift": [
+          -1,
+          0
+        ],
+        "scene": "nind_vlc",
+        "shadow_fraction": 0.07191297743055555,
+        "shadow_teacher_correction_mae": 0.2837929129600525,
+        "split": "train",
+        "teacher_correction_mae": 0.1378783881664276,
+        "teacher_psnr_gain": 16.447498381474517,
+        "teacher_reference_psnr": 31.005729118407874,
+        "texture": 0.014051217585802078
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          27,
+          464,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.08439416438341141,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 21.868658946390156,
+        "phase_shift": [
+          1,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.9485677083333334,
+        "shadow_teacher_correction_mae": 0.06319928914308548,
+        "split": "validation",
+        "teacher_correction_mae": 0.06938859820365906,
+        "teacher_psnr_gain": 6.357957087880351,
+        "teacher_reference_psnr": 28.226616034270506,
+        "texture": 0.007553357630968094
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1728,
+          318,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.35042038559913635,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 23.079990434152226,
+        "phase_shift": [
+          2,
+          0
+        ],
+        "scene": "nind_pastries",
+        "shadow_fraction": 0.143798828125,
+        "shadow_teacher_correction_mae": 0.06897606700658798,
+        "split": "validation",
+        "teacher_correction_mae": 0.05411883071064949,
+        "teacher_psnr_gain": 14.992901168256235,
+        "teacher_reference_psnr": 38.07289160240846,
+        "texture": 0.014142260886728764
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1728,
+          318,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.33534279465675354,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 16.38787527373379,
+        "phase_shift": [
+          -2,
+          0
+        ],
+        "scene": "nind_pastries",
+        "shadow_fraction": 0.2921006944444444,
+        "shadow_teacher_correction_mae": 0.1437772661447525,
+        "split": "validation",
+        "teacher_correction_mae": 0.12123097479343414,
+        "teacher_psnr_gain": 13.987615829826943,
+        "teacher_reference_psnr": 30.375491103560734,
+        "texture": 0.014142260886728764
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1728,
+          318,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.34119874238967896,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 19.17164718273239,
+        "phase_shift": [
+          -2,
+          0
+        ],
+        "scene": "nind_pastries",
+        "shadow_fraction": 0.21815321180555555,
+        "shadow_teacher_correction_mae": 0.11265269666910172,
+        "split": "validation",
+        "teacher_correction_mae": 0.08645841479301453,
+        "teacher_psnr_gain": 16.160972483544942,
+        "teacher_reference_psnr": 35.33261966627733,
+        "texture": 0.014142260886728764
+      }
+    ],
+    "low_texture_unmeasured_records": 75,
+    "nonzero_phase_shift_records": 22
+  },
+  "alignment_review_sheet": {
+    "jpg": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/alignment_review_contact_sheet.jpg",
+    "png": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/alignment_review_contact_sheet.png",
+    "png_sha256": "eeef4edac95cfe2689907ca3677be2c1d53b5e705203cc1bdb5ae8f3c81f2312",
+    "rows": 22
+  },
+  "contact_sheet": {
+    "jpg": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/data_gate_contact_sheet.jpg",
+    "png": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/data_gate_contact_sheet.png",
+    "png_sha256": "6ea47b95c6c8daa3b9f701427356f9a15d4e53eb2d640b0d3fc95fffd428e260",
+    "rows": [
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          2271,
+          773,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.7259098887443542,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 30.486980010137962,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_book",
+        "shadow_fraction": 0.010281032986111112,
+        "shadow_teacher_correction_mae": 0.040412094444036484,
+        "split": "train",
+        "teacher_correction_mae": 0.012896246276795864,
+        "teacher_psnr_gain": 0.30050444043020264,
+        "teacher_reference_psnr": 30.787484450568165,
+        "texture": 0.03294932097196579
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          198,
+          1403,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.07691878080368042,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 38.90005522822676,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_class",
+        "shadow_fraction": 1.0,
+        "shadow_teacher_correction_mae": 0.009211361408233643,
+        "split": "train",
+        "teacher_correction_mae": 0.009211361408233643,
+        "teacher_psnr_gain": 2.539405115108977,
+        "teacher_reference_psnr": 41.43946034333574,
+        "texture": 0.0025893503334373236
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          1597,
+          447,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.11986643821001053,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 34.96098333892301,
+        "phase_shift": null,
+        "scene": "polyu_sony_compu",
+        "shadow_fraction": 1.0,
+        "shadow_teacher_correction_mae": 0.013236021623015404,
+        "split": "validation",
+        "teacher_correction_mae": 0.013236021623015404,
+        "teacher_psnr_gain": 9.791501748901375,
+        "teacher_reference_psnr": 44.75248508782438,
+        "texture": 0.00047223130241036415
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          2181,
+          555,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.19441372156143188,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 31.064026567390176,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_door",
+        "shadow_fraction": 0.8139919704861112,
+        "shadow_teacher_correction_mae": 0.01334823202341795,
+        "split": "train",
+        "teacher_correction_mae": 0.01760372519493103,
+        "teacher_psnr_gain": -2.972213867278654,
+        "teacher_reference_psnr": 28.09181270011152,
+        "texture": 0.05471373721957207
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          26,
+          1301,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.4199899733066559,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 28.221492535811894,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_plant",
+        "shadow_fraction": 0.0022786458333333335,
+        "shadow_teacher_correction_mae": 0.06071719527244568,
+        "split": "train",
+        "teacher_correction_mae": 0.018356744199991226,
+        "teacher_psnr_gain": 2.6629314285943693,
+        "teacher_reference_psnr": 30.884423964406263,
+        "texture": 0.07432451844215393
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          2049,
+          338,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.17450009286403656,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 35.19851083242265,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_stair",
+        "shadow_fraction": 0.9219563802083334,
+        "shadow_teacher_correction_mae": 0.012467113323509693,
+        "split": "train",
+        "teacher_correction_mae": 0.012774554081261158,
+        "teacher_psnr_gain": 4.104387338334284,
+        "teacher_reference_psnr": 39.30289817075693,
+        "texture": 0.020296040922403336
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          2035,
+          1481,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.211395263671875,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 35.18003604352555,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_toy",
+        "shadow_fraction": 0.69482421875,
+        "shadow_teacher_correction_mae": 0.012244590558111668,
+        "split": "train",
+        "teacher_correction_mae": 0.012339078821241856,
+        "teacher_psnr_gain": 7.841930919378129,
+        "teacher_reference_psnr": 43.021966962903676,
+        "texture": 0.004224725533276796
+      },
+      {
+        "camera": "Sony A7 II",
+        "crop": [
+          3167,
+          183,
+          192,
+          192
+        ],
+        "dataset": "polyu_sony",
+        "mean_luminance": 0.17786139249801636,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 30.805384714437587,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "polyu_sony_water",
+        "shadow_fraction": 0.7821451822916666,
+        "shadow_teacher_correction_mae": 0.020321812480688095,
+        "split": "validation",
+        "teacher_correction_mae": 0.02143327333033085,
+        "teacher_psnr_gain": 12.812867904634935,
+        "teacher_reference_psnr": 43.61825261907252,
+        "texture": 0.005223091691732407
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          960,
+          1344,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.33813127875328064,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 25.67159795250928,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_books",
+        "shadow_fraction": 0.21739366319444445,
+        "shadow_teacher_correction_mae": 0.035340987145900726,
+        "split": "train",
+        "teacher_correction_mae": 0.039322953671216965,
+        "teacher_psnr_gain": 4.978288851790218,
+        "teacher_reference_psnr": 30.6498868042995,
+        "texture": 0.08520212769508362
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.32679983973503113,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 21.57989671218029,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.2651909722222222,
+        "shadow_teacher_correction_mae": 0.06296811252832413,
+        "split": "validation",
+        "teacher_correction_mae": 0.046422842890024185,
+        "teacher_psnr_gain": 4.316278848169123,
+        "teacher_reference_psnr": 25.896175560349413,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          960,
+          1344,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.33393076062202454,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 20.502143224723362,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_books",
+        "shadow_fraction": 0.2477484809027778,
+        "shadow_teacher_correction_mae": 0.06947805732488632,
+        "split": "train",
+        "teacher_correction_mae": 0.07053884863853455,
+        "teacher_psnr_gain": 8.155992519270448,
+        "teacher_reference_psnr": 28.65813574399381,
+        "texture": 0.08520212769508362
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2915491461753845,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 16.760243561970704,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.4139811197916667,
+        "shadow_teacher_correction_mae": 0.12365734577178955,
+        "split": "validation",
+        "teacher_correction_mae": 0.11242429167032242,
+        "teacher_psnr_gain": 4.852037337649168,
+        "teacher_reference_psnr": 21.612280899619872,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          3072,
+          1728,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2012365758419037,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 16.09922690731055,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_claytools",
+        "shadow_fraction": 0.7021755642361112,
+        "shadow_teacher_correction_mae": 0.10244021564722061,
+        "split": "train",
+        "teacher_correction_mae": 0.14351524412631989,
+        "teacher_psnr_gain": 2.534885308867512,
+        "teacher_reference_psnr": 18.63411221617806,
+        "texture": 0.06538816541433334
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1152,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.24600055813789368,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 15.66671732349236,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_chapel",
+        "shadow_fraction": 0.557373046875,
+        "shadow_teacher_correction_mae": 0.10642273724079132,
+        "split": "train",
+        "teacher_correction_mae": 0.13706888258457184,
+        "teacher_psnr_gain": 6.53198490342681,
+        "teacher_reference_psnr": 22.19870222691917,
+        "texture": 0.06403754651546478
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          576,
+          768,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2551092207431793,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 14.879608342812137,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_shells",
+        "shadow_fraction": 0.5299207899305556,
+        "shadow_teacher_correction_mae": 0.10855228453874588,
+        "split": "train",
+        "teacher_correction_mae": 0.14164289832115173,
+        "teacher_psnr_gain": 7.3045846680378865,
+        "teacher_reference_psnr": 22.184193010850024,
+        "texture": 0.04024067521095276
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          3264,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.380623459815979,
+        "noise_level": "H4",
+        "noisy_reference_psnr": 15.75494186368479,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_whistle",
+        "shadow_fraction": 0.2478569878472222,
+        "shadow_teacher_correction_mae": 0.14627008140087128,
+        "split": "train",
+        "teacher_correction_mae": 0.117647185921669,
+        "teacher_psnr_gain": 7.493726604782493,
+        "teacher_reference_psnr": 23.248668468467283,
+        "texture": 0.11181992292404175
+      }
+    ]
+  },
+  "counts": {
+    "nind/6400": 312,
+    "nind/6400-2": 8,
+    "nind/H1": 164,
+    "nind/H2": 128,
+    "nind/H3": 64,
+    "nind/H4": 4,
+    "polyu_sony/1600": 64,
+    "polyu_sony/3200": 48,
+    "polyu_sony/6400": 16
+  },
+  "dataset_summaries": {
+    "nind": {
+      "mean_shadow_fraction": 0.279092307495915,
+      "records": 680,
+      "teacher_better_fraction": 0.9955882352941177,
+      "teacher_psnr_gain_db": {
+        "maximum": 25.929008229063374,
+        "mean": 8.365364416096183,
+        "median": 7.668291152066647,
+        "minimum": -1.5857799602426397
+      }
+    },
+    "polyu_sony": {
+      "mean_shadow_fraction": 0.22523477342393664,
+      "records": 128,
+      "teacher_better_fraction": 0.9296875,
+      "teacher_psnr_gain_db": {
+        "maximum": 16.319967103662897,
+        "mean": 4.394193611359883,
+        "median": 3.289175294271253,
+        "minimum": -2.972213867278654
+      }
+    }
+  },
+  "decision": "Do not start training until the PolyU reference quality, SCUNet targets, NIND H-series behavior, and reported alignment exceptions are visually accepted.",
+  "licenses": {
+    "input CC BY 4.0; reference CC BY 4.0": 608,
+    "input CC BY 4.0; reference Public domain": 72,
+    "separate permission reported by project owner": 128
+  },
+  "manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/high_iso_gate/cache/manifest.json",
+  "manifest_sha256": "f3a2a8676c9c1cb1f3bd689e382995e25c823dbfd6d3d918d2bf8dbb5422423f",
+  "preprocessing": "exact_hwc_rgb_float_0_1_v1",
+  "progression_sheet": {
+    "jpg": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/nind_progression_contact_sheet.jpg",
+    "png": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_data_gate/nind_progression_contact_sheet.png",
+    "png_sha256": "06723291eedcda6fdda5b124a73e3c293a8f90604582d19f0701eaaeefca32a2",
+    "rows": [
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.3362114131450653,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 24.157823931023476,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.2073025173611111,
+        "shadow_teacher_correction_mae": 0.045004699379205704,
+        "split": "validation",
+        "teacher_correction_mae": 0.031459029763936996,
+        "teacher_psnr_gain": 3.1172288083391706,
+        "teacher_reference_psnr": 27.275052739362646,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.32679983973503113,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 21.57989671218029,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.2651909722222222,
+        "shadow_teacher_correction_mae": 0.06296811252832413,
+        "split": "validation",
+        "teacher_correction_mae": 0.046422842890024185,
+        "teacher_psnr_gain": 4.316278848169123,
+        "teacher_reference_psnr": 25.896175560349413,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.31032365560531616,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 18.697222011542806,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.3411729600694444,
+        "shadow_teacher_correction_mae": 0.11220745742321014,
+        "split": "validation",
+        "teacher_correction_mae": 0.08893981575965881,
+        "teacher_psnr_gain": 4.769648286937684,
+        "teacher_reference_psnr": 23.46687029848049,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          2880,
+          960,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.2915491461753845,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 16.760243561970704,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_parking-keyboard",
+        "shadow_fraction": 0.4139811197916667,
+        "shadow_teacher_correction_mae": 0.12365734577178955,
+        "split": "validation",
+        "teacher_correction_mae": 0.11242429167032242,
+        "teacher_psnr_gain": 4.852037337649168,
+        "teacher_reference_psnr": 21.612280899619872,
+        "texture": 0.11074468493461609
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1152,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.25073277950286865,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 24.006208686246374,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_chapel",
+        "shadow_fraction": 0.5332573784722222,
+        "shadow_teacher_correction_mae": 0.04727139696478844,
+        "split": "train",
+        "teacher_correction_mae": 0.04714024439454079,
+        "teacher_psnr_gain": 5.8844850445981045,
+        "teacher_reference_psnr": 29.89069373084448,
+        "texture": 0.06403754651546478
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1152,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.24547035992145538,
+        "noise_level": "H1",
+        "noisy_reference_psnr": 20.877833476979923,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_chapel",
+        "shadow_fraction": 0.5476345486111112,
+        "shadow_teacher_correction_mae": 0.06818241626024246,
+        "split": "train",
+        "teacher_correction_mae": 0.06989237666130066,
+        "teacher_psnr_gain": 7.235098022907259,
+        "teacher_reference_psnr": 28.112931499887182,
+        "texture": 0.06403754651546478
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1152,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.24166853725910187,
+        "noise_level": "H2",
+        "noisy_reference_psnr": 18.036405820114034,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_chapel",
+        "shadow_fraction": 0.5572374131944444,
+        "shadow_teacher_correction_mae": 0.09212896227836609,
+        "split": "train",
+        "teacher_correction_mae": 0.10047849267721176,
+        "teacher_psnr_gain": 8.171025993306358,
+        "teacher_reference_psnr": 26.207431813420392,
+        "texture": 0.06403754651546478
+      },
+      {
+        "camera": "unknown",
+        "crop": [
+          1152,
+          384,
+          192,
+          192
+        ],
+        "dataset": "nind",
+        "mean_luminance": 0.24600055813789368,
+        "noise_level": "H3",
+        "noisy_reference_psnr": 15.66671732349236,
+        "phase_shift": [
+          0,
+          0
+        ],
+        "scene": "nind_chapel",
+        "shadow_fraction": 0.557373046875,
+        "shadow_teacher_correction_mae": 0.10642273724079132,
+        "split": "train",
+        "teacher_correction_mae": 0.13706888258457184,
+        "teacher_psnr_gain": 6.53198490342681,
+        "teacher_reference_psnr": 22.19870222691917,
+        "texture": 0.06403754651546478
+      }
+    ]
+  },
+  "records": 808,
+  "source_pairs": 178,
+  "status": "pending_visual_review",
+  "supervision": {
+    "paired": 128,
+    "teacher_only": 680
+  },
+  "teacher_cache_parity": {
+    "maximum_absolute_error": 0.000244140625,
+    "mean_absolute_error": 6.102194674895145e-05,
+    "samples": 8,
+    "skipped": false,
+    "tolerance": 0.0005
+  }
+}

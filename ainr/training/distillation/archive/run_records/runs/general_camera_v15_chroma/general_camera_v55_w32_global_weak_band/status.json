@@ -1,0 +1,8 @@
+{
+  "epoch": 3,
+  "epochs": 30,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v55_w32_global_weak_band",
+  "state": "failed",
+  "updated_at": "2026-07-26T05:43:21.942946+00:00"
+}

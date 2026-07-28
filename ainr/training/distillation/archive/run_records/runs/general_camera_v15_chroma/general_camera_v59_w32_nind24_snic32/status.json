@@ -1,0 +1,8 @@
+{
+  "epoch": 8,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v59_w32_nind24_snic32",
+  "state": "failed",
+  "updated_at": "2026-07-26T07:27:05.648649+00:00"
+}

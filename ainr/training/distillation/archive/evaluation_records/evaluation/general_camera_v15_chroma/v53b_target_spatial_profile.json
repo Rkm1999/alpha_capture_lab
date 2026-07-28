@@ -1,0 +1,530 @@
+{
+  "absolute_error": {
+    "all_pixels": {
+      "by_dataset": {
+        "nind": 0.0006206014612893696,
+        "snic_sony": 0.0007102545223460766,
+        "uhd_ll": 0.00015118942031070522
+      },
+      "equal_dataset_mean": 0.0004940151346487172,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_0_7": {
+      "by_dataset": {
+        "nind": 0.000761060213601634,
+        "snic_sony": 0.0008808219326266015,
+        "uhd_ll": 0.00019325574964189704
+      },
+      "equal_dataset_mean": 0.0006117126319567109,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_24_47": {
+      "by_dataset": {
+        "nind": 0.0005805366815876346,
+        "snic_sony": 0.0006697978575315434,
+        "uhd_ll": 0.00014301023181985783
+      },
+      "equal_dataset_mean": 0.0004644482569796786,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_8_23": {
+      "by_dataset": {
+        "nind": 0.0005647916125714645,
+        "snic_sony": 0.0006631613814533921,
+        "uhd_ll": 0.00014106660305420368
+      },
+      "equal_dataset_mean": 0.0004563398656930201,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_50_75": {
+      "by_dataset": {
+        "nind": 0.0006189813222324407,
+        "snic_sony": 0.0007072407056861826,
+        "uhd_ll": 0.00015145766243525335
+      },
+      "equal_dataset_mean": 0.0004925598967846256,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_75_90": {
+      "by_dataset": {
+        "nind": 0.000632859886048586,
+        "snic_sony": 0.0007145382069910949,
+        "uhd_ll": 0.0001578171200969791
+      },
+      "equal_dataset_mean": 0.0005017384043788867,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_bottom_50": {
+      "by_dataset": {
+        "nind": 0.0006113927953354106,
+        "snic_sony": 0.0007058867725460844,
+        "uhd_ll": 0.00014579763884986125
+      },
+      "equal_dataset_mean": 0.00048769240224378545,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_top_10": {
+      "by_dataset": {
+        "nind": 0.000652306914694569,
+        "snic_sony": 0.0007331992746912874,
+        "uhd_ll": 0.00016803397488653597
+      },
+      "equal_dataset_mean": 0.0005178467214241308,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "interior_48_plus": {
+      "by_dataset": {
+        "nind": 0.0006429558565309335,
+        "snic_sony": 0.0007041774469353885,
+        "uhd_ll": 0.00014578526897113402
+      },
+      "equal_dataset_mean": 0.0004976395241458187,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_50_75": {
+      "by_dataset": {
+        "nind": 0.000616996534651063,
+        "snic_sony": 0.0007073390869873737,
+        "uhd_ll": 0.0001517093586100297
+      },
+      "equal_dataset_mean": 0.0004920149934161555,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_75_90": {
+      "by_dataset": {
+        "nind": 0.0007242799329327592,
+        "snic_sony": 0.0007800906605552882,
+        "uhd_ll": 0.00017036449053023261
+      },
+      "equal_dataset_mean": 0.0005582450280060934,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_bottom_50": {
+      "by_dataset": {
+        "nind": 0.0005188286059353963,
+        "snic_sony": 0.0006341534433606564,
+        "uhd_ll": 0.00013440615372625568
+      },
+      "equal_dataset_mean": 0.0004291294010074362,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_top_10": {
+      "by_dataset": {
+        "nind": 0.0009829192246198968,
+        "snic_sony": 0.000993259613796209,
+        "uhd_ll": 0.00020503773499702522
+      },
+      "equal_dataset_mean": 0.0007270721911377104,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    }
+  },
+  "capture": {
+    "all_pixels": {
+      "by_dataset": {
+        "nind": 0.7254084166957111,
+        "snic_sony": 0.7301609120689906,
+        "uhd_ll": 0.7321472558379173
+      },
+      "equal_dataset_mean": 0.7292388615342064,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_0_7": {
+      "by_dataset": {
+        "nind": 0.7222187599030937,
+        "snic_sony": 0.72957382695033,
+        "uhd_ll": 0.7084530718127886
+      },
+      "equal_dataset_mean": 0.7200818862220708,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_24_47": {
+      "by_dataset": {
+        "nind": 0.7269806251293276,
+        "snic_sony": 0.7327555119991302,
+        "uhd_ll": 0.7406196897228559
+      },
+      "equal_dataset_mean": 0.7334519422837712,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_8_23": {
+      "by_dataset": {
+        "nind": 0.7221724082057069,
+        "snic_sony": 0.7294696672604635,
+        "uhd_ll": 0.7260363162557284
+      },
+      "equal_dataset_mean": 0.7258927972406329,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_50_75": {
+      "by_dataset": {
+        "nind": 0.7266152399342235,
+        "snic_sony": 0.7304774843729459,
+        "uhd_ll": 0.7321337962150574
+      },
+      "equal_dataset_mean": 0.7297421735074089,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_75_90": {
+      "by_dataset": {
+        "nind": 0.7261918427013769,
+        "snic_sony": 0.7273210040651835,
+        "uhd_ll": 0.72374753733476
+      },
+      "equal_dataset_mean": 0.7257534613671068,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_bottom_50": {
+      "by_dataset": {
+        "nind": 0.7244975141635756,
+        "snic_sony": 0.7324063004209445,
+        "uhd_ll": 0.739409596323967
+      },
+      "equal_dataset_mean": 0.7321044703028289,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_top_10": {
+      "by_dataset": {
+        "nind": 0.7231329207013293,
+        "snic_sony": 0.7220039212932954,
+        "uhd_ll": 0.709819414416949
+      },
+      "equal_dataset_mean": 0.7183187521371912,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "interior_48_plus": {
+      "by_dataset": {
+        "nind": 0.7229962628789064,
+        "snic_sony": 0.7204924134107736,
+        "uhd_ll": 0.739365906616052
+      },
+      "equal_dataset_mean": 0.7276181943019107,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_50_75": {
+      "by_dataset": {
+        "nind": 0.7496991113918584,
+        "snic_sony": 0.7553941475657316,
+        "uhd_ll": 0.7543053083618482
+      },
+      "equal_dataset_mean": 0.753132855773146,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_75_90": {
+      "by_dataset": {
+        "nind": 0.7975935605241031,
+        "snic_sony": 0.8094191396465669,
+        "uhd_ll": 0.8034099772572517
+      },
+      "equal_dataset_mean": 0.8034742258093073,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_bottom_50": {
+      "by_dataset": {
+        "nind": 0.5545444444912236,
+        "snic_sony": 0.5498629080561491,
+        "uhd_ll": 0.5584586146473884
+      },
+      "equal_dataset_mean": 0.554288655731587,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_top_10": {
+      "by_dataset": {
+        "nind": 0.8251393724505495,
+        "snic_sony": 0.83777571698794,
+        "uhd_ll": 0.8380205548803011
+      },
+      "equal_dataset_mean": 0.8336452147729302,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    }
+  },
+  "checkpoint": {
+    "epoch": 41,
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v15_chroma/general_camera_v53b_w32_expansion_only/target-best.pt",
+    "sha256": "0ecbc390b92d497d634dda4bcc873a1576b8b134b577731ac2073fecdd040dc0"
+  },
+  "manifest": {
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/high_iso_targeted_synthetic_v4_nind12_snic16_uhd8/cache/manifest.json",
+    "sha256": "b90e10461d3cf1d29cb235af81eb638285f5047a9c4e432ae61022691d1677ad"
+  },
+  "schema_version": 1,
+  "selected_samples": {
+    "nind": 164,
+    "snic_sony": 104,
+    "uhd_ll": 600
+  },
+  "teacher_magnitude": {
+    "all_pixels": {
+      "by_dataset": {
+        "nind": 0.0023975721727233245,
+        "snic_sony": 0.0026498486616989025,
+        "uhd_ll": 0.0005851205360158929
+      },
+      "equal_dataset_mean": 0.0018775137901460399,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_0_7": {
+      "by_dataset": {
+        "nind": 0.002973980506351104,
+        "snic_sony": 0.0032960604652404212,
+        "uhd_ll": 0.0006958966705497005
+      },
+      "equal_dataset_mean": 0.0023219792140470753,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_24_47": {
+      "by_dataset": {
+        "nind": 0.0022728001631770805,
+        "snic_sony": 0.0025306497297536293,
+        "uhd_ll": 0.0005721634622629305
+      },
+      "equal_dataset_mean": 0.0017918711183978803,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "border_8_23": {
+      "by_dataset": {
+        "nind": 0.0021907854486305106,
+        "snic_sony": 0.0024809976457618177,
+        "uhd_ll": 0.0005375864191531339
+      },
+      "equal_dataset_mean": 0.0017364565045151538,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_50_75": {
+      "by_dataset": {
+        "nind": 0.002402467362471947,
+        "snic_sony": 0.0026412073717577956,
+        "uhd_ll": 0.0005806537845516384
+      },
+      "equal_dataset_mean": 0.0018747761729271271,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_75_90": {
+      "by_dataset": {
+        "nind": 0.0024563804820390053,
+        "snic_sony": 0.0026372035286980323,
+        "uhd_ll": 0.0005906403203698574
+      },
+      "equal_dataset_mean": 0.0018947414437022983,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_bottom_50": {
+      "by_dataset": {
+        "nind": 0.0023547375412152445,
+        "snic_sony": 0.0026577286514041657,
+        "uhd_ll": 0.0005808559445479963
+      },
+      "equal_dataset_mean": 0.0018644407123891355,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "input_gradient_top_10": {
+      "by_dataset": {
+        "nind": 0.002511293797685606,
+        "snic_sony": 0.0026510177267482504,
+        "uhd_ll": 0.0006012220860308541
+      },
+      "equal_dataset_mean": 0.0019211778701549037,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "interior_48_plus": {
+      "by_dataset": {
+        "nind": 0.0024150392818250467,
+        "snic_sony": 0.002573602075034824,
+        "uhd_ll": 0.0005833589249656749
+      },
+      "equal_dataset_mean": 0.001857333427275182,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_50_75": {
+      "by_dataset": {
+        "nind": 0.002597177716713149,
+        "snic_sony": 0.0029373085741938735,
+        "uhd_ll": 0.0006436696872575946
+      },
+      "equal_dataset_mean": 0.0020593853260548723,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_75_90": {
+      "by_dataset": {
+        "nind": 0.003704053898151714,
+        "snic_sony": 0.004075811898264174,
+        "uhd_ll": 0.0008949890075139895
+      },
+      "equal_dataset_mean": 0.002891618267976626,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_bottom_50": {
+      "by_dataset": {
+        "nind": 0.0012643592190437541,
+        "snic_sony": 0.0014382684396248525,
+        "uhd_ll": 0.00032124829600737334
+      },
+      "equal_dataset_mean": 0.0010079586515586599,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    },
+    "teacher_band_magnitude_top_10": {
+      "by_dataset": {
+        "nind": 0.005604595662855611,
+        "snic_sony": 0.005849866619638096,
+        "uhd_ll": 0.0012932418276371512
+      },
+      "equal_dataset_mean": 0.004249234703376952,
+      "samples": {
+        "nind": 164,
+        "snic_sony": 104,
+        "uhd_ll": 600
+      }
+    }
+  }
+}

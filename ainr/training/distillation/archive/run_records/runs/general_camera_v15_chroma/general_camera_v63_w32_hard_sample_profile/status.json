@@ -1,0 +1,8 @@
+{
+  "epoch": 3,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v63_w32_hard_sample_profile",
+  "state": "failed",
+  "updated_at": "2026-07-26T08:25:21.840124+00:00"
+}

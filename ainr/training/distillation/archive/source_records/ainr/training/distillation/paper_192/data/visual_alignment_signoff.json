@@ -1,0 +1,8 @@
+{
+  "approved": true,
+  "date": "2026-07-19",
+  "reviewer": "Codex visual inspection",
+  "artifact": "../data_gate_contact_sheet.jpg",
+  "scope": "12 deterministic held-out MIDD/SIDD noisy, SCUNet, and clean triples",
+  "notes": "Edges and framing align at pixel scale. No crop shift or ghosted registration was visible. This public-data signoff is not a substitute for target-camera paired validation."
+}

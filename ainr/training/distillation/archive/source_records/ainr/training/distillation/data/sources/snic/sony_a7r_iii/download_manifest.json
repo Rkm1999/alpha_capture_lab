@@ -1,0 +1,2272 @@
+{
+  "archives": [
+    {
+      "compressed_bytes": 19773295560,
+      "datafile_id": 13237248,
+      "entries": 80,
+      "name": "sony_a7r_iii_indoor1.zip",
+      "states": {
+        "downloaded": 55,
+        "existing": 25
+      },
+      "uncompressed_bytes": 20347360000,
+      "zip_entries": [
+        {
+          "compressed_size": 242780922,
+          "crc32": "9991597f",
+          "name": "indoor/001_pillow/001_pillow_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246834453,
+          "crc32": "20217562",
+          "name": "indoor/001_pillow/001_pillow_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247838867,
+          "crc32": "18ed3fb1",
+          "name": "indoor/001_pillow/001_pillow_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248616896,
+          "crc32": "a723d801",
+          "name": "indoor/001_pillow/001_pillow_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248808977,
+          "crc32": "8528e99e",
+          "name": "indoor/001_pillow/001_pillow_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245529464,
+          "crc32": "e7804473",
+          "name": "indoor/001_pillow/001_pillow_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248632977,
+          "crc32": "11a47977",
+          "name": "indoor/001_pillow/001_pillow_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249408225,
+          "crc32": "d4efe8a7",
+          "name": "indoor/001_pillow/001_pillow_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250021184,
+          "crc32": "5deb89b8",
+          "name": "indoor/001_pillow/001_pillow_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250131670,
+          "crc32": "1c380131",
+          "name": "indoor/001_pillow/001_pillow_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245010408,
+          "crc32": "90a32762",
+          "name": "indoor/002_cats/002_cats_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249197537,
+          "crc32": "c8716f15",
+          "name": "indoor/002_cats/002_cats_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249763838,
+          "crc32": "0ce3bc90",
+          "name": "indoor/002_cats/002_cats_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249659393,
+          "crc32": "219ab967",
+          "name": "indoor/002_cats/002_cats_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248656002,
+          "crc32": "58e0289d",
+          "name": "indoor/002_cats/002_cats_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241449911,
+          "crc32": "f8978644",
+          "name": "indoor/002_cats/002_cats_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246649026,
+          "crc32": "2e7b9fbb",
+          "name": "indoor/002_cats/002_cats_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247572707,
+          "crc32": "11fec926",
+          "name": "indoor/002_cats/002_cats_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247899187,
+          "crc32": "1868a26b",
+          "name": "indoor/002_cats/002_cats_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247117260,
+          "crc32": "96340f18",
+          "name": "indoor/002_cats/002_cats_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242221067,
+          "crc32": "8214ce21",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246520117,
+          "crc32": "1bf5be77",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247500225,
+          "crc32": "77760569",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248240415,
+          "crc32": "e6deb422",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248667690,
+          "crc32": "a576d9dd",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242438976,
+          "crc32": "7445d570",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247011931,
+          "crc32": "67120eee",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248077207,
+          "crc32": "d8fab4e2",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248948349,
+          "crc32": "433750a1",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249486820,
+          "crc32": "848017c5",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244361733,
+          "crc32": "0a2460df",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248461183,
+          "crc32": "7c758c61",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249363728,
+          "crc32": "92517bbb",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249972413,
+          "crc32": "27496456",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249802634,
+          "crc32": "27a45cf6",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241100149,
+          "crc32": "bad0a24e",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245474511,
+          "crc32": "58d77605",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246244030,
+          "crc32": "f51955b0",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246683843,
+          "crc32": "763debd4",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246515961,
+          "crc32": "d110670a",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239293963,
+          "crc32": "7dfa8b44",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244299622,
+          "crc32": "cda8600d",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245237828,
+          "crc32": "89f3c17f",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245949996,
+          "crc32": "8ae16243",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245908035,
+          "crc32": "7d45fca2",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246541692,
+          "crc32": "97c409f2",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249035216,
+          "crc32": "c063bae1",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249150508,
+          "crc32": "7d6fc9c7",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248451746,
+          "crc32": "8f514db5",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246814589,
+          "crc32": "0811f002",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244828967,
+          "crc32": "d1bbe564",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247717751,
+          "crc32": "c21b984c",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247769837,
+          "crc32": "5730131d",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246892038,
+          "crc32": "184032cc",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244891829,
+          "crc32": "e786faa7",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247058128,
+          "crc32": "3e141b73",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249304826,
+          "crc32": "816751e5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249684812,
+          "crc32": "34530446",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249593393,
+          "crc32": "dfeeb748",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248609431,
+          "crc32": "10fd58cb",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247270513,
+          "crc32": "3b1cb88e",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249751879,
+          "crc32": "43d539e9",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250386882,
+          "crc32": "cda2caa6",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250663359,
+          "crc32": "bc41a154",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250068921,
+          "crc32": "beef6af5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247967654,
+          "crc32": "ae15738e",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249697198,
+          "crc32": "bb85f2af",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250257024,
+          "crc32": "bc8f8cd5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250585841,
+          "crc32": "bad26474",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250245478,
+          "crc32": "6a9de724",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243106938,
+          "crc32": "cb8f3f4a",
+          "name": "indoor/007_origami/007_origami_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246520809,
+          "crc32": "0b17db85",
+          "name": "indoor/007_origami/007_origami_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246817161,
+          "crc32": "03263c56",
+          "name": "indoor/007_origami/007_origami_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246385180,
+          "crc32": "97ceabd5",
+          "name": "indoor/007_origami/007_origami_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244714113,
+          "crc32": "ac1bd90b",
+          "name": "indoor/007_origami/007_origami_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 240406276,
+          "crc32": "2f8ea49a",
+          "name": "indoor/007_origami/007_origami_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244951172,
+          "crc32": "55462734",
+          "name": "indoor/007_origami/007_origami_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245737996,
+          "crc32": "d95d860d",
+          "name": "indoor/007_origami/007_origami_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246143981,
+          "crc32": "f21dfcd1",
+          "name": "indoor/007_origami/007_origami_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245911092,
+          "crc32": "8c6fa767",
+          "name": "indoor/007_origami/007_origami_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    },
+    {
+      "compressed_bytes": 18551540652,
+      "datafile_id": 13237336,
+      "entries": 75,
+      "name": "sony_a7r_iii_indoor2.zip",
+      "states": {
+        "downloaded": 75,
+        "existing": 0
+      },
+      "uncompressed_bytes": 19075650000,
+      "zip_entries": [
+        {
+          "compressed_size": 246136079,
+          "crc32": "83611269",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248198861,
+          "crc32": "d11c6b06",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248552640,
+          "crc32": "f0c39c20",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248316095,
+          "crc32": "02bd8716",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247198402,
+          "crc32": "52c4fe69",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245619146,
+          "crc32": "e229b5dc",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247375180,
+          "crc32": "d5299d65",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247389941,
+          "crc32": "02a55754",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246953075,
+          "crc32": "1f4a47da",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245604526,
+          "crc32": "b3d878c9",
+          "name": "indoor/008_garbage_truck/008_garbage_truck_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243489342,
+          "crc32": "5c8c1bc4",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247138843,
+          "crc32": "191e5daf",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248164910,
+          "crc32": "3e80aa18",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249023743,
+          "crc32": "ed2e4ecb",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249460292,
+          "crc32": "db75d89d",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243476242,
+          "crc32": "0b162a23",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247276171,
+          "crc32": "5e450e95",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248326515,
+          "crc32": "c9de059e",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249271315,
+          "crc32": "07720e01",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249926986,
+          "crc32": "db151383",
+          "name": "indoor/009_three_puzzles/009_three_puzzles_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 237534543,
+          "crc32": "b71099a7",
+          "name": "indoor/010_software/010_software_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242513598,
+          "crc32": "2905ba4c",
+          "name": "indoor/010_software/010_software_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243132834,
+          "crc32": "437753e1",
+          "name": "indoor/010_software/010_software_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242987221,
+          "crc32": "8b5c39a3",
+          "name": "indoor/010_software/010_software_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241055382,
+          "crc32": "9fa7a611",
+          "name": "indoor/010_software/010_software_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239150918,
+          "crc32": "0f98503b",
+          "name": "indoor/010_software/010_software_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243667982,
+          "crc32": "4f571cae",
+          "name": "indoor/010_software/010_software_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244406031,
+          "crc32": "8068a8df",
+          "name": "indoor/010_software/010_software_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244606078,
+          "crc32": "ad27ef54",
+          "name": "indoor/010_software/010_software_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243074091,
+          "crc32": "dd46c58a",
+          "name": "indoor/010_software/010_software_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249027162,
+          "crc32": "8f436d8d",
+          "name": "indoor/011_bookends/011_bookends_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247837512,
+          "crc32": "6bd27fea",
+          "name": "indoor/011_bookends/011_bookends_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247140265,
+          "crc32": "3657d1be",
+          "name": "indoor/011_bookends/011_bookends_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246314859,
+          "crc32": "816dd37e",
+          "name": "indoor/011_bookends/011_bookends_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245427276,
+          "crc32": "b4cec824",
+          "name": "indoor/011_bookends/011_bookends_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249757233,
+          "crc32": "336808b9",
+          "name": "indoor/011_bookends/011_bookends_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248237966,
+          "crc32": "49cd9b50",
+          "name": "indoor/011_bookends/011_bookends_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247791915,
+          "crc32": "de84bdf0",
+          "name": "indoor/011_bookends/011_bookends_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246458792,
+          "crc32": "33a35cd1",
+          "name": "indoor/011_bookends/011_bookends_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245415839,
+          "crc32": "bbc4daaf",
+          "name": "indoor/011_bookends/011_bookends_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248639509,
+          "crc32": "50f9db7e",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250551125,
+          "crc32": "e4997080",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251218134,
+          "crc32": "068d73b4",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251726745,
+          "crc32": "bf16f20a",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251420617,
+          "crc32": "ecd08bcd",
+          "name": "indoor/012_newspaper/012_newspaper_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241021857,
+          "crc32": "a07d761c",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245414406,
+          "crc32": "565dc6d6",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246449653,
+          "crc32": "feb19231",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247456772,
+          "crc32": "1e29387e",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248620447,
+          "crc32": "263b3d06",
+          "name": "indoor/013_shakespeare/013_shakespeare_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241868244,
+          "crc32": "10250d2d",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245833251,
+          "crc32": "91ef9e34",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247000314,
+          "crc32": "0421f643",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248384524,
+          "crc32": "b0b4279b",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249689227,
+          "crc32": "e2132983",
+          "name": "indoor/013_shakespeare/013_shakespeare_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252479345,
+          "crc32": "9d44acda",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252792242,
+          "crc32": "3c63c058",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252690721,
+          "crc32": "5c0e086d",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252229714,
+          "crc32": "b5d68837",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250896366,
+          "crc32": "334b0a52",
+          "name": "indoor/014_two_towels/014_two_towels_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252801515,
+          "crc32": "d02b98dc",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253417548,
+          "crc32": "c3492b07",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253413366,
+          "crc32": "9db45142",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 253109658,
+          "crc32": "caf38c68",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251980231,
+          "crc32": "3e8ce98b",
+          "name": "indoor/014_two_towels/014_two_towels_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243037274,
+          "crc32": "71e343b2",
+          "name": "indoor/015_books/015_books_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247415118,
+          "crc32": "0c16b655",
+          "name": "indoor/015_books/015_books_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248416323,
+          "crc32": "15c028f3",
+          "name": "indoor/015_books/015_books_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248990976,
+          "crc32": "e07876d7",
+          "name": "indoor/015_books/015_books_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248474336,
+          "crc32": "3bbc4e5b",
+          "name": "indoor/015_books/015_books_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241014737,
+          "crc32": "b027847e",
+          "name": "indoor/015_books/015_books_50mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246561428,
+          "crc32": "10f0feb4",
+          "name": "indoor/015_books/015_books_50mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247688018,
+          "crc32": "fd7428d1",
+          "name": "indoor/015_books/015_books_50mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248327562,
+          "crc32": "aec65f75",
+          "name": "indoor/015_books/015_books_50mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248073548,
+          "crc32": "5f04c296",
+          "name": "indoor/015_books/015_books_50mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    },
+    {
+      "compressed_bytes": 17226249151,
+      "datafile_id": 13237440,
+      "entries": 70,
+      "name": "sony_a7r_iii_outdoor3.zip",
+      "states": {
+        "downloaded": 70,
+        "existing": 0
+      },
+      "uncompressed_bytes": 17803940000,
+      "zip_entries": [
+        {
+          "compressed_size": 237095860,
+          "crc32": "c3e7de48",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243203501,
+          "crc32": "c69a7384",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244868599,
+          "crc32": "704cf53c",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245803210,
+          "crc32": "db8fccdf",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246276395,
+          "crc32": "5c74ea24",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239755512,
+          "crc32": "c9ded7b2",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242565923,
+          "crc32": "89be923f",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243325529,
+          "crc32": "2d7c30b1",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243827192,
+          "crc32": "0a50bc7e",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243761486,
+          "crc32": "3e628d1b",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242515279,
+          "crc32": "600b8bd6",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245655529,
+          "crc32": "e8846af7",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246401898,
+          "crc32": "f514e4f7",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246246310,
+          "crc32": "b4cb20a1",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244512765,
+          "crc32": "40af99a4",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 240856943,
+          "crc32": "95339213",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246432451,
+          "crc32": "f50b8c34",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247802304,
+          "crc32": "fc7d96ea",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248704906,
+          "crc32": "ab8f276f",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249159316,
+          "crc32": "16f84a6e",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247173578,
+          "crc32": "2cf05728",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248478187,
+          "crc32": "db371d58",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248342916,
+          "crc32": "a8f11aeb",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247578903,
+          "crc32": "2815b90f",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246164672,
+          "crc32": "1c91fb78",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247923505,
+          "crc32": "00bcfdd4",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248856389,
+          "crc32": "2aedeed2",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249176359,
+          "crc32": "6da149e2",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249463225,
+          "crc32": "10a2fa72",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249602533,
+          "crc32": "e7bb3dc6",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242517932,
+          "crc32": "9a3435e0",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244509901,
+          "crc32": "02998776",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244928558,
+          "crc32": "5212894b",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244461346,
+          "crc32": "a7a122ad",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242887777,
+          "crc32": "29e23e2e",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241654370,
+          "crc32": "ad7094dc",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244329509,
+          "crc32": "5aa26693",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244702929,
+          "crc32": "dbb56608",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243921861,
+          "crc32": "b7c22cc0",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242120905,
+          "crc32": "3e820e08",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245800114,
+          "crc32": "0f3ca27a",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249080565,
+          "crc32": "e3b96e04",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249848507,
+          "crc32": "2275179c",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250626146,
+          "crc32": "7757469c",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251060036,
+          "crc32": "b61a5efd",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244356094,
+          "crc32": "c26c83a1",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246331260,
+          "crc32": "30a77859",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246734589,
+          "crc32": "c0fae763",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246545830,
+          "crc32": "9189afca",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245363164,
+          "crc32": "89280c81",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249221405,
+          "crc32": "70aaa16b",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250751623,
+          "crc32": "bb256c62",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251103421,
+          "crc32": "c1c710d1",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250888930,
+          "crc32": "da8dc393",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249793550,
+          "crc32": "eb44a5fe",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241420743,
+          "crc32": "d35249db",
+          "name": "outdoor/015_wagon/015_wagon_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244914326,
+          "crc32": "83f43b6e",
+          "name": "outdoor/015_wagon/015_wagon_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245812876,
+          "crc32": "dee01436",
+          "name": "outdoor/015_wagon/015_wagon_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246532176,
+          "crc32": "ab75366d",
+          "name": "outdoor/015_wagon/015_wagon_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247063359,
+          "crc32": "530cb383",
+          "name": "outdoor/015_wagon/015_wagon_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243437364,
+          "crc32": "be1622d4",
+          "name": "outdoor/015_wagon/015_wagon_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246698099,
+          "crc32": "8978f371",
+          "name": "outdoor/015_wagon/015_wagon_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247822847,
+          "crc32": "b726b27e",
+          "name": "outdoor/015_wagon/015_wagon_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247917101,
+          "crc32": "7e54d904",
+          "name": "outdoor/015_wagon/015_wagon_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247348004,
+          "crc32": "1c3456ef",
+          "name": "outdoor/015_wagon/015_wagon_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242562332,
+          "crc32": "0869f947",
+          "name": "outdoor/015_wagon/015_wagon_69mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247374037,
+          "crc32": "dbf7f1e1",
+          "name": "outdoor/015_wagon/015_wagon_69mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248022386,
+          "crc32": "c53e5da2",
+          "name": "outdoor/015_wagon/015_wagon_69mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247667732,
+          "crc32": "f2bd6a86",
+          "name": "outdoor/015_wagon/015_wagon_69mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246584272,
+          "crc32": "86ba3afb",
+          "name": "outdoor/015_wagon/015_wagon_69mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    },
+    {
+      "compressed_bytes": 14946416799,
+      "datafile_id": 13242871,
+      "entries": 60,
+      "name": "sony_a7r_iii_outdoor1.zip",
+      "states": {
+        "downloaded": 60,
+        "existing": 0
+      },
+      "uncompressed_bytes": 15260520000,
+      "zip_entries": [
+        {
+          "compressed_size": 245692810,
+          "crc32": "ed9bd638",
+          "name": "outdoor/001_bicycles/001_bicycles_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246701015,
+          "crc32": "91266e14",
+          "name": "outdoor/001_bicycles/001_bicycles_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246898381,
+          "crc32": "f043e302",
+          "name": "outdoor/001_bicycles/001_bicycles_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246638110,
+          "crc32": "9a06b69f",
+          "name": "outdoor/001_bicycles/001_bicycles_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245785790,
+          "crc32": "4e23c6eb",
+          "name": "outdoor/001_bicycles/001_bicycles_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247551457,
+          "crc32": "69cad544",
+          "name": "outdoor/001_bicycles/001_bicycles_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248565054,
+          "crc32": "2507d203",
+          "name": "outdoor/001_bicycles/001_bicycles_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248609628,
+          "crc32": "e58475b3",
+          "name": "outdoor/001_bicycles/001_bicycles_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248058940,
+          "crc32": "943806d0",
+          "name": "outdoor/001_bicycles/001_bicycles_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246775316,
+          "crc32": "ab823db7",
+          "name": "outdoor/001_bicycles/001_bicycles_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248791091,
+          "crc32": "2ca63602",
+          "name": "outdoor/002_building_back/002_building_back_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249548536,
+          "crc32": "f8f78990",
+          "name": "outdoor/002_building_back/002_building_back_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249668207,
+          "crc32": "ccd5dd22",
+          "name": "outdoor/002_building_back/002_building_back_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249003824,
+          "crc32": "423daf1f",
+          "name": "outdoor/002_building_back/002_building_back_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247558360,
+          "crc32": "8019f623",
+          "name": "outdoor/002_building_back/002_building_back_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250595761,
+          "crc32": "e47c363a",
+          "name": "outdoor/002_building_back/002_building_back_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251305923,
+          "crc32": "53f95189",
+          "name": "outdoor/002_building_back/002_building_back_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251238117,
+          "crc32": "54a6193e",
+          "name": "outdoor/002_building_back/002_building_back_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250718471,
+          "crc32": "f84db9db",
+          "name": "outdoor/002_building_back/002_building_back_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249621422,
+          "crc32": "61e37976",
+          "name": "outdoor/002_building_back/002_building_back_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250720489,
+          "crc32": "aba35f30",
+          "name": "outdoor/002_building_back/002_building_back_66mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251442400,
+          "crc32": "d06ce983",
+          "name": "outdoor/002_building_back/002_building_back_66mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251379442,
+          "crc32": "2640fc24",
+          "name": "outdoor/002_building_back/002_building_back_66mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250760403,
+          "crc32": "e81ade65",
+          "name": "outdoor/002_building_back/002_building_back_66mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249824216,
+          "crc32": "82e13d69",
+          "name": "outdoor/002_building_back/002_building_back_66mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248542704,
+          "crc32": "c07fcdb7",
+          "name": "outdoor/003_building_door/003_building_door_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249779096,
+          "crc32": "1b72cbed",
+          "name": "outdoor/003_building_door/003_building_door_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250345785,
+          "crc32": "af7ae85b",
+          "name": "outdoor/003_building_door/003_building_door_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250920979,
+          "crc32": "bb1c3a91",
+          "name": "outdoor/003_building_door/003_building_door_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251362743,
+          "crc32": "5ac24ed6",
+          "name": "outdoor/003_building_door/003_building_door_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247442856,
+          "crc32": "40136da5",
+          "name": "outdoor/003_building_door/003_building_door_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248168988,
+          "crc32": "a6d88364",
+          "name": "outdoor/003_building_door/003_building_door_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248563882,
+          "crc32": "3c568731",
+          "name": "outdoor/003_building_door/003_building_door_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249092295,
+          "crc32": "6df2737f",
+          "name": "outdoor/003_building_door/003_building_door_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249723696,
+          "crc32": "c9b2e5a3",
+          "name": "outdoor/003_building_door/003_building_door_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243356552,
+          "crc32": "057e7c9e",
+          "name": "outdoor/004_church/004_church_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245483955,
+          "crc32": "073ee941",
+          "name": "outdoor/004_church/004_church_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245968086,
+          "crc32": "38acea7b",
+          "name": "outdoor/004_church/004_church_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246238525,
+          "crc32": "e87e18db",
+          "name": "outdoor/004_church/004_church_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246275225,
+          "crc32": "4873e788",
+          "name": "outdoor/004_church/004_church_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244508195,
+          "crc32": "25da8819",
+          "name": "outdoor/004_church/004_church_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246464829,
+          "crc32": "8d147b8c",
+          "name": "outdoor/004_church/004_church_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246990336,
+          "crc32": "e94b84d7",
+          "name": "outdoor/004_church/004_church_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247114371,
+          "crc32": "b0343b06",
+          "name": "outdoor/004_church/004_church_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246920110,
+          "crc32": "2fb3a458",
+          "name": "outdoor/004_church/004_church_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250251372,
+          "crc32": "e6e54a65",
+          "name": "outdoor/005_leaves/005_leaves_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251574751,
+          "crc32": "5e8bc7db",
+          "name": "outdoor/005_leaves/005_leaves_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251727107,
+          "crc32": "ac42a348",
+          "name": "outdoor/005_leaves/005_leaves_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251574085,
+          "crc32": "82e4f097",
+          "name": "outdoor/005_leaves/005_leaves_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250707156,
+          "crc32": "c73794fe",
+          "name": "outdoor/005_leaves/005_leaves_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250724951,
+          "crc32": "83f5f5de",
+          "name": "outdoor/005_leaves/005_leaves_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251293275,
+          "crc32": "8148731e",
+          "name": "outdoor/005_leaves/005_leaves_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251435375,
+          "crc32": "4c9d44c9",
+          "name": "outdoor/005_leaves/005_leaves_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251352048,
+          "crc32": "802cc3cb",
+          "name": "outdoor/005_leaves/005_leaves_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250785655,
+          "crc32": "871b7d79",
+          "name": "outdoor/005_leaves/005_leaves_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251196824,
+          "crc32": "5e4fc428",
+          "name": "outdoor/005_leaves/005_leaves_50mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252125616,
+          "crc32": "8ca777e8",
+          "name": "outdoor/005_leaves/005_leaves_50mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252206256,
+          "crc32": "9c6bd6d4",
+          "name": "outdoor/005_leaves/005_leaves_50mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251899340,
+          "crc32": "0efa1262",
+          "name": "outdoor/005_leaves/005_leaves_50mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250846617,
+          "crc32": "b9d95edc",
+          "name": "outdoor/005_leaves/005_leaves_50mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    },
+    {
+      "compressed_bytes": 19811118328,
+      "datafile_id": 13243019,
+      "entries": 80,
+      "name": "sony_a7r_iii_outdoor2.zip",
+      "states": {
+        "downloaded": 80,
+        "existing": 0
+      },
+      "uncompressed_bytes": 20347360000,
+      "zip_entries": [
+        {
+          "compressed_size": 249221305,
+          "crc32": "97b4ad8d",
+          "name": "outdoor/006_park_map/006_park_map_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250279838,
+          "crc32": "ffff150c",
+          "name": "outdoor/006_park_map/006_park_map_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250643998,
+          "crc32": "9a443d66",
+          "name": "outdoor/006_park_map/006_park_map_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251107250,
+          "crc32": "3f481991",
+          "name": "outdoor/006_park_map/006_park_map_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251538001,
+          "crc32": "8398aa73",
+          "name": "outdoor/006_park_map/006_park_map_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 240769327,
+          "crc32": "04f8a241",
+          "name": "outdoor/006_park_map/006_park_map_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245815086,
+          "crc32": "069ef19a",
+          "name": "outdoor/006_park_map/006_park_map_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246008970,
+          "crc32": "0ee6d339",
+          "name": "outdoor/006_park_map/006_park_map_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244357092,
+          "crc32": "e779844d",
+          "name": "outdoor/006_park_map/006_park_map_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241688455,
+          "crc32": "8fd876fe",
+          "name": "outdoor/006_park_map/006_park_map_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247448286,
+          "crc32": "afa7e028",
+          "name": "outdoor/006_park_map/006_park_map_52mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249001461,
+          "crc32": "032b1e02",
+          "name": "outdoor/006_park_map/006_park_map_52mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249448185,
+          "crc32": "80f916e6",
+          "name": "outdoor/006_park_map/006_park_map_52mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250015501,
+          "crc32": "82743071",
+          "name": "outdoor/006_park_map/006_park_map_52mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250665027,
+          "crc32": "f093a77e",
+          "name": "outdoor/006_park_map/006_park_map_52mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246523695,
+          "crc32": "3ed57024",
+          "name": "outdoor/007_playground_climber/007_playground_climber_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247134890,
+          "crc32": "8e2227a5",
+          "name": "outdoor/007_playground_climber/007_playground_climber_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247280463,
+          "crc32": "95d7f334",
+          "name": "outdoor/007_playground_climber/007_playground_climber_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247141816,
+          "crc32": "33400dda",
+          "name": "outdoor/007_playground_climber/007_playground_climber_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246435560,
+          "crc32": "761b8ef5",
+          "name": "outdoor/007_playground_climber/007_playground_climber_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245174010,
+          "crc32": "6ffc1bce",
+          "name": "outdoor/007_playground_climber/007_playground_climber_50mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246497518,
+          "crc32": "91ab4350",
+          "name": "outdoor/007_playground_climber/007_playground_climber_50mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246858069,
+          "crc32": "4df35a28",
+          "name": "outdoor/007_playground_climber/007_playground_climber_50mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247197482,
+          "crc32": "6d503d35",
+          "name": "outdoor/007_playground_climber/007_playground_climber_50mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247116657,
+          "crc32": "875c615c",
+          "name": "outdoor/007_playground_climber/007_playground_climber_50mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242656618,
+          "crc32": "9b31e40b",
+          "name": "outdoor/007_playground_climber/007_playground_climber_80mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245499113,
+          "crc32": "a2f663fe",
+          "name": "outdoor/007_playground_climber/007_playground_climber_80mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246142339,
+          "crc32": "ca96b6ac",
+          "name": "outdoor/007_playground_climber/007_playground_climber_80mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246901265,
+          "crc32": "35ee2d92",
+          "name": "outdoor/007_playground_climber/007_playground_climber_80mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247438916,
+          "crc32": "6768f384",
+          "name": "outdoor/007_playground_climber/007_playground_climber_80mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243426061,
+          "crc32": "439968b5",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245436282,
+          "crc32": "4be455d2",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245967235,
+          "crc32": "1563c0b6",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246446005,
+          "crc32": "8ae5180d",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246671213,
+          "crc32": "ae7700e8",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246978338,
+          "crc32": "99d14fb2",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248508314,
+          "crc32": "e1a908d9",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248585031,
+          "crc32": "2bd2779a",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248289945,
+          "crc32": "8d8894b6",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247417415,
+          "crc32": "8542ab4f",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244079862,
+          "crc32": "216a0cd4",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_46mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246020989,
+          "crc32": "2e044656",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_46mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246599396,
+          "crc32": "ae0929d3",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_46mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247174796,
+          "crc32": "b218bfbd",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_46mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247686853,
+          "crc32": "974e8db1",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_46mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242664758,
+          "crc32": "cd1412d9",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_69mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245249384,
+          "crc32": "e44f5d47",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_69mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246040129,
+          "crc32": "5bbd1b8f",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_69mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246953528,
+          "crc32": "e931d399",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_69mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247878086,
+          "crc32": "660a894b",
+          "name": "outdoor/008_playground_yellow_tape/008_playground_yellow_tape_69mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245920447,
+          "crc32": "914cb0ed",
+          "name": "outdoor/009_pots/009_pots_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247372079,
+          "crc32": "15c813c0",
+          "name": "outdoor/009_pots/009_pots_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247356968,
+          "crc32": "eccd9999",
+          "name": "outdoor/009_pots/009_pots_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246333736,
+          "crc32": "a6299f16",
+          "name": "outdoor/009_pots/009_pots_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244193852,
+          "crc32": "f384b5c6",
+          "name": "outdoor/009_pots/009_pots_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246282524,
+          "crc32": "0dc544ef",
+          "name": "outdoor/009_pots/009_pots_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248602494,
+          "crc32": "a523cf82",
+          "name": "outdoor/009_pots/009_pots_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248762628,
+          "crc32": "e681bc98",
+          "name": "outdoor/009_pots/009_pots_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248110537,
+          "crc32": "a2732e32",
+          "name": "outdoor/009_pots/009_pots_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246440344,
+          "crc32": "e5c703f7",
+          "name": "outdoor/009_pots/009_pots_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245869074,
+          "crc32": "8edbe56e",
+          "name": "outdoor/009_pots/009_pots_68mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248429493,
+          "crc32": "d844d9d0",
+          "name": "outdoor/009_pots/009_pots_68mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248710946,
+          "crc32": "a3d7ec28",
+          "name": "outdoor/009_pots/009_pots_68mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248060478,
+          "crc32": "32324955",
+          "name": "outdoor/009_pots/009_pots_68mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246419997,
+          "crc32": "8766929d",
+          "name": "outdoor/009_pots/009_pots_68mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249638862,
+          "crc32": "9b4bb817",
+          "name": "outdoor/010_redwood/010_redwood_100mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249998902,
+          "crc32": "494eaf78",
+          "name": "outdoor/010_redwood/010_redwood_100mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250214678,
+          "crc32": "93a4613e",
+          "name": "outdoor/010_redwood/010_redwood_100mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250390339,
+          "crc32": "40d2c061",
+          "name": "outdoor/010_redwood/010_redwood_100mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250027002,
+          "crc32": "31ae1130",
+          "name": "outdoor/010_redwood/010_redwood_100mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251501292,
+          "crc32": "c9d7025b",
+          "name": "outdoor/010_redwood/010_redwood_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251824681,
+          "crc32": "37f7e26f",
+          "name": "outdoor/010_redwood/010_redwood_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251982171,
+          "crc32": "1a7bb7e0",
+          "name": "outdoor/010_redwood/010_redwood_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 252043646,
+          "crc32": "72f17d1c",
+          "name": "outdoor/010_redwood/010_redwood_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251757310,
+          "crc32": "6623dc44",
+          "name": "outdoor/010_redwood/010_redwood_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250121043,
+          "crc32": "5818c7e9",
+          "name": "outdoor/010_redwood/010_redwood_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250543677,
+          "crc32": "5b2a8bca",
+          "name": "outdoor/010_redwood/010_redwood_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250747683,
+          "crc32": "97182c26",
+          "name": "outdoor/010_redwood/010_redwood_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250851846,
+          "crc32": "392e7140",
+          "name": "outdoor/010_redwood/010_redwood_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250529786,
+          "crc32": "1317c4d5",
+          "name": "outdoor/010_redwood/010_redwood_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    }
+  ],
+  "camera": "Sony A7R III",
+  "complete": true,
+  "dataset": "SNIC",
+  "doi": "10.7910/DVN/SGHDCP",
+  "integrity": "size_and_zip_crc32_verified",
+  "license": "MIT",
+  "noisy_isos": [
+    1600,
+    3200,
+    6400,
+    12800
+  ],
+  "schema_version": 1
+}

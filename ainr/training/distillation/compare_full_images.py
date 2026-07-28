@@ -26,7 +26,7 @@ def load_student(checkpoint_path: Path, device: torch.device) -> torch.nn.Module
     else:
         config["encoder_blocks"] = tuple(config["encoder_blocks"])
         model = MobileUNetStudent(**config)
-    model.load_state_dict(checkpoint["model"], strict=True)
+    model.load_state_dict(checkpoint.get("ema_model", checkpoint["model"]), strict=True)
     return model.eval().to(device)
 
 

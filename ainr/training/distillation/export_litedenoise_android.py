@@ -6,9 +6,13 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-import ai_edge_torch
 import numpy as np
 import torch
+
+try:
+    import litert_torch as edge_torch
+except ImportError:
+    import ai_edge_torch as edge_torch
 
 try:
     from ai_edge_litert.interpreter import Interpreter
@@ -22,18 +26,26 @@ def main() -> None:
     root = Path(__file__).resolve().parent
     parser = argparse.ArgumentParser()
     parser.add_argument("--checkpoint", type=Path)
+    parser.add_argument("--base-width", type=int, default=16)
+    parser.add_argument("--iso-conditioned", action="store_true")
     parser.add_argument("--output", type=Path, default=root / "export/litedenoise_random.tflite")
     args = parser.parse_args()
-    model = LiteDenoiseStudent(clamp_output=False).eval()
     if args.checkpoint:
         checkpoint = torch.load(args.checkpoint, map_location="cpu", weights_only=False)
-        model.load_state_dict(checkpoint["model"], strict=True)
+        student_config = dict(checkpoint["config"]["student"])
+        if args.iso_conditioned:
+            student_config["iso_conditioned"] = True
+        model = LiteDenoiseStudent(**student_config, clamp_output=False).eval()
+        model.load_state_dict(checkpoint.get("ema_model", checkpoint["model"]), strict=True)
     else:
         torch.manual_seed(1337)
-        model = LiteDenoiseStudent(clamp_output=False).eval()
+        model = LiteDenoiseStudent(
+            base_width=args.base_width, iso_conditioned=args.iso_conditioned, clamp_output=False
+        ).eval()
 
-    sample = torch.rand(1, 3, 192, 192, generator=torch.Generator().manual_seed(1337))
-    converted = ai_edge_torch.convert(model, (sample,))
+    channels = 4 if model.iso_conditioned else 3
+    sample = torch.rand(1, channels, 192, 192, generator=torch.Generator().manual_seed(1337))
+    converted = edge_torch.convert(model, (sample,))
     args.output.parent.mkdir(parents=True, exist_ok=True)
     converted.export(str(args.output))
 
@@ -41,7 +53,7 @@ def main() -> None:
     interpreter.allocate_tensors()
     input_detail = interpreter.get_input_details()[0]
     output_detail = interpreter.get_output_details()[0]
-    value = np.random.default_rng(1337).random((1, 3, 192, 192), dtype=np.float32)
+    value = np.random.default_rng(1337).random((1, channels, 192, 192), dtype=np.float32)
     with torch.inference_mode():
         expected = model(torch.from_numpy(value)).numpy()
     interpreter.set_tensor(input_detail["index"], value)

@@ -1,0 +1,3515 @@
+{
+  "artifacts": {
+    "contact_sheet": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/comparison/comparison_contact_sheet.png",
+    "nind_by_noise_level_csv": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/comparison/nind_by_noise_level.csv",
+    "per_image_csv": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/comparison/per_image.csv",
+    "per_image_jsonl": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/comparison/per_image.jsonl",
+    "summary_csv": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/high_iso_ablation/comparison/summary.csv"
+  },
+  "deltas": {
+    "all": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.23202717051786692,
+      "reference_ssim": 0.008808317561359913,
+      "shadow_correction_capture": 0.004832326808247189,
+      "shadow_teacher_gap_closed": -0.006989551851208975,
+      "shadow_teacher_mae": 0.00038350716174884343,
+      "teacher_psnr": -0.019649927475867912
+    },
+    "midd": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.021281956047410233,
+      "reference_ssim": -0.00013467097124508776,
+      "shadow_correction_capture": 0.010181984952483791,
+      "shadow_teacher_gap_closed": 0.00793906070849626,
+      "shadow_teacher_mae": -0.00010873224978864837,
+      "teacher_psnr": 0.2619797283450538
+    },
+    "nind": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.9407302926226357,
+      "reference_ssim": 0.04427097460663898,
+      "shadow_correction_capture": -0.017205141956806336,
+      "shadow_teacher_gap_closed": -0.057579641037637797,
+      "shadow_teacher_mae": 0.0026715712582937833,
+      "teacher_psnr": -1.0963256184647747
+    },
+    "polyu_sony": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.3155680298805237,
+      "reference_ssim": 0.003402918577194214,
+      "shadow_correction_capture": 0.025605942642703106,
+      "shadow_teacher_gap_closed": 0.024691028804898818,
+      "shadow_teacher_mae": -0.0004986086045391854,
+      "teacher_psnr": 0.4423673152923584
+    },
+    "sidd": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.07505113428289434,
+      "reference_ssim": 0.00045002082532108467,
+      "shadow_correction_capture": 0.009896123786441224,
+      "shadow_teacher_gap_closed": 0.0034397931754940325,
+      "shadow_teacher_mae": -0.000282345313393835,
+      "teacher_psnr": 0.19835605404593792
+    }
+  },
+  "evaluation_id": "9444647e3af864588583ac582c6f69db5a45f1b7ecfb5bb17fc701e6673554dc",
+  "nind_by_noise_level": {
+    "6400": {
+      "correction_capture_eligible_images": 65,
+      "images": 76,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 76,
+              "maximum": 45.602561950683594,
+              "mean": 34.8773640833403,
+              "median": 34.52164077758789,
+              "minimum": 27.247392654418945
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.9913173317909241,
+              "mean": 0.8820120794208426,
+              "median": 0.8879649043083191,
+              "minimum": 0.7115604281425476
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 65,
+              "maximum": 0.9977718068959327,
+              "mean": 0.9364613079566527,
+              "median": 0.9561629728570434,
+              "minimum": 0.6921016910686296
+            },
+            "correction_capture": {
+              "count": 65,
+              "maximum": 2.1693497072742245,
+              "mean": 0.9373672331881698,
+              "median": 0.9285648734256199,
+              "minimum": 0.5666211506759998
+            },
+            "images_with_shadow": 65,
+            "teacher_gap_closed": {
+              "count": 65,
+              "maximum": 0.9263315671680413,
+              "mean": 0.6061509926858416,
+              "median": 0.6908093980378365,
+              "minimum": -1.9422262427490056
+            },
+            "teacher_mae": {
+              "count": 65,
+              "maximum": 0.1355816125869751,
+              "mean": 0.01630139396024438,
+              "median": 0.012029430828988552,
+              "minimum": 0.004560302477329969
+            },
+            "teacher_psnr": {
+              "count": 65,
+              "maximum": 44.94770686702279,
+              "mean": 35.95813747151218,
+              "median": 36.565032421061034,
+              "minimum": 17.31835328311668
+            },
+            "teacher_rmse": {
+              "count": 65,
+              "maximum": 0.1361702816815813,
+              "mean": 0.019441607377802612,
+              "median": 0.014850749719013491,
+              "minimum": 0.005657370957534141
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 76,
+              "maximum": 51.21356201171875,
+              "mean": 39.3193376189784,
+              "median": 39.032522201538086,
+              "minimum": 31.07569694519043
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.9993658065795898,
+              "mean": 0.9321512713244087,
+              "median": 0.9639456272125244,
+              "minimum": 0.43954434990882874
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 76,
+              "maximum": 43.83934020996094,
+              "mean": 34.107527456785505,
+              "median": 33.84780693054199,
+              "minimum": 27.023921966552734
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.9902187585830688,
+              "mean": 0.8574132907547449,
+              "median": 0.8728219270706177,
+              "minimum": 0.4139278829097748
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 65,
+              "maximum": 0.9966054333758722,
+              "mean": 0.952933520602486,
+              "median": 0.9703288320917446,
+              "minimum": 0.6475322595533035
+            },
+            "correction_capture": {
+              "count": 65,
+              "maximum": 1.9067616901820967,
+              "mean": 0.9552262916617897,
+              "median": 0.9378035683277255,
+              "minimum": 0.6070338560636844
+            },
+            "images_with_shadow": 65,
+            "teacher_gap_closed": {
+              "count": 65,
+              "maximum": 0.9231095937205419,
+              "mean": 0.6753615348453783,
+              "median": 0.7384781077021454,
+              "minimum": -1.1350166190306998
+            },
+            "teacher_mae": {
+              "count": 65,
+              "maximum": 0.09838434308767319,
+              "mean": 0.01412063101843859,
+              "median": 0.00979490764439106,
+              "minimum": 0.0017225252231583
+            },
+            "teacher_psnr": {
+              "count": 65,
+              "maximum": 46.221927671692306,
+              "mean": 36.87851053840626,
+              "median": 38.06323755507152,
+              "minimum": 20.065303032570366
+            },
+            "teacher_rmse": {
+              "count": 65,
+              "maximum": 0.09925099021768373,
+              "mean": 0.01742299242597509,
+              "median": 0.012497930988800456,
+              "minimum": 0.004885439240711388
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 76,
+              "maximum": 49.137664794921875,
+              "mean": 39.85667098195929,
+              "median": 39.64202308654785,
+              "minimum": 31.754741668701172
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.9990869164466858,
+              "mean": 0.9508274793624878,
+              "median": 0.9696052670478821,
+              "minimum": 0.47641170024871826
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 76,
+              "maximum": 32.23576354980469,
+              "mean": 26.891923427581787,
+              "median": 26.791439056396484,
+              "minimum": 21.724681854248047
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.8692692518234253,
+              "mean": 0.5589665866603977,
+              "median": 0.5538541674613953,
+              "minimum": 0.1643964648246765
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 65,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 65,
+            "teacher_gap_closed": {
+              "count": 65,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 65,
+              "maximum": 0.13526223599910736,
+              "mean": 0.04692682970601779,
+              "median": 0.040593765676021576,
+              "minimum": 0.018603172153234482
+            },
+            "teacher_psnr": {
+              "count": 65,
+              "maximum": 31.599752113943843,
+              "mean": 25.251898486342615,
+              "median": 25.726195357195024,
+              "minimum": 16.47278759562091
+            },
+            "teacher_rmse": {
+              "count": 65,
+              "maximum": 0.15009306290695812,
+              "mean": 0.05917891315698339,
+              "median": 0.05172377717876571,
+              "minimum": 0.026303430580187376
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 76,
+              "maximum": 32.90800094604492,
+              "mean": 27.23366315741288,
+              "median": 27.427017211914062,
+              "minimum": 22.034610748291016
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.903921365737915,
+              "mean": 0.5407341122627258,
+              "median": 0.525648832321167,
+              "minimum": 0.16915132105350494
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 76,
+              "maximum": 44.44520568847656,
+              "mean": 34.066898145173724,
+              "median": 34.07940864562988,
+              "minimum": 27.277891159057617
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 0.9918370842933655,
+              "mean": 0.844646118581295,
+              "median": 0.8646224737167358,
+              "minimum": 0.40203043818473816
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 65,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 65,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 65,
+            "teacher_gap_closed": {
+              "count": 65,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 65,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 65,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 76,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 19,
+      "shadow_fraction": {
+        "count": 76,
+        "maximum": 1.0,
+        "mean": 0.3757034553141858,
+        "median": 0.2261080332409972,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 1030780,
+      "teacher_correction_mse": {
+        "count": 65,
+        "maximum": 0.022527927822536892,
+        "mean": 0.004178253272182866,
+        "median": 0.00267534851325836,
+        "minimum": 0.00069187033322481
+      }
+    },
+    "H1": {
+      "correction_capture_eligible_images": 37,
+      "images": 40,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 40,
+              "maximum": 43.16818618774414,
+              "mean": 32.80189185142517,
+              "median": 33.22219467163086,
+              "minimum": 26.03715705871582
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.9897346496582031,
+              "mean": 0.8651029273867608,
+              "median": 0.8814328908920288,
+              "minimum": 0.5929847955703735
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 37,
+              "maximum": 0.9996696491357279,
+              "mean": 0.9621839002936057,
+              "median": 0.9710622376430551,
+              "minimum": 0.8646786632470426
+            },
+            "correction_capture": {
+              "count": 37,
+              "maximum": 1.716466307749186,
+              "mean": 0.9499197077389677,
+              "median": 0.9293791719720647,
+              "minimum": 0.6768320973683779
+            },
+            "images_with_shadow": 37,
+            "teacher_gap_closed": {
+              "count": 37,
+              "maximum": 0.9481811002638071,
+              "mean": 0.6800150645226579,
+              "median": 0.7373558452853415,
+              "minimum": -0.26676852319124755
+            },
+            "teacher_mae": {
+              "count": 37,
+              "maximum": 0.0876946821808815,
+              "mean": 0.024135404996372557,
+              "median": 0.020922362804412842,
+              "minimum": 0.007370777428150177
+            },
+            "teacher_psnr": {
+              "count": 37,
+              "maximum": 40.50332076375397,
+              "mean": 32.05594187667194,
+              "median": 31.74967021741213,
+              "minimum": 20.570087449622136
+            },
+            "teacher_rmse": {
+              "count": 37,
+              "maximum": 0.09364737914195338,
+              "mean": 0.028221596278362664,
+              "median": 0.0258533299664872,
+              "minimum": 0.009437000146973129
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 40,
+              "maximum": 48.04672622680664,
+              "mean": 35.77957997322083,
+              "median": 35.747745513916016,
+              "minimum": 27.18871307373047
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.9984022974967957,
+              "mean": 0.843349051848054,
+              "median": 0.9552668035030365,
+              "minimum": 0.13050001859664917
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 40,
+              "maximum": 42.349891662597656,
+              "mean": 31.195430755615234,
+              "median": 30.389028549194336,
+              "minimum": 24.473350524902344
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.9890824556350708,
+              "mean": 0.7522310668602585,
+              "median": 0.8447504639625549,
+              "minimum": 0.10387641936540604
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 37,
+              "maximum": 0.9999500072747256,
+              "mean": 0.974763592720378,
+              "median": 0.9860795939369615,
+              "minimum": 0.9069741457173557
+            },
+            "correction_capture": {
+              "count": 37,
+              "maximum": 1.6166882782632217,
+              "mean": 0.971361806609434,
+              "median": 0.9666721259652828,
+              "minimum": 0.7477438907754704
+            },
+            "images_with_shadow": 37,
+            "teacher_gap_closed": {
+              "count": 37,
+              "maximum": 0.9967759122079575,
+              "mean": 0.7650986410992661,
+              "median": 0.8245428166929534,
+              "minimum": -0.10224720419230438
+            },
+            "teacher_mae": {
+              "count": 37,
+              "maximum": 0.07630535215139389,
+              "mean": 0.018455667120351054,
+              "median": 0.016039922833442688,
+              "minimum": 0.0002299192565260455
+            },
+            "teacher_psnr": {
+              "count": 37,
+              "maximum": 57.527352961853175,
+              "mean": 34.63035919682299,
+              "median": 33.39595096391542,
+              "minimum": 21.668344659550456
+            },
+            "teacher_rmse": {
+              "count": 37,
+              "maximum": 0.08252447440786939,
+              "mean": 0.023257702300233857,
+              "median": 0.021389589596022884,
+              "minimum": 0.0013293286103296031
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 40,
+              "maximum": 57.15951919555664,
+              "mean": 38.131573057174684,
+              "median": 37.09063911437988,
+              "minimum": 30.48975944519043
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.9978748559951782,
+              "mean": 0.9315293192863464,
+              "median": 0.9572074711322784,
+              "minimum": 0.4002033472061157
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 40,
+              "maximum": 28.64385223388672,
+              "mean": 22.608195781707764,
+              "median": 22.87888240814209,
+              "minimum": 15.697137832641602
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.7887104749679565,
+              "mean": 0.3810701875016093,
+              "median": 0.34648139774799347,
+              "minimum": 0.07762829214334488
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 37,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 37,
+            "teacher_gap_closed": {
+              "count": 37,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 37,
+              "maximum": 0.29254746437072754,
+              "mean": 0.09135370746859021,
+              "median": 0.07732778787612915,
+              "minimum": 0.027252735570073128
+            },
+            "teacher_psnr": {
+              "count": 37,
+              "maximum": 27.366046119662144,
+              "mean": 19.418556255809126,
+              "median": 19.421947851912144,
+              "minimum": 10.277112361028758
+            },
+            "teacher_rmse": {
+              "count": 37,
+              "maximum": 0.3062981557937509,
+              "mean": 0.1161052275954687,
+              "median": 0.1068815165479417,
+              "minimum": 0.04282503178926082
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 40,
+              "maximum": 29.663877487182617,
+              "mean": 22.906717205047606,
+              "median": 23.583806037902832,
+              "minimum": 15.546393394470215
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.8159948587417603,
+              "mean": 0.370645210146904,
+              "median": 0.32815849781036377,
+              "minimum": 0.025582943111658096
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 40,
+              "maximum": 43.204444885253906,
+              "mean": 31.40242919921875,
+              "median": 29.965091705322266,
+              "minimum": 25.684986114501953
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 0.9911090731620789,
+              "mean": 0.7553754882887006,
+              "median": 0.8453850150108337,
+              "minimum": 0.11866164952516556
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 37,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 37,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 37,
+            "teacher_gap_closed": {
+              "count": 37,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 37,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 37,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 40,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 10,
+      "shadow_fraction": {
+        "count": 40,
+        "maximum": 0.9850415512465374,
+        "mean": 0.33536149584487535,
+        "median": 0.10749307479224376,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 484262,
+      "teacher_correction_mse": {
+        "count": 37,
+        "maximum": 0.09381856520970662,
+        "mean": 0.015959897814758036,
+        "median": 0.011423658253066512,
+        "minimum": 0.0018339834165738713
+      }
+    },
+    "H2": {
+      "correction_capture_eligible_images": 27,
+      "images": 28,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 28,
+              "maximum": 41.809410095214844,
+              "mean": 29.70830726623535,
+              "median": 28.910231590270996,
+              "minimum": 24.23956871032715
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.9890218377113342,
+              "mean": 0.8184263174022947,
+              "median": 0.8151621520519257,
+              "minimum": 0.5077564716339111
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 27,
+              "maximum": 0.9999908094473642,
+              "mean": 0.968688489469914,
+              "median": 0.9818989088834991,
+              "minimum": 0.8845261722617263
+            },
+            "correction_capture": {
+              "count": 27,
+              "maximum": 1.5518724178930043,
+              "mean": 0.9719621265521645,
+              "median": 0.9283213157156278,
+              "minimum": 0.7076532140663098
+            },
+            "images_with_shadow": 27,
+            "teacher_gap_closed": {
+              "count": 27,
+              "maximum": 0.9642615788677885,
+              "mean": 0.7233666021654204,
+              "median": 0.7967696040266896,
+              "minimum": 0.20280526210420402
+            },
+            "teacher_mae": {
+              "count": 27,
+              "maximum": 0.10543995350599289,
+              "mean": 0.03461955670543291,
+              "median": 0.027398161590099335,
+              "minimum": 0.0085299639031291
+            },
+            "teacher_psnr": {
+              "count": 27,
+              "maximum": 38.98835042084637,
+              "mean": 28.76842004173997,
+              "median": 29.257819194345444,
+              "minimum": 18.917316882903485
+            },
+            "teacher_rmse": {
+              "count": 27,
+              "maximum": 0.11327502217109453,
+              "mean": 0.04150877077204575,
+              "median": 0.03444363991147499,
+              "minimum": 0.011235243233320534
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 28,
+              "maximum": 44.855552673339844,
+              "mean": 33.157933712005615,
+              "median": 33.28801345825195,
+              "minimum": 26.384265899658203
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.9977686405181885,
+              "mean": 0.9150836744478771,
+              "median": 0.9441101849079132,
+              "minimum": 0.5496394634246826
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 28,
+              "maximum": 38.49354934692383,
+              "mean": 28.982118606567383,
+              "median": 27.31670570373535,
+              "minimum": 24.079322814941406
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.9880243539810181,
+              "mean": 0.805339657834598,
+              "median": 0.7922201752662659,
+              "minimum": 0.519704282283783
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 27,
+              "maximum": 0.9999379409767845,
+              "mean": 0.9757983715811385,
+              "median": 0.9799702264456547,
+              "minimum": 0.9350181474217233
+            },
+            "correction_capture": {
+              "count": 27,
+              "maximum": 1.542228376068628,
+              "mean": 0.9723004551096314,
+              "median": 0.9462320745733314,
+              "minimum": 0.7686656832435647
+            },
+            "images_with_shadow": 27,
+            "teacher_gap_closed": {
+              "count": 27,
+              "maximum": 0.9647639679898236,
+              "mean": 0.7511607674379064,
+              "median": 0.7810177675497376,
+              "minimum": 0.21747667802041648
+            },
+            "teacher_mae": {
+              "count": 27,
+              "maximum": 0.10349945724010468,
+              "mean": 0.032413934633411745,
+              "median": 0.025971420109272003,
+              "minimum": 0.009089667350053787
+            },
+            "teacher_psnr": {
+              "count": 27,
+              "maximum": 38.53465327536407,
+              "mean": 29.288917415401006,
+              "median": 29.199720717983443,
+              "minimum": 19.078884377220675
+            },
+            "teacher_rmse": {
+              "count": 27,
+              "maximum": 0.11118745281857481,
+              "mean": 0.03976634149125303,
+              "median": 0.03467479994456335,
+              "minimum": 0.011837700182015853
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 28,
+              "maximum": 43.3073616027832,
+              "mean": 33.983696937561035,
+              "median": 33.75160026550293,
+              "minimum": 26.112506866455078
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.9968136548995972,
+              "mean": 0.9165449014731816,
+              "median": 0.943700909614563,
+              "minimum": 0.6690938472747803
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 28,
+              "maximum": 24.427486419677734,
+              "mean": 19.769348008292063,
+              "median": 19.86832618713379,
+              "minimum": 15.113216400146484
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.6687372922897339,
+              "mean": 0.3040594302916101,
+              "median": 0.2552243620157242,
+              "minimum": 0.04705578833818436
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 27,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 27,
+            "teacher_gap_closed": {
+              "count": 27,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 27,
+              "maximum": 0.3340895473957062,
+              "mean": 0.1586425483778671,
+              "median": 0.14375603199005127,
+              "minimum": 0.048776328563690186
+            },
+            "teacher_psnr": {
+              "count": 27,
+              "maximum": 23.79374582050562,
+              "mean": 15.40531495261109,
+              "median": 15.274853479958017,
+              "minimum": 9.033245772121214
+            },
+            "teacher_rmse": {
+              "count": 27,
+              "maximum": 0.35345791509003144,
+              "mean": 0.18412613379388992,
+              "median": 0.17228891102844673,
+              "minimum": 0.06461192926872308
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 28,
+              "maximum": 25.486661911010742,
+              "mean": 19.956775699343,
+              "median": 19.993638038635254,
+              "minimum": 15.125266075134277
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.6659632325172424,
+              "mean": 0.29769391579819576,
+              "median": 0.2438843697309494,
+              "minimum": 0.05104101821780205
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 28,
+              "maximum": 40.54356384277344,
+              "mean": 28.907842704227992,
+              "median": 27.272683143615723,
+              "minimum": 23.46773338317871
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 0.9910527467727661,
+              "mean": 0.7941233164497784,
+              "median": 0.7978233695030212,
+              "minimum": 0.40466877818107605
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 27,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 27,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 27,
+            "teacher_gap_closed": {
+              "count": 27,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 27,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 27,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 28,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 7,
+      "shadow_fraction": {
+        "count": 28,
+        "maximum": 0.9632963988919667,
+        "mean": 0.19029580530273055,
+        "median": 0.06616343490304709,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 192351,
+      "teacher_correction_mse": {
+        "count": 27,
+        "maximum": 0.12493248643546269,
+        "mean": 0.039255458079862034,
+        "median": 0.029683468251583484,
+        "minimum": 0.004174701133963875
+      }
+    },
+    "H3": {
+      "correction_capture_eligible_images": 20,
+      "images": 20,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 20,
+              "maximum": 33.5235595703125,
+              "mean": 26.210710048675537,
+              "median": 25.61445426940918,
+              "minimum": 20.204078674316406
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.9867174625396729,
+              "mean": 0.7335206255316734,
+              "median": 0.7168920934200287,
+              "minimum": 0.43987345695495605
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 0.9997723062288043,
+              "mean": 0.975986914471916,
+              "median": 0.9885745962747505,
+              "minimum": 0.8913887864401294
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 1.0952006653105384,
+              "mean": 0.9265144927793589,
+              "median": 0.9297224174019267,
+              "minimum": 0.7398233310629567
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.9562250562687109,
+              "mean": 0.8067423609358061,
+              "median": 0.8566077468953636,
+              "minimum": 0.41081927086282055
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.0793968141078949,
+              "mean": 0.031181476218625902,
+              "median": 0.02824265044182539,
+              "minimum": 0.011869789101183414
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 36.02756973457239,
+              "mean": 29.008552651434627,
+              "median": 28.94818626195658,
+              "minimum": 21.276640658940092
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.08633123765486357,
+              "mean": 0.03887899197172419,
+              "median": 0.03574445041064568,
+              "minimum": 0.01579870585237352
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 20,
+              "maximum": 40.22520446777344,
+              "mean": 31.432324600219726,
+              "median": 31.544450759887695,
+              "minimum": 24.746854782104492
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.9959369897842407,
+              "mean": 0.8936131209135055,
+              "median": 0.9193204045295715,
+              "minimum": 0.4698771834373474
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 20,
+              "maximum": 34.74200439453125,
+              "mean": 25.651687145233154,
+              "median": 24.146005630493164,
+              "minimum": 18.58666229248047
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.9846421480178833,
+              "mean": 0.7080390751361847,
+              "median": 0.7098304331302643,
+              "minimum": 0.4635290205478668
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 0.9996940405014939,
+              "mean": 0.9784998497713181,
+              "median": 0.98845917641539,
+              "minimum": 0.8495837614603808
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 1.2427617736286802,
+              "mean": 0.9565262338553605,
+              "median": 0.9514178083853521,
+              "minimum": 0.646395104395281
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.9570866290480492,
+              "mean": 0.8158496848631318,
+              "median": 0.8418810256794761,
+              "minimum": 0.38887629927917966
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.09676491469144821,
+              "mean": 0.03185085477307439,
+              "median": 0.02718491293489933,
+              "minimum": 0.012336975894868374
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 35.696814963924524,
+              "mean": 28.946118231298033,
+              "median": 28.458841005964835,
+              "minimum": 19.19310145217471
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.1097349392092764,
+              "mean": 0.04080540075029604,
+              "median": 0.03777036266028456,
+              "minimum": 0.01641191472736292
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 20,
+              "maximum": 40.30384063720703,
+              "mean": 32.520273208618164,
+              "median": 31.77888011932373,
+              "minimum": 26.882028579711914
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.9936515092849731,
+              "mean": 0.8839607760310173,
+              "median": 0.9135870337486267,
+              "minimum": 0.423809677362442
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 20,
+              "maximum": 21.908628463745117,
+              "mean": 17.63027629852295,
+              "median": 17.153244972229004,
+              "minimum": 14.940315246582031
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.5105329155921936,
+              "mean": 0.24407391361892222,
+              "median": 0.17424369603395462,
+              "minimum": 0.09309636801481247
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.3376956582069397,
+              "mean": 0.21074453704059123,
+              "median": 0.21465633064508438,
+              "minimum": 0.06315863132476807
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 21.51544151237296,
+              "mean": 13.135679939572782,
+              "median": 12.088809500289997,
+              "minimum": 8.701274690080325
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.3672284042625472,
+              "mean": 0.23913314697653262,
+              "median": 0.2486599594561006,
+              "minimum": 0.08399006635765606
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 20,
+              "maximum": 20.497962951660156,
+              "mean": 17.600964879989625,
+              "median": 17.403173446655273,
+              "minimum": 14.867130279541016
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.4834293723106384,
+              "mean": 0.21286035291850566,
+              "median": 0.15848135948181152,
+              "minimum": 0.06422418355941772
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 20,
+              "maximum": 45.31512451171875,
+              "mean": 26.538882541656495,
+              "median": 24.208930015563965,
+              "minimum": 17.40090560913086
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 0.9909934997558594,
+              "mean": 0.6964743852615356,
+              "median": 0.6907868385314941,
+              "minimum": 0.31420183181762695
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 5,
+      "shadow_fraction": {
+        "count": 20,
+        "maximum": 0.9500831024930748,
+        "mean": 0.198601108033241,
+        "median": 0.08091412742382272,
+        "minimum": 0.00022160664819944597
+      },
+      "shadow_pixels": 143390,
+      "teacher_correction_mse": {
+        "count": 20,
+        "maximum": 0.1348567042599612,
+        "mean": 0.06462890634378134,
+        "median": 0.061844967263433144,
+        "minimum": 0.007054331532177533
+      }
+    }
+  },
+  "nind_noise_level_deltas": {
+    "6400": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.7698366265547918,
+      "reference_ssim": 0.02459878866609766,
+      "shadow_correction_capture": -0.017859058473619904,
+      "shadow_teacher_gap_closed": -0.0692105421595367,
+      "shadow_teacher_mae": 0.0021807629418057906,
+      "teacher_psnr": -0.5373333629808883
+    },
+    "H1": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 1.6064610958099337,
+      "reference_ssim": 0.11287186052650222,
+      "shadow_correction_capture": -0.02144209887046633,
+      "shadow_teacher_gap_closed": -0.08508357657660814,
+      "shadow_teacher_mae": 0.0056797378760215025,
+      "teacher_psnr": -2.3519930839538574
+    },
+    "H2": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.7261886596679688,
+      "reference_ssim": 0.013086659567696612,
+      "shadow_correction_capture": -0.0003383285574668493,
+      "shadow_teacher_gap_closed": -0.027794165272486016,
+      "shadow_teacher_mae": 0.002205622072021164,
+      "teacher_psnr": -0.8257632255554199
+    },
+    "H3": {
+      "definition": "nind_full_reference minus nind_teacher_only",
+      "reference_psnr": 0.5590229034423828,
+      "reference_ssim": 0.025481550395488717,
+      "shadow_correction_capture": -0.030011741076001575,
+      "shadow_teacher_gap_closed": -0.009107323927325717,
+      "shadow_teacher_mae": -0.0006693785544484854,
+      "teacher_psnr": -1.0879486083984382
+    }
+  },
+  "provenance": {
+    "checkpoints": {
+      "nind_full_reference": {
+        "alpha": 0.7,
+        "best_selection_psnr_at_save": 41.09482821083625,
+        "epoch": 199,
+        "expected_epochs": 200,
+        "initial_model_sha256": "905bde7f192e535aa432af3f9dfc08fae648e846a623df3eea2f4b9b8548cad6",
+        "manifest_sha256": "b745a6e21c6c699fd85dacf4db43139b681cc3bfbf491f3a9cf375352a8e522e",
+        "mode": "nind_full_reference",
+        "nind_gt_weight": 1.0,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_full_reference/best.pt",
+        "run_fingerprint": "e64b7ff47debdcbd566fd9a23412944f1b6a6c7142039cc649d6ffccc6f07152",
+        "run_status": "complete",
+        "sha256": "f6db8904fb47d545841d02171e8599f8f08e82ac69420d270158f86de575cf03",
+        "source_sha256": {
+          "scripts/common.py": "4c06945b72a1b423e98ee41fe3377886ea13ebcadde0a7922451b4fadaddda2f",
+          "scripts/train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db",
+          "scripts/train_ablation.py": "c2964387f30e1253106e856a60b987a34264cc0f228168f6f7867a86b53395f5",
+          "src/ablation_losses.py": "c1ebd2a1dbffd78254f61934e2479fb66f4e735c00f5746c69482c8753d4b952",
+          "src/dataset.py": "7e225844820bfd856f78d558035193aef66a737c8274190d05d1a7d1a34ca55c",
+          "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+          "src/student.py": "bc79dc3db4115227f9f84e297be3661b78a1c77e8e4cd3078023fc6a44fa9b0e"
+        },
+        "status_epoch": 200
+      },
+      "nind_teacher_only": {
+        "alpha": 0.7,
+        "best_selection_psnr_at_save": 41.03222860886821,
+        "epoch": 174,
+        "expected_epochs": 200,
+        "initial_model_sha256": "905bde7f192e535aa432af3f9dfc08fae648e846a623df3eea2f4b9b8548cad6",
+        "manifest_sha256": "b745a6e21c6c699fd85dacf4db43139b681cc3bfbf491f3a9cf375352a8e522e",
+        "mode": "nind_teacher_only",
+        "nind_gt_weight": 0.0,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_teacher_only/best.pt",
+        "run_fingerprint": "9735125f9cfe9ea6508f30d0c1d8e6e885686cd16fb68887044aab35e2826e40",
+        "run_status": "complete",
+        "sha256": "b346bee9dbc724be53a3051d8e7a1b78cde6a063e9b929d804990b8ecf626b2e",
+        "source_sha256": {
+          "scripts/common.py": "4c06945b72a1b423e98ee41fe3377886ea13ebcadde0a7922451b4fadaddda2f",
+          "scripts/train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db",
+          "scripts/train_ablation.py": "c2964387f30e1253106e856a60b987a34264cc0f228168f6f7867a86b53395f5",
+          "src/ablation_losses.py": "c1ebd2a1dbffd78254f61934e2479fb66f4e735c00f5746c69482c8753d4b952",
+          "src/dataset.py": "7e225844820bfd856f78d558035193aef66a737c8274190d05d1a7d1a34ca55c",
+          "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+          "src/student.py": "bc79dc3db4115227f9f84e297be3661b78a1c77e8e4cd3078023fc6a44fa9b0e"
+        },
+        "status_epoch": 200
+      }
+    },
+    "complete_validation": true,
+    "config": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/configs/high_iso_ablation_teacher_only.yaml",
+      "sha256": "78be455798df879ed39e2b8acda32767a81d102c6e4106b93a3ba1b247782cc4"
+    },
+    "contact_sheet_selection": {
+      "enabled": true,
+      "indices": [
+        775,
+        734,
+        789,
+        754,
+        234,
+        835,
+        832,
+        358,
+        758,
+        676,
+        791,
+        679
+      ],
+      "policy": "NIND-noise-level coverage first; then remaining dataset/noise strata; unique scenes before repeated scenes; candidates within each stratum sorted by descending shadow fraction and stable index",
+      "requested_count": 12,
+      "samples": [
+        {
+          "dataset": "nind",
+          "index": 775,
+          "noise_level": "6400",
+          "scene": "nind_mugshot",
+          "shadow_fraction": 1.0
+        },
+        {
+          "dataset": "nind",
+          "index": 734,
+          "noise_level": "H1",
+          "scene": "nind_museel-clam",
+          "shadow_fraction": 0.9835180055401662
+        },
+        {
+          "dataset": "nind",
+          "index": 789,
+          "noise_level": "H2",
+          "scene": "nind_parking-keyboard",
+          "shadow_fraction": 0.9632963988919667
+        },
+        {
+          "dataset": "nind",
+          "index": 754,
+          "noise_level": "H3",
+          "scene": "nind_sint-joris",
+          "shadow_fraction": 0.6520775623268698
+        },
+        {
+          "dataset": "midd",
+          "index": 234,
+          "noise_level": "unknown",
+          "scene": "ISOCELL_3P9/136",
+          "shadow_fraction": 1.0
+        },
+        {
+          "dataset": "polyu_sony",
+          "index": 835,
+          "noise_level": "3200",
+          "scene": "polyu_sony_compu",
+          "shadow_fraction": 1.0
+        },
+        {
+          "dataset": "polyu_sony",
+          "index": 832,
+          "noise_level": "6400",
+          "scene": "polyu_sony_water",
+          "shadow_fraction": 0.7820775623268698
+        },
+        {
+          "dataset": "sidd",
+          "index": 358,
+          "noise_level": "unknown",
+          "scene": "0018",
+          "shadow_fraction": 1.0
+        },
+        {
+          "dataset": "nind",
+          "index": 758,
+          "noise_level": "6400",
+          "scene": "nind_museel-coral",
+          "shadow_fraction": 1.0
+        },
+        {
+          "dataset": "nind",
+          "index": 676,
+          "noise_level": "H1",
+          "scene": "nind_leonidas",
+          "shadow_fraction": 0.9676731301939058
+        },
+        {
+          "dataset": "nind",
+          "index": 791,
+          "noise_level": "H2",
+          "scene": "nind_pastries",
+          "shadow_fraction": 0.4905263157894737
+        },
+        {
+          "dataset": "nind",
+          "index": 679,
+          "noise_level": "H3",
+          "scene": "nind_saint-remi",
+          "shadow_fraction": 0.39013850415512463
+        }
+      ],
+      "selected_count": 12
+    },
+    "controlled_run_identity": {
+      "normalized_fields": {
+        "_config_path": "<controlled-config-path>",
+        "mode": "<controlled-supervision-mode>",
+        "nind_gt_weight": "<controlled-nind-gt-weight>",
+        "outputs": "<run-output-paths>"
+      },
+      "payload": {
+        "batch_size": 16,
+        "config": {
+          "_config_path": "<controlled-config-path>",
+          "data": {
+            "cache_root": "data/high_iso_ablation/cache",
+            "datasets": [
+              "midd",
+              "sidd",
+              "polyu_sony",
+              "nind"
+            ],
+            "manifest": "data/high_iso_ablation/cache/manifest.json",
+            "target_datasets": [
+              "polyu_sony",
+              "nind"
+            ]
+          },
+          "metrics": {
+            "border_crop": 1,
+            "ssim_sigma": 1.5,
+            "ssim_window_size": 11
+          },
+          "model": {
+            "base_width": 16,
+            "expected_conv_macs": 1985347584,
+            "expected_parameters": 1963411,
+            "input_shape": [
+              1,
+              3,
+              192,
+              192
+            ]
+          },
+          "outputs": "<run-output-paths>",
+          "project": {
+            "name": "scunet_mobile_distillation_nind_ablation",
+            "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+            "seed": 1337
+          },
+          "teacher": {
+            "checkpoint": "../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+            "checkpoint_name": "scunet_color_real_psnr",
+            "repository": "../data/sources/scunet"
+          },
+          "training": {
+            "alpha": 0.7,
+            "amp": true,
+            "batch_size": 16,
+            "checkpoint_interval": 10,
+            "epochs": 200,
+            "gradient_clip_norm": 0.1,
+            "learning_rate": 0.0001,
+            "minimum_learning_rate": 1e-05,
+            "nind_gt_weight": "<controlled-nind-gt-weight>",
+            "optimizer": "Adam",
+            "selection_datasets": [
+              "midd",
+              "sidd",
+              "polyu_sony"
+            ],
+            "workers": 4
+          }
+        },
+        "dataset_counts": {
+          "train/midd": 1538,
+          "train/nind": 516,
+          "train/polyu_sony": 96,
+          "train/sidd": 2208,
+          "validation/midd": 302,
+          "validation/nind": 164,
+          "validation/polyu_sony": 32,
+          "validation/sidd": 352
+        },
+        "diagnostic_limits": {
+          "max_train_batches": null,
+          "max_val_batches": null
+        },
+        "environment": {
+          "cuda_available": true,
+          "cuda_device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+          "cuda_runtime": "12.8",
+          "platform": "linux",
+          "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+          "project_commit": "0b7b158ed0febaa871315b785b4371bc8f7cd0e4",
+          "python": "3.12.13 (main, May  8 2026, 18:32:55) [Clang 22.1.3 ]",
+          "teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+          "teacher_repo_commit": "52e440a80a655b01e0b41e9dd9bfe599bc11625e",
+          "torch": "2.9.0+cu128"
+        },
+        "epochs_effective": 200,
+        "initial_model_sha256": "905bde7f192e535aa432af3f9dfc08fae648e846a623df3eea2f4b9b8548cad6",
+        "loss_coefficients": {
+          "clean_l1": 50.0,
+          "clean_mse": 300.00000000000006,
+          "teacher_mse": 700.0
+        },
+        "mode": "<controlled-supervision-mode>",
+        "nind_gt_weight": "<controlled-nind-gt-weight>",
+        "run_fingerprint_payload": {
+          "datasets": [
+            "midd",
+            "sidd",
+            "polyu_sony",
+            "nind"
+          ],
+          "diagnostic_limits": {
+            "max_train_batches": null,
+            "max_val_batches": null
+          },
+          "manifest_sha256": "b745a6e21c6c699fd85dacf4db43139b681cc3bfbf491f3a9cf375352a8e522e",
+          "metrics": {
+            "border_crop": 1,
+            "ssim_sigma": 1.5,
+            "ssim_window_size": 11
+          },
+          "model": {
+            "base_width": 16,
+            "expected_conv_macs": 1985347584,
+            "expected_parameters": 1963411,
+            "input_shape": [
+              1,
+              3,
+              192,
+              192
+            ]
+          },
+          "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+          "seed": 1337,
+          "source_sha256": {
+            "scripts/common.py": "4c06945b72a1b423e98ee41fe3377886ea13ebcadde0a7922451b4fadaddda2f",
+            "scripts/train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db",
+            "scripts/train_ablation.py": "c2964387f30e1253106e856a60b987a34264cc0f228168f6f7867a86b53395f5",
+            "src/ablation_losses.py": "c1ebd2a1dbffd78254f61934e2479fb66f4e735c00f5746c69482c8753d4b952",
+            "src/dataset.py": "7e225844820bfd856f78d558035193aef66a737c8274190d05d1a7d1a34ca55c",
+            "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+            "src/student.py": "bc79dc3db4115227f9f84e297be3661b78a1c77e8e4cd3078023fc6a44fa9b0e"
+          },
+          "training": {
+            "alpha": 0.7,
+            "amp": true,
+            "batch_size": 16,
+            "checkpoint_interval": 10,
+            "epochs": 200,
+            "gradient_clip_norm": 0.1,
+            "learning_rate": 0.0001,
+            "minimum_learning_rate": 1e-05,
+            "nind_gt_weight": "<controlled-nind-gt-weight>",
+            "optimizer": "Adam",
+            "selection_datasets": [
+              "midd",
+              "sidd",
+              "polyu_sony"
+            ],
+            "workers": 4
+          }
+        },
+        "selection_datasets": [
+          "midd",
+          "polyu_sony",
+          "sidd"
+        ],
+        "train_samples": 4358,
+        "validation_samples": 850
+      },
+      "sha256": "46145fe2166d68743ae1dfc9a71b9094b5298fb2af8c8ea60fde5b18f2b0864e"
+    },
+    "device": "cuda",
+    "evaluator_sources": {
+      "scripts/evaluate_ablation.py": "680ecb4efe50572e5670867724c6f53f76e7b74ab645d2b8a21537711b5fc8b1",
+      "src/dataset.py": "7e225844820bfd856f78d558035193aef66a737c8274190d05d1a7d1a34ca55c",
+      "src/metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+      "src/student.py": "bc79dc3db4115227f9f84e297be3661b78a1c77e8e4cd3078023fc6a44fa9b0e"
+    },
+    "manifest": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/high_iso_ablation/cache/manifest.json",
+      "sha256": "b745a6e21c6c699fd85dacf4db43139b681cc3bfbf491f3a9cf375352a8e522e"
+    },
+    "metrics": {
+      "border_crop": 1,
+      "color_space": "RGB [0,1]",
+      "correction_alignment": "cosine similarity(method-noisy, teacher-noisy), within the shadow mask; uses the same teacher-correction MSE eligibility floor",
+      "correction_capture": "dot(method-noisy, teacher-noisy) / dot(teacher-noisy, teacher-noisy), within the shadow mask; reported only when mean((teacher-noisy)^2) >= 1e-06",
+      "correction_capture_teacher_mse_floor_per_rgb_element": 1e-06,
+      "shadow_mask": "Rec.709 luma(noisy RGB) < 0.25 after border crop",
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11,
+      "teacher_gap_closed": "1 - MAE(method, teacher) / MAE(noisy, teacher), within the shadow mask; uses the same teacher-correction MSE eligibility floor"
+    },
+    "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+    "reference_semantics": {
+      "midd": "paired clean target",
+      "nind": "exposure-corrected lower-ISO reference; report separately and do not interpret as strict clean ground truth",
+      "polyu_sony": "burst-mean reference",
+      "sidd": "paired clean target"
+    },
+    "samples": 850,
+    "schema_version": 2,
+    "validation_content": {
+      "cache_root": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/high_iso_ablation/cache",
+      "files": 2550,
+      "sha256": "9b31a9f5aee8a0b60a7f1d90da9ade5562053eb1e383cb2ba6ecf1a503b82639"
+    }
+  },
+  "schema_version": 2,
+  "summary": {
+    "all": {
+      "correction_capture_eligible_images": 721,
+      "images": 850,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 850,
+              "maximum": 51.229736328125,
+              "mean": 39.42335800170898,
+              "median": 40.98710060119629,
+              "minimum": 18.89647102355957
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9987740516662598,
+              "mean": 0.9359952842137392,
+              "median": 0.9701165854930878,
+              "minimum": 0.43987345695495605
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 721,
+              "maximum": 0.9999908094473642,
+              "mean": 0.9445797714876366,
+              "median": 0.9670499650809012,
+              "minimum": 0.45179051573603424
+            },
+            "correction_capture": {
+              "count": 721,
+              "maximum": 2.1693497072742245,
+              "mean": 0.8716960918790254,
+              "median": 0.9138764374050499,
+              "minimum": 0.245221770449503
+            },
+            "images_with_shadow": 721,
+            "teacher_gap_closed": {
+              "count": 721,
+              "maximum": 0.9944514109070232,
+              "mean": 0.6932548844290624,
+              "median": 0.7237896237247095,
+              "minimum": -1.9422262427490056
+            },
+            "teacher_mae": {
+              "count": 721,
+              "maximum": 0.1355816125869751,
+              "mean": 0.010686760835786157,
+              "median": 0.005670327693223953,
+              "minimum": 0.0010216085938736796
+            },
+            "teacher_psnr": {
+              "count": 721,
+              "maximum": 58.56567618528645,
+              "mean": 41.01780569216457,
+              "median": 42.76880886343633,
+              "minimum": 17.31835328311668
+            },
+            "teacher_rmse": {
+              "count": 721,
+              "maximum": 0.1361702816815813,
+              "mean": 0.013012443588318072,
+              "median": 0.007270420950520582,
+              "minimum": 0.001179549554016457
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 850,
+              "maximum": 57.86991500854492,
+              "mean": 42.5302201686186,
+              "median": 43.576969146728516,
+              "minimum": 24.746854782104492
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9997186660766602,
+              "mean": 0.9673243311748785,
+              "median": 0.9901392161846161,
+              "minimum": 0.13050001859664917
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 850,
+              "maximum": 52.27825164794922,
+              "mean": 39.19133083119112,
+              "median": 40.8386287689209,
+              "minimum": 18.58666229248047
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9985905289649963,
+              "mean": 0.9271869666523793,
+              "median": 0.9693942368030548,
+              "minimum": 0.10387641936540604
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 721,
+              "maximum": 0.9999740368375741,
+              "mean": 0.9459765644888865,
+              "median": 0.9692128950378109,
+              "minimum": 0.43510415599391356
+            },
+            "correction_capture": {
+              "count": 721,
+              "maximum": 1.9067616901820967,
+              "mean": 0.8668637650707782,
+              "median": 0.9052849035172378,
+              "minimum": 0.26555940268261774
+            },
+            "images_with_shadow": 721,
+            "teacher_gap_closed": {
+              "count": 721,
+              "maximum": 0.9967759122079575,
+              "mean": 0.7002444362802713,
+              "median": 0.7314967276806811,
+              "minimum": -1.1350166190306998
+            },
+            "teacher_mae": {
+              "count": 721,
+              "maximum": 0.10349945724010468,
+              "mean": 0.010303253674037314,
+              "median": 0.005832569673657417,
+              "minimum": 0.0002299192565260455
+            },
+            "teacher_psnr": {
+              "count": 721,
+              "maximum": 57.527352961853175,
+              "mean": 41.05449239246953,
+              "median": 42.53922460284505,
+              "minimum": 19.078884377220675
+            },
+            "teacher_rmse": {
+              "count": 721,
+              "maximum": 0.11118745281857481,
+              "mean": 0.012787886640211734,
+              "median": 0.007465153975343489,
+              "minimum": 0.0013293286103296031
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 850,
+              "maximum": 57.15951919555664,
+              "mean": 42.549870096094466,
+              "median": 43.380645751953125,
+              "minimum": 24.808364868164062
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9996671080589294,
+              "mean": 0.971326956152916,
+              "median": 0.9887842833995819,
+              "minimum": 0.4002033472061157
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 850,
+              "maximum": 44.721038818359375,
+              "mean": 30.98624444849351,
+              "median": 32.383670806884766,
+              "minimum": 14.940315246582031
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9891652464866638,
+              "mean": 0.6661339845946607,
+              "median": 0.7447397410869598,
+              "minimum": 0.04705578833818436
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 721,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 721,
+            "teacher_gap_closed": {
+              "count": 721,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 721,
+              "maximum": 0.3376956582069397,
+              "mean": 0.04615823830440434,
+              "median": 0.021873362362384796,
+              "minimum": 0.006264982745051384
+            },
+            "teacher_psnr": {
+              "count": 721,
+              "maximum": 41.093154379954115,
+              "mean": 29.015537280857714,
+              "median": 31.067372838639123,
+              "minimum": 8.701274690080325
+            },
+            "teacher_rmse": {
+              "count": 721,
+              "maximum": 0.3672284042625472,
+              "mean": 0.05640472826419157,
+              "median": 0.027966064700158357,
+              "minimum": 0.008817435287589201
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 850,
+              "maximum": 41.078941345214844,
+              "mean": 31.0242001544728,
+              "median": 32.51104545593262,
+              "minimum": 14.867130279541016
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9897668957710266,
+              "mean": 0.6485987482658204,
+              "median": 0.7341286242008209,
+              "minimum": 0.025582943111658096
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 850,
+              "maximum": 52.29351806640625,
+              "mean": 37.9363535824944,
+              "median": 39.351783752441406,
+              "minimum": 17.40090560913086
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 0.9992253184318542,
+              "mean": 0.9164032821181942,
+              "median": 0.9606991410255432,
+              "minimum": 0.11866164952516556
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 721,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 721,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 721,
+            "teacher_gap_closed": {
+              "count": 721,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 721,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 721,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 850,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 194,
+      "shadow_fraction": {
+        "count": 850,
+        "maximum": 1.0,
+        "mean": 0.40861815219162456,
+        "median": 0.2573130193905817,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 12538448,
+      "teacher_correction_mse": {
+        "count": 721,
+        "maximum": 0.1348567042599612,
+        "mean": 0.007197585860421555,
+        "median": 0.0007821008197829552,
+        "minimum": 7.774715450722563e-05
+      }
+    },
+    "midd": {
+      "correction_capture_eligible_images": 255,
+      "images": 302,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 302,
+              "maximum": 50.87291717529297,
+              "mean": 41.30941999195427,
+              "median": 41.88239860534668,
+              "minimum": 29.31464195251465
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.988274097442627,
+              "mean": 0.9632682460822807,
+              "median": 0.9730443358421326,
+              "minimum": 0.7536337971687317
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 255,
+              "maximum": 0.9977558687244712,
+              "mean": 0.9053801541953487,
+              "median": 0.9201754991820805,
+              "minimum": 0.45179051573603424
+            },
+            "correction_capture": {
+              "count": 255,
+              "maximum": 1.0281127688506277,
+              "mean": 0.7238666306755276,
+              "median": 0.7353405628091007,
+              "minimum": 0.245221770449503
+            },
+            "images_with_shadow": 255,
+            "teacher_gap_closed": {
+              "count": 255,
+              "maximum": 0.9410924330066631,
+              "mean": 0.58981224940735,
+              "median": 0.5804652547635898,
+              "minimum": 0.09359133923389573
+            },
+            "teacher_mae": {
+              "count": 255,
+              "maximum": 0.08082802593708038,
+              "mean": 0.006144064119743073,
+              "median": 0.00447938172146678,
+              "minimum": 0.0010216085938736796
+            },
+            "teacher_psnr": {
+              "count": 255,
+              "maximum": 57.869917717277374,
+              "mean": 43.91769856999145,
+              "median": 44.58728509452016,
+              "minimum": 21.598165504021843
+            },
+            "teacher_rmse": {
+              "count": 255,
+              "maximum": 0.08319394616194233,
+              "mean": 0.007713595213552156,
+              "median": 0.005897062698286284,
+              "minimum": 0.0012779213154473737
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 302,
+              "maximum": 57.86991500854492,
+              "mean": 44.496345248443404,
+              "median": 44.496639251708984,
+              "minimum": 29.27976417541504
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.9997124075889587,
+              "mean": 0.9859752086614142,
+              "median": 0.9901305139064789,
+              "minimum": 0.7878208756446838
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 302,
+              "maximum": 50.983123779296875,
+              "mean": 41.28813803590686,
+              "median": 41.79423713684082,
+              "minimum": 29.405229568481445
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.9884250164031982,
+              "mean": 0.9634029170535258,
+              "median": 0.9734137952327728,
+              "minimum": 0.75450599193573
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 255,
+              "maximum": 0.9988244326102886,
+              "mean": 0.9040980933907342,
+              "median": 0.9185953077269492,
+              "minimum": 0.43510415599391356
+            },
+            "correction_capture": {
+              "count": 255,
+              "maximum": 1.0279388630938358,
+              "mean": 0.7136846457230438,
+              "median": 0.7211752811057042,
+              "minimum": 0.26555940268261774
+            },
+            "images_with_shadow": 255,
+            "teacher_gap_closed": {
+              "count": 255,
+              "maximum": 0.9347577893682791,
+              "mean": 0.5818731886988537,
+              "median": 0.5755118709520788,
+              "minimum": 0.10686034651311382
+            },
+            "teacher_mae": {
+              "count": 255,
+              "maximum": 0.07550044357776642,
+              "mean": 0.006252796369531722,
+              "median": 0.004744099918752909,
+              "minimum": 0.0011700902832672
+            },
+            "teacher_psnr": {
+              "count": 255,
+              "maximum": 56.74035466048939,
+              "mean": 43.69652665303871,
+              "median": 44.299663900822964,
+              "minimum": 22.060518652713846
+            },
+            "teacher_rmse": {
+              "count": 255,
+              "maximum": 0.07888130145303614,
+              "mean": 0.007883193393625922,
+              "median": 0.006095604836339329,
+              "minimum": 0.0014553996527843652
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 302,
+              "maximum": 56.740360260009766,
+              "mean": 44.23436552009835,
+              "median": 44.13779640197754,
+              "minimum": 29.683059692382812
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.9995822906494141,
+              "mean": 0.9844776003171276,
+              "median": 0.9889151751995087,
+              "minimum": 0.7752099633216858
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 302,
+              "maximum": 44.721038818359375,
+              "mean": 36.84669137158931,
+              "median": 37.76078987121582,
+              "minimum": 24.90810203552246
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.9891652464866638,
+              "mean": 0.8845794384447944,
+              "median": 0.9242808818817139,
+              "minimum": 0.4234839677810669
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 255,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 255,
+            "teacher_gap_closed": {
+              "count": 255,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 255,
+              "maximum": 0.17919017374515533,
+              "mean": 0.016408700377260353,
+              "median": 0.010923800989985466,
+              "minimum": 0.006264982745051384
+            },
+            "teacher_psnr": {
+              "count": 255,
+              "maximum": 41.093154379954115,
+              "mean": 35.77321143057113,
+              "median": 37.16010671751352,
+              "minimum": 14.47324069792738
+            },
+            "teacher_rmse": {
+              "count": 255,
+              "maximum": 0.18894611433394135,
+              "mean": 0.020106971376034972,
+              "median": 0.013867387908676128,
+              "minimum": 0.008817435287589201
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 302,
+              "maximum": 41.078941345214844,
+              "mean": 36.45432033917762,
+              "median": 37.31804847717285,
+              "minimum": 23.78679084777832
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.9897668957710266,
+              "mean": 0.8660720878878966,
+              "median": 0.913355827331543,
+              "minimum": 0.2925248444080353
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 302,
+              "maximum": 47.532379150390625,
+              "mean": 39.95353101262983,
+              "median": 40.24326133728027,
+              "minimum": 28.021230697631836
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 0.98740553855896,
+              "mean": 0.9535056303273763,
+              "median": 0.9656350314617157,
+              "minimum": 0.7009283304214478
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 255,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 255,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 255,
+            "teacher_gap_closed": {
+              "count": 255,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 255,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 255,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 302,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 151,
+      "shadow_fraction": {
+        "count": 302,
+        "maximum": 1.0,
+        "mean": 0.38029920566491165,
+        "median": 0.25315789473684214,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 4146098,
+      "teacher_correction_mse": {
+        "count": 255,
+        "maximum": 0.03570063467378969,
+        "mean": 0.0008905253159118615,
+        "median": 0.00019230443837618788,
+        "minimum": 7.774715450722563e-05
+      }
+    },
+    "nind": {
+      "correction_capture_eligible_images": 149,
+      "images": 164,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 164,
+              "maximum": 45.602561950683594,
+              "mean": 32.431720419627865,
+              "median": 32.752180099487305,
+              "minimum": 20.204078674316406
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.9913173317909241,
+              "mean": 0.848923076398489,
+              "median": 0.8711707293987274,
+              "minimum": 0.43987345695495605
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 149,
+              "maximum": 0.9999908094473642,
+              "mean": 0.9539940727058511,
+              "median": 0.9698955131857475,
+              "minimum": 0.6921016910686296
+            },
+            "correction_capture": {
+              "count": 149,
+              "maximum": 2.1693497072742245,
+              "mean": 0.9452964202420704,
+              "median": 0.9285648734256199,
+              "minimum": 0.5666211506759998
+            },
+            "images_with_shadow": 149,
+            "teacher_gap_closed": {
+              "count": 149,
+              "maximum": 0.9642615788677885,
+              "mean": 0.6726585059671175,
+              "median": 0.7373558452853415,
+              "minimum": -1.9422262427490056
+            },
+            "teacher_mae": {
+              "count": 149,
+              "maximum": 0.1355816125869751,
+              "mean": 0.02356347750134816,
+              "median": 0.01820153370499611,
+              "minimum": 0.004560302477329969
+            },
+            "teacher_psnr": {
+              "count": 149,
+              "maximum": 44.94770686702279,
+              "mean": 32.753471001616276,
+              "median": 33.215729221347296,
+              "minimum": 17.31835328311668
+            },
+            "teacher_rmse": {
+              "count": 149,
+              "maximum": 0.1361702816815813,
+              "mean": 0.028229665719035624,
+              "median": 0.021838034056173804,
+              "minimum": 0.005657370957534141
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 164,
+              "maximum": 51.21356201171875,
+              "mean": 36.442204231169164,
+              "median": 36.42836380004883,
+              "minimum": 24.746854782104492
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.9993658065795898,
+              "mean": 0.9028784390084628,
+              "median": 0.9542393982410431,
+              "minimum": 0.13050001859664917
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 164,
+              "maximum": 43.83934020996094,
+              "mean": 31.49099012700523,
+              "median": 31.912973403930664,
+              "minimum": 18.58666229248047
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.9902187585830688,
+              "mean": 0.80465210179185,
+              "median": 0.8408069908618927,
+              "minimum": 0.10387641936540604
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 149,
+              "maximum": 0.9999500072747256,
+              "mean": 0.9659294281740449,
+              "median": 0.9758884522342417,
+              "minimum": 0.6475322595533035
+            },
+            "correction_capture": {
+              "count": 149,
+              "maximum": 1.9067616901820967,
+              "mean": 0.9625015621988767,
+              "median": 0.9458628000658167,
+              "minimum": 0.6070338560636844
+            },
+            "images_with_shadow": 149,
+            "teacher_gap_closed": {
+              "count": 149,
+              "maximum": 0.9967759122079575,
+              "mean": 0.7302381470047553,
+              "median": 0.7675600013388818,
+              "minimum": -1.1350166190306998
+            },
+            "teacher_mae": {
+              "count": 149,
+              "maximum": 0.10349945724010468,
+              "mean": 0.020891906243054377,
+              "median": 0.015809932723641396,
+              "minimum": 0.0002299192565260455
+            },
+            "teacher_psnr": {
+              "count": 149,
+              "maximum": 57.527352961853175,
+              "mean": 33.880198725641925,
+              "median": 33.95189013559121,
+              "minimum": 19.078884377220675
+            },
+            "teacher_rmse": {
+              "count": 149,
+              "maximum": 0.11118745281857481,
+              "mean": 0.026059253208501915,
+              "median": 0.02006344442093429,
+              "minimum": 0.0013293286103296031
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 164,
+              "maximum": 57.15951919555664,
+              "mean": 37.53852984963394,
+              "median": 37.40675163269043,
+              "minimum": 26.112506866455078
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.9990869164466858,
+              "mean": 0.932113011980929,
+              "median": 0.9577189087867737,
+              "minimum": 0.4002033472061157
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 164,
+              "maximum": 32.23576354980469,
+              "mean": 23.501593182726605,
+              "median": 23.945012092590332,
+              "minimum": 14.940315246582031
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.8692692518234253,
+              "mean": 0.4336549415048666,
+              "median": 0.45259834825992584,
+              "minimum": 0.04705578833818436
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 149,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 149,
+            "teacher_gap_closed": {
+              "count": 149,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 149,
+              "maximum": 0.3376956582069397,
+              "mean": 0.10019174935733711,
+              "median": 0.07131296396255493,
+              "minimum": 0.018603172153234482
+            },
+            "teacher_psnr": {
+              "count": 149,
+              "maximum": 31.599752113943843,
+              "mean": 20.392732118048073,
+              "median": 20.58480355060557,
+              "minimum": 8.701274690080325
+            },
+            "teacher_rmse": {
+              "count": 149,
+              "maximum": 0.3672284042625472,
+              "mean": 0.12011135119598619,
+              "median": 0.09348885105115456,
+              "minimum": 0.026303430580187376
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 164,
+              "maximum": 32.90800094604492,
+              "mean": 23.761195764309022,
+              "median": 24.228264808654785,
+              "minimum": 14.867130279541016
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.903921365737915,
+              "mean": 0.41776974169855435,
+              "median": 0.42529627680778503,
+              "minimum": 0.025582943111658096
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 164,
+              "maximum": 45.31512451171875,
+              "mean": 31.6181626436187,
+              "median": 32.05098533630371,
+              "minimum": 17.40090560913086
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 0.9918370842933655,
+              "mean": 0.7961772262777497,
+              "median": 0.8403783440589905,
+              "minimum": 0.11866164952516556
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 149,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 149,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 149,
+            "teacher_gap_closed": {
+              "count": 149,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 149,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 149,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 164,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 19,
+      "shadow_fraction": {
+        "count": 164,
+        "maximum": 1.0,
+        "mean": 0.31261114113911226,
+        "median": 0.11825484764542937,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 1850783,
+      "teacher_correction_mse": {
+        "count": 149,
+        "maximum": 0.1348567042599612,
+        "mean": 0.02157435018033446,
+        "median": 0.008740165195533875,
+        "minimum": 0.00069187033322481
+      }
+    },
+    "polyu_sony": {
+      "correction_capture_eligible_images": 20,
+      "images": 32,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 32,
+              "maximum": 51.11082458496094,
+              "mean": 34.79199039936066,
+              "median": 37.6098690032959,
+              "minimum": 18.89647102355957
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9987740516662598,
+              "mean": 0.9688868038356304,
+              "median": 0.9771252274513245,
+              "minimum": 0.9124784469604492
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 0.9870175145294748,
+              "mean": 0.916506917491683,
+              "median": 0.950555914697714,
+              "minimum": 0.6524619703211458
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 0.9718256614616216,
+              "mean": 0.824353482495231,
+              "median": 0.8292589510145711,
+              "minimum": 0.6693226361249417
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.820353409895672,
+              "mean": 0.6695451746308229,
+              "median": 0.6806573089910116,
+              "minimum": 0.34963028658591044
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.013224003836512566,
+              "mean": 0.005818663188256324,
+              "median": 0.0053037607576698065,
+              "minimum": 0.0021864662412554026
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 50.851532462298266,
+              "mean": 42.848820125441314,
+              "median": 41.816635413365404,
+              "minimum": 34.64531954385935
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.018523968030907174,
+              "mean": 0.008175506587658143,
+              "median": 0.008117348121774203,
+              "minimum": 0.0028669715076127937
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 32,
+              "maximum": 50.851531982421875,
+              "mean": 44.26656627655029,
+              "median": 44.35918045043945,
+              "minimum": 36.02581024169922
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9993470311164856,
+              "mean": 0.9889941178262234,
+              "median": 0.9922168254852295,
+              "minimum": 0.931439995765686
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 32,
+              "maximum": 52.27825164794922,
+              "mean": 34.47642236948013,
+              "median": 37.211843490600586,
+              "minimum": 18.870494842529297
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9985905289649963,
+              "mean": 0.9654838852584362,
+              "median": 0.9746077656745911,
+              "minimum": 0.9087231755256653
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 0.9805575497405302,
+              "mean": 0.9108330342044422,
+              "median": 0.9301884387320909,
+              "minimum": 0.6448547449844507
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 0.9014180370129407,
+              "mean": 0.7987475398525279,
+              "median": 0.8202237302765729,
+              "minimum": 0.6557343025641478
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.7961621491263737,
+              "mean": 0.644854145825924,
+              "median": 0.6325237081271545,
+              "minimum": 0.3510211141675179
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.013726640492677689,
+              "mean": 0.006317271792795509,
+              "median": 0.0052245978731662035,
+              "minimum": 0.0023307674564421177
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 50.164006605215015,
+              "mean": 42.152812002969085,
+              "median": 41.71679658714116,
+              "minimum": 33.971428117346065
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.02001836456411571,
+              "mean": 0.008803123421593012,
+              "median": 0.00821310947188407,
+              "minimum": 0.003103127854968133
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 32,
+              "maximum": 50.229766845703125,
+              "mean": 43.824198961257935,
+              "median": 43.7388973236084,
+              "minimum": 35.836700439453125
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9992461800575256,
+              "mean": 0.9856358040124178,
+              "median": 0.9900082945823669,
+              "minimum": 0.9181015491485596
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 32,
+              "maximum": 40.138694763183594,
+              "mean": 29.969078481197357,
+              "median": 32.10778617858887,
+              "minimum": 18.679100036621094
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9328697323799133,
+              "mean": 0.8020184133201838,
+              "median": 0.8118719160556793,
+              "minimum": 0.5306083559989929
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.03578183799982071,
+              "mean": 0.017723158327862622,
+              "median": 0.015191711485385895,
+              "minimum": 0.009949046187102795
+            },
+            "teacher_psnr": {
+              "count": 20,
+              "maximum": 37.797981580155174,
+              "mean": 33.55925218901073,
+              "median": 34.22153202953435,
+              "minimum": 27.17294174609762
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.043787778515243736,
+              "mean": 0.022406532471324844,
+              "median": 0.019459709621053374,
+              "minimum": 0.01288548948843163
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 32,
+              "maximum": 40.49056625366211,
+              "mean": 35.354479908943176,
+              "median": 34.98970413208008,
+              "minimum": 30.04483413696289
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9346947073936462,
+              "mean": 0.8220761623233557,
+              "median": 0.8344329297542572,
+              "minimum": 0.5381667017936707
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 32,
+              "maximum": 52.29351806640625,
+              "mean": 35.40513986349106,
+              "median": 37.20636749267578,
+              "minimum": 18.72734832763672
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 0.9992253184318542,
+              "mean": 0.9756060317158699,
+              "median": 0.9831231534481049,
+              "minimum": 0.9254065155982971
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 20,
+            "teacher_gap_closed": {
+              "count": 20,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 20,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 32,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 2,
+      "shadow_fraction": {
+        "count": 32,
+        "maximum": 1.0,
+        "mean": 0.24315616343490307,
+        "median": 0.025609418282548476,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 280894,
+      "teacher_correction_mse": {
+        "count": 20,
+        "maximum": 0.0019173693089258102,
+        "mean": 0.0005790538638934972,
+        "median": 0.0003790515042960717,
+        "minimum": 0.00016603586573573953
+      }
+    },
+    "sidd": {
+      "correction_capture_eligible_images": 297,
+      "images": 352,
+      "methods": {
+        "nind_full_reference": {
+          "reference": {
+            "psnr": {
+              "count": 352,
+              "maximum": 51.229736328125,
+              "mean": 41.48370347239754,
+              "median": 42.253957748413086,
+              "minimum": 25.5018310546875
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9945982694625854,
+              "mean": 0.9501739176498218,
+              "median": 0.9744051396846771,
+              "minimum": 0.6479355692863464
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 297,
+              "maximum": 0.9999887764881504,
+              "mean": 0.975403436834231,
+              "median": 0.9859071120211141,
+              "minimum": 0.7167666793571751
+            },
+            "correction_capture": {
+              "count": 297,
+              "maximum": 1.1896797427803856,
+              "mean": 0.9648843607964469,
+              "median": 0.9756286106957733,
+              "minimum": 0.7710237737056411
+            },
+            "images_with_shadow": 297,
+            "teacher_gap_closed": {
+              "count": 297,
+              "maximum": 0.9944514109070232,
+              "mean": 0.7939987447567767,
+              "median": 0.8265447118222432,
+              "minimum": -0.2759871298551899
+            },
+            "teacher_mae": {
+              "count": 297,
+              "maximum": 0.04770294204354286,
+              "mean": 0.008454837712462401,
+              "median": 0.004929376766085625,
+              "minimum": 0.0010733604431152344
+            },
+            "teacher_psnr": {
+              "count": 297,
+              "maximum": 58.56567618528645,
+              "mean": 42.550778407249794,
+              "median": 43.78893631539981,
+              "minimum": 25.42029965594925
+            },
+            "teacher_rmse": {
+              "count": 297,
+              "maximum": 0.05357781732943113,
+              "mean": 0.010253450248592791,
+              "median": 0.006464771575305158,
+              "minimum": 0.001179549554016457
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 352,
+              "maximum": 56.04108428955078,
+              "mean": 43.52198654413223,
+              "median": 44.916404724121094,
+              "minimum": 25.32782745361328
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9997186660766602,
+              "mean": 0.9793786724860017,
+              "median": 0.9944510757923126,
+              "minimum": 0.607343852519989
+            }
+          }
+        },
+        "nind_teacher_only": {
+          "reference": {
+            "psnr": {
+              "count": 352,
+              "maximum": 50.70159912109375,
+              "mean": 41.40865233811465,
+              "median": 42.14276695251465,
+              "minimum": 25.97109603881836
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9945716261863708,
+              "mean": 0.9497238968245008,
+              "median": 0.9740577340126038,
+              "minimum": 0.6499447226524353
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 297,
+              "maximum": 0.9999740368375741,
+              "mean": 0.9742893727266947,
+              "median": 0.985557749219273,
+              "minimum": 0.6798239992000763
+            },
+            "correction_capture": {
+              "count": 297,
+              "maximum": 1.1660730926249667,
+              "mean": 0.9549882370100057,
+              "median": 0.9692492136832579,
+              "minimum": 0.6928478469285356
+            },
+            "images_with_shadow": 297,
+            "teacher_gap_closed": {
+              "count": 297,
+              "maximum": 0.9852027232707413,
+              "mean": 0.7905589515812826,
+              "median": 0.8259919467759265,
+              "minimum": -0.44810430901120224
+            },
+            "teacher_mae": {
+              "count": 297,
+              "maximum": 0.05202107131481171,
+              "mean": 0.008737183025856236,
+              "median": 0.00543623324483633,
+              "minimum": 0.0012799272080883384
+            },
+            "teacher_psnr": {
+              "count": 297,
+              "maximum": 55.367390569411924,
+              "mean": 42.31134299079336,
+              "median": 43.241220989346786,
+              "minimum": 24.906009344886286
+            },
+            "teacher_rmse": {
+              "count": 297,
+              "maximum": 0.05684595052602696,
+              "mean": 0.010609295473802703,
+              "median": 0.006885554981973539,
+              "minimum": 0.001704631350815448
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 352,
+              "maximum": 54.64378356933594,
+              "mean": 43.323630490086295,
+              "median": 44.91784858703613,
+              "minimum": 24.808364868164062
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9996671080589294,
+              "mean": 0.9770136299458417,
+              "median": 0.993798553943634,
+              "minimum": 0.6006597876548767
+            }
+          }
+        },
+        "noisy": {
+          "reference": {
+            "psnr": {
+              "count": 352,
+              "maximum": 39.64627456665039,
+              "mean": 29.537884072823957,
+              "median": 31.102230072021484,
+              "minimum": 15.411404609680176
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9255218505859375,
+              "mean": 0.5746786842673001,
+              "median": 0.6627886593341827,
+              "minimum": 0.07363542169332504
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "correction_capture": {
+              "count": 297,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "images_with_shadow": 297,
+            "teacher_gap_closed": {
+              "count": 297,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_mae": {
+              "count": 297,
+              "maximum": 0.2602202296257019,
+              "mean": 0.04650787003526483,
+              "median": 0.030285721644759178,
+              "minimum": 0.010319308377802372
+            },
+            "teacher_psnr": {
+              "count": 297,
+              "maximum": 37.42498985040954,
+              "mean": 27.233438839506395,
+              "median": 27.89690322331593,
+              "minimum": 11.139502768585663
+            },
+            "teacher_rmse": {
+              "count": 297,
+              "maximum": 0.2773478870351933,
+              "mean": 0.057898348148029515,
+              "median": 0.04028606404635761,
+              "minimum": 0.013450874092576
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 352,
+              "maximum": 39.397369384765625,
+              "mean": 29.355641836469825,
+              "median": 31.091562271118164,
+              "minimum": 15.504800796508789
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9222615957260132,
+              "mean": 0.553791166621853,
+              "median": 0.6409127116203308,
+              "minimum": 0.04287919029593468
+            }
+          }
+        },
+        "teacher": {
+          "reference": {
+            "psnr": {
+              "count": 352,
+              "maximum": 50.59930419921875,
+              "mean": 39.37951997193423,
+              "median": 40.452701568603516,
+              "minimum": 20.130847930908203
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 0.9944601058959961,
+              "mean": 0.9352034980600531,
+              "median": 0.9703198075294495,
+              "minimum": 0.5310197472572327
+            }
+          },
+          "shadow_teacher_agreement": {
+            "correction_alignment": {
+              "count": 297,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "correction_capture": {
+              "count": 297,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "images_with_shadow": 297,
+            "teacher_gap_closed": {
+              "count": 297,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            },
+            "teacher_mae": {
+              "count": 297,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            },
+            "teacher_psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "teacher_rmse": {
+              "count": 297,
+              "maximum": 0.0,
+              "mean": 0.0,
+              "median": 0.0,
+              "minimum": 0.0
+            }
+          },
+          "teacher_agreement": {
+            "psnr": {
+              "count": 0,
+              "maximum": null,
+              "mean": null,
+              "median": null,
+              "minimum": null
+            },
+            "ssim": {
+              "count": 352,
+              "maximum": 1.0,
+              "mean": 1.0,
+              "median": 1.0,
+              "minimum": 1.0
+            }
+          }
+        }
+      },
+      "scenes": 22,
+      "shadow_fraction": {
+        "count": 352,
+        "maximum": 1.0,
+        "mean": 0.492687059304961,
+        "median": 0.42265927977839335,
+        "minimum": 0.0
+      },
+      "shadow_pixels": 6260673,
+      "teacher_correction_mse": {
+        "count": 297,
+        "maximum": 0.0769218505374969,
+        "mean": 0.005845845776628658,
+        "median": 0.0016229668898241861,
+        "minimum": 0.00018092601142410394
+      }
+    }
+  }
+}

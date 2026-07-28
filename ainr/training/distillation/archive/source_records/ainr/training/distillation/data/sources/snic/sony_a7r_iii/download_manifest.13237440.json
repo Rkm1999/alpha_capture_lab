@@ -1,0 +1,450 @@
+{
+  "archives": [
+    {
+      "compressed_bytes": 17226249151,
+      "datafile_id": 13237440,
+      "entries": 70,
+      "name": "sony_a7r_iii_outdoor3.zip",
+      "states": {
+        "downloaded": 70,
+        "existing": 0
+      },
+      "uncompressed_bytes": 17803940000,
+      "zip_entries": [
+        {
+          "compressed_size": 237095860,
+          "crc32": "c3e7de48",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243203501,
+          "crc32": "c69a7384",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244868599,
+          "crc32": "704cf53c",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245803210,
+          "crc32": "db8fccdf",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246276395,
+          "crc32": "5c74ea24",
+          "name": "outdoor/011_sign_language/011_sign_language_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239755512,
+          "crc32": "c9ded7b2",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242565923,
+          "crc32": "89be923f",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243325529,
+          "crc32": "2d7c30b1",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243827192,
+          "crc32": "0a50bc7e",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243761486,
+          "crc32": "3e628d1b",
+          "name": "outdoor/011_sign_language/011_sign_language_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242515279,
+          "crc32": "600b8bd6",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245655529,
+          "crc32": "e8846af7",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246401898,
+          "crc32": "f514e4f7",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246246310,
+          "crc32": "b4cb20a1",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244512765,
+          "crc32": "40af99a4",
+          "name": "outdoor/011_sign_language/011_sign_language_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 240856943,
+          "crc32": "95339213",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246432451,
+          "crc32": "f50b8c34",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247802304,
+          "crc32": "fc7d96ea",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248704906,
+          "crc32": "ab8f276f",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249159316,
+          "crc32": "16f84a6e",
+          "name": "outdoor/011_sign_language/011_sign_language_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247173578,
+          "crc32": "2cf05728",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248478187,
+          "crc32": "db371d58",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248342916,
+          "crc32": "a8f11aeb",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247578903,
+          "crc32": "2815b90f",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246164672,
+          "crc32": "1c91fb78",
+          "name": "outdoor/012_stained_glass/012_stained_glass_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247923505,
+          "crc32": "00bcfdd4",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248856389,
+          "crc32": "2aedeed2",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249176359,
+          "crc32": "6da149e2",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249463225,
+          "crc32": "10a2fa72",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249602533,
+          "crc32": "e7bb3dc6",
+          "name": "outdoor/012_stained_glass/012_stained_glass_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242517932,
+          "crc32": "9a3435e0",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244509901,
+          "crc32": "02998776",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244928558,
+          "crc32": "5212894b",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244461346,
+          "crc32": "a7a122ad",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242887777,
+          "crc32": "29e23e2e",
+          "name": "outdoor/013_totem_pole/013_totem_pole_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241654370,
+          "crc32": "ad7094dc",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244329509,
+          "crc32": "5aa26693",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244702929,
+          "crc32": "dbb56608",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243921861,
+          "crc32": "b7c22cc0",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242120905,
+          "crc32": "3e820e08",
+          "name": "outdoor/013_totem_pole/013_totem_pole_44mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245800114,
+          "crc32": "0f3ca27a",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249080565,
+          "crc32": "e3b96e04",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249848507,
+          "crc32": "2275179c",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250626146,
+          "crc32": "7757469c",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251060036,
+          "crc32": "b61a5efd",
+          "name": "outdoor/014_trash_cans/014_trash_cans_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244356094,
+          "crc32": "c26c83a1",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246331260,
+          "crc32": "30a77859",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246734589,
+          "crc32": "c0fae763",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246545830,
+          "crc32": "9189afca",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245363164,
+          "crc32": "89280c81",
+          "name": "outdoor/014_trash_cans/014_trash_cans_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249221405,
+          "crc32": "70aaa16b",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250751623,
+          "crc32": "bb256c62",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 251103421,
+          "crc32": "c1c710d1",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250888930,
+          "crc32": "da8dc393",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249793550,
+          "crc32": "eb44a5fe",
+          "name": "outdoor/014_trash_cans/014_trash_cans_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241420743,
+          "crc32": "d35249db",
+          "name": "outdoor/015_wagon/015_wagon_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244914326,
+          "crc32": "83f43b6e",
+          "name": "outdoor/015_wagon/015_wagon_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245812876,
+          "crc32": "dee01436",
+          "name": "outdoor/015_wagon/015_wagon_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246532176,
+          "crc32": "ab75366d",
+          "name": "outdoor/015_wagon/015_wagon_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247063359,
+          "crc32": "530cb383",
+          "name": "outdoor/015_wagon/015_wagon_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243437364,
+          "crc32": "be1622d4",
+          "name": "outdoor/015_wagon/015_wagon_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246698099,
+          "crc32": "8978f371",
+          "name": "outdoor/015_wagon/015_wagon_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247822847,
+          "crc32": "b726b27e",
+          "name": "outdoor/015_wagon/015_wagon_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247917101,
+          "crc32": "7e54d904",
+          "name": "outdoor/015_wagon/015_wagon_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247348004,
+          "crc32": "1c3456ef",
+          "name": "outdoor/015_wagon/015_wagon_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242562332,
+          "crc32": "0869f947",
+          "name": "outdoor/015_wagon/015_wagon_69mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247374037,
+          "crc32": "dbf7f1e1",
+          "name": "outdoor/015_wagon/015_wagon_69mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248022386,
+          "crc32": "c53e5da2",
+          "name": "outdoor/015_wagon/015_wagon_69mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247667732,
+          "crc32": "f2bd6a86",
+          "name": "outdoor/015_wagon/015_wagon_69mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246584272,
+          "crc32": "86ba3afb",
+          "name": "outdoor/015_wagon/015_wagon_69mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    }
+  ],
+  "camera": "Sony A7R III",
+  "complete": true,
+  "dataset": "SNIC",
+  "doi": "10.7910/DVN/SGHDCP",
+  "integrity": "size_and_zip_crc32_verified",
+  "license": "MIT",
+  "noisy_isos": [
+    1600,
+    3200,
+    6400,
+    12800
+  ],
+  "schema_version": 1
+}

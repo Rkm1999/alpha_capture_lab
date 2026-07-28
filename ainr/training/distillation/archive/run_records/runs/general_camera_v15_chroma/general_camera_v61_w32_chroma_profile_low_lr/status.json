@@ -1,0 +1,8 @@
+{
+  "epoch": 3,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v61_w32_chroma_profile_low_lr",
+  "state": "failed",
+  "updated_at": "2026-07-26T07:53:44.248336+00:00"
+}

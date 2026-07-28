@@ -1,0 +1,39 @@
+seed: 4517
+tile_size: 192
+teacher_context: 320
+loss_border: 16
+validation_fraction: 0.15
+
+data:
+  extended_manifest: data/extended_manifest.json
+  cache_root: data/litedenoise_cache
+  source_root: data/sources
+  patches_per_pair: {sidd: 8, nind: 8, midd: 2}
+
+teacher:
+  scunet_repo: data/sources/scunet
+  checkpoint: data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  batch_size: 1
+
+student:
+  base_width: 24
+
+training:
+  epochs: 260
+  warmup_epochs: 0
+  batch_size: 3
+  gradient_accumulation: 3
+  learning_rate: 0.0002
+  minimum_learning_rate: 0.000002
+  weight_decay: 0.000001
+  num_workers: 4
+  amp: true
+  clean_mse_weight: 0.0
+  teacher_mse_weight: 1000.0
+  clean_l1_weight: 0.0
+  correction_sampling_power: 2.0
+  correction_sampling_floor: 0.2
+  correction_sampling_cap: 8.0
+  checkpoint_interval: 10
+  early_stopping_patience: 40
+  early_stopping_min_delta_db: 0.01

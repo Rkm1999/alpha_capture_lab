@@ -1,0 +1,181 @@
+{
+  "alpha": 0.0,
+  "batch_size": 16,
+  "config": {
+    "_config_path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/configs/default.yaml",
+    "data": {
+      "augmentation": {
+        "horizontal_flip": true,
+        "rotations": [
+          0,
+          1,
+          2,
+          3
+        ],
+        "vertical_flip": true
+      },
+      "cache_root": "data/cache",
+      "datasets": [
+        "midd",
+        "sidd"
+      ],
+      "manifest": "data/cache/manifest.json",
+      "patches_per_pair": {
+        "midd": 2,
+        "sidd": 8
+      },
+      "source_manifest": "../data/extended_manifest.json",
+      "source_root": "../data/sources",
+      "target_datasets": [],
+      "tile_size": 192,
+      "validation_fraction": 0.15
+    },
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 16,
+      "expected_conv_macs": 1985347584,
+      "expected_parameters": 1963411,
+      "input_shape": [
+        1,
+        3,
+        192,
+        192
+      ]
+    },
+    "outputs": {
+      "evaluation": "evaluation",
+      "export": "export",
+      "runs": "runs"
+    },
+    "project": {
+      "name": "scunet_mobile_distillation_192",
+      "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+      "seed": 1337
+    },
+    "teacher": {
+      "cache_batch_size": 4,
+      "cache_dtype": "float16",
+      "cache_inference_amp": false,
+      "checkpoint": "../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+      "checkpoint_name": "scunet_color_real_psnr",
+      "config": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "dimension": 64,
+      "parity_maximum_absolute_error": 0.0005,
+      "parity_samples": 8,
+      "repository": "../data/sources/scunet"
+    },
+    "training": {
+      "alphas": [
+        0.0,
+        0.7,
+        0.9
+      ],
+      "amp": true,
+      "batch_size": 16,
+      "checkpoint_interval": 10,
+      "epochs": 200,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-05,
+      "optimizer": "Adam",
+      "workers": 4
+    }
+  },
+  "diagnostic_limits": {
+    "max_train_batches": null,
+    "max_val_batches": null
+  },
+  "environment": {
+    "cuda_available": true,
+    "cuda_device": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "cuda_runtime": "12.8",
+    "dataset_manifest_sha256": "27947c69133f90062de95eb389786d48af40f1c9eee72476fcf1bb29c6d8c2d8",
+    "pid": 1568179,
+    "platform": "linux",
+    "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+    "project_commit": "0b7b158ed0febaa871315b785b4371bc8f7cd0e4",
+    "project_dirty": true,
+    "python": "3.12.13 (main, May  8 2026, 18:32:55) [Clang 22.1.3 ]",
+    "teacher_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "teacher_repo_commit": "52e440a80a655b01e0b41e9dd9bfe599bc11625e",
+    "torch": "2.9.0+cu128"
+  },
+  "epochs_effective": 200,
+  "loss_coefficients": {
+    "clean_l1": 50.0,
+    "clean_mse": 1000.0,
+    "teacher_mse": 0.0
+  },
+  "run_fingerprint": "a1e6a5c9ec07095037e90a024c7510f652371a7f7c6c6d5ed492e35df0a687bc",
+  "run_fingerprint_payload": {
+    "alpha": 0.0,
+    "datasets": [
+      "midd",
+      "sidd"
+    ],
+    "diagnostic_limits": {
+      "max_train_batches": null,
+      "max_val_batches": null
+    },
+    "manifest_sha256": "27947c69133f90062de95eb389786d48af40f1c9eee72476fcf1bb29c6d8c2d8",
+    "metrics": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    },
+    "model": {
+      "base_width": 16,
+      "expected_conv_macs": 1985347584,
+      "expected_parameters": 1963411,
+      "input_shape": [
+        1,
+        3,
+        192,
+        192
+      ]
+    },
+    "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+    "seed": 1337,
+    "source_sha256": {
+      "dataset.py": "7e225844820bfd856f78d558035193aef66a737c8274190d05d1a7d1a34ca55c",
+      "losses.py": "e9d3ddaa4b5f46672a8618ccc00d70733ae445d0c800adeae68ca6d512b170c8",
+      "metrics.py": "73ec55b840ed462b39b224ae96ae5070ce97bb659f130541d321a430a67e89e0",
+      "student.py": "bc79dc3db4115227f9f84e297be3661b78a1c77e8e4cd3078023fc6a44fa9b0e"
+    },
+    "training": {
+      "alphas": [
+        0.0,
+        0.7,
+        0.9
+      ],
+      "amp": true,
+      "batch_size": 16,
+      "checkpoint_interval": 10,
+      "epochs": 200,
+      "gradient_clip_norm": 0.1,
+      "learning_rate": 0.0001,
+      "minimum_learning_rate": 1e-05,
+      "optimizer": "Adam",
+      "workers": 4
+    },
+    "training_script_sha256": {
+      "common.py": "4c06945b72a1b423e98ee41fe3377886ea13ebcadde0a7922451b4fadaddda2f",
+      "train.py": "423cdf42d0ff7302c1ce5599e8e1689aab559e6ffacb4da8f451ace61f4ec2db"
+    }
+  },
+  "started_at": "2026-07-19T08:00:48.796264+00:00",
+  "train_samples": 3746,
+  "validation_samples": 654
+}

@@ -1,0 +1,8 @@
+{
+  "epoch": 4,
+  "epochs": 100,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v56_w48_expansion_only",
+  "state": "failed",
+  "updated_at": "2026-07-26T06:02:39.263384+00:00"
+}

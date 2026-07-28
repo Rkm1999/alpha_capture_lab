@@ -1,0 +1,228 @@
+{
+  "border_crop": 1,
+  "checkpoints": {
+    "alpha_0p0": {
+      "alpha": 0.0,
+      "best_psnr_at_save": 41.55140220280452,
+      "epoch": 195,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p0/best.pt",
+      "run_fingerprint": "a1e6a5c9ec07095037e90a024c7510f652371a7f7c6c6d5ed492e35df0a687bc",
+      "sha256": "cd5fc0ac35ed6f4c1e1f56bdd4a8d068aa30bf08ac7001131f1ab414960f187d"
+    },
+    "alpha_0p7": {
+      "alpha": 0.7,
+      "best_psnr_at_save": 41.380484709316804,
+      "epoch": 181,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p7/best.pt",
+      "run_fingerprint": "68586382ab94bb0a6e89d9152cbdc40837fbc4a3357c528902234fad60b43134",
+      "sha256": "84ac4017edbc0f52e0827531bae3de98b2b7a8d95dc0db90fa031b2c8235026d"
+    },
+    "alpha_0p9": {
+      "alpha": 0.9,
+      "best_psnr_at_save": 41.233980205080925,
+      "epoch": 128,
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p9/best.pt",
+      "run_fingerprint": "1f2e5e8da840ffff6c24f45bf06ea8362ad562ab072c1a8e97175e5a3d3dee3e",
+      "sha256": "d46eb6d4a9cec1684aa945dd9c5b2458fef980ddcdd0c71c1a0c0f2982aacba1"
+    }
+  },
+  "evaluation_id": "21cae7fc078cd4b77afb55cfacdfbb0ef99cf773d98f9330eaa0c4a268923489",
+  "manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/cache/manifest.json",
+  "manifest_sha256": "27947c69133f90062de95eb389786d48af40f1c9eee72476fcf1bb29c6d8c2d8",
+  "per_image": {
+    "evaluation_id": "21cae7fc078cd4b77afb55cfacdfbb0ef99cf773d98f9330eaa0c4a268923489",
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/matrix/per_image.jsonl",
+    "rows": 654,
+    "sha256": "891ab62dcee8a8c3384846a986f247ab7aa1cc48ef282627dce14452c6ab6aae"
+  },
+  "per_image_metrics": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/matrix/per_image.jsonl",
+  "provenance": {
+    "checkpoints": {
+      "alpha_0p0": {
+        "alpha": 0.0,
+        "best_psnr_at_save": 41.55140220280452,
+        "epoch": 195,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p0/best.pt",
+        "run_fingerprint": "a1e6a5c9ec07095037e90a024c7510f652371a7f7c6c6d5ed492e35df0a687bc",
+        "sha256": "cd5fc0ac35ed6f4c1e1f56bdd4a8d068aa30bf08ac7001131f1ab414960f187d"
+      },
+      "alpha_0p7": {
+        "alpha": 0.7,
+        "best_psnr_at_save": 41.380484709316804,
+        "epoch": 181,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p7/best.pt",
+        "run_fingerprint": "68586382ab94bb0a6e89d9152cbdc40837fbc4a3357c528902234fad60b43134",
+        "sha256": "84ac4017edbc0f52e0827531bae3de98b2b7a8d95dc0db90fa031b2c8235026d"
+      },
+      "alpha_0p9": {
+        "alpha": 0.9,
+        "best_psnr_at_save": 41.233980205080925,
+        "epoch": 128,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p9/best.pt",
+        "run_fingerprint": "1f2e5e8da840ffff6c24f45bf06ea8362ad562ab072c1a8e97175e5a3d3dee3e",
+        "sha256": "d46eb6d4a9cec1684aa945dd9c5b2458fef980ddcdd0c71c1a0c0f2982aacba1"
+      }
+    },
+    "manifest": {
+      "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/cache/manifest.json",
+      "sha256": "27947c69133f90062de95eb389786d48af40f1c9eee72476fcf1bb29c6d8c2d8"
+    },
+    "metrics": {
+      "border_crop": 1,
+      "color_space": "RGB",
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11,
+      "target": "clean"
+    },
+    "preprocessing_version": "exact_hwc_rgb_float_0_1_v1",
+    "schema_version": 1,
+    "validation": {
+      "samples": 654,
+      "split": "validation"
+    },
+    "validation_content": {
+      "cache_root": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/cache",
+      "files": 1962,
+      "sha256": "68a84c60ddc6396768f7ff57a95cce1df64bf1b29b10811635d8b199bdc38d83"
+    }
+  },
+  "schema_version": 2,
+  "ssim": {
+    "sigma": 1.5,
+    "window_size": 11
+  },
+  "summary": {
+    "all": {
+      "alpha_0p0": {
+        "psnr_mean": 41.55140220280452,
+        "psnr_median": 42.11443328857422,
+        "psnr_minimum": 29.46924591064453,
+        "ssim_mean": 0.9567733914662574,
+        "ssim_median": 0.9736972451210022,
+        "ssim_minimum": 0.6673802137374878,
+        "teacher_psnr_gap": -1.9068190285918902
+      },
+      "alpha_0p7": {
+        "psnr_mean": 41.380484709316804,
+        "psnr_median": 42.0844783782959,
+        "psnr_minimum": 26.753719329833984,
+        "ssim_mean": 0.9559695002500435,
+        "ssim_median": 0.9733649790287018,
+        "ssim_minimum": 0.6515718102455139,
+        "teacher_psnr_gap": -1.7359015351041762
+      },
+      "alpha_0p9": {
+        "psnr_mean": 41.233980205080925,
+        "psnr_median": 41.9654426574707,
+        "psnr_minimum": 24.986886978149414,
+        "ssim_mean": 0.9550627240347206,
+        "ssim_median": 0.9729908406734467,
+        "ssim_minimum": 0.6380671858787537,
+        "teacher_psnr_gap": -1.589397030868298
+      },
+      "images": 654,
+      "noisy": {
+        "psnr_mean": 32.912899063996946,
+        "psnr_median": 34.57114791870117,
+        "psnr_minimum": 15.411404609680176,
+        "ssim_mean": 0.717782702251403,
+        "ssim_median": 0.8235641717910767,
+        "ssim_minimum": 0.07363542169332504
+      },
+      "teacher": {
+        "psnr_mean": 39.64458317421263,
+        "psnr_median": 40.32722282409668,
+        "psnr_minimum": 20.130847930908203,
+        "ssim_mean": 0.9436549414006212,
+        "ssim_median": 0.9665884971618652,
+        "ssim_minimum": 0.5310197472572327
+      }
+    },
+    "midd": {
+      "alpha_0p0": {
+        "psnr_mean": 41.32873439157246,
+        "psnr_median": 41.90526580810547,
+        "psnr_minimum": 29.51923370361328,
+        "ssim_mean": 0.9632912171597512,
+        "ssim_median": 0.9732410609722137,
+        "ssim_minimum": 0.7553784251213074
+      },
+      "alpha_0p7": {
+        "psnr_mean": 41.30602409665948,
+        "psnr_median": 41.83370780944824,
+        "psnr_minimum": 29.460556030273438,
+        "ssim_mean": 0.9630576561618325,
+        "ssim_median": 0.9731279015541077,
+        "ssim_minimum": 0.7517964839935303
+      },
+      "alpha_0p9": {
+        "psnr_mean": 41.17482284520636,
+        "psnr_median": 41.72406768798828,
+        "psnr_minimum": 29.468996047973633,
+        "ssim_mean": 0.9625387975316964,
+        "ssim_median": 0.9727440178394318,
+        "ssim_minimum": 0.7508985996246338
+      },
+      "images": 302,
+      "noisy": {
+        "psnr_mean": 36.84669137158931,
+        "psnr_median": 37.76078987121582,
+        "psnr_minimum": 24.90810203552246,
+        "ssim_mean": 0.8845794384447944,
+        "ssim_median": 0.9242808818817139,
+        "ssim_minimum": 0.4234839677810669
+      },
+      "teacher": {
+        "psnr_mean": 39.95353101262983,
+        "psnr_median": 40.24326133728027,
+        "psnr_minimum": 28.021230697631836,
+        "ssim_mean": 0.9535056303273763,
+        "ssim_median": 0.9656350314617157,
+        "ssim_minimum": 0.7009283304214478
+      }
+    },
+    "sidd": {
+      "alpha_0p0": {
+        "psnr_mean": 41.74244106357748,
+        "psnr_median": 42.33643341064453,
+        "psnr_minimum": 29.46924591064453,
+        "ssim_mean": 0.9511813932860439,
+        "ssim_median": 0.974227100610733,
+        "ssim_minimum": 0.6673802137374878
+      },
+      "alpha_0p7": {
+        "psnr_mean": 41.44436853040349,
+        "psnr_median": 42.25486183166504,
+        "psnr_minimum": 26.753719329833984,
+        "ssim_mean": 0.9498881846666336,
+        "ssim_median": 0.9742748439311981,
+        "ssim_minimum": 0.6515718102455139
+      },
+      "alpha_0p9": {
+        "psnr_mean": 41.2847345308824,
+        "psnr_median": 42.11590576171875,
+        "psnr_minimum": 24.986886978149414,
+        "ssim_mean": 0.948648592795838,
+        "ssim_median": 0.9738922715187073,
+        "ssim_minimum": 0.6380671858787537
+      },
+      "images": 352,
+      "noisy": {
+        "psnr_mean": 29.537884072823957,
+        "psnr_median": 31.102230072021484,
+        "psnr_minimum": 15.411404609680176,
+        "ssim_mean": 0.5746786842673001,
+        "ssim_median": 0.6627886593341827,
+        "ssim_minimum": 0.07363542169332504
+      },
+      "teacher": {
+        "psnr_mean": 39.37951997193423,
+        "psnr_median": 40.452701568603516,
+        "psnr_minimum": 20.130847930908203,
+        "ssim_mean": 0.9352034980600531,
+        "ssim_median": 0.9703198075294495,
+        "ssim_minimum": 0.5310197472572327
+      }
+    }
+  }
+}

@@ -4,6 +4,10 @@
     <string name="run_denoise">Run denoise</string>
     <string name="save_image">Save results</string>
     <string name="cancel">Cancel</string>
+    <string name="cancel_denoising_title">Cancel denoising?</string>
+    <string name="cancel_denoising_message">The current image and remaining batch will not be processed.</string>
+    <string name="continue_denoising">Continue</string>
+    <string name="confirm_cancel">Cancel denoising</string>
     <string name="gpu">GPU</string>
     <string name="npu">NPU</string>
     <string name="gpu_npu">GPU + NPU</string>

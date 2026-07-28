@@ -1,0 +1,8 @@
+{
+  "epoch": 25,
+  "epochs": 30,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v83_w48_chroma_branches_targeted",
+  "state": "failed",
+  "updated_at": "2026-07-27T15:58:17.623760+00:00"
+}

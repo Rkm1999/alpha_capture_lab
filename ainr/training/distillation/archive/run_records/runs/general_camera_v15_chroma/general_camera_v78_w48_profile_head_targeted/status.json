@@ -1,0 +1,8 @@
+{
+  "epoch": 3,
+  "epochs": 20,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v78_w48_profile_head_targeted",
+  "state": "failed",
+  "updated_at": "2026-07-27T05:38:48.540304+00:00"
+}

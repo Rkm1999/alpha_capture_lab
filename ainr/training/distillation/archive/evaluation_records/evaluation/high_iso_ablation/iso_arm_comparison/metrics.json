@@ -1,0 +1,3133 @@
+{
+  "aggregate_mean": {
+    "by_region_teacher_agreement": [
+      {
+        "index": 1,
+        "label": "Dark shelf",
+        "slug": "dark_shelf",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.797928174336754,
+            "delta_full_reference_minus_baseline": 0.40815003712972003,
+            "delta_full_reference_minus_teacher_only": 0.31234169006347656,
+            "delta_teacher_only_minus_baseline": 0.09580834706624348,
+            "full_reference": 39.20607821146647,
+            "teacher_only": 38.89373652140299
+          },
+          "ssim": {
+            "baseline": 0.872145007054011,
+            "delta_full_reference_minus_baseline": 0.0004247725009918213,
+            "delta_full_reference_minus_teacher_only": 0.005350073178609212,
+            "delta_teacher_only_minus_baseline": -0.004925300677617391,
+            "full_reference": 0.8725697795550028,
+            "teacher_only": 0.8672197063763937
+          }
+        }
+      },
+      {
+        "index": 2,
+        "label": "Smooth blue background",
+        "slug": "blue_background",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.41684150695801,
+            "delta_full_reference_minus_baseline": -1.268093744913737,
+            "delta_full_reference_minus_teacher_only": 0.2467219034830729,
+            "delta_teacher_only_minus_baseline": -1.5148156483968098,
+            "full_reference": 37.14874776204427,
+            "teacher_only": 36.902025858561196
+          },
+          "ssim": {
+            "baseline": 0.9359108507633209,
+            "delta_full_reference_minus_baseline": -0.009580731391906738,
+            "delta_full_reference_minus_teacher_only": 0.006588915983835856,
+            "delta_teacher_only_minus_baseline": -0.016169647375742596,
+            "full_reference": 0.9263301193714142,
+            "teacher_only": 0.9197412033875784
+          }
+        }
+      },
+      {
+        "index": 3,
+        "label": "Bright screen and text",
+        "slug": "screen",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 37.991485277811684,
+            "delta_full_reference_minus_baseline": -1.1968050003051758,
+            "delta_full_reference_minus_teacher_only": 0.13856124877929688,
+            "delta_teacher_only_minus_baseline": -1.3353662490844727,
+            "full_reference": 36.79468027750651,
+            "teacher_only": 36.65611902872721
+          },
+          "ssim": {
+            "baseline": 0.9411095579465231,
+            "delta_full_reference_minus_baseline": -0.013011773427327475,
+            "delta_full_reference_minus_teacher_only": 0.006712079048156738,
+            "delta_teacher_only_minus_baseline": -0.01972385247548421,
+            "full_reference": 0.9280977845191956,
+            "teacher_only": 0.9213857054710388
+          }
+        }
+      },
+      {
+        "index": 4,
+        "label": "Red cap and colored edge",
+        "slug": "red_cap",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.40960566202799,
+            "delta_full_reference_minus_baseline": -0.39579137166341144,
+            "delta_full_reference_minus_teacher_only": 0.359832763671875,
+            "delta_teacher_only_minus_baseline": -0.7556241353352865,
+            "full_reference": 38.013814290364586,
+            "teacher_only": 37.65398152669271
+          },
+          "ssim": {
+            "baseline": 0.9369873603185018,
+            "delta_full_reference_minus_baseline": -0.008354157209396362,
+            "delta_full_reference_minus_teacher_only": 0.007192780574162801,
+            "delta_teacher_only_minus_baseline": -0.015546937783559164,
+            "full_reference": 0.9286332031091055,
+            "teacher_only": 0.9214404225349426
+          }
+        }
+      },
+      {
+        "index": 5,
+        "label": "White figure and face detail",
+        "slug": "white_figure",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.983120600382485,
+            "delta_full_reference_minus_baseline": 0.3736206690470378,
+            "delta_full_reference_minus_teacher_only": 0.364990234375,
+            "delta_teacher_only_minus_baseline": 0.00863043467203776,
+            "full_reference": 39.35674126942953,
+            "teacher_only": 38.99175103505453
+          },
+          "ssim": {
+            "baseline": 0.939999500910441,
+            "delta_full_reference_minus_baseline": -0.009655376275380453,
+            "delta_full_reference_minus_teacher_only": 6.65585199991862e-05,
+            "delta_teacher_only_minus_baseline": -0.009721934795379639,
+            "full_reference": 0.9303441246350607,
+            "teacher_only": 0.9302775661150614
+          }
+        }
+      },
+      {
+        "index": 6,
+        "label": "Specular metal",
+        "slug": "metal_bit",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 37.69217618306478,
+            "delta_full_reference_minus_baseline": -0.08840688069661458,
+            "delta_full_reference_minus_teacher_only": 0.3678277333577474,
+            "delta_teacher_only_minus_baseline": -0.456234614054362,
+            "full_reference": 37.603769302368164,
+            "teacher_only": 37.235941569010414
+          },
+          "ssim": {
+            "baseline": 0.9210626780986786,
+            "delta_full_reference_minus_baseline": -0.003703206777572632,
+            "delta_full_reference_minus_teacher_only": 0.005253295103708903,
+            "delta_teacher_only_minus_baseline": -0.008956501881281534,
+            "full_reference": 0.917359471321106,
+            "teacher_only": 0.9121061762173971
+          }
+        }
+      },
+      {
+        "index": 7,
+        "label": "Color blocks and edges",
+        "slug": "color_blocks",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 35.35625298817953,
+            "delta_full_reference_minus_baseline": -0.20487562815348306,
+            "delta_full_reference_minus_teacher_only": 0.1541589101155599,
+            "delta_teacher_only_minus_baseline": -0.35903453826904297,
+            "full_reference": 35.15137736002604,
+            "teacher_only": 34.997218449910484
+          },
+          "ssim": {
+            "baseline": 0.8710869749387106,
+            "delta_full_reference_minus_baseline": -0.007159590721130371,
+            "delta_full_reference_minus_teacher_only": 0.0017586251099904378,
+            "delta_teacher_only_minus_baseline": -0.00891821583112081,
+            "full_reference": 0.8639273842175802,
+            "teacher_only": 0.8621687591075897
+          }
+        }
+      },
+      {
+        "index": 8,
+        "label": "Dark tool body",
+        "slug": "dark_tool",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.348700205485024,
+            "delta_full_reference_minus_baseline": 0.06732654571533203,
+            "delta_full_reference_minus_teacher_only": 0.25035444895426434,
+            "delta_teacher_only_minus_baseline": -0.18302790323893228,
+            "full_reference": 38.416026751200356,
+            "teacher_only": 38.165672302246094
+          },
+          "ssim": {
+            "baseline": 0.8872993886470795,
+            "delta_full_reference_minus_baseline": 0.0033767024676005044,
+            "delta_full_reference_minus_teacher_only": 0.004624327023824056,
+            "delta_teacher_only_minus_baseline": -0.0012476245562235515,
+            "full_reference": 0.8906760911146799,
+            "teacher_only": 0.886051764090856
+          }
+        }
+      },
+      {
+        "index": 9,
+        "label": "Fine dot pattern",
+        "slug": "dot_pattern",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 35.081414540608726,
+            "delta_full_reference_minus_baseline": 0.03950373331705729,
+            "delta_full_reference_minus_teacher_only": 0.13237539927164713,
+            "delta_teacher_only_minus_baseline": -0.09287166595458984,
+            "full_reference": 35.12091827392578,
+            "teacher_only": 34.98854287465414
+          },
+          "ssim": {
+            "baseline": 0.8161149223645529,
+            "delta_full_reference_minus_baseline": 0.00017949938774108887,
+            "delta_full_reference_minus_teacher_only": 0.004291961590449016,
+            "delta_teacher_only_minus_baseline": -0.004112462202707927,
+            "full_reference": 0.8162944217522939,
+            "teacher_only": 0.8120024601618449
+          }
+        }
+      },
+      {
+        "index": 10,
+        "label": "Black table and edge",
+        "slug": "black_table",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 36.03144454956055,
+            "delta_full_reference_minus_baseline": -0.16265487670898438,
+            "delta_full_reference_minus_teacher_only": 0.04479090372721354,
+            "delta_teacher_only_minus_baseline": -0.2074457804361979,
+            "full_reference": 35.86878967285156,
+            "teacher_only": 35.82399876912435
+          },
+          "ssim": {
+            "baseline": 0.7746396462122599,
+            "delta_full_reference_minus_baseline": -0.00514070192972819,
+            "delta_full_reference_minus_teacher_only": 0.0012720624605814617,
+            "delta_teacher_only_minus_baseline": -0.006412764390309651,
+            "full_reference": 0.7694989442825317,
+            "teacher_only": 0.7682268818219503
+          }
+        }
+      },
+      {
+        "index": 11,
+        "label": "Fine printed label",
+        "slug": "fine_label",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 38.634175300598145,
+            "delta_full_reference_minus_baseline": 0.7874422073364258,
+            "delta_full_reference_minus_teacher_only": 0.6493746439615885,
+            "delta_teacher_only_minus_baseline": 0.13806756337483725,
+            "full_reference": 39.42161750793457,
+            "teacher_only": 38.772242863972984
+          },
+          "ssim": {
+            "baseline": 0.958369255065918,
+            "delta_full_reference_minus_baseline": 0.002447158098220825,
+            "delta_full_reference_minus_teacher_only": 0.004984766244888306,
+            "delta_teacher_only_minus_baseline": -0.0025376081466674805,
+            "full_reference": 0.9608164131641388,
+            "teacher_only": 0.9558316469192505
+          }
+        }
+      },
+      {
+        "index": 12,
+        "label": "Transparent bottle and desk",
+        "slug": "bottle_desk",
+        "teacher_agreement": {
+          "psnr": {
+            "baseline": 37.869860331217446,
+            "delta_full_reference_minus_baseline": 1.3126570383707683,
+            "delta_full_reference_minus_teacher_only": 0.5057423909505209,
+            "delta_teacher_only_minus_baseline": 0.8069146474202474,
+            "full_reference": 39.18251736958822,
+            "teacher_only": 38.676774978637695
+          },
+          "ssim": {
+            "baseline": 0.9572102328141531,
+            "delta_full_reference_minus_baseline": 0.0011080702145894368,
+            "delta_full_reference_minus_teacher_only": -7.431705792744954e-05,
+            "delta_teacher_only_minus_baseline": 0.0011823872725168865,
+            "full_reference": 0.9583183030287424,
+            "teacher_only": 0.9583926200866699
+          }
+        }
+      }
+    ],
+    "full_frame_teacher_agreement": {
+      "psnr": {
+        "baseline": 37.62697464659306,
+        "delta_full_reference_minus_baseline": 0.0011368653578826364,
+        "delta_full_reference_minus_teacher_only": 0.28064950859964455,
+        "delta_teacher_only_minus_baseline": -0.2795126432417619,
+        "full_reference": 37.62811151195094,
+        "teacher_only": 37.347462003351296
+      },
+      "ssim_preview": {
+        "baseline": 0.8924007515112559,
+        "delta_full_reference_minus_baseline": -0.0004208087921142578,
+        "delta_full_reference_minus_teacher_only": 0.002597033977508545,
+        "delta_teacher_only_minus_baseline": -0.0030178427696228027,
+        "full_reference": 0.8919799427191416,
+        "teacher_only": 0.8893829087416331
+      }
+    },
+    "native_crop_teacher_agreement": {
+      "psnr": {
+        "baseline": 37.63441711001926,
+        "delta_full_reference_minus_baseline": -0.02732727262708876,
+        "delta_full_reference_minus_teacher_only": 0.29392268922593856,
+        "delta_teacher_only_minus_baseline": -0.32124996185302734,
+        "full_reference": 37.607089837392174,
+        "teacher_only": 37.31316714816623
+      },
+      "ssim": {
+        "baseline": 0.9009946145945125,
+        "delta_full_reference_minus_baseline": -0.004089111255274879,
+        "delta_full_reference_minus_teacher_only": 0.004001760648356544,
+        "delta_teacher_only_minus_baseline": -0.008090871903631423,
+        "full_reference": 0.8969055033392377,
+        "teacher_only": 0.8929037426908811
+      }
+    }
+  },
+  "arms": {
+    "baseline": {
+      "checkpoint": {
+        "alpha": 0.7,
+        "epoch": 181,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/alpha_0p7/best.pt",
+        "sha256": "84ac4017edbc0f52e0827531bae3de98b2b7a8d95dc0db90fa031b2c8235026d"
+      },
+      "label": "Alpha 0.7 baseline"
+    },
+    "full_reference": {
+      "checkpoint": {
+        "alpha": 0.7,
+        "epoch": 199,
+        "kind": "nind_supervision_ablation",
+        "label": "LiteDenoise NIND full-reference",
+        "mode": "nind_full_reference",
+        "nind_gt_weight": 1.0,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_full_reference/best.pt",
+        "run_fingerprint": "e64b7ff47debdcbd566fd9a23412944f1b6a6c7142039cc649d6ffccc6f07152",
+        "sha256": "f6db8904fb47d545841d02171e8599f8f08e82ac69420d270158f86de575cf03",
+        "short_label": "NIND full-reference"
+      },
+      "label": "Full-reference"
+    },
+    "teacher_only": {
+      "checkpoint": {
+        "alpha": 0.7,
+        "epoch": 174,
+        "kind": "nind_supervision_ablation",
+        "label": "LiteDenoise NIND teacher-only",
+        "mode": "nind_teacher_only",
+        "nind_gt_weight": 0.0,
+        "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/high_iso_ablation/nind_teacher_only/best.pt",
+        "run_fingerprint": "9735125f9cfe9ea6508f30d0c1d8e6e885686cd16fb68887044aab35e2826e40",
+        "sha256": "b346bee9dbc724be53a3051d8e7a1b78cde6a063e9b929d804990b8ecf626b2e",
+        "short_label": "NIND teacher-only"
+      },
+      "label": "Teacher-only"
+    }
+  },
+  "delta_definitions": {
+    "delta_full_reference_minus_baseline": "full_reference - baseline",
+    "delta_full_reference_minus_teacher_only": "full_reference - teacher_only",
+    "delta_teacher_only_minus_baseline": "teacher_only - baseline"
+  },
+  "interpretation": {
+    "correction_ratio": "A value nearer 1 means the student applies a correction magnitude nearer SCUNet.",
+    "seam_gradient_ratio": "A value nearer 1 is neutral; raw deltas are not intrinsically better or worse.",
+    "teacher_agreement": "Higher PSNR/SSIM means closer to SCUNet, not necessarily closer to a clean target."
+  },
+  "per_iso": [
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.0059672449715435505,
+            "delta_full_reference_minus_baseline": 3.0329450964927673e-05,
+            "delta_full_reference_minus_teacher_only": 0.00015639886260032654,
+            "delta_teacher_only_minus_baseline": -0.00012606941163539886,
+            "full_reference": 0.005997574422508478,
+            "teacher_only": 0.005841175559908152
+          },
+          "student_teacher_mae": {
+            "baseline": 0.004182230681180954,
+            "delta_full_reference_minus_baseline": 0.00012530619278550148,
+            "delta_full_reference_minus_teacher_only": 8.581951260566711e-05,
+            "delta_teacher_only_minus_baseline": 3.9486680179834366e-05,
+            "full_reference": 0.0043075368739664555,
+            "teacher_only": 0.004221717361360788
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.8199283518670789,
+            "delta_full_reference_minus_baseline": 0.004167413414615351,
+            "delta_full_reference_minus_teacher_only": 0.02148996098824496,
+            "delta_teacher_only_minus_baseline": -0.01732254757362961,
+            "full_reference": 0.8240957652816943,
+            "teacher_only": 0.8026058042934493
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.01010169181972742,
+            "delta_full_reference_minus_baseline": -0.00010548438876867294,
+            "delta_full_reference_minus_teacher_only": 0.00010637566447257996,
+            "delta_teacher_only_minus_baseline": -0.0002118600532412529,
+            "full_reference": 0.009996207430958748,
+            "teacher_only": 0.009889831766486168
+          },
+          "student_teacher_mae": {
+            "baseline": 0.004884892608970404,
+            "delta_full_reference_minus_baseline": -0.0007175570353865623,
+            "delta_full_reference_minus_teacher_only": -0.00018458953127264977,
+            "delta_teacher_only_minus_baseline": -0.0005329675041139126,
+            "full_reference": 0.004167335573583841,
+            "teacher_only": 0.004351925104856491
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.9045684647576279,
+            "delta_full_reference_minus_baseline": -0.009445729815082626,
+            "delta_full_reference_minus_teacher_only": 0.00952554019828833,
+            "delta_teacher_only_minus_baseline": -0.018971270013370956,
+            "full_reference": 0.8951227349425452,
+            "teacher_only": 0.8855971947442569
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.007714320905506611,
+            "delta_full_reference_minus_baseline": -0.00019511301070451736,
+            "delta_full_reference_minus_teacher_only": 9.859073907136917e-05,
+            "delta_teacher_only_minus_baseline": -0.00029370374977588654,
+            "full_reference": 0.0075192078948020935,
+            "teacher_only": 0.007420617155730724
+          },
+          "student_teacher_mae": {
+            "baseline": 0.0035526291467249393,
+            "delta_full_reference_minus_baseline": 0.00021024118177592754,
+            "delta_full_reference_minus_teacher_only": 4.866765812039375e-05,
+            "delta_teacher_only_minus_baseline": 0.0001615735236555338,
+            "full_reference": 0.003762870328500867,
+            "teacher_only": 0.003714202670380473
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.8222945236315184,
+            "delta_full_reference_minus_baseline": -0.02079772959367787,
+            "delta_full_reference_minus_teacher_only": 0.010509107128444883,
+            "delta_teacher_only_minus_baseline": -0.031306836722122755,
+            "full_reference": 0.8014967940378406,
+            "teacher_only": 0.7909876869093957
+          }
+        }
+      },
+      "folder": "ISO1600_DSC00001",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 43.971081834382765,
+          "delta_full_reference_minus_baseline": 0.3275879612298098,
+          "delta_full_reference_minus_teacher_only": 0.14863490798053647,
+          "delta_teacher_only_minus_baseline": 0.17895305324927335,
+          "full_reference": 44.298669795612575,
+          "teacher_only": 44.15003488763204
+        },
+        "ssim_preview": {
+          "baseline": 0.983967125415802,
+          "delta_full_reference_minus_baseline": -0.000768125057220459,
+          "delta_full_reference_minus_teacher_only": 0.0009682178497314453,
+          "delta_teacher_only_minus_baseline": -0.0017363429069519043,
+          "full_reference": 0.9831990003585815,
+          "teacher_only": 0.9822307825088501
+        }
+      },
+      "iso": 1600,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 45.32776641845703,
+              "delta_full_reference_minus_baseline": 0.064849853515625,
+              "delta_full_reference_minus_teacher_only": 0.5314178466796875,
+              "delta_teacher_only_minus_baseline": -0.4665679931640625,
+              "full_reference": 45.392616271972656,
+              "teacher_only": 44.86119842529297
+            },
+            "ssim": {
+              "baseline": 0.9322763681411743,
+              "delta_full_reference_minus_baseline": -0.011101245880126953,
+              "delta_full_reference_minus_teacher_only": 0.008647322654724121,
+              "delta_teacher_only_minus_baseline": -0.019748568534851074,
+              "full_reference": 0.9211751222610474,
+              "teacher_only": 0.9125277996063232
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 47.56011962890625,
+              "delta_full_reference_minus_baseline": -1.4345855712890625,
+              "delta_full_reference_minus_teacher_only": -0.0294647216796875,
+              "delta_teacher_only_minus_baseline": -1.405120849609375,
+              "full_reference": 46.12553405761719,
+              "teacher_only": 46.154998779296875
+            },
+            "ssim": {
+              "baseline": 0.9959338307380676,
+              "delta_full_reference_minus_baseline": -0.002115309238433838,
+              "delta_full_reference_minus_teacher_only": 0.0015910863876342773,
+              "delta_teacher_only_minus_baseline": -0.0037063956260681152,
+              "full_reference": 0.9938185214996338,
+              "teacher_only": 0.9922274351119995
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 45.926475524902344,
+              "delta_full_reference_minus_baseline": -0.5161285400390625,
+              "delta_full_reference_minus_teacher_only": 0.0057525634765625,
+              "delta_teacher_only_minus_baseline": -0.521881103515625,
+              "full_reference": 45.41034698486328,
+              "teacher_only": 45.40459442138672
+            },
+            "ssim": {
+              "baseline": 0.9934495687484741,
+              "delta_full_reference_minus_baseline": -0.0007025003433227539,
+              "delta_full_reference_minus_teacher_only": 0.0010175108909606934,
+              "delta_teacher_only_minus_baseline": -0.0017200112342834473,
+              "full_reference": 0.9927470684051514,
+              "teacher_only": 0.9917295575141907
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 46.123844146728516,
+              "delta_full_reference_minus_baseline": 0.07874298095703125,
+              "delta_full_reference_minus_teacher_only": 0.2602882385253906,
+              "delta_teacher_only_minus_baseline": -0.18154525756835938,
+              "full_reference": 46.20258712768555,
+              "teacher_only": 45.942298889160156
+            },
+            "ssim": {
+              "baseline": 0.9905643463134766,
+              "delta_full_reference_minus_baseline": 0.0005254745483398438,
+              "delta_full_reference_minus_teacher_only": 0.004374325275421143,
+              "delta_teacher_only_minus_baseline": -0.003848850727081299,
+              "full_reference": 0.9910898208618164,
+              "teacher_only": 0.9867154955863953
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 45.92517852783203,
+              "delta_full_reference_minus_baseline": 0.8811264038085938,
+              "delta_full_reference_minus_teacher_only": 0.4844970703125,
+              "delta_teacher_only_minus_baseline": 0.39662933349609375,
+              "full_reference": 46.806304931640625,
+              "teacher_only": 46.321807861328125
+            },
+            "ssim": {
+              "baseline": 0.9861760139465332,
+              "delta_full_reference_minus_baseline": 0.002622365951538086,
+              "delta_full_reference_minus_teacher_only": 0.0063742995262146,
+              "delta_teacher_only_minus_baseline": -0.0037519335746765137,
+              "full_reference": 0.9887983798980713,
+              "teacher_only": 0.9824240803718567
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 45.29023742675781,
+              "delta_full_reference_minus_baseline": 0.11166000366210938,
+              "delta_full_reference_minus_teacher_only": 0.2310791015625,
+              "delta_teacher_only_minus_baseline": -0.11941909790039062,
+              "full_reference": 45.40189743041992,
+              "teacher_only": 45.17081832885742
+            },
+            "ssim": {
+              "baseline": 0.9876193404197693,
+              "delta_full_reference_minus_baseline": 0.00019109249114990234,
+              "delta_full_reference_minus_teacher_only": 0.0011480450630187988,
+              "delta_teacher_only_minus_baseline": -0.0009569525718688965,
+              "full_reference": 0.9878104329109192,
+              "teacher_only": 0.9866623878479004
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 38.43403625488281,
+              "delta_full_reference_minus_baseline": -0.03913116455078125,
+              "delta_full_reference_minus_teacher_only": 0.023891448974609375,
+              "delta_teacher_only_minus_baseline": -0.06302261352539062,
+              "full_reference": 38.39490509033203,
+              "teacher_only": 38.37101364135742
+            },
+            "ssim": {
+              "baseline": 0.9468279480934143,
+              "delta_full_reference_minus_baseline": -0.0008716583251953125,
+              "delta_full_reference_minus_teacher_only": 0.001120150089263916,
+              "delta_teacher_only_minus_baseline": -0.0019918084144592285,
+              "full_reference": 0.945956289768219,
+              "teacher_only": 0.9448361396789551
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 47.23187255859375,
+              "delta_full_reference_minus_baseline": -0.2074737548828125,
+              "delta_full_reference_minus_teacher_only": 0.22283935546875,
+              "delta_teacher_only_minus_baseline": -0.4303131103515625,
+              "full_reference": 47.02439880371094,
+              "teacher_only": 46.80155944824219
+            },
+            "ssim": {
+              "baseline": 0.9751206040382385,
+              "delta_full_reference_minus_baseline": -0.0016496777534484863,
+              "delta_full_reference_minus_teacher_only": 0.0014290213584899902,
+              "delta_teacher_only_minus_baseline": -0.0030786991119384766,
+              "full_reference": 0.97347092628479,
+              "teacher_only": 0.9720419049263
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 40.13702392578125,
+              "delta_full_reference_minus_baseline": -0.0446319580078125,
+              "delta_full_reference_minus_teacher_only": 0.0412139892578125,
+              "delta_teacher_only_minus_baseline": -0.085845947265625,
+              "full_reference": 40.09239196777344,
+              "teacher_only": 40.051177978515625
+            },
+            "ssim": {
+              "baseline": 0.9458008408546448,
+              "delta_full_reference_minus_baseline": -0.0008573532104492188,
+              "delta_full_reference_minus_teacher_only": 0.0009424090385437012,
+              "delta_teacher_only_minus_baseline": -0.00179976224899292,
+              "full_reference": 0.9449434876441956,
+              "teacher_only": 0.9440010786056519
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 43.59981918334961,
+              "delta_full_reference_minus_baseline": -0.20333099365234375,
+              "delta_full_reference_minus_teacher_only": -0.0052642822265625,
+              "delta_teacher_only_minus_baseline": -0.19806671142578125,
+              "full_reference": 43.396488189697266,
+              "teacher_only": 43.40175247192383
+            },
+            "ssim": {
+              "baseline": 0.9774023294448853,
+              "delta_full_reference_minus_baseline": -0.0022407174110412598,
+              "delta_full_reference_minus_teacher_only": 0.000375211238861084,
+              "delta_teacher_only_minus_baseline": -0.0026159286499023438,
+              "full_reference": 0.975161612033844,
+              "teacher_only": 0.9747864007949829
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 44.659847259521484,
+              "delta_full_reference_minus_baseline": 1.1668319702148438,
+              "delta_full_reference_minus_teacher_only": -0.02979278564453125,
+              "delta_teacher_only_minus_baseline": 1.196624755859375,
+              "full_reference": 45.82667922973633,
+              "teacher_only": 45.85647201538086
+            },
+            "ssim": {
+              "baseline": 0.9886205196380615,
+              "delta_full_reference_minus_baseline": 0.00314408540725708,
+              "delta_full_reference_minus_teacher_only": 0.001025855541229248,
+              "delta_teacher_only_minus_baseline": 0.002118229866027832,
+              "full_reference": 0.9917646050453186,
+              "teacher_only": 0.9907387495040894
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 42.12993240356445,
+              "delta_full_reference_minus_baseline": 2.134899139404297,
+              "delta_full_reference_minus_teacher_only": 0.608856201171875,
+              "delta_teacher_only_minus_baseline": 1.5260429382324219,
+              "full_reference": 44.26483154296875,
+              "teacher_only": 43.655975341796875
+            },
+            "ssim": {
+              "baseline": 0.9937031269073486,
+              "delta_full_reference_minus_baseline": 0.0012622475624084473,
+              "delta_full_reference_minus_teacher_only": 0.0002421736717224121,
+              "delta_teacher_only_minus_baseline": 0.0010200738906860352,
+              "full_reference": 0.9949653744697571,
+              "teacher_only": 0.9947232007980347
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 1.0212042119000384,
+        "delta_full_reference_minus_baseline": -0.009041524595576167,
+        "delta_full_reference_minus_teacher_only": -0.0021896679001538466,
+        "delta_teacher_only_minus_baseline": -0.00685185669542232,
+        "full_reference": 1.0121626873044622,
+        "teacher_only": 1.014352355204616
+      }
+    },
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.00702862162142992,
+            "delta_full_reference_minus_baseline": 0.00026314519345760345,
+            "delta_full_reference_minus_teacher_only": 0.00035116029903292656,
+            "delta_teacher_only_minus_baseline": -8.80151055753231e-05,
+            "full_reference": 0.007291766814887524,
+            "teacher_only": 0.006940606515854597
+          },
+          "student_teacher_mae": {
+            "baseline": 0.004444777499884367,
+            "delta_full_reference_minus_baseline": 7.14380294084549e-05,
+            "delta_full_reference_minus_teacher_only": -1.759268343448639e-06,
+            "delta_teacher_only_minus_baseline": 7.319729775190353e-05,
+            "full_reference": 0.004516215529292822,
+            "teacher_only": 0.0045179747976362705
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.8058953856878306,
+            "delta_full_reference_minus_baseline": 0.030171989416364453,
+            "delta_full_reference_minus_teacher_only": 0.04026372166123526,
+            "delta_teacher_only_minus_baseline": -0.01009173224487081,
+            "full_reference": 0.836067375104195,
+            "teacher_only": 0.7958036534429598
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.013131537474691868,
+            "delta_full_reference_minus_baseline": -0.00014416314661502838,
+            "delta_full_reference_minus_teacher_only": 0.00027222372591495514,
+            "delta_teacher_only_minus_baseline": -0.0004163868725299835,
+            "full_reference": 0.01298737432807684,
+            "teacher_only": 0.012715150602161884
+          },
+          "student_teacher_mae": {
+            "baseline": 0.005950519349426031,
+            "delta_full_reference_minus_baseline": -0.0005560102872550488,
+            "delta_full_reference_minus_teacher_only": -0.0004146834835410118,
+            "delta_teacher_only_minus_baseline": -0.00014132680371403694,
+            "full_reference": 0.005394509062170982,
+            "teacher_only": 0.005809192545711994
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.8625993114074644,
+            "delta_full_reference_minus_baseline": -0.009469952108816182,
+            "delta_full_reference_minus_teacher_only": 0.017882140531950474,
+            "delta_teacher_only_minus_baseline": -0.027352092640766656,
+            "full_reference": 0.8531293592986482,
+            "teacher_only": 0.8352472187666977
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.0095757357776165,
+            "delta_full_reference_minus_baseline": -0.0003928281366825104,
+            "delta_full_reference_minus_teacher_only": 0.0001496272161602974,
+            "delta_teacher_only_minus_baseline": -0.0005424553528428078,
+            "full_reference": 0.00918290764093399,
+            "teacher_only": 0.009033280424773693
+          },
+          "student_teacher_mae": {
+            "baseline": 0.004852265119552612,
+            "delta_full_reference_minus_baseline": 0.0004945853725075722,
+            "delta_full_reference_minus_teacher_only": -0.0001400359906256199,
+            "delta_teacher_only_minus_baseline": 0.0006346213631331921,
+            "full_reference": 0.0053468504920601845,
+            "teacher_only": 0.005486886482685804
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7880493940556614,
+            "delta_full_reference_minus_baseline": -0.032328374787062186,
+            "delta_full_reference_minus_teacher_only": 0.012313793923280913,
+            "delta_teacher_only_minus_baseline": -0.0446421687103431,
+            "full_reference": 0.7557210192685992,
+            "teacher_only": 0.7434072253453183
+          }
+        }
+      },
+      "folder": "ISO3200_DSC00002",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 42.499527313316094,
+          "delta_full_reference_minus_baseline": -0.06395713668450753,
+          "delta_full_reference_minus_teacher_only": 0.3964280710815373,
+          "delta_teacher_only_minus_baseline": -0.46038520776604486,
+          "full_reference": 42.435570176631586,
+          "teacher_only": 42.03914210555005
+        },
+        "ssim_preview": {
+          "baseline": 0.9703853130340576,
+          "delta_full_reference_minus_baseline": -0.0016170740127563477,
+          "delta_full_reference_minus_teacher_only": 0.0024785995483398438,
+          "delta_teacher_only_minus_baseline": -0.004095673561096191,
+          "full_reference": 0.9687682390213013,
+          "teacher_only": 0.9662896394729614
+        }
+      },
+      "iso": 3200,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 43.67670440673828,
+              "delta_full_reference_minus_baseline": 0.5965423583984375,
+              "delta_full_reference_minus_teacher_only": 0.5028610229492188,
+              "delta_teacher_only_minus_baseline": 0.09368133544921875,
+              "full_reference": 44.27324676513672,
+              "teacher_only": 43.7703857421875
+            },
+            "ssim": {
+              "baseline": 0.9185733795166016,
+              "delta_full_reference_minus_baseline": -0.0029642581939697266,
+              "delta_full_reference_minus_teacher_only": 0.009336709976196289,
+              "delta_teacher_only_minus_baseline": -0.012300968170166016,
+              "full_reference": 0.9156091213226318,
+              "teacher_only": 0.9062724113464355
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 46.252525329589844,
+              "delta_full_reference_minus_baseline": -2.3690528869628906,
+              "delta_full_reference_minus_teacher_only": 0.16138839721679688,
+              "delta_teacher_only_minus_baseline": -2.5304412841796875,
+              "full_reference": 43.88347244262695,
+              "teacher_only": 43.722084045410156
+            },
+            "ssim": {
+              "baseline": 0.9936834573745728,
+              "delta_full_reference_minus_baseline": -0.009352445602416992,
+              "delta_full_reference_minus_teacher_only": 0.003601253032684326,
+              "delta_teacher_only_minus_baseline": -0.012953698635101318,
+              "full_reference": 0.9843310117721558,
+              "teacher_only": 0.9807297587394714
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 42.96043395996094,
+              "delta_full_reference_minus_baseline": -2.3609771728515625,
+              "delta_full_reference_minus_teacher_only": -0.0881805419921875,
+              "delta_teacher_only_minus_baseline": -2.272796630859375,
+              "full_reference": 40.599456787109375,
+              "teacher_only": 40.68763732910156
+            },
+            "ssim": {
+              "baseline": 0.9847884774208069,
+              "delta_full_reference_minus_baseline": -0.008475065231323242,
+              "delta_full_reference_minus_teacher_only": 0.005313575267791748,
+              "delta_teacher_only_minus_baseline": -0.01378864049911499,
+              "full_reference": 0.9763134121894836,
+              "teacher_only": 0.9709998369216919
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 44.162025451660156,
+              "delta_full_reference_minus_baseline": -0.5840911865234375,
+              "delta_full_reference_minus_teacher_only": 0.47612762451171875,
+              "delta_teacher_only_minus_baseline": -1.0602188110351562,
+              "full_reference": 43.57793426513672,
+              "teacher_only": 43.101806640625
+            },
+            "ssim": {
+              "baseline": 0.9819745421409607,
+              "delta_full_reference_minus_baseline": -0.004351437091827393,
+              "delta_full_reference_minus_teacher_only": 0.007417798042297363,
+              "delta_teacher_only_minus_baseline": -0.011769235134124756,
+              "full_reference": 0.9776231050491333,
+              "teacher_only": 0.9702053070068359
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 43.662025451660156,
+              "delta_full_reference_minus_baseline": 0.8292236328125,
+              "delta_full_reference_minus_teacher_only": 1.1240768432617188,
+              "delta_teacher_only_minus_baseline": -0.29485321044921875,
+              "full_reference": 44.491249084472656,
+              "teacher_only": 43.36717224121094
+            },
+            "ssim": {
+              "baseline": 0.9723893404006958,
+              "delta_full_reference_minus_baseline": 0.0024079084396362305,
+              "delta_full_reference_minus_teacher_only": 0.01467984914779663,
+              "delta_teacher_only_minus_baseline": -0.0122719407081604,
+              "full_reference": 0.974797248840332,
+              "teacher_only": 0.9601173996925354
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 42.953819274902344,
+              "delta_full_reference_minus_baseline": -0.10643386840820312,
+              "delta_full_reference_minus_teacher_only": 0.7629737854003906,
+              "delta_teacher_only_minus_baseline": -0.8694076538085938,
+              "full_reference": 42.84738540649414,
+              "teacher_only": 42.08441162109375
+            },
+            "ssim": {
+              "baseline": 0.9716233015060425,
+              "delta_full_reference_minus_baseline": -0.0009720921516418457,
+              "delta_full_reference_minus_teacher_only": 0.006945133209228516,
+              "delta_teacher_only_minus_baseline": -0.007917225360870361,
+              "full_reference": 0.9706512093544006,
+              "teacher_only": 0.9637060761451721
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 37.72853469848633,
+              "delta_full_reference_minus_baseline": -0.1192169189453125,
+              "delta_full_reference_minus_teacher_only": 0.17941665649414062,
+              "delta_teacher_only_minus_baseline": -0.2986335754394531,
+              "full_reference": 37.609317779541016,
+              "teacher_only": 37.429901123046875
+            },
+            "ssim": {
+              "baseline": 0.898432195186615,
+              "delta_full_reference_minus_baseline": -0.003532886505126953,
+              "delta_full_reference_minus_teacher_only": 0.004446744918823242,
+              "delta_teacher_only_minus_baseline": -0.007979631423950195,
+              "full_reference": 0.894899308681488,
+              "teacher_only": 0.8904525637626648
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 44.4786262512207,
+              "delta_full_reference_minus_baseline": 0.085906982421875,
+              "delta_full_reference_minus_teacher_only": 0.6647987365722656,
+              "delta_teacher_only_minus_baseline": -0.5788917541503906,
+              "full_reference": 44.56453323364258,
+              "teacher_only": 43.89973449707031
+            },
+            "ssim": {
+              "baseline": 0.9692628383636475,
+              "delta_full_reference_minus_baseline": 0.0005166530609130859,
+              "delta_full_reference_minus_teacher_only": 0.005439937114715576,
+              "delta_teacher_only_minus_baseline": -0.00492328405380249,
+              "full_reference": 0.9697794914245605,
+              "teacher_only": 0.964339554309845
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 38.972984313964844,
+              "delta_full_reference_minus_baseline": -0.00342559814453125,
+              "delta_full_reference_minus_teacher_only": 0.28076934814453125,
+              "delta_teacher_only_minus_baseline": -0.2841949462890625,
+              "full_reference": 38.96955871582031,
+              "teacher_only": 38.68878936767578
+            },
+            "ssim": {
+              "baseline": 0.8698972463607788,
+              "delta_full_reference_minus_baseline": -0.0003840327262878418,
+              "delta_full_reference_minus_teacher_only": 0.006084918975830078,
+              "delta_teacher_only_minus_baseline": -0.00646895170211792,
+              "full_reference": 0.869513213634491,
+              "teacher_only": 0.8634282946586609
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 41.180519104003906,
+              "delta_full_reference_minus_baseline": -0.3559417724609375,
+              "delta_full_reference_minus_teacher_only": 0.0347137451171875,
+              "delta_teacher_only_minus_baseline": -0.390655517578125,
+              "full_reference": 40.82457733154297,
+              "teacher_only": 40.78986358642578
+            },
+            "ssim": {
+              "baseline": 0.9112412333488464,
+              "delta_full_reference_minus_baseline": -0.004540205001831055,
+              "delta_full_reference_minus_teacher_only": 0.0012699365615844727,
+              "delta_teacher_only_minus_baseline": -0.005810141563415527,
+              "full_reference": 0.9067010283470154,
+              "teacher_only": 0.9054310917854309
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 42.28661346435547,
+              "delta_full_reference_minus_baseline": 0.9288406372070312,
+              "delta_full_reference_minus_teacher_only": 0.7070159912109375,
+              "delta_teacher_only_minus_baseline": 0.22182464599609375,
+              "full_reference": 43.2154541015625,
+              "teacher_only": 42.50843811035156
+            },
+            "ssim": {
+              "baseline": 0.9781748056411743,
+              "delta_full_reference_minus_baseline": 0.0020876526832580566,
+              "delta_full_reference_minus_teacher_only": 0.004298090934753418,
+              "delta_teacher_only_minus_baseline": -0.0022104382514953613,
+              "full_reference": 0.9802624583244324,
+              "teacher_only": 0.975964367389679
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 41.019371032714844,
+              "delta_full_reference_minus_baseline": 1.9896469116210938,
+              "delta_full_reference_minus_teacher_only": 0.2021942138671875,
+              "delta_teacher_only_minus_baseline": 1.7874526977539062,
+              "full_reference": 43.00901794433594,
+              "teacher_only": 42.80682373046875
+            },
+            "ssim": {
+              "baseline": 0.9837135076522827,
+              "delta_full_reference_minus_baseline": 0.002751171588897705,
+              "delta_full_reference_minus_teacher_only": 0.0014235973358154297,
+              "delta_teacher_only_minus_baseline": 0.0013275742530822754,
+              "full_reference": 0.9864646792411804,
+              "teacher_only": 0.985041081905365
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 0.9980679616395857,
+        "delta_full_reference_minus_baseline": -0.006743304819246232,
+        "delta_full_reference_minus_teacher_only": -0.010861227377570004,
+        "delta_teacher_only_minus_baseline": 0.004117922558323772,
+        "full_reference": 0.9913246568203394,
+        "teacher_only": 1.0021858841979094
+      }
+    },
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.009075857698917389,
+            "delta_full_reference_minus_baseline": 0.00018113385885953903,
+            "delta_full_reference_minus_teacher_only": 0.0004373257979750633,
+            "delta_teacher_only_minus_baseline": -0.0002561919391155243,
+            "full_reference": 0.009256991557776928,
+            "teacher_only": 0.008819665759801865
+          },
+          "student_teacher_mae": {
+            "baseline": 0.0057578920386731625,
+            "delta_full_reference_minus_baseline": -0.00024221092462539673,
+            "delta_full_reference_minus_teacher_only": -0.0002920301631093025,
+            "delta_teacher_only_minus_baseline": 4.981923848390579e-05,
+            "full_reference": 0.005515681114047766,
+            "teacher_only": 0.005807711277157068
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7916890718365734,
+            "delta_full_reference_minus_baseline": 0.015800346518851982,
+            "delta_full_reference_minus_teacher_only": 0.03814802595796163,
+            "delta_teacher_only_minus_baseline": -0.022347679439109647,
+            "full_reference": 0.8074894183554254,
+            "teacher_only": 0.7693413923974638
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.018266480416059494,
+            "delta_full_reference_minus_baseline": -6.136298179626465e-05,
+            "delta_full_reference_minus_teacher_only": 0.0007821638137102127,
+            "delta_teacher_only_minus_baseline": -0.0008435267955064774,
+            "full_reference": 0.01820511743426323,
+            "teacher_only": 0.017422953620553017
+          },
+          "student_teacher_mae": {
+            "baseline": 0.007950437255203724,
+            "delta_full_reference_minus_baseline": -0.0004849284887313843,
+            "delta_full_reference_minus_teacher_only": -0.0010534850880503654,
+            "delta_teacher_only_minus_baseline": 0.0005685565993189812,
+            "full_reference": 0.00746550876647234,
+            "teacher_only": 0.008518993854522705
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.8250376185659969,
+            "delta_full_reference_minus_baseline": -0.002771566673828829,
+            "delta_full_reference_minus_teacher_only": 0.03532780018336901,
+            "delta_teacher_only_minus_baseline": -0.038099366857197836,
+            "full_reference": 0.8222660518921681,
+            "teacher_only": 0.786938251708799
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.013129550963640213,
+            "delta_full_reference_minus_baseline": -0.000388147309422493,
+            "delta_full_reference_minus_teacher_only": 0.0006020143628120422,
+            "delta_teacher_only_minus_baseline": -0.0009901616722345352,
+            "full_reference": 0.01274140365421772,
+            "teacher_only": 0.012139389291405678
+          },
+          "student_teacher_mae": {
+            "baseline": 0.008243702352046967,
+            "delta_full_reference_minus_baseline": 0.0006093215197324753,
+            "delta_full_reference_minus_teacher_only": -0.0005629193037748337,
+            "delta_teacher_only_minus_baseline": 0.001172240823507309,
+            "full_reference": 0.008853023871779442,
+            "teacher_only": 0.009415943175554276
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7253761573270116,
+            "delta_full_reference_minus_baseline": -0.02144420662712787,
+            "delta_full_reference_minus_teacher_only": 0.03325984767960377,
+            "delta_teacher_only_minus_baseline": -0.05470405430673164,
+            "full_reference": 0.7039319506998837,
+            "teacher_only": 0.6706721030202799
+          }
+        }
+      },
+      "folder": "ISO6400_DSC00003",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 39.21326301433431,
+          "delta_full_reference_minus_baseline": -0.17382587096675195,
+          "delta_full_reference_minus_teacher_only": 0.7322860279693302,
+          "delta_teacher_only_minus_baseline": -0.9061118989360821,
+          "full_reference": 39.03943714336756,
+          "teacher_only": 38.30715111539823
+        },
+        "ssim_preview": {
+          "baseline": 0.9379512667655945,
+          "delta_full_reference_minus_baseline": -0.0009909272193908691,
+          "delta_full_reference_minus_teacher_only": 0.005611002445220947,
+          "delta_teacher_only_minus_baseline": -0.006601929664611816,
+          "full_reference": 0.9369603395462036,
+          "teacher_only": 0.9313493371009827
+        }
+      },
+      "iso": 6400,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 40.109458923339844,
+              "delta_full_reference_minus_baseline": 1.0016098022460938,
+              "delta_full_reference_minus_teacher_only": 0.827880859375,
+              "delta_teacher_only_minus_baseline": 0.17372894287109375,
+              "full_reference": 41.11106872558594,
+              "teacher_only": 40.28318786621094
+            },
+            "ssim": {
+              "baseline": 0.9041804671287537,
+              "delta_full_reference_minus_baseline": 0.01058274507522583,
+              "delta_full_reference_minus_teacher_only": 0.014092743396759033,
+              "delta_teacher_only_minus_baseline": -0.003509998321533203,
+              "full_reference": 0.9147632122039795,
+              "teacher_only": 0.9006704688072205
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 42.57405090332031,
+              "delta_full_reference_minus_baseline": -2.6500816345214844,
+              "delta_full_reference_minus_teacher_only": 1.26617431640625,
+              "delta_teacher_only_minus_baseline": -3.9162559509277344,
+              "full_reference": 39.92396926879883,
+              "teacher_only": 38.65779495239258
+            },
+            "ssim": {
+              "baseline": 0.9799195528030396,
+              "delta_full_reference_minus_baseline": -0.02211153507232666,
+              "delta_full_reference_minus_teacher_only": 0.02671736478805542,
+              "delta_teacher_only_minus_baseline": -0.04882889986038208,
+              "full_reference": 0.9578080177307129,
+              "teacher_only": 0.9310906529426575
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 40.43521499633789,
+              "delta_full_reference_minus_baseline": -2.079174041748047,
+              "delta_full_reference_minus_teacher_only": 0.6697883605957031,
+              "delta_teacher_only_minus_baseline": -2.74896240234375,
+              "full_reference": 38.356040954589844,
+              "teacher_only": 37.68625259399414
+            },
+            "ssim": {
+              "baseline": 0.9708183407783508,
+              "delta_full_reference_minus_baseline": -0.017241597175598145,
+              "delta_full_reference_minus_teacher_only": 0.01942509412765503,
+              "delta_teacher_only_minus_baseline": -0.036666691303253174,
+              "full_reference": 0.9535767436027527,
+              "teacher_only": 0.9341516494750977
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 40.986907958984375,
+              "delta_full_reference_minus_baseline": -1.3353500366210938,
+              "delta_full_reference_minus_teacher_only": 0.9192924499511719,
+              "delta_teacher_only_minus_baseline": -2.2546424865722656,
+              "full_reference": 39.65155792236328,
+              "teacher_only": 38.73226547241211
+            },
+            "ssim": {
+              "baseline": 0.9655198454856873,
+              "delta_full_reference_minus_baseline": -0.02087026834487915,
+              "delta_full_reference_minus_teacher_only": 0.01931673288345337,
+              "delta_teacher_only_minus_baseline": -0.04018700122833252,
+              "full_reference": 0.9446495771408081,
+              "teacher_only": 0.9253328442573547
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 40.59669494628906,
+              "delta_full_reference_minus_baseline": 0.4434776306152344,
+              "delta_full_reference_minus_teacher_only": 1.370574951171875,
+              "delta_teacher_only_minus_baseline": -0.9270973205566406,
+              "full_reference": 41.0401725769043,
+              "teacher_only": 39.66959762573242
+            },
+            "ssim": {
+              "baseline": 0.9507091045379639,
+              "delta_full_reference_minus_baseline": -0.004139304161071777,
+              "delta_full_reference_minus_teacher_only": 0.032340407371520996,
+              "delta_teacher_only_minus_baseline": -0.03647971153259277,
+              "full_reference": 0.9465698003768921,
+              "teacher_only": 0.9142293930053711
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 38.91733932495117,
+              "delta_full_reference_minus_baseline": -0.3203544616699219,
+              "delta_full_reference_minus_teacher_only": 0.9995346069335938,
+              "delta_teacher_only_minus_baseline": -1.3198890686035156,
+              "full_reference": 38.59698486328125,
+              "teacher_only": 37.597450256347656
+            },
+            "ssim": {
+              "baseline": 0.9325618743896484,
+              "delta_full_reference_minus_baseline": -0.0069013237953186035,
+              "delta_full_reference_minus_teacher_only": 0.021147966384887695,
+              "delta_teacher_only_minus_baseline": -0.0280492901802063,
+              "full_reference": 0.9256605505943298,
+              "teacher_only": 0.9045125842094421
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 36.67648696899414,
+              "delta_full_reference_minus_baseline": -0.3134117126464844,
+              "delta_full_reference_minus_teacher_only": 0.5462837219238281,
+              "delta_teacher_only_minus_baseline": -0.8596954345703125,
+              "full_reference": 36.363075256347656,
+              "teacher_only": 35.81679153442383
+            },
+            "ssim": {
+              "baseline": 0.8724477291107178,
+              "delta_full_reference_minus_baseline": -0.01140141487121582,
+              "delta_full_reference_minus_teacher_only": 0.013692915439605713,
+              "delta_teacher_only_minus_baseline": -0.025094330310821533,
+              "full_reference": 0.861046314239502,
+              "teacher_only": 0.8473533987998962
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 38.488250732421875,
+              "delta_full_reference_minus_baseline": 0.5280952453613281,
+              "delta_full_reference_minus_teacher_only": 0.9243583679199219,
+              "delta_teacher_only_minus_baseline": -0.39626312255859375,
+              "full_reference": 39.0163459777832,
+              "teacher_only": 38.09198760986328
+            },
+            "ssim": {
+              "baseline": 0.9031766057014465,
+              "delta_full_reference_minus_baseline": 0.009139418601989746,
+              "delta_full_reference_minus_teacher_only": 0.020905613899230957,
+              "delta_teacher_only_minus_baseline": -0.011766195297241211,
+              "full_reference": 0.9123160243034363,
+              "teacher_only": 0.8914104104042053
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.5515022277832,
+              "delta_full_reference_minus_baseline": 0.08132553100585938,
+              "delta_full_reference_minus_teacher_only": 0.35529327392578125,
+              "delta_teacher_only_minus_baseline": -0.2739677429199219,
+              "full_reference": 34.63282775878906,
+              "teacher_only": 34.27753448486328
+            },
+            "ssim": {
+              "baseline": 0.7312259078025818,
+              "delta_full_reference_minus_baseline": -0.00023472309112548828,
+              "delta_full_reference_minus_teacher_only": 0.011807262897491455,
+              "delta_teacher_only_minus_baseline": -0.012041985988616943,
+              "full_reference": 0.7309911847114563,
+              "teacher_only": 0.7191839218139648
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 35.3764762878418,
+              "delta_full_reference_minus_baseline": -0.240386962890625,
+              "delta_full_reference_minus_teacher_only": 0.15709304809570312,
+              "delta_teacher_only_minus_baseline": -0.3974800109863281,
+              "full_reference": 35.13608932495117,
+              "teacher_only": 34.97899627685547
+            },
+            "ssim": {
+              "baseline": 0.6899293065071106,
+              "delta_full_reference_minus_baseline": -0.011402606964111328,
+              "delta_full_reference_minus_teacher_only": 0.004231870174407959,
+              "delta_teacher_only_minus_baseline": -0.015634477138519287,
+              "full_reference": 0.6785266995429993,
+              "teacher_only": 0.6742948293685913
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 39.781822204589844,
+              "delta_full_reference_minus_baseline": 0.5117912292480469,
+              "delta_full_reference_minus_teacher_only": 0.9061050415039062,
+              "delta_teacher_only_minus_baseline": -0.3943138122558594,
+              "full_reference": 40.29361343383789,
+              "teacher_only": 39.387508392333984
+            },
+            "ssim": {
+              "baseline": 0.9625250101089478,
+              "delta_full_reference_minus_baseline": -0.0008598566055297852,
+              "delta_full_reference_minus_teacher_only": 0.008799433708190918,
+              "delta_teacher_only_minus_baseline": -0.009659290313720703,
+              "full_reference": 0.961665153503418,
+              "teacher_only": 0.952865719795227
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 39.796730041503906,
+              "delta_full_reference_minus_baseline": 1.4251976013183594,
+              "delta_full_reference_minus_teacher_only": 0.4891624450683594,
+              "delta_teacher_only_minus_baseline": 0.93603515625,
+              "full_reference": 41.221927642822266,
+              "teacher_only": 40.732765197753906
+            },
+            "ssim": {
+              "baseline": 0.9789586663246155,
+              "delta_full_reference_minus_baseline": 0.000245511531829834,
+              "delta_full_reference_minus_teacher_only": 0.003308415412902832,
+              "delta_teacher_only_minus_baseline": -0.003062903881072998,
+              "full_reference": 0.9792041778564453,
+              "teacher_only": 0.9758957624435425
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 0.9740956140766938,
+        "delta_full_reference_minus_baseline": 0.012154625963754606,
+        "delta_full_reference_minus_teacher_only": -0.011841816357289758,
+        "delta_teacher_only_minus_baseline": 0.023996442321044364,
+        "full_reference": 0.9862502400404484,
+        "teacher_only": 0.9980920563977381
+      }
+    },
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.009299157187342644,
+            "delta_full_reference_minus_baseline": 0.0002336343750357628,
+            "delta_full_reference_minus_teacher_only": 0.00045912060886621475,
+            "delta_teacher_only_minus_baseline": -0.00022548623383045197,
+            "full_reference": 0.009532791562378407,
+            "teacher_only": 0.009073670953512192
+          },
+          "student_teacher_mae": {
+            "baseline": 0.006717011332511902,
+            "delta_full_reference_minus_baseline": -0.0004801652394235134,
+            "delta_full_reference_minus_teacher_only": -0.0004207282327115536,
+            "delta_teacher_only_minus_baseline": -5.943700671195984e-05,
+            "full_reference": 0.0062368460930883884,
+            "teacher_only": 0.006657574325799942
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7489457641998174,
+            "delta_full_reference_minus_baseline": 0.01881670263544699,
+            "delta_full_reference_minus_teacher_only": 0.03697716129965256,
+            "delta_teacher_only_minus_baseline": -0.01816045866420557,
+            "full_reference": 0.7677624668352644,
+            "teacher_only": 0.7307853055356118
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.0160957183688879,
+            "delta_full_reference_minus_baseline": 0.0003663022071123123,
+            "delta_full_reference_minus_teacher_only": 0.0007306654006242752,
+            "delta_teacher_only_minus_baseline": -0.0003643631935119629,
+            "full_reference": 0.016462020576000214,
+            "teacher_only": 0.01573135517537594
+          },
+          "student_teacher_mae": {
+            "baseline": 0.009376567788422108,
+            "delta_full_reference_minus_baseline": -0.0006331093609333038,
+            "delta_full_reference_minus_teacher_only": -0.0010397331789135933,
+            "delta_teacher_only_minus_baseline": 0.00040662381798028946,
+            "full_reference": 0.008743458427488804,
+            "teacher_only": 0.009783191606402397
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7529337046656707,
+            "delta_full_reference_minus_baseline": 0.01713507104854617,
+            "delta_full_reference_minus_teacher_only": 0.034179437932168044,
+            "delta_teacher_only_minus_baseline": -0.017044366883621875,
+            "full_reference": 0.7700687757142168,
+            "teacher_only": 0.7358893377820488
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.01157357357442379,
+            "delta_full_reference_minus_baseline": -0.00038524530827999115,
+            "delta_full_reference_minus_teacher_only": -4.227273166179657e-06,
+            "delta_teacher_only_minus_baseline": -0.0003810180351138115,
+            "full_reference": 0.011188328266143799,
+            "teacher_only": 0.011192555539309978
+          },
+          "student_teacher_mae": {
+            "baseline": 0.010674595832824707,
+            "delta_full_reference_minus_baseline": 0.0005057668313384056,
+            "delta_full_reference_minus_teacher_only": 3.2681040465831757e-05,
+            "delta_teacher_only_minus_baseline": 0.00047308579087257385,
+            "full_reference": 0.011180362664163113,
+            "teacher_only": 0.011147681623697281
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.6390441399634419,
+            "delta_full_reference_minus_baseline": -0.021271628431929313,
+            "delta_full_reference_minus_teacher_only": -0.0002334122756035839,
+            "delta_teacher_only_minus_baseline": -0.02103821615632573,
+            "full_reference": 0.6177725115315126,
+            "teacher_only": 0.6180059238071162
+          }
+        }
+      },
+      "folder": "ISO12800_DSC00004",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 37.473571464671714,
+          "delta_full_reference_minus_baseline": -0.11719402408895263,
+          "delta_full_reference_minus_teacher_only": 0.3124084238310729,
+          "delta_teacher_only_minus_baseline": -0.42960244792002555,
+          "full_reference": 37.35637744058276,
+          "teacher_only": 37.04396901675169
+        },
+        "ssim_preview": {
+          "baseline": 0.9218350648880005,
+          "delta_full_reference_minus_baseline": -0.0023733973503112793,
+          "delta_full_reference_minus_teacher_only": 0.003960967063903809,
+          "delta_teacher_only_minus_baseline": -0.006334364414215088,
+          "full_reference": 0.9194616675376892,
+          "teacher_only": 0.9155007004737854
+        }
+      },
+      "iso": 12800,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 39.260581970214844,
+              "delta_full_reference_minus_baseline": 0.5342597961425781,
+              "delta_full_reference_minus_teacher_only": 0.15087127685546875,
+              "delta_teacher_only_minus_baseline": 0.3833885192871094,
+              "full_reference": 39.79484176635742,
+              "teacher_only": 39.64397048950195
+            },
+            "ssim": {
+              "baseline": 0.9209018349647522,
+              "delta_full_reference_minus_baseline": 0.005781590938568115,
+              "delta_full_reference_minus_teacher_only": 0.005783379077911377,
+              "delta_teacher_only_minus_baseline": -1.7881393432617188e-06,
+              "full_reference": 0.9266834259033203,
+              "teacher_only": 0.9209000468254089
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 37.27543640136719,
+              "delta_full_reference_minus_baseline": -0.9473648071289062,
+              "delta_full_reference_minus_teacher_only": 0.29195404052734375,
+              "delta_teacher_only_minus_baseline": -1.23931884765625,
+              "full_reference": 36.32807159423828,
+              "teacher_only": 36.03611755371094
+            },
+            "ssim": {
+              "baseline": 0.9677817225456238,
+              "delta_full_reference_minus_baseline": -0.01910299062728882,
+              "delta_full_reference_minus_teacher_only": 0.010334670543670654,
+              "delta_teacher_only_minus_baseline": -0.029437661170959473,
+              "full_reference": 0.948678731918335,
+              "teacher_only": 0.9383440613746643
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 37.0732421875,
+              "delta_full_reference_minus_baseline": -1.2170944213867188,
+              "delta_full_reference_minus_teacher_only": 0.23134231567382812,
+              "delta_teacher_only_minus_baseline": -1.4484367370605469,
+              "full_reference": 35.85614776611328,
+              "teacher_only": 35.62480545043945
+            },
+            "ssim": {
+              "baseline": 0.9641797542572021,
+              "delta_full_reference_minus_baseline": -0.016541779041290283,
+              "delta_full_reference_minus_teacher_only": 0.010238170623779297,
+              "delta_teacher_only_minus_baseline": -0.02677994966506958,
+              "full_reference": 0.9476379752159119,
+              "teacher_only": 0.9373998045921326
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 37.9356803894043,
+              "delta_full_reference_minus_baseline": -0.5103836059570312,
+              "delta_full_reference_minus_teacher_only": 0.44242095947265625,
+              "delta_teacher_only_minus_baseline": -0.9528045654296875,
+              "full_reference": 37.425296783447266,
+              "teacher_only": 36.98287582397461
+            },
+            "ssim": {
+              "baseline": 0.9565682411193848,
+              "delta_full_reference_minus_baseline": -0.017211079597473145,
+              "delta_full_reference_minus_teacher_only": 0.008151113986968994,
+              "delta_teacher_only_minus_baseline": -0.02536219358444214,
+              "full_reference": 0.9393571615219116,
+              "teacher_only": 0.9312060475349426
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 38.63491439819336,
+              "delta_full_reference_minus_baseline": 0.4340476989746094,
+              "delta_full_reference_minus_teacher_only": 0.9005966186523438,
+              "delta_teacher_only_minus_baseline": -0.4665489196777344,
+              "full_reference": 39.06896209716797,
+              "teacher_only": 38.168365478515625
+            },
+            "ssim": {
+              "baseline": 0.9416711926460266,
+              "delta_full_reference_minus_baseline": -0.004099547863006592,
+              "delta_full_reference_minus_teacher_only": 0.015180587768554688,
+              "delta_teacher_only_minus_baseline": -0.01928013563156128,
+              "full_reference": 0.93757164478302,
+              "teacher_only": 0.9223910570144653
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 36.52377700805664,
+              "delta_full_reference_minus_baseline": -0.17426300048828125,
+              "delta_full_reference_minus_teacher_only": 0.32073974609375,
+              "delta_teacher_only_minus_baseline": -0.49500274658203125,
+              "full_reference": 36.34951400756836,
+              "teacher_only": 36.02877426147461
+            },
+            "ssim": {
+              "baseline": 0.9339321851730347,
+              "delta_full_reference_minus_baseline": -0.005813300609588623,
+              "delta_full_reference_minus_teacher_only": 0.008551239967346191,
+              "delta_teacher_only_minus_baseline": -0.014364540576934814,
+              "full_reference": 0.928118884563446,
+              "teacher_only": 0.9195676445960999
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 35.15455627441406,
+              "delta_full_reference_minus_baseline": -0.21160507202148438,
+              "delta_full_reference_minus_teacher_only": 0.2767601013183594,
+              "delta_teacher_only_minus_baseline": -0.48836517333984375,
+              "full_reference": 34.94295120239258,
+              "teacher_only": 34.66619110107422
+            },
+            "ssim": {
+              "baseline": 0.8747122287750244,
+              "delta_full_reference_minus_baseline": -0.008137881755828857,
+              "delta_full_reference_minus_teacher_only": 0.009342789649963379,
+              "delta_teacher_only_minus_baseline": -0.017480671405792236,
+              "full_reference": 0.8665743470191956,
+              "teacher_only": 0.8572315573692322
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 37.70298767089844,
+              "delta_full_reference_minus_baseline": -0.1186981201171875,
+              "delta_full_reference_minus_teacher_only": -0.2657127380371094,
+              "delta_teacher_only_minus_baseline": 0.14701461791992188,
+              "full_reference": 37.58428955078125,
+              "teacher_only": 37.85000228881836
+            },
+            "ssim": {
+              "baseline": 0.9165497422218323,
+              "delta_full_reference_minus_baseline": -0.0011702179908752441,
+              "delta_full_reference_minus_teacher_only": -0.0009878873825073242,
+              "delta_teacher_only_minus_baseline": -0.00018233060836791992,
+              "full_reference": 0.915379524230957,
+              "teacher_only": 0.9163674116134644
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 33.31123733520508,
+              "delta_full_reference_minus_baseline": 0.029514312744140625,
+              "delta_full_reference_minus_teacher_only": 0.117034912109375,
+              "delta_teacher_only_minus_baseline": -0.08752059936523438,
+              "full_reference": 33.34075164794922,
+              "teacher_only": 33.223716735839844
+            },
+            "ssim": {
+              "baseline": 0.8120731711387634,
+              "delta_full_reference_minus_baseline": 0.0003764033317565918,
+              "delta_full_reference_minus_teacher_only": 0.005423247814178467,
+              "delta_teacher_only_minus_baseline": -0.005046844482421875,
+              "full_reference": 0.81244957447052,
+              "teacher_only": 0.8070263266563416
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.79783630371094,
+              "delta_full_reference_minus_baseline": -0.059116363525390625,
+              "delta_full_reference_minus_teacher_only": 0.10267257690429688,
+              "delta_teacher_only_minus_baseline": -0.1617889404296875,
+              "full_reference": 34.73871994018555,
+              "teacher_only": 34.63604736328125
+            },
+            "ssim": {
+              "baseline": 0.744117021560669,
+              "delta_full_reference_minus_baseline": -0.0030410289764404297,
+              "delta_full_reference_minus_teacher_only": 0.0026361942291259766,
+              "delta_teacher_only_minus_baseline": -0.005677223205566406,
+              "full_reference": 0.7410759925842285,
+              "teacher_only": 0.7384397983551025
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 39.32101821899414,
+              "delta_full_reference_minus_baseline": 0.9154205322265625,
+              "delta_full_reference_minus_teacher_only": 1.1370010375976562,
+              "delta_teacher_only_minus_baseline": -0.22158050537109375,
+              "full_reference": 40.2364387512207,
+              "teacher_only": 39.09943771362305
+            },
+            "ssim": {
+              "baseline": 0.9653260707855225,
+              "delta_full_reference_minus_baseline": 0.006379067897796631,
+              "delta_full_reference_minus_teacher_only": 0.008600294589996338,
+              "delta_teacher_only_minus_baseline": -0.002221226692199707,
+              "full_reference": 0.9717051386833191,
+              "teacher_only": 0.9631048440933228
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 39.186767578125,
+              "delta_full_reference_minus_baseline": 1.1937637329101562,
+              "delta_full_reference_minus_teacher_only": 0.7094001770019531,
+              "delta_teacher_only_minus_baseline": 0.4843635559082031,
+              "full_reference": 40.380531311035156,
+              "teacher_only": 39.6711311340332
+            },
+            "ssim": {
+              "baseline": 0.9716514348983765,
+              "delta_full_reference_minus_baseline": 0.0022853612899780273,
+              "delta_full_reference_minus_teacher_only": 0.0023366808891296387,
+              "delta_teacher_only_minus_baseline": -5.131959915161133e-05,
+              "full_reference": 0.9739367961883545,
+              "teacher_only": 0.9716001152992249
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 0.9720033287246659,
+        "delta_full_reference_minus_baseline": 0.011623225935226467,
+        "delta_full_reference_minus_teacher_only": -0.00863453276271875,
+        "delta_teacher_only_minus_baseline": 0.020257758697945216,
+        "full_reference": 0.9836265546598923,
+        "teacher_only": 0.9922610874226111
+      }
+    },
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.011524281464517117,
+            "delta_full_reference_minus_baseline": 0.0005130628123879433,
+            "delta_full_reference_minus_teacher_only": 0.0005928045138716698,
+            "delta_teacher_only_minus_baseline": -7.97417014837265e-05,
+            "full_reference": 0.01203734427690506,
+            "teacher_only": 0.01144453976303339
+          },
+          "student_teacher_mae": {
+            "baseline": 0.009141006506979465,
+            "delta_full_reference_minus_baseline": -0.0009532570838928223,
+            "delta_full_reference_minus_teacher_only": -0.0006974488496780396,
+            "delta_teacher_only_minus_baseline": -0.0002558082342147827,
+            "full_reference": 0.008187749423086643,
+            "teacher_only": 0.008885198272764683
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7219068613718169,
+            "delta_full_reference_minus_baseline": 0.03213940632376755,
+            "delta_full_reference_minus_teacher_only": 0.03713460551391301,
+            "delta_teacher_only_minus_baseline": -0.004995199190145461,
+            "full_reference": 0.7540462676955845,
+            "teacher_only": 0.7169116621816715
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.020802991464734077,
+            "delta_full_reference_minus_baseline": 0.0008150674402713776,
+            "delta_full_reference_minus_teacher_only": 0.0004345010966062546,
+            "delta_teacher_only_minus_baseline": 0.000380566343665123,
+            "full_reference": 0.021618058905005455,
+            "teacher_only": 0.0211835578083992
+          },
+          "student_teacher_mae": {
+            "baseline": 0.015127583406865597,
+            "delta_full_reference_minus_baseline": -0.0009490298107266426,
+            "delta_full_reference_minus_teacher_only": -0.0007293103262782097,
+            "delta_teacher_only_minus_baseline": -0.00021971948444843292,
+            "full_reference": 0.014178553596138954,
+            "teacher_only": 0.014907863922417164
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.6882185657523712,
+            "delta_full_reference_minus_baseline": 0.026964609666160544,
+            "delta_full_reference_minus_teacher_only": 0.014374457732731272,
+            "delta_teacher_only_minus_baseline": 0.012590151933429272,
+            "full_reference": 0.7151831754185317,
+            "teacher_only": 0.7008087176858004
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.010080371052026749,
+            "delta_full_reference_minus_baseline": -0.000452384352684021,
+            "delta_full_reference_minus_teacher_only": -0.00026376359164714813,
+            "delta_teacher_only_minus_baseline": -0.00018862076103687286,
+            "full_reference": 0.009627986699342728,
+            "teacher_only": 0.009891750290989876
+          },
+          "student_teacher_mae": {
+            "baseline": 0.018985463306307793,
+            "delta_full_reference_minus_baseline": 0.00041107088327407837,
+            "delta_full_reference_minus_teacher_only": 7.569044828414917e-05,
+            "delta_teacher_only_minus_baseline": 0.0003353804349899292,
+            "full_reference": 0.01939653418958187,
+            "teacher_only": 0.019320843741297722
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.4179229395364239,
+            "delta_full_reference_minus_baseline": -0.018755440399783274,
+            "delta_full_reference_minus_teacher_only": -0.010935396623291738,
+            "delta_teacher_only_minus_baseline": -0.007820043776491536,
+            "full_reference": 0.3991674991366406,
+            "teacher_only": 0.41010289575993236
+          }
+        }
+      },
+      "folder": "ISO25600_DSC00005",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 32.72332033235826,
+          "delta_full_reference_minus_baseline": 0.004461534741473372,
+          "delta_full_reference_minus_teacher_only": 0.10856155656179567,
+          "delta_teacher_only_minus_baseline": -0.1041000218203223,
+          "full_reference": 32.727781867099736,
+          "teacher_only": 32.61922031053794
+        },
+        "ssim_preview": {
+          "baseline": 0.8284264802932739,
+          "delta_full_reference_minus_baseline": 3.349781036376953e-05,
+          "delta_full_reference_minus_teacher_only": 0.002644777297973633,
+          "delta_teacher_only_minus_baseline": -0.0026112794876098633,
+          "full_reference": 0.8284599781036377,
+          "teacher_only": 0.8258152008056641
+        }
+      },
+      "iso": 25600,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.71317672729492,
+              "delta_full_reference_minus_baseline": 0.21115875244140625,
+              "delta_full_reference_minus_teacher_only": -0.09557342529296875,
+              "delta_teacher_only_minus_baseline": 0.306732177734375,
+              "full_reference": 34.92433547973633,
+              "teacher_only": 35.0199089050293
+            },
+            "ssim": {
+              "baseline": 0.8641070127487183,
+              "delta_full_reference_minus_baseline": 0.0030843615531921387,
+              "delta_full_reference_minus_teacher_only": -0.0012148618698120117,
+              "delta_teacher_only_minus_baseline": 0.00429922342300415,
+              "full_reference": 0.8671913743019104,
+              "teacher_only": 0.8684062361717224
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 28.623424530029297,
+              "delta_full_reference_minus_baseline": -0.19915008544921875,
+              "delta_full_reference_minus_teacher_only": -0.000885009765625,
+              "delta_teacher_only_minus_baseline": -0.19826507568359375,
+              "full_reference": 28.424274444580078,
+              "teacher_only": 28.425159454345703
+            },
+            "ssim": {
+              "baseline": 0.8870719075202942,
+              "delta_full_reference_minus_baseline": -0.012685835361480713,
+              "delta_full_reference_minus_teacher_only": 3.808736801147461e-05,
+              "delta_teacher_only_minus_baseline": -0.012723922729492188,
+              "full_reference": 0.8743860721588135,
+              "teacher_only": 0.874347984790802
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 31.834659576416016,
+              "delta_full_reference_minus_baseline": -0.6818885803222656,
+              "delta_full_reference_minus_teacher_only": 0.006015777587890625,
+              "delta_teacher_only_minus_baseline": -0.6879043579101562,
+              "full_reference": 31.15277099609375,
+              "teacher_only": 31.14675521850586
+            },
+            "ssim": {
+              "baseline": 0.9083381295204163,
+              "delta_full_reference_minus_baseline": -0.021974563598632812,
+              "delta_full_reference_minus_teacher_only": 0.0019497871398925781,
+              "delta_teacher_only_minus_baseline": -0.02392435073852539,
+              "full_reference": 0.8863635659217834,
+              "teacher_only": 0.8844137787818909
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 31.395095825195312,
+              "delta_full_reference_minus_baseline": -0.1301727294921875,
+              "delta_full_reference_minus_teacher_only": 0.06457138061523438,
+              "delta_teacher_only_minus_baseline": -0.19474411010742188,
+              "full_reference": 31.264923095703125,
+              "teacher_only": 31.20035171508789
+            },
+            "ssim": {
+              "baseline": 0.9056638479232788,
+              "delta_full_reference_minus_baseline": -0.010579824447631836,
+              "delta_full_reference_minus_teacher_only": 0.0002606511116027832,
+              "delta_teacher_only_minus_baseline": -0.01084047555923462,
+              "full_reference": 0.895084023475647,
+              "teacher_only": 0.8948233723640442
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.2762565612793,
+              "delta_full_reference_minus_baseline": 0.12527084350585938,
+              "delta_full_reference_minus_teacher_only": -0.7417488098144531,
+              "delta_teacher_only_minus_baseline": 0.8670196533203125,
+              "full_reference": 34.401527404785156,
+              "teacher_only": 35.14327621459961
+            },
+            "ssim": {
+              "baseline": 0.9174919128417969,
+              "delta_full_reference_minus_baseline": -0.004833102226257324,
+              "delta_full_reference_minus_teacher_only": -0.01856255531311035,
+              "delta_teacher_only_minus_baseline": 0.013729453086853027,
+              "full_reference": 0.9126588106155396,
+              "teacher_only": 0.9312213659286499
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 32.489959716796875,
+              "delta_full_reference_minus_baseline": -0.02356719970703125,
+              "delta_full_reference_minus_teacher_only": 0.02283477783203125,
+              "delta_teacher_only_minus_baseline": -0.0464019775390625,
+              "full_reference": 32.466392517089844,
+              "teacher_only": 32.44355773925781
+            },
+            "ssim": {
+              "baseline": 0.8888301849365234,
+              "delta_full_reference_minus_baseline": -0.0022926926612854004,
+              "delta_full_reference_minus_teacher_only": 0.0008864998817443848,
+              "delta_teacher_only_minus_baseline": -0.003179192543029785,
+              "full_reference": 0.886537492275238,
+              "teacher_only": 0.8856509923934937
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 33.7281379699707,
+              "delta_full_reference_minus_baseline": -0.18471145629882812,
+              "delta_full_reference_minus_teacher_only": 0.19501876831054688,
+              "delta_teacher_only_minus_baseline": -0.379730224609375,
+              "full_reference": 33.543426513671875,
+              "teacher_only": 33.34840774536133
+            },
+            "ssim": {
+              "baseline": 0.8664417862892151,
+              "delta_full_reference_minus_baseline": -0.003997981548309326,
+              "delta_full_reference_minus_teacher_only": 0.0036554932594299316,
+              "delta_teacher_only_minus_baseline": -0.007653474807739258,
+              "full_reference": 0.8624438047409058,
+              "teacher_only": 0.8587883114814758
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 33.01237869262695,
+              "delta_full_reference_minus_baseline": -0.11005401611328125,
+              "delta_full_reference_minus_teacher_only": -0.0856781005859375,
+              "delta_teacher_only_minus_baseline": -0.02437591552734375,
+              "full_reference": 32.90232467651367,
+              "teacher_only": 32.98800277709961
+            },
+            "ssim": {
+              "baseline": 0.8518214821815491,
+              "delta_full_reference_minus_baseline": -0.0024158358573913574,
+              "delta_full_reference_minus_teacher_only": -0.0021302103996276855,
+              "delta_teacher_only_minus_baseline": -0.0002856254577636719,
+              "full_reference": 0.8494056463241577,
+              "teacher_only": 0.8515358567237854
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 33.49238586425781,
+              "delta_full_reference_minus_baseline": 0.11881637573242188,
+              "delta_full_reference_minus_teacher_only": 0.043689727783203125,
+              "delta_teacher_only_minus_baseline": 0.07512664794921875,
+              "full_reference": 33.611202239990234,
+              "teacher_only": 33.56751251220703
+            },
+            "ssim": {
+              "baseline": 0.829780101776123,
+              "delta_full_reference_minus_baseline": 0.0019552111625671387,
+              "delta_full_reference_minus_teacher_only": 0.00316774845123291,
+              "delta_teacher_only_minus_baseline": -0.0012125372886657715,
+              "full_reference": 0.8317353129386902,
+              "teacher_only": 0.8285675644874573
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 32.34931182861328,
+              "delta_full_reference_minus_baseline": -0.0247650146484375,
+              "delta_full_reference_minus_teacher_only": 0.0377349853515625,
+              "delta_teacher_only_minus_baseline": -0.0625,
+              "full_reference": 32.324546813964844,
+              "teacher_only": 32.28681182861328
+            },
+            "ssim": {
+              "baseline": 0.7442280054092407,
+              "delta_full_reference_minus_baseline": -0.0010190606117248535,
+              "delta_full_reference_minus_teacher_only": 0.001834869384765625,
+              "delta_teacher_only_minus_baseline": -0.0028539299964904785,
+              "full_reference": 0.7432089447975159,
+              "teacher_only": 0.7413740754127502
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.41326141357422,
+              "delta_full_reference_minus_baseline": 0.8341789245605469,
+              "delta_full_reference_minus_teacher_only": 0.7119903564453125,
+              "delta_teacher_only_minus_baseline": 0.12218856811523438,
+              "full_reference": 35.247440338134766,
+              "teacher_only": 34.53544998168945
+            },
+            "ssim": {
+              "baseline": 0.9422730207443237,
+              "delta_full_reference_minus_baseline": 0.010646045207977295,
+              "delta_full_reference_minus_teacher_only": 0.0043784379959106445,
+              "delta_teacher_only_minus_baseline": 0.00626760721206665,
+              "full_reference": 0.952919065952301,
+              "teacher_only": 0.9485406279563904
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 34.383056640625,
+              "delta_full_reference_minus_baseline": 0.8100471496582031,
+              "delta_full_reference_minus_teacher_only": 0.7137947082519531,
+              "delta_teacher_only_minus_baseline": 0.09625244140625,
+              "full_reference": 35.1931037902832,
+              "teacher_only": 34.47930908203125
+            },
+            "ssim": {
+              "baseline": 0.9426636099815369,
+              "delta_full_reference_minus_baseline": 0.006590008735656738,
+              "delta_full_reference_minus_teacher_only": 0.0037056803703308105,
+              "delta_teacher_only_minus_baseline": 0.0028843283653259277,
+              "full_reference": 0.9492536187171936,
+              "teacher_only": 0.9455479383468628
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 0.9869776085070758,
+        "delta_full_reference_minus_baseline": 0.01462119315753685,
+        "delta_full_reference_minus_teacher_only": -0.0026800350705449283,
+        "delta_teacher_only_minus_baseline": 0.017301228228081778,
+        "full_reference": 1.0015988016646127,
+        "teacher_only": 1.0042788367351576
+      }
+    },
+    {
+      "correction_by_input_luma": {
+        "highlights_0p75_1": {
+          "student_change_mae": {
+            "baseline": 0.015476960688829422,
+            "delta_full_reference_minus_baseline": 0.00044642388820648193,
+            "delta_full_reference_minus_teacher_only": 0.0007318044081330299,
+            "delta_teacher_only_minus_baseline": -0.000285380519926548,
+            "full_reference": 0.015923384577035904,
+            "teacher_only": 0.015191580168902874
+          },
+          "student_teacher_mae": {
+            "baseline": 0.012036068364977837,
+            "delta_full_reference_minus_baseline": -0.0010393140837550163,
+            "delta_full_reference_minus_teacher_only": -0.0007160063832998276,
+            "delta_teacher_only_minus_baseline": -0.00032330770045518875,
+            "full_reference": 0.01099675428122282,
+            "teacher_only": 0.011712760664522648
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.7261775708416257,
+            "delta_full_reference_minus_baseline": 0.0209461677406364,
+            "delta_full_reference_minus_teacher_only": 0.0343361954658703,
+            "delta_teacher_only_minus_baseline": -0.0133900277252339,
+            "full_reference": 0.7471237385822621,
+            "teacher_only": 0.7127875431163918
+          }
+        },
+        "midtones_0p25_0p75": {
+          "student_change_mae": {
+            "baseline": 0.029821744188666344,
+            "delta_full_reference_minus_baseline": -0.0004084315150976181,
+            "delta_full_reference_minus_teacher_only": -0.00014875642955303192,
+            "delta_teacher_only_minus_baseline": -0.0002596750855445862,
+            "full_reference": 0.029413312673568726,
+            "teacher_only": 0.029562069103121758
+          },
+          "student_teacher_mae": {
+            "baseline": 0.02253667823970318,
+            "delta_full_reference_minus_baseline": 5.114637315273285e-05,
+            "delta_full_reference_minus_teacher_only": -0.00017274729907512665,
+            "delta_teacher_only_minus_baseline": 0.0002238936722278595,
+            "full_reference": 0.02258782461285591,
+            "teacher_only": 0.022760571911931038
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.6785332798771299,
+            "delta_full_reference_minus_baseline": -0.009293030407312552,
+            "delta_full_reference_minus_teacher_only": -0.0033846507236082735,
+            "delta_teacher_only_minus_baseline": -0.005908379683704279,
+            "full_reference": 0.6692402494698173,
+            "teacher_only": 0.6726249001934256
+          }
+        },
+        "shadows_0_0p25": {
+          "student_change_mae": {
+            "baseline": 0.0154871242120862,
+            "delta_full_reference_minus_baseline": 0.00017806235700845718,
+            "delta_full_reference_minus_teacher_only": -0.0004179272800683975,
+            "delta_teacher_only_minus_baseline": 0.0005959896370768547,
+            "full_reference": 0.015665186569094658,
+            "teacher_only": 0.016083113849163055
+          },
+          "student_teacher_mae": {
+            "baseline": 0.026319317519664764,
+            "delta_full_reference_minus_baseline": -6.434321403503418e-05,
+            "delta_full_reference_minus_teacher_only": 0.0003515463322401047,
+            "delta_teacher_only_minus_baseline": -0.00041588954627513885,
+            "full_reference": 0.02625497430562973,
+            "teacher_only": 0.025903427973389626
+          },
+          "student_to_teacher_correction_ratio": {
+            "baseline": 0.44790913268304716,
+            "delta_full_reference_minus_baseline": 0.005149810565147794,
+            "delta_full_reference_minus_teacher_only": -0.012087037139789591,
+            "delta_teacher_only_minus_baseline": 0.017236847704937386,
+            "full_reference": 0.45305894324819496,
+            "teacher_only": 0.46514598038798455
+          }
+        }
+      },
+      "folder": "ISO51200_DSC00006",
+      "full_frame_teacher_agreement": {
+        "psnr": {
+          "baseline": 29.881083920495204,
+          "delta_full_reference_minus_baseline": 0.029748727916224738,
+          "delta_full_reference_minus_teacher_only": -0.014421935826405274,
+          "delta_teacher_only_minus_baseline": 0.04417066374263001,
+          "full_reference": 29.91083264841143,
+          "teacher_only": 29.925254584237834
+        },
+        "ssim_preview": {
+          "baseline": 0.7118392586708069,
+          "delta_full_reference_minus_baseline": 0.0031911730766296387,
+          "delta_full_reference_minus_teacher_only": -8.13603401184082e-05,
+          "delta_teacher_only_minus_baseline": 0.003272533416748047,
+          "full_reference": 0.7150304317474365,
+          "teacher_only": 0.7151117920875549
+        }
+      },
+      "iso": 51200,
+      "native_crops": [
+        {
+          "box": [
+            216,
+            336,
+            984,
+            1104
+          ],
+          "index": 1,
+          "label": "Dark shelf",
+          "slug": "dark_shelf",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 29.699880599975586,
+              "delta_full_reference_minus_baseline": 0.04047966003417969,
+              "delta_full_reference_minus_teacher_only": -0.043407440185546875,
+              "delta_teacher_only_minus_baseline": 0.08388710021972656,
+              "full_reference": 29.740360260009766,
+              "teacher_only": 29.783767700195312
+            },
+            "ssim": {
+              "baseline": 0.6928309798240662,
+              "delta_full_reference_minus_baseline": -0.0028345584869384766,
+              "delta_full_reference_minus_teacher_only": -0.004544854164123535,
+              "delta_teacher_only_minus_baseline": 0.0017102956771850586,
+              "full_reference": 0.6899964213371277,
+              "teacher_only": 0.6945412755012512
+            }
+          }
+        },
+        {
+          "box": [
+            1816,
+            396,
+            2584,
+            1164
+          ],
+          "index": 2,
+          "label": "Smooth blue background",
+          "slug": "blue_background",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 28.215492248535156,
+              "delta_full_reference_minus_baseline": -0.008327484130859375,
+              "delta_full_reference_minus_teacher_only": -0.20883560180664062,
+              "delta_teacher_only_minus_baseline": 0.20050811767578125,
+              "full_reference": 28.207164764404297,
+              "teacher_only": 28.416000366210938
+            },
+            "ssim": {
+              "baseline": 0.7910746335983276,
+              "delta_full_reference_minus_baseline": 0.007883727550506592,
+              "delta_full_reference_minus_teacher_only": -0.0027489662170410156,
+              "delta_teacher_only_minus_baseline": 0.010632693767547607,
+              "full_reference": 0.7989583611488342,
+              "teacher_only": 0.8017073273658752
+            }
+          }
+        },
+        {
+          "box": [
+            3136,
+            576,
+            3904,
+            1344
+          ],
+          "index": 3,
+          "label": "Bright screen and text",
+          "slug": "screen",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 29.71888542175293,
+              "delta_full_reference_minus_baseline": -0.32556724548339844,
+              "delta_full_reference_minus_teacher_only": 0.006649017333984375,
+              "delta_teacher_only_minus_baseline": -0.3322162628173828,
+              "full_reference": 29.39331817626953,
+              "teacher_only": 29.386669158935547
+            },
+            "ssim": {
+              "baseline": 0.8250830769538879,
+              "delta_full_reference_minus_baseline": -0.013135135173797607,
+              "delta_full_reference_minus_teacher_only": 0.002328336238861084,
+              "delta_teacher_only_minus_baseline": -0.015463471412658691,
+              "full_reference": 0.8119479417800903,
+              "teacher_only": 0.8096196055412292
+            }
+          }
+        },
+        {
+          "box": [
+            1776,
+            1296,
+            2544,
+            2064
+          ],
+          "index": 4,
+          "label": "Red cap and colored edge",
+          "slug": "red_cap",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 29.854080200195312,
+              "delta_full_reference_minus_baseline": 0.10650634765625,
+              "delta_full_reference_minus_teacher_only": -0.003704071044921875,
+              "delta_teacher_only_minus_baseline": 0.11021041870117188,
+              "full_reference": 29.960586547851562,
+              "teacher_only": 29.964290618896484
+            },
+            "ssim": {
+              "baseline": 0.8216333389282227,
+              "delta_full_reference_minus_baseline": 0.002362191677093506,
+              "delta_full_reference_minus_teacher_only": 0.0036360621452331543,
+              "delta_teacher_only_minus_baseline": -0.0012738704681396484,
+              "full_reference": 0.8239955306053162,
+              "teacher_only": 0.820359468460083
+            }
+          }
+        },
+        {
+          "box": [
+            1296,
+            1956,
+            2064,
+            2724
+          ],
+          "index": 5,
+          "label": "White figure and face detail",
+          "slug": "white_figure",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 30.803653717041016,
+              "delta_full_reference_minus_baseline": -0.4714221954345703,
+              "delta_full_reference_minus_teacher_only": -0.9480552673339844,
+              "delta_teacher_only_minus_baseline": 0.47663307189941406,
+              "full_reference": 30.332231521606445,
+              "teacher_only": 31.28028678894043
+            },
+            "ssim": {
+              "baseline": 0.8715594410896301,
+              "delta_full_reference_minus_baseline": -0.04989057779312134,
+              "delta_full_reference_minus_teacher_only": -0.049613237380981445,
+              "delta_teacher_only_minus_baseline": -0.0002773404121398926,
+              "full_reference": 0.8216688632965088,
+              "teacher_only": 0.8712821006774902
+            }
+          }
+        },
+        {
+          "box": [
+            2536,
+            1476,
+            3304,
+            2244
+          ],
+          "index": 6,
+          "label": "Specular metal",
+          "slug": "metal_bit",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 29.977924346923828,
+              "delta_full_reference_minus_baseline": -0.017482757568359375,
+              "delta_full_reference_minus_teacher_only": -0.13019561767578125,
+              "delta_teacher_only_minus_baseline": 0.11271286010742188,
+              "full_reference": 29.96044158935547,
+              "teacher_only": 30.09063720703125
+            },
+            "ssim": {
+              "baseline": 0.8118091821670532,
+              "delta_full_reference_minus_baseline": -0.006430923938751221,
+              "delta_full_reference_minus_teacher_only": -0.007159113883972168,
+              "delta_teacher_only_minus_baseline": 0.0007281899452209473,
+              "full_reference": 0.805378258228302,
+              "teacher_only": 0.8125373721122742
+            }
+          }
+        },
+        {
+          "box": [
+            776,
+            3096,
+            1544,
+            3864
+          ],
+          "index": 7,
+          "label": "Color blocks and edges",
+          "slug": "color_blocks",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 30.4157657623291,
+              "delta_full_reference_minus_baseline": -0.3611774444580078,
+              "delta_full_reference_minus_teacher_only": -0.296417236328125,
+              "delta_teacher_only_minus_baseline": -0.06476020812988281,
+              "full_reference": 30.054588317871094,
+              "teacher_only": 30.35100555419922
+            },
+            "ssim": {
+              "baseline": 0.7676599621772766,
+              "delta_full_reference_minus_baseline": -0.015015721321105957,
+              "delta_full_reference_minus_teacher_only": -0.021706342697143555,
+              "delta_teacher_only_minus_baseline": 0.006690621376037598,
+              "full_reference": 0.7526442408561707,
+              "teacher_only": 0.7743505835533142
+            }
+          }
+        },
+        {
+          "box": [
+            2616,
+            3096,
+            3384,
+            3864
+          ],
+          "index": 8,
+          "label": "Dark tool body",
+          "slug": "dark_tool",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 29.178085327148438,
+              "delta_full_reference_minus_baseline": 0.2261829376220703,
+              "delta_full_reference_minus_teacher_only": 0.04152107238769531,
+              "delta_teacher_only_minus_baseline": 0.184661865234375,
+              "full_reference": 29.404268264770508,
+              "teacher_only": 29.362747192382812
+            },
+            "ssim": {
+              "baseline": 0.7078650593757629,
+              "delta_full_reference_minus_baseline": 0.015839874744415283,
+              "delta_full_reference_minus_teacher_only": 0.0030894875526428223,
+              "delta_teacher_only_minus_baseline": 0.012750387191772461,
+              "full_reference": 0.7237049341201782,
+              "teacher_only": 0.7206154465675354
+            }
+          }
+        },
+        {
+          "box": [
+            1016,
+            3756,
+            1784,
+            4524
+          ],
+          "index": 9,
+          "label": "Fine dot pattern",
+          "slug": "dot_pattern",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 30.023353576660156,
+              "delta_full_reference_minus_baseline": 0.055423736572265625,
+              "delta_full_reference_minus_teacher_only": -0.04374885559082031,
+              "delta_teacher_only_minus_baseline": 0.09917259216308594,
+              "full_reference": 30.078777313232422,
+              "teacher_only": 30.122526168823242
+            },
+            "ssim": {
+              "baseline": 0.707912266254425,
+              "delta_full_reference_minus_baseline": 0.00022149085998535156,
+              "delta_full_reference_minus_teacher_only": -0.0016738176345825195,
+              "delta_teacher_only_minus_baseline": 0.001895308494567871,
+              "full_reference": 0.7081337571144104,
+              "teacher_only": 0.7098075747489929
+            }
+          }
+        },
+        {
+          "box": [
+            96,
+            4356,
+            864,
+            5124
+          ],
+          "index": 10,
+          "label": "Black table and edge",
+          "slug": "black_table",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 28.88470458984375,
+              "delta_full_reference_minus_baseline": -0.09238815307617188,
+              "delta_full_reference_minus_teacher_only": -0.05820465087890625,
+              "delta_teacher_only_minus_baseline": -0.034183502197265625,
+              "full_reference": 28.792316436767578,
+              "teacher_only": 28.850521087646484
+            },
+            "ssim": {
+              "baseline": 0.5809199810028076,
+              "delta_full_reference_minus_baseline": -0.008600592613220215,
+              "delta_full_reference_minus_teacher_only": -0.0027157068252563477,
+              "delta_teacher_only_minus_baseline": -0.005884885787963867,
+              "full_reference": 0.5723193883895874,
+              "teacher_only": 0.5750350952148438
+            }
+          }
+        },
+        {
+          "box": [
+            2336,
+            4416,
+            3104,
+            5184
+          ],
+          "index": 11,
+          "label": "Fine printed label",
+          "slug": "fine_label",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 31.34248924255371,
+              "delta_full_reference_minus_baseline": 0.36758995056152344,
+              "delta_full_reference_minus_teacher_only": 0.46392822265625,
+              "delta_teacher_only_minus_baseline": -0.09633827209472656,
+              "full_reference": 31.710079193115234,
+              "teacher_only": 31.246150970458984
+            },
+            "ssim": {
+              "baseline": 0.913296103477478,
+              "delta_full_reference_minus_baseline": -0.006714046001434326,
+              "delta_full_reference_minus_teacher_only": 0.0028064846992492676,
+              "delta_teacher_only_minus_baseline": -0.009520530700683594,
+              "full_reference": 0.9065820574760437,
+              "teacher_only": 0.9037755727767944
+            }
+          }
+        },
+        {
+          "box": [
+            2736,
+            5136,
+            3504,
+            5904
+          ],
+          "index": 12,
+          "label": "Transparent bottle and desk",
+          "slug": "bottle_desk",
+          "teacher_agreement": {
+            "psnr": {
+              "baseline": 30.703304290771484,
+              "delta_full_reference_minus_baseline": 0.3223876953125,
+              "delta_full_reference_minus_teacher_only": 0.3110466003417969,
+              "delta_teacher_only_minus_baseline": 0.011341094970703125,
+              "full_reference": 31.025691986083984,
+              "teacher_only": 30.714645385742188
+            },
+            "ssim": {
+              "baseline": 0.8725710511207581,
+              "delta_full_reference_minus_baseline": -0.006485879421234131,
+              "delta_full_reference_minus_teacher_only": -0.01146245002746582,
+              "delta_teacher_only_minus_baseline": 0.0049765706062316895,
+              "full_reference": 0.8660851716995239,
+              "teacher_only": 0.8775476217269897
+            }
+          }
+        }
+      ],
+      "student_seam_gradient_ratio": {
+        "baseline": 0.9761741775621325,
+        "delta_full_reference_minus_baseline": 0.01898834015624773,
+        "delta_full_reference_minus_teacher_only": -0.009320831581007605,
+        "delta_teacher_only_minus_baseline": 0.028309171737255334,
+        "full_reference": 0.9951625177183803,
+        "teacher_only": 1.0044833492993879
+      }
+    }
+  ],
+  "purpose": "existing-output comparison; no inference and no metric recomputation from pixels",
+  "schema_version": 1
+}

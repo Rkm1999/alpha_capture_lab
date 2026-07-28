@@ -1,0 +1,563 @@
+{
+  "array_records_checked": 10936,
+  "array_records_valid": 10936,
+  "cache_root": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/uhd_snic_gate/cache",
+  "contact_sheet": {
+    "jpg": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/uhd_snic_data_gate/data_gate_contact_sheet.jpg",
+    "jpg_sha256": "92eb18544334cb8ad982ed42454607f1f811da78e6500f44e8d31bec00d7bbfb",
+    "png": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/uhd_snic_data_gate/data_gate_contact_sheet.png",
+    "png_sha256": "edf7055740e01af1085a4ef852340c17d01ba7299b0851402a7a26c7b84e9cb9",
+    "rows": [
+      {
+        "crop": [
+          4697,
+          998,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "d93c604632469a6d_00",
+        "mean_luminance": 0.14748233556747437,
+        "noise_level": "12800",
+        "noisy_reference_psnr": 21.441854700350902,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/011_bookends",
+        "shadow_fraction": 0.9580891927083334,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.06559892743825912,
+        "teacher_psnr_gain": 9.71372325095296,
+        "teacher_reference_psnr": 31.15557795130386,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          4946,
+          4272,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "3b5685a09c2ca79b_00",
+        "mean_luminance": 0.23796719312667847,
+        "noise_level": "12800",
+        "noisy_reference_psnr": 19.616260627022115,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/009_three_puzzles",
+        "shadow_fraction": 0.6951768663194444,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.08326553553342819,
+        "teacher_psnr_gain": 9.274511060048738,
+        "teacher_reference_psnr": 28.890771687070853,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          5117,
+          4217,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "b64b930f0fe2b676_00",
+        "mean_luminance": 0.15073108673095703,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 29.650612050172946,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/010_software",
+        "shadow_fraction": 0.9874131944444444,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.024737438187003136,
+        "teacher_psnr_gain": 3.863105858931654,
+        "teacher_reference_psnr": 33.5137179091046,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          4084,
+          371,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "7622d7bcdfca89e3_01",
+        "mean_luminance": 0.23077280819416046,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 28.875831455798632,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/011_bookends",
+        "shadow_fraction": 0.8097330729166666,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.030033700168132782,
+        "teacher_psnr_gain": 2.9421588637122156,
+        "teacher_reference_psnr": 31.817990319510848,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          5117,
+          4217,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "bec0c963bf7d256b_00",
+        "mean_luminance": 0.14807158708572388,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 26.547602033009056,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/010_software",
+        "shadow_fraction": 0.9776204427083334,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.03486320376396179,
+        "teacher_psnr_gain": 5.154500578608193,
+        "teacher_reference_psnr": 31.70210261161725,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          3284,
+          4212,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "fddcde195448c4d3_00",
+        "mean_luminance": 0.2448350042104721,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 24.883315072514456,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/009_three_puzzles",
+        "shadow_fraction": 0.5997992621527778,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.045680686831474304,
+        "teacher_psnr_gain": 5.54519253994615,
+        "teacher_reference_psnr": 30.428507612460606,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          4697,
+          998,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "a247bfcb1d3318ff_00",
+        "mean_luminance": 0.14922291040420532,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 23.977685034926743,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/011_bookends",
+        "shadow_fraction": 0.9862196180555556,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.04771751910448074,
+        "teacher_psnr_gain": 10.783500675638734,
+        "teacher_reference_psnr": 34.76118571056548,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          4946,
+          4272,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "527dfdb889660088_00",
+        "mean_luminance": 0.2454204559326172,
+        "noise_level": "6400",
+        "noisy_reference_psnr": 22.235302939995982,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_indoor2/indoor/009_three_puzzles",
+        "shadow_fraction": 0.7365451388888888,
+        "split": "train",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.0606294721364975,
+        "teacher_psnr_gain": 8.499605129666893,
+        "teacher_reference_psnr": 30.734908069662875,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          118,
+          4862,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "0e4329ae7699525e_00",
+        "mean_luminance": 0.11225676536560059,
+        "noise_level": "12800",
+        "noisy_reference_psnr": 20.680945906637383,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor2/outdoor/006_park_map",
+        "shadow_fraction": 0.9574924045138888,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.07311145216226578,
+        "teacher_psnr_gain": 9.884442158547223,
+        "teacher_reference_psnr": 30.565388065184607,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          3662,
+          1002,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "0e4329ae7699525e_03",
+        "mean_luminance": 0.296085387468338,
+        "noise_level": "12800",
+        "noisy_reference_psnr": 19.026385926061625,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor2/outdoor/006_park_map",
+        "shadow_fraction": 0.6428493923611112,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.08118559420108795,
+        "teacher_psnr_gain": 7.0301200554606815,
+        "teacher_reference_psnr": 26.056505981522307,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          1293,
+          1017,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "c61803d29fe4942f_01",
+        "mean_luminance": 0.16492140293121338,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 27.675883332603814,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor2/outdoor/006_park_map",
+        "shadow_fraction": 0.9975314670138888,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.03122945874929428,
+        "teacher_psnr_gain": 9.017372928913094,
+        "teacher_reference_psnr": 36.69325626151691,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          6508,
+          3236,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "ba276b94c7b20dac_00",
+        "mean_luminance": 0.22969776391983032,
+        "noise_level": "1600",
+        "noisy_reference_psnr": 28.154797123666366,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor3/outdoor/014_trash_cans",
+        "shadow_fraction": 0.6805284288194444,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.02984253503382206,
+        "teacher_psnr_gain": 9.623970567337093,
+        "teacher_reference_psnr": 37.77876769100346,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          7078,
+          1668,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "75085680ccb08ad0_01",
+        "mean_luminance": 0.16253767907619476,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 24.29974053262302,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor2/outdoor/006_park_map",
+        "shadow_fraction": 0.9895290798611112,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.04698421061038971,
+        "teacher_psnr_gain": 9.27282698456078,
+        "teacher_reference_psnr": 33.5725675171838,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          7138,
+          2381,
+          192,
+          192
+        ],
+        "dataset": "snic_sony",
+        "id": "0b718b9ac2e1ff0f_01",
+        "mean_luminance": 0.2215825319290161,
+        "noise_level": "3200",
+        "noisy_reference_psnr": 28.99949078066127,
+        "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor1/outdoor/001_bicycles",
+        "shadow_fraction": 0.7923990885416666,
+        "split": "validation",
+        "supervision": "paired",
+        "teacher_correction_mae": 0.026812275871634483,
+        "teacher_psnr_gain": 6.5577219792732535,
+        "teacher_reference_psnr": 35.55721275993452,
+        "uhd_hybrid_gate": null
+      },
+      {
+        "crop": [
+          695,
+          1853,
+          192,
+          192
+        ],
+        "dataset": "uhd_ll",
+        "id": "72f75ef16f684e8c_00",
+        "mean_luminance": 0.10717461258172989,
+        "noise_level": "low-light capture; ISO metadata unavailable",
+        "noisy_reference_psnr": 26.200777265330686,
+        "scene": "uhd_ll_1479",
+        "shadow_fraction": 0.9592556423611112,
+        "split": "train",
+        "supervision": "teacher_only",
+        "teacher_correction_mae": 0.03026631847023964,
+        "teacher_psnr_gain": -0.6341071997636547,
+        "teacher_reference_psnr": 25.56667006556703,
+        "uhd_hybrid_gate": {
+          "alignment_gain": 0.030655096355623912,
+          "best_edge_correlation": 0.9139516932852053,
+          "best_shift": [
+            -1,
+            1
+          ],
+          "failure_reasons": [
+            "nonzero_shift_improvement"
+          ],
+          "local_gain_maximum": 0.2625861167907715,
+          "local_gain_mean": [
+            0.23205304145812988,
+            0.26073989272117615,
+            0.2588198184967041
+          ],
+          "local_gain_minimum": 0.22541454434394836,
+          "passed": false,
+          "texture": 0.31420063972473145,
+          "zero_edge_correlation": 0.8832965969295814
+        }
+      },
+      {
+        "crop": [
+          855,
+          1942,
+          192,
+          192
+        ],
+        "dataset": "uhd_ll",
+        "id": "b17014f4d6b26134_00",
+        "mean_luminance": 0.049371495842933655,
+        "noise_level": "low-light capture; ISO metadata unavailable",
+        "noisy_reference_psnr": 28.52044755606987,
+        "scene": "uhd_ll_727",
+        "shadow_fraction": 1.0,
+        "split": "validation",
+        "supervision": "uhd_hybrid_paired",
+        "teacher_correction_mae": 0.014190024696290493,
+        "teacher_psnr_gain": 0.012149276261471442,
+        "teacher_reference_psnr": 28.53259683233134,
+        "uhd_hybrid_gate": {
+          "alignment_gain": 0.0,
+          "best_edge_correlation": 0.5683919111574546,
+          "best_shift": [
+            0,
+            0
+          ],
+          "failure_reasons": [],
+          "local_gain_maximum": 0.4634416699409485,
+          "local_gain_mean": [
+            0.32441362738609314,
+            0.3282468318939209,
+            0.3570718765258789
+          ],
+          "local_gain_minimum": 0.22895115613937378,
+          "passed": true,
+          "texture": 0.08455170691013336,
+          "zero_edge_correlation": 0.5683919111574546
+        }
+      }
+    ]
+  },
+  "counts": {
+    "cache": {
+      "train/snic_sony": 1920,
+      "train/uhd_ll": 8000,
+      "validation/snic_sony": 416,
+      "validation/uhd_ll": 600
+    },
+    "expected": {
+      "train/snic_sony": 1920,
+      "train/uhd_ll": 8000,
+      "validation/snic_sony": 416,
+      "validation/uhd_ll": 600
+    },
+    "supervision": {
+      "train/snic_sony/paired": 1920,
+      "train/uhd_ll/teacher_only": 4898,
+      "train/uhd_ll/uhd_hybrid_paired": 3102,
+      "validation/snic_sony/paired": 416,
+      "validation/uhd_ll/teacher_only": 346,
+      "validation/uhd_ll/uhd_hybrid_paired": 254
+    }
+  },
+  "dataset_summaries": {
+    "snic_sony": {
+      "array_records_checked": 2336,
+      "mean_luminance": {
+        "count": 2336,
+        "maximum": 0.9041573405265808,
+        "mean": 0.4171972601763802,
+        "median": 0.3996177911758423,
+        "minimum": 0.035085778683423996
+      },
+      "shadow_fraction": {
+        "count": 2336,
+        "maximum": 1.0,
+        "mean": 0.2631935804764793,
+        "median": 0.09737141927083334,
+        "minimum": 0.0
+      },
+      "teacher_better_fraction": 0.9944349315068494,
+      "teacher_correction_mae": {
+        "count": 2336,
+        "maximum": 0.09566653519868851,
+        "mean": 0.040283363094004765,
+        "median": 0.037219855934381485,
+        "minimum": 0.010426617227494717
+      },
+      "teacher_psnr_gain_db": {
+        "count": 2336,
+        "maximum": 19.52180963912829,
+        "mean": 8.6097703912841,
+        "median": 8.609510962109209,
+        "minimum": -4.025373754834067
+      }
+    },
+    "uhd_ll": {
+      "array_records_checked": 8600,
+      "mean_luminance": {
+        "count": 8600,
+        "maximum": 0.9650173187255859,
+        "mean": 0.16650548584115568,
+        "median": 0.1330929547548294,
+        "minimum": 0.0005382795934565365
+      },
+      "shadow_fraction": {
+        "count": 8600,
+        "maximum": 1.0,
+        "mean": 0.7664258285640746,
+        "median": 0.9993760850694444,
+        "minimum": 0.0
+      },
+      "teacher_better_fraction": 0.9267441860465117,
+      "teacher_correction_mae": {
+        "count": 8600,
+        "maximum": 0.04255636781454086,
+        "mean": 0.009256187701119965,
+        "median": 0.00857107201591134,
+        "minimum": 0.0005392071907408535
+      },
+      "teacher_psnr_gain_db": {
+        "count": 8600,
+        "maximum": 23.556579063997653,
+        "mean": 4.531299887329681,
+        "median": 3.6187767486336853,
+        "minimum": -17.18779751751014
+      }
+    }
+  },
+  "decision": "This is a release-quality data gate; visually inspect the contact sheet before starting training.",
+  "findings": {
+    "errors": {
+      "by_code": {},
+      "examples": {},
+      "total": 0
+    },
+    "warnings": {
+      "by_code": {},
+      "examples": {},
+      "total": 0
+    }
+  },
+  "manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/uhd_snic_gate/cache/manifest.json",
+  "manifest_sha256": "7317b06c7e77af72069817458e8af13cc2106192e7354d9e32fe9dcc21822ccd",
+  "mode": "full",
+  "preprocessing": "exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3",
+  "records": 10936,
+  "release_gate_passed": true,
+  "scenes": {
+    "groups": 2180,
+    "leakage": {}
+  },
+  "schema_version": 1,
+  "source_manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/uhd_snic_source_manifest.json",
+  "source_manifest_sha256": "2fc495c14994b0004b87b05f57bbb97b2624ec5b620ae558de1fec11d5833597",
+  "status": "full_passed",
+  "teacher": {
+    "array_content_sha256": "cefc7e30f21679cad5c27190e6fb1dcd87cb273aad95a655a1c323e96a445331",
+    "array_files_hashed": 10936,
+    "array_hash_coverage": "complete",
+    "cache_dtype": "float16",
+    "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/data/sources/scunet/model_zoo/scunet_color_real_psnr.pth",
+    "checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "manifest_checkpoint_sha256": "fa78899ba2caec9d235a900e91d96c689da71c42029230c2028b00f09f809c2e",
+    "parity": {
+      "maximum_absolute_error": 0.000244140625,
+      "mean_absolute_error": 5.3339270380092785e-05,
+      "passed": true,
+      "sample_ids": [
+        "413df72b4782923c_00",
+        "310fcb311bf7cbfd_06",
+        "84a0903f98a4f7e7_02",
+        "c5ed7d93900a08cf_01",
+        "907bf2139962a945_01",
+        "a1d9f04d3539e850_05",
+        "2c0e8c52a58d6340_03",
+        "cfc41ae154afc2b9_02"
+      ],
+      "samples": 8,
+      "skipped": false,
+      "tolerance": 0.0005
+    }
+  },
+  "uhd_hybrid_gate": {
+    "crops": 8600,
+    "failed": 5244,
+    "passed": 3356,
+    "report": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/uhd_snic_gate/cache/uhd_hybrid_gate.json",
+    "source_pairs": 2150,
+    "source_reconstruction": {
+      "coverage": "complete",
+      "hybrid_target_tolerance": 0.0001,
+      "maximum_clean_target_absolute_error": 0.0,
+      "maximum_input_absolute_error": 0.0,
+      "mean_clean_target_absolute_error": 0.0,
+      "mean_input_absolute_error": 0.0,
+      "records_reconstructed": 8600,
+      "records_requested": 8600,
+      "source_pairs": 2150
+    },
+    "target_parameters": {
+      "alignment_prefilter_sigma": 0.7,
+      "alignment_search_radius": 3,
+      "channel_confidence_scale": 0.025,
+      "channel_denominator_floor": 0.003,
+      "clean_detail_gain": 1.0,
+      "gain_smoothing_sigma_thumbnail": 1.5,
+      "illumination_sigma_full_resolution": 128.0,
+      "maximum_gain": 1.25,
+      "maximum_nonzero_shift_gain": 0.018,
+      "minimum_gain": 0.005,
+      "minimum_texture": 0.012,
+      "minimum_zero_shift_correlation": 0.5,
+      "teacher_lowpass_sigma": 8.0,
+      "thumbnail_width": 480
+    }
+  }
+}

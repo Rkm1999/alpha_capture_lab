@@ -1,0 +1,8 @@
+{
+  "epoch": 5,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v66_w32_metric_aligned_weak_bands",
+  "state": "failed",
+  "updated_at": "2026-07-26T12:02:13.509280+00:00"
+}

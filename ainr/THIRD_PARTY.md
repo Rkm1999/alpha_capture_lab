@@ -7,7 +7,10 @@ under Apache-2.0.
 
 The APK does not redistribute MediaTek NeuroPilot or Samsung AI LiteCore
 system runtimes. The plugins dynamically use the runtime and NPU driver
-libraries installed by the device manufacturer on supported phones.
+libraries exposed by the device manufacturer on supported phones. For that
+reason the app limits MediaTek NPU mode to Android 15 or later and Samsung NPU
+mode to Android 16 or later. These paths remain provisional until verified on
+physical target devices.
 
 At runtime, the app creates a private plugin directory containing links to
 only the compiler and dispatch pair for the detected SoC. LiteRT 2.1.6 cannot

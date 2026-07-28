@@ -1,0 +1,8 @@
+{
+  "epoch": 4,
+  "epochs": 40,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v64_w32_deep_profile",
+  "state": "failed",
+  "updated_at": "2026-07-26T08:43:25.956819+00:00"
+}

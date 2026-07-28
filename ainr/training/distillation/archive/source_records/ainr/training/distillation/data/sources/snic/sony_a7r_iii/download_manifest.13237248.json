@@ -1,0 +1,510 @@
+{
+  "archives": [
+    {
+      "compressed_bytes": 19773295560,
+      "datafile_id": 13237248,
+      "entries": 80,
+      "name": "sony_a7r_iii_indoor1.zip",
+      "states": {
+        "downloaded": 55,
+        "existing": 25
+      },
+      "uncompressed_bytes": 20347360000,
+      "zip_entries": [
+        {
+          "compressed_size": 242780922,
+          "crc32": "9991597f",
+          "name": "indoor/001_pillow/001_pillow_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246834453,
+          "crc32": "20217562",
+          "name": "indoor/001_pillow/001_pillow_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247838867,
+          "crc32": "18ed3fb1",
+          "name": "indoor/001_pillow/001_pillow_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248616896,
+          "crc32": "a723d801",
+          "name": "indoor/001_pillow/001_pillow_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248808977,
+          "crc32": "8528e99e",
+          "name": "indoor/001_pillow/001_pillow_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245529464,
+          "crc32": "e7804473",
+          "name": "indoor/001_pillow/001_pillow_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248632977,
+          "crc32": "11a47977",
+          "name": "indoor/001_pillow/001_pillow_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249408225,
+          "crc32": "d4efe8a7",
+          "name": "indoor/001_pillow/001_pillow_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250021184,
+          "crc32": "5deb89b8",
+          "name": "indoor/001_pillow/001_pillow_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250131670,
+          "crc32": "1c380131",
+          "name": "indoor/001_pillow/001_pillow_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245010408,
+          "crc32": "90a32762",
+          "name": "indoor/002_cats/002_cats_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249197537,
+          "crc32": "c8716f15",
+          "name": "indoor/002_cats/002_cats_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249763838,
+          "crc32": "0ce3bc90",
+          "name": "indoor/002_cats/002_cats_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249659393,
+          "crc32": "219ab967",
+          "name": "indoor/002_cats/002_cats_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248656002,
+          "crc32": "58e0289d",
+          "name": "indoor/002_cats/002_cats_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241449911,
+          "crc32": "f8978644",
+          "name": "indoor/002_cats/002_cats_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246649026,
+          "crc32": "2e7b9fbb",
+          "name": "indoor/002_cats/002_cats_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247572707,
+          "crc32": "11fec926",
+          "name": "indoor/002_cats/002_cats_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247899187,
+          "crc32": "1868a26b",
+          "name": "indoor/002_cats/002_cats_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247117260,
+          "crc32": "96340f18",
+          "name": "indoor/002_cats/002_cats_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242221067,
+          "crc32": "8214ce21",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246520117,
+          "crc32": "1bf5be77",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247500225,
+          "crc32": "77760569",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248240415,
+          "crc32": "e6deb422",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248667690,
+          "crc32": "a576d9dd",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 242438976,
+          "crc32": "7445d570",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247011931,
+          "crc32": "67120eee",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248077207,
+          "crc32": "d8fab4e2",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248948349,
+          "crc32": "433750a1",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249486820,
+          "crc32": "848017c5",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244361733,
+          "crc32": "0a2460df",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248461183,
+          "crc32": "7c758c61",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249363728,
+          "crc32": "92517bbb",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249972413,
+          "crc32": "27496456",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249802634,
+          "crc32": "27a45cf6",
+          "name": "indoor/003_nursery_rhymes/003_nursery_rhymes_68mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 241100149,
+          "crc32": "bad0a24e",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245474511,
+          "crc32": "58d77605",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246244030,
+          "crc32": "f51955b0",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246683843,
+          "crc32": "763debd4",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246515961,
+          "crc32": "d110670a",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 239293963,
+          "crc32": "7dfa8b44",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244299622,
+          "crc32": "cda8600d",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245237828,
+          "crc32": "89f3c17f",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245949996,
+          "crc32": "8ae16243",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245908035,
+          "crc32": "7d45fca2",
+          "name": "indoor/004_bell_peppers/004_bell_peppers_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246541692,
+          "crc32": "97c409f2",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249035216,
+          "crc32": "c063bae1",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249150508,
+          "crc32": "7d6fc9c7",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248451746,
+          "crc32": "8f514db5",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246814589,
+          "crc32": "0811f002",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244828967,
+          "crc32": "d1bbe564",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247717751,
+          "crc32": "c21b984c",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247769837,
+          "crc32": "5730131d",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246892038,
+          "crc32": "184032cc",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244891829,
+          "crc32": "e786faa7",
+          "name": "indoor/005_lego_porsche/005_lego_porsche_48mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247058128,
+          "crc32": "3e141b73",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249304826,
+          "crc32": "816751e5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249684812,
+          "crc32": "34530446",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249593393,
+          "crc32": "dfeeb748",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 248609431,
+          "crc32": "10fd58cb",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_105mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247270513,
+          "crc32": "3b1cb88e",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249751879,
+          "crc32": "43d539e9",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250386882,
+          "crc32": "cda2caa6",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250663359,
+          "crc32": "bc41a154",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250068921,
+          "crc32": "beef6af5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 247967654,
+          "crc32": "ae15738e",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 249697198,
+          "crc32": "bb85f2af",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250257024,
+          "crc32": "bc8f8cd5",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250585841,
+          "crc32": "bad26474",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 250245478,
+          "crc32": "6a9de724",
+          "name": "indoor/006_stuffed_animals/006_stuffed_animals_51mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 243106938,
+          "crc32": "cb8f3f4a",
+          "name": "indoor/007_origami/007_origami_24mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246520809,
+          "crc32": "0b17db85",
+          "name": "indoor/007_origami/007_origami_24mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246817161,
+          "crc32": "03263c56",
+          "name": "indoor/007_origami/007_origami_24mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246385180,
+          "crc32": "97ceabd5",
+          "name": "indoor/007_origami/007_origami_24mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244714113,
+          "crc32": "ac1bd90b",
+          "name": "indoor/007_origami/007_origami_24mm_12800_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 240406276,
+          "crc32": "2f8ea49a",
+          "name": "indoor/007_origami/007_origami_49mm_00100_clean_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 244951172,
+          "crc32": "55462734",
+          "name": "indoor/007_origami/007_origami_49mm_01600_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245737996,
+          "crc32": "d95d860d",
+          "name": "indoor/007_origami/007_origami_49mm_03200_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 246143981,
+          "crc32": "f21dfcd1",
+          "name": "indoor/007_origami/007_origami_49mm_06400_noisy_01.tiff",
+          "size": 254342000
+        },
+        {
+          "compressed_size": 245911092,
+          "crc32": "8c6fa767",
+          "name": "indoor/007_origami/007_origami_49mm_12800_noisy_01.tiff",
+          "size": 254342000
+        }
+      ]
+    }
+  ],
+  "camera": "Sony A7R III",
+  "complete": true,
+  "dataset": "SNIC",
+  "doi": "10.7910/DVN/SGHDCP",
+  "integrity": "size_and_zip_crc32_verified",
+  "license": "MIT",
+  "noisy_isos": [
+    1600,
+    3200,
+    6400,
+    12800
+  ],
+  "schema_version": 1
+}

@@ -1,0 +1,628 @@
+{
+  "checkpoint": {
+    "epoch": 43,
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v7_extreme/general_camera_v7_w24_extreme_flat_chroma/target-score-best.pt",
+    "run_fingerprint": "149dbbc1cb53c20df2ad81beab6fca014f14231f53503b54755580db74338e85",
+    "sha256": "1cd86c5afd3155d0da5731d90e873f3c0f40a5f64ccdd872c5da5da18e1e47cd"
+  },
+  "generator": {
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/scripts/render_mixed_validation_contact_sheet.py",
+    "sha256": "ecbe73d2f1e31246b4be00e3f0162852bab16f2631daa6627d05a95e518d2121"
+  },
+  "inference": {
+    "batch_size": 8,
+    "device": "cuda",
+    "device_name": "NVIDIA GeForce RTX 3060 Laptop GPU",
+    "seconds": 0.3378821030200925
+  },
+  "manifest": {
+    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/high_iso_targeted_synthetic/cache/manifest.json",
+    "sha256": "59b47fa9a6ff2220bc0b350ad9108a2f471ec07d2a9988ff682271553004f1f8"
+  },
+  "metric_configuration": {
+    "border": 1,
+    "sigma": 1.5,
+    "window_size": 11
+  },
+  "preprocessing_version": "mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3_targeted_iso_sampling_synthetic_camera_jpeg_linear_post_isp_covariance_v3",
+  "render": {
+    "descriptor_height": 44,
+    "footer_height": 40,
+    "height": 4212,
+    "jpg_preview": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/general_camera_v7_extreme/general_camera_v7_w24_extreme_flat_chroma/validation_contact_sheet/validation_contact_sheet.jpg",
+    "jpg_sha256": "91852c051d0a0599e58a4b304908087d29dcae2b1a20c13e926b80cf19acdc3d",
+    "mode": "RGB",
+    "panel_labels": [
+      "Noisy input",
+      "Student e43",
+      "SCUNet teacher",
+      "Reference target"
+    ],
+    "panel_pixels_verified_exact": true,
+    "png": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/evaluation/general_camera_v7_extreme/general_camera_v7_w24_extreme_flat_chroma/validation_contact_sheet/validation_contact_sheet.png",
+    "png_sha256": "9fa4075f1b42d3eb978d4f7b9165a5ecdcbb70927e03f5a63b1abb5c007fb3eb",
+    "row_height": 276,
+    "tile_size": 192,
+    "title_height": 72,
+    "width": 768
+  },
+  "rows": [
+    {
+      "dataset": "midd",
+      "gt_weight": 1.0,
+      "id": "4d01f037a82cbb12_00",
+      "input_mean_luma": 0.18218569457530975,
+      "input_shadow_fraction": 0.8433159589767456,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 50,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 25.63937759399414,
+          "ssim": 0.42348432540893555
+        },
+        "student_reference": {
+          "psnr": 32.6599235534668,
+          "ssim": 0.7436061501502991
+        },
+        "student_teacher": {
+          "psnr": 49.0750846862793,
+          "ssim": 0.9972581267356873
+        },
+        "teacher_reference": {
+          "psnr": 32.62590789794922,
+          "ssim": 0.7391408085823059
+        }
+      },
+      "noise": "unspecified",
+      "panel_sha256": {
+        "Noisy input": "8f7ea78eec5b18fa398d966c03a47c1cddb4f734f5da94e1b3e9c550429250dc",
+        "Reference target": "65a895dbcb7481f7cc391cec740c8f160b76f6dc0ec02d8c01da6e3030ff5824",
+        "SCUNet teacher": "e55a51917c97186e162dfabed290c371ade8a10f2dde1beffa9d520a3d6d9007",
+        "Student e43": "debe37440d2a99b329057b06808d31a2a0382a15694483c2e969288d09df3bf2"
+      },
+      "reason": "dark/noisy",
+      "row": 0,
+      "scene": "ISOCELL_3P9/284",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "midd",
+      "gt_weight": 1.0,
+      "id": "831fe17530efd57a_01",
+      "input_mean_luma": 0.3646432161331177,
+      "input_shadow_fraction": 0.2721625566482544,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 67,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 32.07566452026367,
+          "ssim": 0.9281891584396362
+        },
+        "student_reference": {
+          "psnr": 35.01559066772461,
+          "ssim": 0.9651592969894409
+        },
+        "student_teacher": {
+          "psnr": 39.1279411315918,
+          "ssim": 0.9932093024253845
+        },
+        "teacher_reference": {
+          "psnr": 34.58586120605469,
+          "ssim": 0.9662337899208069
+        }
+      },
+      "noise": "unspecified",
+      "panel_sha256": {
+        "Noisy input": "0cfc2247c589190d95a219374533ae55dcd70e28e38f26ce2b155a8750319be3",
+        "Reference target": "a378c5537eee493b7b40ac515dc3b4bfa019d16a44776d1fc466f6ee720c44d9",
+        "SCUNet teacher": "c4a1fae6d7f90ee5de2ebc4e1e3d9ddf603dfde37bbf294838b0e2f6ecff091d",
+        "Student e43": "b86a962c8946c595bcee98b3b5be996643252a04eaaa8778a78263e00f8a5ee8"
+      },
+      "reason": "midtone detail",
+      "row": 1,
+      "scene": "ISOCELL_3P9/321",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "nind",
+      "gt_weight": 1.0,
+      "id": "f62de5d9b9bbfcd0_00",
+      "input_mean_luma": 0.22286741435527802,
+      "input_shadow_fraction": 0.5096028447151184,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 354,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 25.327159881591797,
+          "ssim": 0.7608431577682495
+        },
+        "student_reference": {
+          "psnr": 34.12718963623047,
+          "ssim": 0.9594599604606628
+        },
+        "student_teacher": {
+          "psnr": 40.61542510986328,
+          "ssim": 0.9899308681488037
+        },
+        "teacher_reference": {
+          "psnr": 34.743980407714844,
+          "ssim": 0.9602084755897522
+        }
+      },
+      "noise": "6400",
+      "panel_sha256": {
+        "Noisy input": "f2977a0b615661d2bcd4c05f1d5dab8c142ad493e0dd51e84ced4e61d2ca079a",
+        "Reference target": "a9e9b338343ce8dc83d922557781d42811d98518188d00f0f9b020d8998b0767",
+        "SCUNet teacher": "f97322a108ef0565455b7aa9a55074d2f48f9b5ad66097e9c4d9acd132cc714e",
+        "Student e43": "fdd772c16902a865685d438b8ea69a8dc4e8a9a2f038507353a31f6c39ae1e63"
+      },
+      "reason": "ISO 6400 shadow/detail",
+      "row": 2,
+      "scene": "nind_museel-theatre",
+      "supervision": "reference_paired"
+    },
+    {
+      "dataset": "nind",
+      "gt_weight": 1.0,
+      "id": "d655dba4caac75da_00",
+      "input_mean_luma": 0.31032365560531616,
+      "input_shadow_fraction": 0.3411729633808136,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 374,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 18.692020416259766,
+          "ssim": 0.4068273901939392
+        },
+        "student_reference": {
+          "psnr": 24.373699188232422,
+          "ssim": 0.5618588328361511
+        },
+        "student_teacher": {
+          "psnr": 30.10016441345215,
+          "ssim": 0.7436138987541199
+        },
+        "teacher_reference": {
+          "psnr": 23.46773338317871,
+          "ssim": 0.4046696126461029
+        }
+      },
+      "noise": "None",
+      "panel_sha256": {
+        "Noisy input": "9db2c3a5464d219f4bc0fde252079a95918d7e3353e0d2605e945f9dbd9b6be3",
+        "Reference target": "bb4ff7ba67a6f20e9e7fc95fc25e07f4518cf80e4b0c823df2f9446cc07b46d8",
+        "SCUNet teacher": "5c93e621e03051fbb9a08722462761a1677f69442caabaf8daa5708fad97c44f",
+        "Student e43": "804ae21b951780eda0615b1dc2c2bf4b79bec57dfcc0a2534d47ad416ea349a1"
+      },
+      "reason": "H2 detail",
+      "row": 3,
+      "scene": "nind_parking-keyboard",
+      "supervision": "reference_paired"
+    },
+    {
+      "dataset": "nind",
+      "gt_weight": 1.0,
+      "id": "8ae0ea808065154e_01",
+      "input_mean_luma": 0.4193442761898041,
+      "input_shadow_fraction": 0.1445855051279068,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 431,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 15.563447952270508,
+          "ssim": 0.13895930349826813
+        },
+        "student_reference": {
+          "psnr": 28.750324249267578,
+          "ssim": 0.7454174160957336
+        },
+        "student_teacher": {
+          "psnr": 33.67538070678711,
+          "ssim": 0.9212619066238403
+        },
+        "teacher_reference": {
+          "psnr": 29.194019317626953,
+          "ssim": 0.7559250593185425
+        }
+      },
+      "noise": "None",
+      "panel_sha256": {
+        "Noisy input": "6c7eb0b050f9a8e0e2c4bc23a24dff027049557322cb50e838d7c85ca11e0524",
+        "Reference target": "1575aa176f58aea4cbda87886f3a9f0bc4cc2a6550100a40d4d3e7c91af4b56c",
+        "SCUNet teacher": "a417f1eeacd2135a98ae1e7523711b549f6ed758dc89b5c12973cc1b14b7fd11",
+        "Student e43": "09878ea84569bc6c36d91772792892ecefeb5557e1aa08f21b9275bcfceb3362"
+      },
+      "reason": "H3 severe noise",
+      "row": 4,
+      "scene": "nind_sint-joris",
+      "supervision": "reference_paired"
+    },
+    {
+      "dataset": "polyu_sony",
+      "gt_weight": 1.0,
+      "id": "9fb230f967eb55bc_02",
+      "input_mean_luma": 0.3337853252887726,
+      "input_shadow_fraction": 0.6225314736366272,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 468,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 26.09554100036621,
+          "ssim": 0.8572248220443726
+        },
+        "student_reference": {
+          "psnr": 26.754657745361328,
+          "ssim": 0.9365488886833191
+        },
+        "student_teacher": {
+          "psnr": 37.462196350097656,
+          "ssim": 0.9859187006950378
+        },
+        "teacher_reference": {
+          "psnr": 26.361902236938477,
+          "ssim": 0.9287270307540894
+        }
+      },
+      "noise": "3200",
+      "panel_sha256": {
+        "Noisy input": "a0b6932fcc5c25d879c725230de9b71368753dec108086eb8aec15db0072c90b",
+        "Reference target": "5f18b92576529be6e594a92060ebc619e224fb794e02127a242453e522f52623",
+        "SCUNet teacher": "dfbfe627fc829034a09c626cd63a935e0364c0a6572db5ae1577f62b9acc5858",
+        "Student e43": "963024296d7d57b924cc254687fe06a589e869ef76719949c56580d0a743e526"
+      },
+      "reason": "ISO 3200 detail/shadow",
+      "row": 5,
+      "scene": "polyu_sony_compu",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "polyu_sony",
+      "gt_weight": 1.0,
+      "id": "15e4ddaea1663b57_14",
+      "input_mean_luma": 0.17786140739917755,
+      "input_shadow_fraction": 0.7821452021598816,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 496,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 30.799293518066406,
+          "ssim": 0.6068830490112305
+        },
+        "student_reference": {
+          "psnr": 42.98597717285156,
+          "ssim": 0.9833115339279175
+        },
+        "student_teacher": {
+          "psnr": 50.70673370361328,
+          "ssim": 0.9959916472434998
+        },
+        "teacher_reference": {
+          "psnr": 43.618370056152344,
+          "ssim": 0.9874613285064697
+        }
+      },
+      "noise": "6400",
+      "panel_sha256": {
+        "Noisy input": "d64cb3385dfcceee5eab3d7e429fad86695a2d7b7e571a1cb4455711a4c6dc4a",
+        "Reference target": "3b906259a7d6426fa3917e157be95063e6e836fbaf94c0cfe1decfa49f34b8ec",
+        "SCUNet teacher": "a3bb3cd46fdcccc557fc1af3c1314bc53b6fcd08cb15eabb74ebf52fa71c510e",
+        "Student e43": "342c45fec96299fed11fb1b88a56ba3867a1e7e9f1ed582461d7f62a58c9e934"
+      },
+      "reason": "ISO 6400 dark",
+      "row": 6,
+      "scene": "polyu_sony_water",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "sidd",
+      "gt_weight": 1.0,
+      "id": "82196c65397e9f26_06",
+      "input_mean_luma": 0.12143406271934509,
+      "input_shadow_fraction": 0.9444444179534912,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 848,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 21.05405616760254,
+          "ssim": 0.25362512469291687
+        },
+        "student_reference": {
+          "psnr": 27.758237838745117,
+          "ssim": 0.7901259660720825
+        },
+        "student_teacher": {
+          "psnr": 35.44573211669922,
+          "ssim": 0.957560658454895
+        },
+        "teacher_reference": {
+          "psnr": 26.087371826171875,
+          "ssim": 0.758341372013092
+        }
+      },
+      "noise": "unspecified",
+      "panel_sha256": {
+        "Noisy input": "2f42f11b41240df52d039c4446688d8ae2823073015f3c05d88e2f943808b8d1",
+        "Reference target": "7db736907fdf4e012f868f1fd32e29fe0a82c16733519e07fbe0b3dcb10253b1",
+        "SCUNet teacher": "9a7eea573979d3916b469bedda85734e4897a624d18489c731b365ef2ab99dc4",
+        "Student e43": "1fe868f1a05644baa77aa0b1f3e82017e8f2f15bbc1b989105fc53f0a4bd14b8"
+      },
+      "reason": "dark/noisy detail",
+      "row": 7,
+      "scene": "0170",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "sidd",
+      "gt_weight": 1.0,
+      "id": "a64af0d9e46e7fbc_04",
+      "input_mean_luma": 0.44876861572265625,
+      "input_shadow_fraction": 0.1903483122587204,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 534,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 18.441083908081055,
+          "ssim": 0.27533990144729614
+        },
+        "student_reference": {
+          "psnr": 27.13566780090332,
+          "ssim": 0.8094095587730408
+        },
+        "student_teacher": {
+          "psnr": 31.601375579833984,
+          "ssim": 0.9705644249916077
+        },
+        "teacher_reference": {
+          "psnr": 29.591846466064453,
+          "ssim": 0.8248387575149536
+        }
+      },
+      "noise": "unspecified",
+      "panel_sha256": {
+        "Noisy input": "3de7cac719019119bcbb5dcb892be877d7637a91bd3bd7558e0b223d51c0856a",
+        "Reference target": "c29ba46f77f57f07a19a0d59b802ed6c611270120523333c4a9a32f3dc5a4ab9",
+        "SCUNet teacher": "4fc0cef3a5c921662e16d13bbac6bfe36fe6f7d49a00f0ee02ca987e290b72b5",
+        "Student e43": "c6b244b0ad597cd6007a30c3c4e3c988e4959703837b793b261c3ba237774ca3"
+      },
+      "reason": "midtone severe noise",
+      "row": 8,
+      "scene": "0036",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "snic_sony",
+      "gt_weight": 1.0,
+      "id": "1c0437155792b9cb_01",
+      "input_mean_luma": 0.337994247674942,
+      "input_shadow_fraction": 0.207763671875,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 1091,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 29.84576416015625,
+          "ssim": 0.851317286491394
+        },
+        "student_reference": {
+          "psnr": 31.175159454345703,
+          "ssim": 0.8735479116439819
+        },
+        "student_teacher": {
+          "psnr": 36.16128158569336,
+          "ssim": 0.9636174440383911
+        },
+        "teacher_reference": {
+          "psnr": 31.933977127075195,
+          "ssim": 0.8930362462997437
+        }
+      },
+      "noise": "1600",
+      "panel_sha256": {
+        "Noisy input": "865ede76d5dfb93abd7ead283d0e7872db010f5beca97355509e0dc052fc87e9",
+        "Reference target": "4ef561694d0016a200505d6c36b7695d43264e546fafd37ad98548191fb73dc0",
+        "SCUNet teacher": "80d7ec89804ac3c01542e0c06518afe73c22985ffbb3718c02348121aec1c7fd",
+        "Student e43": "f304fb9f422227ae10bca00f3309e7e585a183e6ea5ac4f9ec7b1cb4a24f0b9c"
+      },
+      "reason": "ISO 1600 detail",
+      "row": 9,
+      "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor2/outdoor/007_playground_climber",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "snic_sony",
+      "gt_weight": 1.0,
+      "id": "03bed52ff44ce449_00",
+      "input_mean_luma": 0.12324661761522293,
+      "input_shadow_fraction": 0.9006618857383728,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 850,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 26.835575103759766,
+          "ssim": 0.5353745222091675
+        },
+        "student_reference": {
+          "psnr": 34.73815155029297,
+          "ssim": 0.8974111676216125
+        },
+        "student_teacher": {
+          "psnr": 44.48680114746094,
+          "ssim": 0.9886080622673035
+        },
+        "teacher_reference": {
+          "psnr": 34.66742706298828,
+          "ssim": 0.8881836533546448
+        }
+      },
+      "noise": "6400",
+      "panel_sha256": {
+        "Noisy input": "8205499ba68e64540fce5b9bc3648fb9fd7099ae3897e3dc9629277019372c47",
+        "Reference target": "ca2ed2fde1b2999e195217f2335f97738442c410172b6cc88710b48ed9ffdb6b",
+        "SCUNet teacher": "2ba0dfd6513a59a1b0b6aed01e73e1f05910fb571c671f3a0cbfd11e5aae8aab",
+        "Student e43": "616457c433d71cc14315a349df819f8f7abafaa04ed225cb557d7db750538517"
+      },
+      "reason": "ISO 6400 deep shadow",
+      "row": 10,
+      "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor1/outdoor/001_bicycles",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "snic_sony",
+      "gt_weight": 1.0,
+      "id": "88b13447cf5f50ad_05",
+      "input_mean_luma": 0.6351516246795654,
+      "input_shadow_fraction": 0.01513671875,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 943,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 19.85098648071289,
+          "ssim": 0.4112589657306671
+        },
+        "student_reference": {
+          "psnr": 25.848121643066406,
+          "ssim": 0.7294209003448486
+        },
+        "student_teacher": {
+          "psnr": 34.85028839111328,
+          "ssim": 0.9592302441596985
+        },
+        "teacher_reference": {
+          "psnr": 26.02170753479004,
+          "ssim": 0.6766930818557739
+        }
+      },
+      "noise": "12800",
+      "panel_sha256": {
+        "Noisy input": "adb7f4b0587996a7f627aaf77879091ed9bc4f9a1f4f1d04718ccdb0e92885c6",
+        "Reference target": "5650331b05ca359023453ea9b903dde5cd00d56f656389f28c014c54a7abb00a",
+        "SCUNet teacher": "8ef7a4848dd9885083e2090a021e16b470294c7b04f7fd86371fe836b43bb87a",
+        "Student e43": "e2cd7a34d3b10a5978f287e6c803379fbff3ff8fb92dde82dbe99da0c6c0af6a"
+      },
+      "reason": "ISO 12800 detail",
+      "row": 11,
+      "scene": "snic_sony_a7r_iii:sony_a7r_iii_outdoor1/outdoor/003_building_door",
+      "supervision": "paired"
+    },
+    {
+      "dataset": "uhd_ll",
+      "gt_weight": 1.0,
+      "id": "b17014f4d6b26134_00",
+      "input_mean_luma": 0.049371495842933655,
+      "input_shadow_fraction": 1.0,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 2648,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 28.49795913696289,
+          "ssim": 0.5047087073326111
+        },
+        "student_reference": {
+          "psnr": 28.3310604095459,
+          "ssim": 0.4839754104614258
+        },
+        "student_teacher": {
+          "psnr": 45.22766876220703,
+          "ssim": 0.9914642572402954
+        },
+        "teacher_reference": {
+          "psnr": 28.50637435913086,
+          "ssim": 0.49358201026916504
+        }
+      },
+      "noise": "None",
+      "panel_sha256": {
+        "Noisy input": "ef371cecbe28b5f90e3e655e7f54b730a730f83cd1b52d551acf5b92b00713ab",
+        "Reference target": "c7522f8e4df04105966c4dad380615fd53c68e3a870065f2adc026a571fa15e1",
+        "SCUNet teacher": "f7c6921014033a2bb6722f7faedfffd709c02e214031af1206a97c735e731948",
+        "Student e43": "0caab3fc1d90eab1f2033debf8273c4c20f39fb7e68851d1c88ffc387eae75ac"
+      },
+      "reason": "deep-shadow detail",
+      "row": 12,
+      "scene": "uhd_ll_727",
+      "supervision": "uhd_hybrid_paired"
+    },
+    {
+      "dataset": "uhd_ll",
+      "gt_weight": 1.0,
+      "id": "e88f4875587d9256_02",
+      "input_mean_luma": 0.19624881446361542,
+      "input_shadow_fraction": 0.7145724892616272,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 2458,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 26.998676300048828,
+          "ssim": 0.6276176571846008
+        },
+        "student_reference": {
+          "psnr": 27.905597686767578,
+          "ssim": 0.6816591620445251
+        },
+        "student_teacher": {
+          "psnr": 43.275428771972656,
+          "ssim": 0.9876704812049866
+        },
+        "teacher_reference": {
+          "psnr": 28.060693740844727,
+          "ssim": 0.7006204724311829
+        }
+      },
+      "noise": "None",
+      "panel_sha256": {
+        "Noisy input": "36abcfd3ba53ce576391bd92ae4ce781fdb83d4dc47c9a0db3a00deea8c4c376",
+        "Reference target": "00381002e874234f6fca9513284a885da1dc7335f77da5c9b108a44233d0e204",
+        "SCUNet teacher": "287c1a0ff65c3e805a239e1fb574e279b6b3c1a9bea4c4889c4a8f0c81671460",
+        "Student e43": "73bc01df541b5f27b8c9c658a6bcb113c0ac8886c3df12170a1734a32304529e"
+      },
+      "reason": "strong paired residual",
+      "row": 13,
+      "scene": "uhd_ll_231",
+      "supervision": "uhd_hybrid_paired"
+    },
+    {
+      "dataset": "uhd_ll",
+      "gt_weight": 1.0,
+      "id": "499802667ae78723_03",
+      "input_mean_luma": 0.5336191654205322,
+      "input_shadow_fraction": 0.00737847201526165,
+      "kd_weight": 0.7,
+      "manifest_validation_index": 2503,
+      "metrics": {
+        "noisy_reference": {
+          "psnr": 32.01595687866211,
+          "ssim": 0.8235316276550293
+        },
+        "student_reference": {
+          "psnr": 35.92928695678711,
+          "ssim": 0.9200992584228516
+        },
+        "student_teacher": {
+          "psnr": 44.57597732543945,
+          "ssim": 0.9909682869911194
+        },
+        "teacher_reference": {
+          "psnr": 34.62012481689453,
+          "ssim": 0.8983067870140076
+        }
+      },
+      "noise": "None",
+      "panel_sha256": {
+        "Noisy input": "62b9a7e2e96d61da5c7e464e9d3a5f72c7f7fd00716f018fee9df079769b335b",
+        "Reference target": "ffbd3031338f197ce340e14a3b71597101ce959a9aa404f816ee58ec8b7831cf",
+        "SCUNet teacher": "39eb208026b5b20012037f0ed2ae942f563eafd80be84248f6dfc35f2713fce7",
+        "Student e43": "7460ae2072f20042f76f96d5c3ca2960bcde402a9e1f4e04683ac0b6c3cdf8f7"
+      },
+      "reason": "bright/detail coverage",
+      "row": 14,
+      "scene": "uhd_ll_345",
+      "supervision": "uhd_hybrid_paired"
+    }
+  ],
+  "schema_version": 1,
+  "validation": {
+    "clean_supervised_rows": 2378,
+    "selected_rows": 15,
+    "selection_policy": "fixed model-independent allow-list covering all six domains",
+    "total_rows": 2724
+  }
+}

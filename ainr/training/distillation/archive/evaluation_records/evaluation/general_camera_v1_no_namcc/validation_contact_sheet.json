@@ -1,0 +1,148 @@
+{
+  "checkpoint": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/runs/general_camera_v1_no_namcc/general_camera_v1_no_namcc/best.pt",
+  "config_path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/configs/general_camera_v1_no_namcc.yaml",
+  "contact_count_target": 12,
+  "dataset_counts": {
+    "midd": 1782,
+    "polyu": 96,
+    "renoir": 104
+  },
+  "manifest": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/general_camera_v1_no_namcc/cache/manifest.json",
+  "metrics": {
+    "config": {
+      "border_crop": 1,
+      "ssim_sigma": 1.5,
+      "ssim_window_size": 11
+    }
+  },
+  "provenance": {
+    "jpg_sha256": "7f06aea7502d3441643cc785ec0e6ec3b16b2f9d6b381364ad08f4033abaf054",
+    "png_sha256": "9dc9455db589664095b9741c1db4c49984649cf29758c16b077e573adde43671"
+  },
+  "run_name": "general_camera_v1_no_namcc",
+  "selection": [
+    {
+      "dataset": "midd",
+      "index": 0,
+      "psnr_student": 21.17864990234375,
+      "psnr_teacher": 20.01641845703125,
+      "record_id": "0bfc69400ad4f64fd410_00",
+      "scene": "Hynix_SL846/test_set/380",
+      "ssim_student": 0.31564781069755554,
+      "ssim_teacher": 0.2500104606151581
+    },
+    {
+      "dataset": "polyu",
+      "index": 1782,
+      "psnr_student": 35.71543884277344,
+      "psnr_teacher": 35.443607330322266,
+      "record_id": "83fecac922f56892e5f1_00",
+      "scene": "Canon5D2_desk",
+      "ssim_student": 0.9749844074249268,
+      "ssim_teacher": 0.982806384563446
+    },
+    {
+      "dataset": "renoir",
+      "index": 1878,
+      "psnr_student": 40.97401428222656,
+      "psnr_teacher": 38.0536003112793,
+      "record_id": "0eb420f8a90610b0ae16_00",
+      "scene": "Batch_004",
+      "ssim_student": 0.9594111442565918,
+      "ssim_teacher": 0.955044686794281
+    },
+    {
+      "dataset": "midd",
+      "index": 1,
+      "psnr_student": 35.51163101196289,
+      "psnr_teacher": 35.81138229370117,
+      "record_id": "1024616cd1d1ce807402_00",
+      "scene": "Hynix_SL846/test_set/91",
+      "ssim_student": 0.8442633748054504,
+      "ssim_teacher": 0.8467020988464355
+    },
+    {
+      "dataset": "polyu",
+      "index": 1783,
+      "psnr_student": 38.678565979003906,
+      "psnr_teacher": 38.261940002441406,
+      "record_id": "83fecac922f56892e5f1_01",
+      "scene": "Canon5D2_desk",
+      "ssim_student": 0.9871964454650879,
+      "ssim_teacher": 0.9914075136184692
+    },
+    {
+      "dataset": "renoir",
+      "index": 1879,
+      "psnr_student": 38.12901306152344,
+      "psnr_teacher": 38.40359878540039,
+      "record_id": "0eb420f8a90610b0ae16_01",
+      "scene": "Batch_004",
+      "ssim_student": 0.9024399518966675,
+      "ssim_teacher": 0.9066607356071472
+    },
+    {
+      "dataset": "midd",
+      "index": 2,
+      "psnr_student": 36.91611862182617,
+      "psnr_teacher": 36.94026565551758,
+      "record_id": "108be2ecb2c4b65ab1d1_00",
+      "scene": "Hynix_SL846/test_set/625",
+      "ssim_student": 0.8656830191612244,
+      "ssim_teacher": 0.8680316209793091
+    },
+    {
+      "dataset": "polyu",
+      "index": 1784,
+      "psnr_student": 36.59236145019531,
+      "psnr_teacher": 35.915130615234375,
+      "record_id": "83fecac922f56892e5f1_02",
+      "scene": "Canon5D2_desk",
+      "ssim_student": 0.9880804419517517,
+      "ssim_teacher": 0.991944432258606
+    },
+    {
+      "dataset": "renoir",
+      "index": 1880,
+      "psnr_student": 37.27735900878906,
+      "psnr_teacher": 37.29570770263672,
+      "record_id": "0eb420f8a90610b0ae16_02",
+      "scene": "Batch_004",
+      "ssim_student": 0.869659423828125,
+      "ssim_teacher": 0.8741223216056824
+    },
+    {
+      "dataset": "midd",
+      "index": 3,
+      "psnr_student": 35.80466842651367,
+      "psnr_teacher": 35.69907760620117,
+      "record_id": "14a83cd1e3a3e2391f43_00",
+      "scene": "Hynix_SL846/test_set/87",
+      "ssim_student": 0.8234593868255615,
+      "ssim_teacher": 0.8224656581878662
+    },
+    {
+      "dataset": "polyu",
+      "index": 1785,
+      "psnr_student": 38.49327850341797,
+      "psnr_teacher": 38.35958480834961,
+      "record_id": "83fecac922f56892e5f1_03",
+      "scene": "Canon5D2_desk",
+      "ssim_student": 0.9816462397575378,
+      "ssim_teacher": 0.9869024157524109
+    },
+    {
+      "dataset": "renoir",
+      "index": 1881,
+      "psnr_student": 35.95982360839844,
+      "psnr_teacher": 36.172950744628906,
+      "record_id": "0eb420f8a90610b0ae16_03",
+      "scene": "Batch_004",
+      "ssim_student": 0.8500757217407227,
+      "ssim_teacher": 0.8584469556808472
+    }
+  ],
+  "selection_count": 12,
+  "selection_policy": "round-robin by dataset",
+  "validation_samples_total": 1982
+}

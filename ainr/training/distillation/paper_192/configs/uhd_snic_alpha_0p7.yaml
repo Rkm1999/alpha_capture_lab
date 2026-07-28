@@ -1,0 +1,54 @@
+project:
+  name: scunet_mobile_distillation_uhd_snic_alpha_0p7
+  preprocessing_version: mixed_exact_hwc_v1_uhd_teacher_lp8_local128_snic_jpeg95_v3
+  seed: 20260719
+
+data:
+  cache_root: data/uhd_snic_mixed/cache
+  manifest: data/uhd_snic_mixed/cache/manifest.json
+  datasets: [midd, sidd, polyu_sony, nind, uhd_ll, snic_sony]
+  source_preprocessing:
+    legacy: exact_hwc_rgb_float_0_1_v1
+    domain: exact_192_srgb_uhd_teacher_lp8_local128_snic_jpeg95_v3
+
+teacher:
+  repository: ../data/sources/scunet
+  checkpoint: ../data/sources/scunet/model_zoo/scunet_color_real_psnr.pth
+  checkpoint_name: scunet_color_real_psnr
+
+model:
+  base_width: 16
+  expected_parameters: 1963411
+  expected_conv_macs: 1985347584
+  input_shape: [1, 3, 192, 192]
+
+training:
+  run_name: uhd_snic_alpha_0p7
+  epochs: 200
+  batch_size: 16
+  workers: 4
+  samples_per_epoch: 6400
+  learning_rate: 0.0001
+  minimum_learning_rate: 0.00001
+  optimizer: Adam
+  amp: true
+  gradient_clip_norm: 0.1
+  checkpoint_interval: 10
+  alpha: 0.7
+  dataset_sampling_weights:
+    midd: 0.15
+    sidd: 0.15
+    polyu_sony: 0.10
+    nind: 0.10
+    uhd_ll: 0.20
+    snic_sony: 0.30
+  selection_datasets: [midd, sidd, polyu_sony, uhd_ll, snic_sony]
+
+metrics:
+  border_crop: 1
+  ssim_window_size: 11
+  ssim_sigma: 1.5
+
+outputs:
+  runs: runs/domain_expansion
+  evaluation: evaluation/domain_expansion

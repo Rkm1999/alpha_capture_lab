@@ -1,0 +1,8 @@
+{
+  "epoch": 30,
+  "epochs": 60,
+  "error": "KeyboardInterrupt: ",
+  "run_name": "general_camera_v68_w40_expansion_warmup",
+  "state": "failed",
+  "updated_at": "2026-07-26T16:29:54.676670+00:00"
+}

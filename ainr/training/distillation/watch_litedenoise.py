@@ -21,6 +21,8 @@ def main() -> None:
     parser.add_argument("--epochs", type=int, default=240)
     parser.add_argument("--warmup-epochs", type=int, default=0)
     parser.add_argument("--interval", type=float, default=5.0)
+    parser.add_argument("--epoch-seconds", type=float,
+                        help="Measured epoch duration for a reliable ETA")
     parser.add_argument("--once", action="store_true")
     args = parser.parse_args()
     started = args.run.stat().st_mtime if args.run.exists() else time.time()
@@ -36,12 +38,20 @@ def main() -> None:
             warmup = [item for item in history if item["epoch"] <= args.warmup_epochs]
             distilled = [item for item in history if item["epoch"] > args.warmup_epochs]
             best_clean = max(warmup or history, key=lambda item: item["clean_psnr"])
-            best_teacher = max(distilled or history, key=lambda item: item["teacher_psnr"])
+            monitored_metric = "weakness_score" if "weakness_score" in current else "teacher_psnr"
+            best_distilled = max(distilled or history, key=lambda item: item[monitored_metric])
+            residual_bands = {
+                name: current[f"{name}_similarity"]
+                for name in ("fine", "medium", "coarse", "very_coarse")
+                if f"{name}_similarity" in current
+            }
+            weakest_name, weakest_value = min(residual_bands.items(), key=lambda item: item[1]) \
+                if residual_bands else ("n/a", 0.0)
             completed = int(current["epoch"])
             elapsed = now - started
             # A resumed run changes the run directory timestamp. Use the measured
             # workstation rate instead of presenting a misleadingly short ETA.
-            per_epoch = 26.0 if completed > 1 and elapsed / completed < 10.0 else elapsed / completed
+            per_epoch = args.epoch_seconds or elapsed / completed
             eta = per_epoch * (args.epochs - completed)
             lines = [
                 "LiteDenoise training",
@@ -49,10 +59,21 @@ def main() -> None:
                 f"Clean PSNR     {current['clean_psnr']:.3f} dB",
                 f"Teacher PSNR   {current['teacher_psnr']:.3f} dB",
                 f"Clean L1       {current['clean_l1']:.6f}",
+                *( [
+                    f"Selection score {current['weakness_score']:.2%}",
+                    f"Weakest band    {weakest_name} ({weakest_value:.2%})",
+                    f"Fine residual  {current['fine_similarity']:.2%}",
+                    f"Medium residual {current['medium_similarity']:.2%}",
+                    f"Coarse residual {current['coarse_similarity']:.2%}",
+                    f"V.coarse resid. {current['very_coarse_similarity']:.2%}",
+                ] if monitored_metric == "weakness_score" else [] ),
                 f"Learning rate  {current['learning_rate']:.8f}",
                 *( [f"Best warmup    {best_clean['clean_psnr']:.3f} dB clean at epoch {best_clean['epoch']}"]
                    if warmup else [] ),
-                f"Best distilled {best_teacher['teacher_psnr']:.3f} dB teacher at epoch {best_teacher['epoch']}",
+                (f"Best distilled {best_distilled['weakness_score']:.2%} selection at epoch "
+                 f"{best_distilled['epoch']}" if monitored_metric == "weakness_score" else
+                 f"Best distilled {best_distilled['teacher_psnr']:.3f} dB teacher at epoch "
+                 f"{best_distilled['epoch']}"),
                 f"Epoch time     about {duration(per_epoch)}",
                 f"ETA            {duration(eta)} ({datetime.fromtimestamp(now + eta):%Y-%m-%d %H:%M:%S})",
             ]

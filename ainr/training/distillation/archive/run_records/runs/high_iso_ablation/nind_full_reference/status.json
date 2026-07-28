@@ -1,0 +1,74 @@
+{
+  "best_selection_psnr": 41.09482821083625,
+  "epoch": 200,
+  "epochs": 200,
+  "last_validation": {
+    "by_dataset": {
+      "midd": {
+        "noisy_psnr": 36.84669137158931,
+        "noisy_ssim": 0.8845794384447944,
+        "samples": 302,
+        "student_psnr": 41.302086091199456,
+        "student_ssim": 0.9633687337897471,
+        "student_teacher_psnr": 44.56411974951131,
+        "student_teacher_ssim": 0.9857077069629897,
+        "teacher_psnr": 39.95353101262983,
+        "teacher_ssim": 0.9535056303273763
+      },
+      "nind": {
+        "noisy_psnr": 23.501593182726605,
+        "noisy_ssim": 0.4336549415048666,
+        "samples": 164,
+        "student_psnr": 32.350194907769925,
+        "student_ssim": 0.84776392742628,
+        "student_teacher_psnr": 36.73692695105948,
+        "student_teacher_ssim": 0.9066290850864678,
+        "teacher_psnr": 31.6181626436187,
+        "teacher_ssim": 0.7961772262777497
+      },
+      "polyu_sony": {
+        "noisy_psnr": 29.969078481197357,
+        "noisy_ssim": 0.8020184133201838,
+        "samples": 32,
+        "student_psnr": 34.642457604408264,
+        "student_ssim": 0.9674917571246624,
+        "student_teacher_psnr": 44.23250126838684,
+        "student_teacher_ssim": 0.9875947833061218,
+        "teacher_psnr": 35.40513986349106,
+        "teacher_ssim": 0.9756060317158699
+      },
+      "sidd": {
+        "noisy_psnr": 29.537884072823957,
+        "noisy_ssim": 0.5746786842673001,
+        "samples": 352,
+        "student_psnr": 41.35307631709359,
+        "student_ssim": 0.9495768211781979,
+        "student_teacher_psnr": 43.66319369186055,
+        "student_teacher_ssim": 0.9801400043070316,
+        "teacher_psnr": 39.37951997193423,
+        "teacher_ssim": 0.9352034980600531
+      }
+    },
+    "noisy_psnr": 30.98624444849351,
+    "noisy_ssim": 0.6661339845946607,
+    "samples": 850,
+    "seconds": 2.532909563044086,
+    "selection_datasets": [
+      "midd",
+      "polyu_sony",
+      "sidd"
+    ],
+    "selection_samples": 686,
+    "selection_student_psnr": 41.01759694825108,
+    "selection_student_ssim": 0.9564841616431756,
+    "student_psnr": 39.34529820161707,
+    "student_ssim": 0.9355075517472099,
+    "student_teacher_psnr": 42.66835812288172,
+    "student_teacher_ssim": 0.9682155435751466,
+    "teacher_psnr": 37.9363535824944,
+    "teacher_ssim": 0.9164032821181942
+  },
+  "mode": "nind_full_reference",
+  "state": "complete",
+  "updated_at": "2026-07-19T18:10:06.340628+00:00"
+}

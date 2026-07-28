@@ -1,0 +1,112 @@
+{
+  "best_selection_psnr": 38.41515131738392,
+  "epoch": 200,
+  "epochs": 200,
+  "last_validation": {
+    "by_dataset": {
+      "midd": {
+        "clean_samples": 302,
+        "noisy_psnr": 36.84669137158931,
+        "noisy_ssim": 0.8845794384447944,
+        "output_luminance_drift": 0.0013461557836796077,
+        "samples": 302,
+        "student_psnr": 41.245991631059454,
+        "student_ssim": 0.9630388374754925,
+        "student_teacher_psnr": 44.899510352027335,
+        "student_teacher_ssim": 0.9869093190360543,
+        "teacher_psnr": 39.95353101262983,
+        "teacher_ssim": 0.9535056303273763
+      },
+      "nind": {
+        "clean_samples": 164,
+        "noisy_psnr": 23.501593182726605,
+        "noisy_ssim": 0.4336549415048666,
+        "output_luminance_drift": 0.007241992223099238,
+        "samples": 164,
+        "student_psnr": 32.51459432229763,
+        "student_ssim": 0.8512647519024407,
+        "student_teacher_psnr": 36.71306664769242,
+        "student_teacher_ssim": 0.907190048249393,
+        "teacher_psnr": 31.6181626436187,
+        "teacher_ssim": 0.7961772262777497
+      },
+      "polyu_sony": {
+        "clean_samples": 32,
+        "noisy_psnr": 29.969078481197357,
+        "noisy_ssim": 0.8020184133201838,
+        "output_luminance_drift": 0.0010599186643958092,
+        "samples": 32,
+        "student_psnr": 35.015850841999054,
+        "student_ssim": 0.9727649837732315,
+        "student_teacher_psnr": 45.27552843093872,
+        "student_teacher_ssim": 0.9930488932877779,
+        "teacher_psnr": 35.40513986349106,
+        "teacher_ssim": 0.9756060317158699
+      },
+      "sidd": {
+        "clean_samples": 352,
+        "noisy_psnr": 29.537884072823957,
+        "noisy_ssim": 0.5746786842673001,
+        "output_luminance_drift": 0.0036040972468485547,
+        "samples": 352,
+        "student_psnr": 41.35209188678048,
+        "student_ssim": 0.9493434938856147,
+        "student_teacher_psnr": 43.624480897730045,
+        "student_teacher_ssim": 0.9789284320378845,
+        "teacher_psnr": 39.37951997193423,
+        "teacher_ssim": 0.9352034980600531
+      },
+      "snic_sony": {
+        "clean_samples": 416,
+        "noisy_psnr": 25.776477914590103,
+        "noisy_ssim": 0.4983885701602468,
+        "output_luminance_drift": 0.008679993432731582,
+        "samples": 416,
+        "student_psnr": 34.87795769709807,
+        "student_ssim": 0.8986902888864279,
+        "student_teacher_psnr": 39.24509319433799,
+        "student_teacher_ssim": 0.9773716425093321,
+        "teacher_psnr": 34.28782373208266,
+        "teacher_ssim": 0.8986006651360255
+      },
+      "uhd_ll": {
+        "clean_samples": 254,
+        "noisy_psnr": 36.083751610883574,
+        "noisy_ssim": 0.8618187432683359,
+        "output_luminance_drift": 0.002018004341516644,
+        "samples": 600,
+        "student_psnr": 39.41346399802861,
+        "student_ssim": 0.9390861619645217,
+        "student_teacher_psnr": 50.26020046869914,
+        "student_teacher_ssim": 0.9904018192489942,
+        "teacher_psnr": 39.53761644438496,
+        "teacher_ssim": 0.9407989705406775
+      }
+    },
+    "noisy_psnr": 30.41223388345618,
+    "noisy_ssim": 0.6529246663699221,
+    "output_luminance_drift": 0.004136369384960985,
+    "samples": 1866,
+    "seconds": 6.0081116339424625,
+    "selection_aggregation": "equal_mean_of_dataset_means",
+    "selection_datasets": [
+      "midd",
+      "polyu_sony",
+      "sidd",
+      "snic_sony",
+      "uhd_ll"
+    ],
+    "selection_samples": 1356,
+    "selection_student_psnr": 38.381071210993134,
+    "selection_student_ssim": 0.9445847531970577,
+    "student_psnr": 38.148274190802326,
+    "student_ssim": 0.9263984097854088,
+    "student_teacher_psnr": 44.40906124994047,
+    "student_teacher_ssim": 0.97749938357857,
+    "teacher_psnr": 37.20538802272395,
+    "teacher_ssim": 0.9156076348778841
+  },
+  "run_name": "uhd_snic_alpha_0p7",
+  "state": "complete",
+  "updated_at": "2026-07-20T02:42:43.185132+00:00"
+}
