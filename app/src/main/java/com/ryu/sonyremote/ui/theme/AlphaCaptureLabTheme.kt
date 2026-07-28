@@ -76,7 +76,7 @@ private val AppShapes = Shapes(
 )
 
 @Composable
-fun SonyRemoteTheme(content: @Composable () -> Unit) {
+fun AlphaCaptureLabTheme(content: @Composable () -> Unit) {
     MaterialTheme(
         colorScheme = if (isSystemInDarkTheme()) DarkColors else LightColors,
         typography = AppTypography,

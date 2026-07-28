@@ -1,7 +1,7 @@
 # AI NR Engine Test v0.1 Beta 3
 
 This prerelease is a standalone engineering harness for validating the SCUNet
-denoising pipeline before it is integrated into Remote Capture. It is not a
+denoising pipeline before it is integrated into Alpha Capture Lab. It is not a
 separate production product.
 
 ## Android artifact

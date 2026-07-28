@@ -36,8 +36,9 @@ class JpegMediaStore(private val contentResolver: ContentResolver) {
         contentResolver.query(
             collection,
             projection,
-            "${MediaStore.Images.Media.RELATIVE_PATH}=?",
-            arrayOf("${Environment.DIRECTORY_PICTURES}/Sony Remote/"),
+            "(${MediaStore.Images.Media.RELATIVE_PATH}=? OR " +
+                "${MediaStore.Images.Media.RELATIVE_PATH}=?)",
+            arrayOf("$CURRENT_RELATIVE_PATH/", "$LEGACY_RELATIVE_PATH/"),
             "${MediaStore.Images.Media.DATE_ADDED} ASC",
         )?.use { cursor ->
             val idColumn = cursor.getColumnIndexOrThrow(MediaStore.Images.Media._ID)
@@ -91,7 +92,7 @@ class JpegMediaStore(private val contentResolver: ContentResolver) {
             put(MediaStore.Images.Media.MIME_TYPE, if (format == OutputImageFormat.Webp) "image/webp" else "image/jpeg")
             put(
                 MediaStore.Images.Media.RELATIVE_PATH,
-                "${Environment.DIRECTORY_PICTURES}/Sony Remote",
+                CURRENT_RELATIVE_PATH,
             )
             put(MediaStore.Images.Media.IS_PENDING, 1)
         }
@@ -175,6 +176,8 @@ class JpegMediaStore(private val contentResolver: ContentResolver) {
     }.getOrNull()
 
     private companion object {
+        val CURRENT_RELATIVE_PATH = "${Environment.DIRECTORY_PICTURES}/Alpha Capture Lab"
+        val LEGACY_RELATIVE_PATH = "${Environment.DIRECTORY_PICTURES}/Sony Remote"
         val FILE_PREFIX = Regex("[A-Z0-9_]{1,32}")
         const val LUT_COMMENT_PREFIX = "REMOTE_CAPTURE_LUT:"
         val COPIED_EXIF_TAGS = listOf(

@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
     <key>CFBundleDisplayName</key>
-    <string>Remote Capture</string>
+    <string>Alpha Capture Lab</string>
     <key>NSLocalNetworkUsageDescription</key>
-    <string>Remote Capture connects directly to your camera over its Wi-Fi network.</string>
+    <string>Alpha Capture Lab connects directly to your camera over its Wi-Fi network.</string>
     <key>NSPhotoLibraryAddUsageDescription</key>
-    <string>Remote Capture can save downloaded camera photos to your photo library.</string>
+    <string>Alpha Capture Lab can save downloaded camera photos to your photo library.</string>
     <key>NSLocationWhenInUseUsageDescription</key>
-    <string>Remote Capture uses your location only when geotagging downloaded photos.</string>
+    <string>Alpha Capture Lab uses your location only when geotagging downloaded photos.</string>
     <key>NSAppTransportSecurity</key>
     <dict>
         <key>NSAllowsLocalNetworking</key>

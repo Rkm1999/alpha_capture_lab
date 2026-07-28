@@ -125,7 +125,7 @@ import kotlinx.coroutines.withContext
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun CameraRemoteApp(
+fun AlphaCaptureLabApp(
     viewModel: CameraViewModel,
     onOpenWifi: () -> Unit,
     onFindCamera: () -> Unit,
@@ -210,7 +210,7 @@ fun CameraRemoteApp(
                     Column {
                         Text(
                             text = ready?.device?.modelName?.takeUnless { it == "Unknown model" }
-                                ?: "Remote Capture",
+                                ?: "Alpha Capture Lab",
                             style = MaterialTheme.typography.titleMedium,
                             fontWeight = FontWeight.SemiBold,
                         )

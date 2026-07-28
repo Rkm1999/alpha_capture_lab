@@ -3,10 +3,10 @@
 import PackageDescription
 
 let package = Package(
-    name: "RemoteCapture",
+    name: "AlphaCaptureLab",
     platforms: [.iOS(.v17)],
     products: [
-        .library(name: "RemoteCapture", targets: ["RemoteCapture"]),
+        .library(name: "AlphaCaptureLab", targets: ["AlphaCaptureLab"]),
     ],
     dependencies: [
         .package(url: "https://github.com/SDWebImage/libwebp-Xcode.git", exact: "1.5.0"),
@@ -26,13 +26,15 @@ let package = Package(
             ]
         ),
         .target(
-            name: "RemoteCapture",
+            name: "AlphaCaptureLab",
             dependencies: ["RawRefineryRuntime", .product(name: "libwebp", package: "libwebp-Xcode")],
+            path: "Sources/AlphaCaptureLab",
             resources: [.process("Resources")]
         ),
         .testTarget(
-            name: "RemoteCaptureTests",
-            dependencies: ["RemoteCapture"]
+            name: "AlphaCaptureLabTests",
+            dependencies: ["AlphaCaptureLab"],
+            path: "Tests/AlphaCaptureLabTests"
         ),
     ]
 )

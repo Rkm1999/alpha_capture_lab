@@ -29,9 +29,9 @@ import java.io.ByteArrayOutputStream
 import java.io.InputStream
 import java.util.zip.ZipInputStream
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.ryu.sonyremote.ui.CameraRemoteApp
+import com.ryu.sonyremote.ui.AlphaCaptureLabApp
 import com.ryu.sonyremote.ui.CameraViewModel
-import com.ryu.sonyremote.ui.theme.SonyRemoteTheme
+import com.ryu.sonyremote.ui.theme.AlphaCaptureLabTheme
 
 class MainActivity : ComponentActivity() {
     private var incomingLutBatches by mutableStateOf<List<List<Uri>>>(emptyList())
@@ -41,8 +41,8 @@ class MainActivity : ComponentActivity() {
         enqueueSharedLuts(intent)
         enableEdgeToEdge()
         setContent {
-            SonyRemoteTheme {
-                RemoteRoot(
+            AlphaCaptureLabTheme {
+                AlphaCaptureLabRoot(
                     incomingLutUris = incomingLutBatches.firstOrNull().orEmpty(),
                     onIncomingLutsConsumed = {
                         incomingLutBatches = incomingLutBatches.drop(1)
@@ -66,7 +66,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun RemoteRoot(
+private fun AlphaCaptureLabRoot(
     incomingLutUris: List<Uri>,
     onIncomingLutsConsumed: () -> Unit,
     cameraViewModel: CameraViewModel = viewModel(),
@@ -111,7 +111,7 @@ private fun RemoteRoot(
         }
     }
 
-    CameraRemoteApp(
+    AlphaCaptureLabApp(
         viewModel = cameraViewModel,
         onOpenWifi = {
             val panelIntent = Intent(Settings.Panel.ACTION_WIFI)

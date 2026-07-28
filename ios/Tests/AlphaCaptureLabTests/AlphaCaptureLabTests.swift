@@ -1,8 +1,8 @@
 import Foundation
 import XCTest
-@testable import RemoteCapture
+@testable import AlphaCaptureLab
 
-final class RemoteCaptureTests: XCTestCase {
+final class AlphaCaptureLabTests: XCTestCase {
 func testCubeLUTParsesExpectedDimension() throws {
     let values = (0..<8).map { index in
         "\((index >> 0) & 1) \((index >> 1) & 1) \((index >> 2) & 1)"

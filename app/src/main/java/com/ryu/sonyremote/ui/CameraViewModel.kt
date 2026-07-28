@@ -667,7 +667,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
                 if (!replacePendingPhysicalCapture(saved)) {
                     appendSavedAsset(saved, CaptureAssetKind.Photo, "Photo")
                 }
-                _message.value = UiMessage("Photo downloaded to Pictures/Sony Remote")
+                _message.value = UiMessage("Photo downloaded to Pictures/Alpha Capture Lab")
                 repository.awaitPhotoCaptureReady()
             } finally {
                 placeholder?.takeUnless(Bitmap::isRecycled)?.recycle()
@@ -840,7 +840,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
                     processingProgress = null,
                 ))
                 _message.value = if (restoreFailure == null) {
-                    UiMessage("Panorama saved to Pictures/Sony Remote")
+                    UiMessage("Panorama saved to Pictures/Alpha Capture Lab")
                 } else {
                     UiMessage(
                         "Panorama saved, but the camera did not restore Original postview size",
@@ -1984,7 +1984,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
             if (!replacePendingPhysicalCapture(capture)) {
                 appendSavedAsset(capture, CaptureAssetKind.Photo, "Camera")
             }
-            _message.value = UiMessage("Camera shutter photo saved to Pictures/Sony Remote")
+            _message.value = UiMessage("Camera shutter photo saved to Pictures/Alpha Capture Lab")
         } catch (error: Throwable) {
             if (error is CancellationException) throw error
             _message.value = UiMessage(
@@ -2007,7 +2007,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
         } catch (error: Throwable) {
             if (error is CancellationException) throw error
             _message.value = UiMessage(
-                "$alignmentMessage. Photo is saved in Pictures/Sony Remote but could not be shown in the filmstrip.",
+                "$alignmentMessage. Photo is saved in Pictures/Alpha Capture Lab but could not be shown in the filmstrip.",
                 true,
             )
         }
@@ -2590,7 +2590,7 @@ class CameraViewModel(application: Application) : AndroidViewModel(application) 
             _filmstrip.value.firstOrNull { it.id == captureId }?.let { updated ->
                 queueBakedLutDerivative(updated, imported.jpeg, originalResolution = true)
             }
-            _message.value = UiMessage("Original imported to Pictures/Sony Remote")
+            _message.value = UiMessage("Original imported to Pictures/Alpha Capture Lab")
         } catch (error: Throwable) {
             if (error is CancellationException) {
                 val userCancelled = userCancelledOriginalImports.remove(captureId)

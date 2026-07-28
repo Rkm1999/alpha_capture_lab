@@ -23,7 +23,7 @@
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="false"
         android:icon="@drawable/ic_launcher"
-        android:label="Remote Capture"
+        android:label="Alpha Capture Lab"
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:roundIcon="@drawable/ic_launcher"

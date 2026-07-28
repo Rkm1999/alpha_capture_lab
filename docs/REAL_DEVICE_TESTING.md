@@ -182,7 +182,8 @@ whether `Original` appears in `getAvailablePostviewImageSize`.
 
 ## Storage And Failure Modes
 
-- Confirm JPEGs appear in `Pictures/Sony Remote` and retain EXIF metadata.
+- Confirm new JPEGs appear in `Pictures/Alpha Capture Lab`, legacy
+  `Pictures/Sony Remote` captures remain visible, and both retain EXIF metadata.
 - Fill phone storage and camera card independently and confirm actionable errors.
 - Interrupt a JPEG download and confirm no pending/broken gallery item remains.
 - Export diagnostics and confirm there are no image bytes or Wi-Fi credentials.

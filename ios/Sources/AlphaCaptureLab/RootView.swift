@@ -35,7 +35,7 @@ private struct CameraView: View {
                     LUTStrip(camera: camera, showImporter: $showLUTImporter, showEditor: $showLUTEditor)
                 }
             }
-            .navigationTitle("Remote Capture")
+            .navigationTitle("Alpha Capture Lab")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .topBarLeading) {

@@ -14,6 +14,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "SonyCameraRemote"
+rootProject.name = "AlphaCaptureLab"
 include(":app")
-

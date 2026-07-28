@@ -1,7 +1,7 @@
 import SwiftUI
 
 @main
-struct RemoteCaptureApp: App {
+struct AlphaCaptureLabApp: App {
     @StateObject private var camera = CameraController()
 
     var body: some Scene {

@@ -2,7 +2,7 @@
 
 Standalone Android and iOS apps for running the fixed-shape SCUNet real-image
 denoiser over a full-resolution image. This directory is an engineering test
-harness for the AI NR pipeline planned for Remote Capture, not a separate
+harness for the AI NR pipeline planned for Alpha Capture Lab, not a separate
 production application. Prerelease packaging notes are in
 [`RELEASE.md`](RELEASE.md).
 

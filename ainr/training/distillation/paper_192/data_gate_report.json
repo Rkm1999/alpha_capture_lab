@@ -4,7 +4,7 @@
     "input/float32": 4400,
     "teacher/float16": 4400
   },
-  "contact_sheet": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data_gate_contact_sheet.jpg",
+  "contact_sheet": "/home/ryu/projects/alpha-capture-lab/ainr/training/distillation/paper_192/data_gate_contact_sheet.jpg",
   "counts": {
     "train/midd": 1538,
     "train/sidd": 2208,
@@ -117,7 +117,7 @@
     "artifact": "../data_gate_contact_sheet.jpg",
     "date": "2026-07-19",
     "notes": "Edges and framing align at pixel scale. No crop shift or ghosted registration was visible. This public-data signoff is not a substitute for target-camera paired validation.",
-    "path": "/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192/data/visual_alignment_signoff.json",
+    "path": "/home/ryu/projects/alpha-capture-lab/ainr/training/distillation/paper_192/data/visual_alignment_signoff.json",
     "reviewer": "Codex visual inspection",
     "scope": "12 deterministic held-out MIDD/SIDD noisy, SCUNet, and clean triples"
   },

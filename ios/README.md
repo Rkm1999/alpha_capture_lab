@@ -1,6 +1,6 @@
-# Remote Capture for iOS
+# Alpha Capture Lab for iOS
 
-Native SwiftUI port of Remote Capture, built and sideloaded from Linux with
+Native SwiftUI port of Alpha Capture Lab, built and sideloaded from Linux with
 [xtool](https://github.com/xtool-org/xtool). The camera transport has been
 validated against a Sony ILCE-6300 over its direct Wi-Fi network.
 

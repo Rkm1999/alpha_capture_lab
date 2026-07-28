@@ -1,6 +1,6 @@
-# Remote Capture
+# Alpha Capture Lab
 
-Remote Capture is a native Android still-photography tool for compatible Sony
+Alpha Capture Lab is a native Android still-photography tool for compatible Sony
 cameras connected through the camera's Wi-Fi access point. It uses an
 independently written implementation of Sony's legacy ScalarWebAPI/Camera Remote
 API and exposes only capabilities reported by the connected camera.
@@ -42,7 +42,9 @@ API and exposes only capabilities reported by the connected camera.
 - Preview and capability polling pause while the app is backgrounded
 
 The app never requests general photo-library access. Captured JPEGs are written
-to `Pictures/Sony Remote` using MediaStore. Diagnostic logs contain event names,
+to `Pictures/Alpha Capture Lab` using MediaStore. The gallery also reads the
+legacy `Pictures/Sony Remote` folder so upgrades retain earlier captures.
+Diagnostic logs contain event names,
 errors, model/app versions, and byte/API counts; they do not contain images,
 Wi-Fi passwords, or analytics identifiers.
 
@@ -50,7 +52,7 @@ Wi-Fi passwords, or analytics identifiers.
 
 ### Camera connection and offline gallery
 
-<img src="docs/screenshots/startup.png" alt="Remote Capture connection screen with Gallery, Wi-Fi settings, and Find camera controls" width="320">
+<img src="docs/screenshots/startup.png" alt="Alpha Capture Lab connection screen with Gallery, Wi-Fi settings, and Find camera controls" width="320">
 
 Start the camera's remote application, join its `DIRECT-...` Wi-Fi network, and
 select **Find camera**. The persistent gallery remains available without a camera
@@ -101,7 +103,7 @@ saved-image EXIF.
 
 ### Persistent gallery and computational results
 
-<img src="docs/screenshots/gallery.png" alt="Three-column Remote Capture gallery containing photos and a Live ND result" width="320">
+<img src="docs/screenshots/gallery.png" alt="Three-column Alpha Capture Lab gallery containing photos and a Live ND result" width="320">
 
 The MediaStore-backed gallery shows captures from previous sessions in a
 three-column grid and respects camera orientation. Live ND, Live Composite, and
@@ -137,7 +139,7 @@ directory can be committed to GitHub.
 
 ## Compatibility
 
-Remote Capture requires Android 10 or newer, Wi-Fi, and a Sony camera application
+Alpha Capture Lab requires Android 10 or newer, Wi-Fi, and a Sony camera application
 that exposes the legacy ScalarWebAPI camera service. Compatibility is
 capability-driven: unavailable camera APIs result in unavailable or read-only UI
 controls rather than assumed support.
@@ -161,11 +163,12 @@ lens, exposure mode, drive mode, and current camera state.
 1. On the camera, open its application list or remote-control function.
 2. Start `Smart Remote Embedded` or an already-installed `Smart Remote Control`.
 3. On Android, join the `DIRECT-...` network and enter the password shown by the camera.
-4. Return to Remote Capture and tap **Find camera**.
+4. Return to Alpha Capture Lab and tap **Find camera**.
 
 ## Privacy And Files
 
-Captured and processed JPEGs are saved to `Pictures/Sony Remote`. Geotagging is
+Captured and processed JPEGs are saved to `Pictures/Alpha Capture Lab`.
+Existing captures under `Pictures/Sony Remote` remain visible. Geotagging is
 off by default. Enabling it requests Android precise-location permission and
 adds the phone's current latitude, longitude, and available altitude to saved
 image EXIF. Location is not sent to a server or written to diagnostic logs.
@@ -337,7 +340,7 @@ Relevant sources:
   measured heap, storage, pixel, and edge limits. Large parallax, low-detail
   overlap, or very long sweeps are rejected.
 - Camera-body panorama source JPEGs are saved to MediaStore before alignment.
-  They remain in `Pictures/Sony Remote` if alignment fails or the panorama is
+  They remain in `Pictures/Alpha Capture Lab` if alignment fails or the panorama is
   discarded; Cancel prevents only the final stitched JPEG from being saved.
 - `Original` transfer is requested only when reported. For 2M-only events, the
   action is enabled only when a retained URL or advertised Contents Transfer

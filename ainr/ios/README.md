@@ -142,7 +142,7 @@ This project uses [xtool](https://github.com/xtool-org/xtool) and a local Darwin
 Swift SDK:
 
 ```bash
-cd /home/ryu/projects/sony-camera-remote/ainr/ios
+cd /home/ryu/projects/alpha-capture-lab/ainr/ios
 xtool dev build --configuration release --ipa
 ```
 

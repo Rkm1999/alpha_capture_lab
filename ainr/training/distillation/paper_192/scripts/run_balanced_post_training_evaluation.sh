@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-root="/home/ryu/projects/sony-camera-remote/ainr/training/distillation/paper_192"
+root="/home/ryu/projects/alpha-capture-lab/ainr/training/distillation/paper_192"
 python_bin="/home/ryu/.cache/scunet-int8-venv/bin/python"
 run="$root/runs/general_camera_v1_no_namcc/run_balanced_shadow_multiscale_v1"
 evaluation="$root/evaluation/general_camera_v1_no_namcc/run_balanced_shadow_multiscale_v1"

@@ -16,8 +16,8 @@ from pathlib import Path
 
 API = "https://commons.wikimedia.org/w/api.php"
 USER_AGENT = (
-    "SonyCameraRemote-AINR/0.1 "
-    "(https://github.com/Rkm1999/remote_capturing_tool; dataset preparation)"
+    "AlphaCaptureLab-AINR/0.1 "
+    "(https://github.com/Rkm1999/alpha_capture_lab; dataset preparation)"
 )
 
 

@@ -7,15 +7,15 @@ import android.os.Bundle
 class LutShareActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        forwardToRemoteCapture(intent)
+        forwardToAlphaCaptureLab(intent)
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        forwardToRemoteCapture(intent)
+        forwardToAlphaCaptureLab(intent)
     }
 
-    private fun forwardToRemoteCapture(sharedIntent: Intent) {
+    private fun forwardToAlphaCaptureLab(sharedIntent: Intent) {
         startActivity(Intent(sharedIntent).apply {
             setClass(this@LutShareActivity, MainActivity::class.java)
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP)
