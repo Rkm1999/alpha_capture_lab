@@ -1,3 +1,4 @@
 version: 1
 bundleID: com.ryu.remotecapture.ios.beta
 infoPath: Info.plist
+iconPath: AppIcon.png

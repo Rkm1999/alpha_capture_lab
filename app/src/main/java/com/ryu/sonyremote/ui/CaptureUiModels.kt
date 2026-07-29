@@ -4,7 +4,9 @@ import android.graphics.Bitmap
 import android.net.Uri
 import com.ryu.sonyremote.data.CaptureWorkspace
 import com.ryu.sonyremote.processing.LutPreset
-import com.ryu.sonyremote.processing.RawRefineryDenoiseModel
+import com.ryu.sonyremote.processing.AinrDenoiseModel
+import com.ryu.sonyremote.processing.EditorGeometry
+import com.ryu.sonyremote.processing.AinrProgress
 import com.ryu.sonyremote.processing.CubeLut
 import com.ryu.sonyremote.model.CameraSetting
 import com.ryu.sonyremote.model.CameraSettingId
@@ -247,6 +249,9 @@ data class FilmstripItem(
     val relatedSourceIds: List<String> = emptyList(),
     val appliedLutName: String? = null,
     val appliedLutStrength: Float? = null,
+    val appliedDenoiseModel: AinrDenoiseModel? = null,
+    val appliedDenoiseStrength: Float? = null,
+    val appliedGeometry: EditorGeometry? = null,
 )
 
 data class CaptureSessionUiState(
@@ -367,6 +372,8 @@ internal fun photoSettingsAfterShutterControls(
 
 data class LutEditorUiState(
     val item: FilmstripItem,
+    val source: EditorImageSource = EditorImageSource.Processed,
+    val hasRetainedOriginal: Boolean = false,
     val preset: LutPreset = LutPreset.Neutral,
     val intensity: Float = 1f,
     val exposure: Float = 0f,
@@ -374,16 +381,37 @@ data class LutEditorUiState(
     val saturation: Float = 0f,
     val denoiseEnabled: Boolean = false,
     val denoiseStrength: Float = 0.6f,
-    val denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
-    val sharpenEnabled: Boolean = false,
-    val sharpenStrength: Float = 0.15f,
+    val denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
+    val geometry: EditorGeometry = EditorGeometry(),
     val lutThumbnails: Map<LutPreset, Bitmap> = emptyMap(),
     val importedLuts: List<ImportedLut> = emptyList(),
     val selectedImportedLabel: String? = null,
     val importedLutThumbnails: Map<String, Bitmap> = emptyMap(),
+    val isLutThumbnailsLoading: Boolean = false,
+    val originalPreview: Bitmap? = null,
     val preview: Bitmap? = null,
     val isProcessing: Boolean = false,
+    val ainrProgress: AinrProgress? = null,
+    val canUndo: Boolean = false,
+    val canRedo: Boolean = false,
 ) {
     val effectiveDenoiseStrength: Float get() = denoiseStrength.takeIf { denoiseEnabled } ?: 0f
-    val effectiveSharpenStrength: Float get() = sharpenStrength.takeIf { sharpenEnabled } ?: 0f
+    val hasEdits: Boolean
+        get() = selectedImportedLabel != null || preset != LutPreset.Neutral ||
+            exposure != 0f || contrast != 0f || saturation != 0f ||
+            denoiseEnabled || geometry.hasChanges
+}
+
+enum class EditorImageSource(val label: String) {
+    Processed("Processed"),
+    Original("Original"),
+}
+
+enum class EditorTool(val label: String) {
+    Adjust("Adjust"),
+    Lut("LUT"),
+    Denoise("Denoise"),
+    Crop("Crop"),
+    Rotate("Rotate"),
+    Perspective("Perspective"),
 }

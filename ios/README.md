@@ -15,9 +15,10 @@ validated against a Sony ILCE-6300 over its direct Wi-Fi network.
   and source-frame inspection for computational captures
 - Built-in and imported `.cube` LUTs, including multi-LUT Lumix Lab ZIP imports,
   live-view preview, per-LUT strength, baked output, and reversible editing
-- Full-screen nondestructive editor with basic adjustments, LUTs, RawRefinery
-  Light denoise, and Deep Sharpen
-- ONNX Runtime Core ML execution with automatic CPU fallback
+- Full-screen nondestructive editor with basic adjustments, LUTs, Distilled or
+  full SCUNet AINR, crop, rotate, perspective, comparison, undo, and redo
+- Shared Core ML AINR runtime with automatic Apple Neural Engine selection and
+  GPU fallback, full-resolution tile progress, and cancellation
 - JPEG/WebP output when supported by ImageIO, optional phone GPS EXIF, automatic
   denoise policy, live-view timeout, paired-camera memory, and reachability-based
   auto-connect
@@ -26,6 +27,13 @@ The iOS sandbox cannot silently join an arbitrary camera access point. The user
 must approve/join the camera Wi-Fi in iOS; auto-connect starts the remote session
 when a previously paired camera endpoint becomes reachable.
 
+Automatic denoise can run for every imported photo or above a selected EXIF ISO.
+It processes ordinary photos and only the final output from Live ND, Live
+Composite, and Panorama. Source frames and private originals stay untouched.
+The selected model and strength are retained with gallery records so editing can
+restore the original, change model, or blend strength without destructively
+stacking denoise passes.
+
 ## Linux build
 
 Install xtool and its Darwin Swift SDK, then install the ignored ONNX Runtime
@@ -33,7 +41,7 @@ binary dependency and build:
 
 ```bash
 cd ios
-./scripts/install-onnxruntime.sh
+./scripts/install-opencv.sh
 xtool dev build
 ```
 

@@ -12,10 +12,26 @@ android {
         applicationId = "com.ryu.sonyremote"
         minSdk = 29
         targetSdk = 36
-        versionCode = 3
-        versionName = "0.3.0-beta"
+        versionCode = 4
+        versionName = "0.4.0-beta"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters += "arm64-v8a"
+        }
+    }
+
+    sourceSets {
+        getByName("main") {
+            java.srcDir("../ainr/runtime-android/src/main/java")
+            assets.srcDir("../ainr/runtime-android/src/main/assets")
+            jniLibs.srcDir("../ainr/runtime-android/src/main/jniLibs")
+        }
+    }
+
+    androidResources {
+        noCompress += "tflite"
     }
 
     buildTypes {
@@ -45,6 +61,7 @@ android {
 
     packaging {
         resources.excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        jniLibs.useLegacyPackaging = true
     }
 
     testOptions {
@@ -67,7 +84,7 @@ dependencies {
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.opencv)
-    implementation(libs.onnxruntime.android)
+    implementation(libs.litert)
 
     debugImplementation(libs.androidx.compose.ui.tooling)
     androidTestImplementation(libs.androidx.test.ext.junit)

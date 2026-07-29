@@ -1,6 +1,6 @@
 import CoreImage
 import Foundation
-import RawRefineryRuntime
+import ZIPFoundation
 
 struct CubeLUT: Identifiable, Hashable {
     let id: String
@@ -14,7 +14,9 @@ struct CubeLUT: Identifiable, Hashable {
         var dimension = 0
         var values: [Float] = []
         for raw in text.components(separatedBy: .newlines) {
-            let line = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+            let line = raw.trimmingCharacters(
+                in: .whitespacesAndNewlines.union(CharacterSet(charactersIn: "\u{FEFF}"))
+            )
             guard !line.isEmpty, !line.hasPrefix("#") else { continue }
             let pieces = line.split(whereSeparator: { $0 == " " || $0 == "\t" })
             if pieces.first == "TITLE" {
@@ -33,7 +35,35 @@ struct CubeLUT: Identifiable, Hashable {
 
 enum LUTError: LocalizedError {
     case invalidCube
-    var errorDescription: String? { "The file is not a valid 3D .cube LUT." }
+    case noCubeInArchive
+    case noValidCube
+
+    var errorDescription: String? {
+        switch self {
+        case .invalidCube: "The file is not a valid 3D .cube LUT."
+        case .noCubeInArchive: "The archive does not contain a .cube LUT."
+        case .noValidCube: "No valid 3D LUT could be imported."
+        }
+    }
+}
+
+struct LUTImportResult {
+    let imported: [CubeLUT]
+    let newCount: Int
+    let duplicateCount: Int
+    let rejectedCount: Int
+
+    var summary: String {
+        let primary: String
+        if newCount == 1 {
+            primary = "Imported \(imported.first?.title ?? "1") LUT"
+        } else if newCount > 1 {
+            primary = "Imported \(newCount) LUTs"
+        } else {
+            primary = duplicateCount == 1 ? "LUT was already imported" : "\(duplicateCount) LUTs were already imported"
+        }
+        return rejectedCount > 0 ? "\(primary). Skipped \(rejectedCount) invalid item(s)." : primary
+    }
 }
 
 @MainActor
@@ -41,30 +71,71 @@ final class LUTLibrary: ObservableObject {
     @Published private(set) var imported: [CubeLUT] = []
     let presets = ["Original", "Cinema", "Warm", "Cool", "Mono", "Fade", "Punch", "Teal"]
     private let directory: URL
+    private let inboxDirectory: URL
 
     init() {
         let documents = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let applicationSupport = FileManager.default.urls(
+            for: .applicationSupportDirectory,
+            in: .userDomainMask
+        ).first!
         directory = documents.appendingPathComponent("LUTs", isDirectory: true)
+        inboxDirectory = applicationSupport.appendingPathComponent("LUTImportInbox", isDirectory: true)
         try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        try? FileManager.default.createDirectory(at: inboxDirectory, withIntermediateDirectories: true)
         reload()
+        recoverPendingImports()
     }
 
-    var identifiers: [String] { presets + imported.map(\.id) }
+    var identifiers: [String] {
+        [presets[0]] + imported.map(\.id) + Array(presets.dropFirst())
+    }
     func lut(id: String) -> CubeLUT? { imported.first { $0.id == id } }
 
-    func importFiles(_ urls: [URL]) throws {
-        var candidates: [(String, Data)] = []
+    @discardableResult
+    func importFiles(_ urls: [URL]) throws -> LUTImportResult {
+        var staged: [(url: URL, name: String)] = []
         for url in urls {
             let access = url.startAccessingSecurityScopedResource()
             defer { if access { url.stopAccessingSecurityScopedResource() } }
             let data = try Data(contentsOf: url)
-            if url.pathExtension.lowercased() == "cube" { candidates.append((url.lastPathComponent, data)) }
-            if url.pathExtension.lowercased() == "zip" { candidates += try SimpleZIP.cubeFiles(in: data) }
+            let destination = inboxDirectory.appendingPathComponent(
+                "\(UUID().uuidString)__\(url.lastPathComponent)"
+            )
+            try data.write(to: destination, options: .atomic)
+            staged.append((destination, url.lastPathComponent))
+        }
+        defer { staged.forEach { try? FileManager.default.removeItem(at: $0.url) } }
+        return try importStagedFiles(staged)
+    }
+
+    private func importStagedFiles(
+        _ files: [(url: URL, name: String)]
+    ) throws -> LUTImportResult {
+        var candidates: [(String, Data)] = []
+        for file in files {
+            let data = try Data(contentsOf: file.url)
+            let fileExtension = URL(fileURLWithPath: file.name).pathExtension.lowercased()
+            if fileExtension == "cube" {
+                candidates.append((file.name, data))
+            } else if fileExtension == "zip" || data.starts(with: [0x50, 0x4b]) {
+                candidates += try LUTArchive.cubeFiles(in: data)
+            }
         }
         guard !candidates.isEmpty else { throw LUTError.invalidCube }
+        var importedIDs: [String] = []
+        var newCount = 0
+        var duplicateCount = 0
+        var rejectedCount = 0
         for (name, data) in candidates {
-            guard let text = String(data: data, encoding: .utf8) else { continue }
-            _ = try CubeLUT.parse(text, title: URL(fileURLWithPath: name).deletingPathExtension().lastPathComponent)
+            guard let text = Self.cubeText(from: data),
+                  (try? CubeLUT.parse(
+                    text,
+                    title: URL(fileURLWithPath: name).deletingPathExtension().lastPathComponent
+                  )) != nil else {
+                rejectedCount += 1
+                continue
+            }
             let base = URL(fileURLWithPath: name).deletingPathExtension().lastPathComponent
             var destination = directory.appendingPathComponent("\(base).cube")
             var suffix = 2
@@ -73,63 +144,65 @@ final class LUTLibrary: ObservableObject {
                 destination = directory.appendingPathComponent("\(base) \(suffix).cube")
                 suffix += 1
             }
-            try data.write(to: destination, options: .atomic)
+            if FileManager.default.fileExists(atPath: destination.path) {
+                duplicateCount += 1
+            } else {
+                try data.write(to: destination, options: .atomic)
+                newCount += 1
+            }
+            importedIDs.append(destination.lastPathComponent)
         }
+        guard !importedIDs.isEmpty else { throw LUTError.noValidCube }
         reload()
+        return LUTImportResult(
+            imported: importedIDs.compactMap(lut(id:)),
+            newCount: newCount,
+            duplicateCount: duplicateCount,
+            rejectedCount: rejectedCount
+        )
+    }
+
+    private func recoverPendingImports() {
+        let pending = (try? FileManager.default.contentsOfDirectory(
+            at: inboxDirectory,
+            includingPropertiesForKeys: nil
+        )) ?? []
+        guard !pending.isEmpty else { return }
+        let staged = pending.map { url in
+            let components = url.lastPathComponent.components(separatedBy: "__")
+            return (url: url, name: components.dropFirst().joined(separator: "__"))
+        }
+        _ = try? importStagedFiles(staged)
+        pending.forEach { try? FileManager.default.removeItem(at: $0) }
     }
 
     private func reload() {
         let urls = (try? FileManager.default.contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)) ?? []
         imported = urls.filter { $0.pathExtension.lowercased() == "cube" }.compactMap { url in
-            guard let text = try? String(contentsOf: url, encoding: .utf8) else { return nil }
+            guard let data = try? Data(contentsOf: url),
+                  let text = Self.cubeText(from: data) else { return nil }
             return try? CubeLUT.parse(text, title: url.deletingPathExtension().lastPathComponent, sourceURL: url)
         }.sorted { $0.title.localizedStandardCompare($1.title) == .orderedAscending }
     }
-}
 
-private enum SimpleZIP {
-    static func cubeFiles(in archive: Data) throws -> [(String, Data)] {
-        var result: [(String, Data)] = []
-        var offset = 0
-        while offset + 46 <= archive.count {
-            if archive.u32(offset) != 0x02014b50 { offset += 1; continue }
-            let method = archive.u16(offset + 10)
-            let compressed = Int(archive.u32(offset + 20)), uncompressed = Int(archive.u32(offset + 24))
-            let nameLength = Int(archive.u16(offset + 28)), extraLength = Int(archive.u16(offset + 30))
-            let commentLength = Int(archive.u16(offset + 32)), localOffset = Int(archive.u32(offset + 42))
-            let nameStart = offset + 46
-            guard nameStart + nameLength <= archive.count, localOffset + 30 <= archive.count else { break }
-            let localNameLength = Int(archive.u16(localOffset + 26)), localExtraLength = Int(archive.u16(localOffset + 28))
-            let dataStart = localOffset + 30 + localNameLength + localExtraLength
-            guard dataStart + compressed <= archive.count else { break }
-            let name = String(data: archive[nameStart..<(nameStart + nameLength)], encoding: .utf8) ?? "lut.cube"
-            let payload = Data(archive[dataStart..<(dataStart + compressed)])
-            if name.lowercased().hasSuffix(".cube") {
-                if method == 0 { result.append((URL(fileURLWithPath: name).lastPathComponent, payload)) }
-                else if method == 8, let inflated = payload.inflate(expected: uncompressed) {
-                    result.append((URL(fileURLWithPath: name).lastPathComponent, inflated))
-                }
-            }
-            offset = nameStart + nameLength + extraLength + commentLength
-        }
-        return result
+    private static func cubeText(from data: Data) -> String? {
+        String(data: data, encoding: .utf8)
+            ?? String(data: data, encoding: .utf16)
+            ?? String(data: data, encoding: .utf16LittleEndian)
+            ?? String(data: data, encoding: .utf16BigEndian)
     }
 }
 
-private extension Data {
-    func u16(_ offset: Int) -> UInt16 { UInt16(self[offset]) | UInt16(self[offset + 1]) << 8 }
-    func u32(_ offset: Int) -> UInt32 { UInt32(u16(offset)) | UInt32(u16(offset + 2)) << 16 }
-    func inflate(expected: Int) -> Data? {
-        var output = Data(count: Swift.max(expected, count * 4, 1024))
-        var written = output.count
-        let success = output.withUnsafeMutableBytes { destination in
-            withUnsafeBytes { source in
-                rr_inflate_raw(source.bindMemory(to: UInt8.self).baseAddress!, source.count,
-                               destination.bindMemory(to: UInt8.self).baseAddress!, &written)
-            }
+enum LUTArchive {
+    static func cubeFiles(in archive: Data) throws -> [(String, Data)] {
+        let archive = try Archive(data: archive, accessMode: .read)
+        var result: [(String, Data)] = []
+        for entry in archive where entry.type == .file && entry.path.lowercased().hasSuffix(".cube") {
+            var data = Data()
+            _ = try archive.extract(entry) { data.append($0) }
+            result.append((URL(fileURLWithPath: entry.path).lastPathComponent, data))
         }
-        guard success != 0, written > 0 else { return nil }
-        output.count = written
-        return output
+        guard !result.isEmpty else { throw LUTError.noCubeInArchive }
+        return result
     }
 }

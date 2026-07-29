@@ -1,10 +1,20 @@
 # SCUNet Denoiser
 
-Standalone Android and iOS apps for running the fixed-shape SCUNet real-image
-denoiser over a full-resolution image. This directory is an engineering test
-harness for the AI NR pipeline planned for Alpha Capture Lab, not a separate
-production application. Prerelease packaging notes are in
+Shared Android and iOS runtimes plus standalone apps for running fixed-shape
+real-image denoisers over a full-resolution image. Alpha Capture Lab consumes
+the same runtime source, model packages, and accelerator selection used by the
+standalone engineering test harnesses. Prerelease packaging notes are in
 [`RELEASE.md`](RELEASE.md).
+
+## Layout
+
+- `runtime-android`: shared Java LiteRT runtime, TFLite models, and vendor NPU
+  libraries
+- `ios-runtime`: shared Swift/Core ML runtime and model packages
+- `app`: standalone Android validation application
+- `ios`: standalone iOS validation application
+- `verification`: retained device benchmarks and comparison outputs
+- `training`: retained scripts, final model, and experiment notes
 
 ## Workflow
 

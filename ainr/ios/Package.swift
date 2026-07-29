@@ -8,13 +8,16 @@ let package = Package(
     products: [
         .library(name: "SCUNetDenoiser", targets: ["SCUNetDenoiser"]),
     ],
+    dependencies: [
+        .package(path: "../ios-runtime"),
+    ],
     targets: [
         .target(
             name: "SCUNetDenoiser",
-            dependencies: [],
+            dependencies: [
+                .product(name: "AINRRuntime", package: "ios-runtime"),
+            ],
             resources: [
-                .copy("Resources/Models"),
-                .copy("Resources/Legal"),
                 .copy("Resources/Samples"),
             ]
         ),

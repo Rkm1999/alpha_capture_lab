@@ -18,6 +18,14 @@ android {
         }
     }
 
+    sourceSets {
+        getByName("main") {
+            java.srcDir("../runtime-android/src/main/java")
+            assets.srcDir("../runtime-android/src/main/assets")
+            jniLibs.srcDir("../runtime-android/src/main/jniLibs")
+        }
+    }
+
     androidResources {
         noCompress += "tflite"
     }

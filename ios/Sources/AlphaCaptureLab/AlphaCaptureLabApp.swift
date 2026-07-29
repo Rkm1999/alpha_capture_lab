@@ -9,7 +9,8 @@ struct AlphaCaptureLabApp: App {
             RootView()
                 .environmentObject(camera)
                 .preferredColorScheme(.dark)
-                .onOpenURL { url in try? camera.lutLibrary.importFiles([url]) }
+                .tint(.mint)
+                .onOpenURL { url in camera.importLUTs([url]) }
         }
     }
 }

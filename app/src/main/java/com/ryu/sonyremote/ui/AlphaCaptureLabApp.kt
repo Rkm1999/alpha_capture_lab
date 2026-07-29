@@ -9,11 +9,20 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import android.graphics.Bitmap
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.Canvas
+import androidx.compose.animation.core.animate
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
+import androidx.compose.foundation.gestures.detectTapGestures
+import androidx.compose.foundation.gestures.detectDragGestures
+import androidx.compose.foundation.gestures.draggable
+import androidx.compose.foundation.gestures.Orientation
+import androidx.compose.foundation.gestures.rememberDraggableState
+import androidx.compose.foundation.gestures.rememberTransformableState
+import androidx.compose.foundation.gestures.transformable
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -35,6 +44,8 @@ import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items as gridItems
+import androidx.compose.foundation.pager.HorizontalPager
+import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
@@ -49,13 +60,23 @@ import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.KeyboardArrowDown
 import androidx.compose.material.icons.filled.LinkOff
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material.icons.filled.Compare
+import androidx.compose.material.icons.filled.AutoFixHigh
+import androidx.compose.material.icons.filled.Crop
+import androidx.compose.material.icons.filled.Lock
 import androidx.compose.material.icons.filled.Palette
 import androidx.compose.material.icons.filled.PhotoLibrary
 import androidx.compose.material.icons.filled.PlayArrow
 import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material.icons.filled.RotateLeft
+import androidx.compose.material.icons.filled.RotateRight
 import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material.icons.filled.Stop
+import androidx.compose.material.icons.filled.Transform
+import androidx.compose.material.icons.filled.Tune
+import androidx.compose.material.icons.automirrored.filled.Undo
+import androidx.compose.material.icons.automirrored.filled.Redo
 import androidx.compose.material.icons.filled.Wifi
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
@@ -70,6 +91,7 @@ import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.IconButtonDefaults
+import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
@@ -90,24 +112,41 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableFloatStateOf
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Offset
+import androidx.compose.ui.draw.drawWithContent
+import androidx.compose.ui.draw.clipToBounds
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
+import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.layout.onSizeChanged
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalDensity
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.input.PasswordVisualTransformation
+import androidx.compose.ui.unit.IntSize
+import androidx.compose.ui.geometry.Rect
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import com.ryu.sonyremote.processing.AinrDenoiseModel
+import com.ryu.sonyremote.processing.AinrProgress
+import com.ryu.sonyremote.processing.EditorGeometry
+import com.ryu.sonyremote.processing.NormalizedCrop
+import com.ryu.sonyremote.processing.NormalizedPoint
+import com.ryu.sonyremote.processing.cropPresetForAspect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import kotlin.math.roundToInt
@@ -120,8 +159,10 @@ import com.ryu.sonyremote.model.SonyCameraDevice
 import com.ryu.sonyremote.data.DiagnosticLog
 import com.ryu.sonyremote.processing.LutPreset
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import kotlin.math.abs
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -156,6 +197,8 @@ fun AlphaCaptureLabApp(
     val outputImageFormat by viewModel.outputImageFormat.collectAsStateWithLifecycle()
     val autoDenoiseMode by viewModel.autoDenoiseMode.collectAsStateWithLifecycle()
     val autoDenoiseIsoThreshold by viewModel.autoDenoiseIsoThreshold.collectAsStateWithLifecycle()
+    val autoDenoiseModel by viewModel.autoDenoiseModel.collectAsStateWithLifecycle()
+    val ainrProgress by viewModel.ainrProgress.collectAsStateWithLifecycle()
     val liveViewTimeoutMinutes by viewModel.liveViewTimeoutMinutes.collectAsStateWithLifecycle()
     val snackbarHostState = remember { SnackbarHostState() }
     val context = LocalContext.current
@@ -258,6 +301,7 @@ fun AlphaCaptureLabApp(
                 filmstrip = filmstrip,
                 lutState = lutCaptureState,
                 lutPreviews = lutPreviews,
+                ainrProgress = ainrProgress,
                 zoomTargetPercent = zoomTargetPercent,
                 onSelectMode = viewModel::selectCaptureMode,
                 onSetLiveNdFrames = viewModel::setLiveNdFrames,
@@ -353,8 +397,11 @@ fun AlphaCaptureLabApp(
             onSetOutputImageFormat = viewModel::setOutputImageFormat,
             autoDenoiseMode = autoDenoiseMode,
             autoDenoiseIsoThreshold = autoDenoiseIsoThreshold,
+            autoDenoiseModel = autoDenoiseModel,
+            ainrProgress = ainrProgress,
             onSetAutoDenoiseMode = viewModel::setAutoDenoiseMode,
             onSetAutoDenoiseIsoThreshold = viewModel::setAutoDenoiseIsoThreshold,
+            onSetAutoDenoiseModel = viewModel::setAutoDenoiseModel,
             liveViewTimeoutMinutes = liveViewTimeoutMinutes,
             onSetLiveViewTimeoutMinutes = viewModel::setLiveViewTimeoutMinutes,
             onSetGeotagging = { enabled ->
@@ -389,21 +436,6 @@ fun AlphaCaptureLabApp(
         )
     }
 
-    if (lutEditor != null) {
-        LutEditorDialog(
-            state = requireNotNull(lutEditor),
-            onSelectPreset = viewModel::selectLut,
-            onSelectImported = viewModel::selectEditorImportedLut,
-            onSetIntensity = viewModel::setLutIntensity,
-            onSetBasicEdits = viewModel::setBasicEdits,
-            onSetDenoiseEnabled = viewModel::setEditorDenoiseEnabled,
-            onSetDenoiseStrength = viewModel::setEditorDenoiseStrength,
-            onSetSharpenEnabled = viewModel::setEditorSharpenEnabled,
-            onSetSharpenStrength = viewModel::setEditorSharpenStrength,
-            onSave = viewModel::saveLutCopy,
-            onDismiss = viewModel::closeLutEditor,
-        )
-    }
     if (showHistory) {
         CaptureHistoryDialog(
             items = filmstrip,
@@ -413,6 +445,33 @@ fun AlphaCaptureLabApp(
             onImportOriginal = viewModel::requestOriginalImport,
             onCancelOriginal = viewModel::cancelOriginalImport,
             onDismiss = { showHistory = false },
+        )
+    }
+    if (lutEditor != null) {
+        LutEditorDialog(
+            state = requireNotNull(lutEditor),
+            onSelectPreset = viewModel::selectLut,
+            onSelectImported = viewModel::selectEditorImportedLut,
+            onRequestLutThumbnails = viewModel::requestEditorLutThumbnails,
+            onSetIntensity = viewModel::setLutIntensity,
+            onSetBasicEdits = viewModel::setBasicEdits,
+            onSetDenoiseEnabled = viewModel::setEditorDenoiseEnabled,
+            onSetDenoiseStrength = viewModel::setEditorDenoiseStrength,
+            onSetDenoiseModel = viewModel::setEditorDenoiseModel,
+            onSetSource = viewModel::setEditorSource,
+            onSetCrop = viewModel::setEditorCrop,
+            onRotateQuarterTurn = viewModel::rotateEditorQuarterTurn,
+            onSetStraighten = viewModel::setEditorStraighten,
+            onSetPerspective = viewModel::setEditorPerspective,
+            onResetGeometry = viewModel::resetEditorGeometry,
+            onAutoGeometry = viewModel::autoCorrectEditorGeometry,
+            onUndo = viewModel::undoEditor,
+            onRedo = viewModel::redoEditor,
+            onBeginGesture = viewModel::beginEditorGesture,
+            onEndGesture = viewModel::endEditorGesture,
+            onSave = viewModel::saveLutCopy,
+            onDismiss = viewModel::closeLutEditor,
+            ainrProgress = ainrProgress,
         )
     }
 }
@@ -647,8 +706,11 @@ private fun CameraSettingsDialog(
     onSetOutputImageFormat: (com.ryu.sonyremote.model.OutputImageFormat) -> Unit,
     autoDenoiseMode: AutoDenoiseMode,
     autoDenoiseIsoThreshold: Int,
+    autoDenoiseModel: AinrDenoiseModel,
+    ainrProgress: AinrProgress?,
     onSetAutoDenoiseMode: (AutoDenoiseMode) -> Unit,
     onSetAutoDenoiseIsoThreshold: (Int) -> Unit,
+    onSetAutoDenoiseModel: (AinrDenoiseModel) -> Unit,
     liveViewTimeoutMinutes: Int,
     onSetLiveViewTimeoutMinutes: (Int) -> Unit,
     onSetLiveviewSize: (String) -> Unit,
@@ -731,8 +793,39 @@ private fun CameraSettingsDialog(
                     )
                 }
                 if (autoDenoiseMode != AutoDenoiseMode.Off) {
+                    Text("Denoise model", style = MaterialTheme.typography.titleSmall)
+                    SingleChoiceSegmentedButtonRow(modifier = Modifier.fillMaxWidth()) {
+                        AinrDenoiseModel.entries.forEachIndexed { index, model ->
+                            SegmentedButton(
+                                selected = autoDenoiseModel == model,
+                                onClick = { onSetAutoDenoiseModel(model) },
+                                enabled = enabled,
+                                shape = SegmentedButtonDefaults.itemShape(
+                                    index,
+                                    AinrDenoiseModel.entries.size,
+                                ),
+                                label = { Text(model.label) },
+                            )
+                        }
+                    }
+                    ainrProgress?.let { progress ->
+                        val fraction = progress.fraction
+                        if (fraction != null) {
+                            LinearProgressIndicator(
+                                progress = { fraction },
+                                modifier = Modifier.fillMaxWidth(),
+                            )
+                        } else {
+                            LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                        }
+                        Text(
+                            "${progress.phase.name.replace('_', ' ').lowercase().replaceFirstChar(Char::uppercase)} · ${progress.detail}",
+                            style = MaterialTheme.typography.bodySmall,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
                     Text(
-                        "RawRefinery Light runs at full resolution. The untouched original remains available in Edit.",
+                        "Distilled is faster for automatic processing. SCUNet prioritizes quality. The untouched original remains available in Edit.",
                         style = MaterialTheme.typography.bodySmall,
                         color = MaterialTheme.colorScheme.onSurfaceVariant,
                     )
@@ -894,6 +987,7 @@ private fun CameraControlScreen(
     filmstrip: List<FilmstripItem>,
     lutState: LutCaptureState,
     lutPreviews: List<LutPreviewItem>,
+    ainrProgress: AinrProgress?,
     zoomTargetPercent: Int?,
     onSelectMode: (CaptureMode) -> Unit,
     onSetLiveNdFrames: (Int) -> Unit,
@@ -964,6 +1058,27 @@ private fun CameraControlScreen(
             processingProgress = session.processingProgress,
             onRetry = onRetryLiveView,
         )
+        ainrProgress?.let { progress ->
+            Column(
+                modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 6.dp),
+                verticalArrangement = Arrangement.spacedBy(4.dp),
+            ) {
+                val fraction = progress.fraction
+                if (fraction != null) {
+                    LinearProgressIndicator(
+                        progress = { fraction },
+                        modifier = Modifier.fillMaxWidth(),
+                    )
+                } else {
+                    LinearProgressIndicator(modifier = Modifier.fillMaxWidth())
+                }
+                Text(
+                    "Denoising · ${progress.detail}",
+                    style = MaterialTheme.typography.labelSmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+        }
         CaptureModeSelector(
             selected = captureMode,
             enabled = !controlsBlocked && !session.isActive,
@@ -2215,61 +2330,33 @@ private fun CaptureHistoryDialog(
     } else {
         items.filter { it.id in sourceIds }
     }
-    var detailBitmap by remember { mutableStateOf<Bitmap?>(null) }
-    LaunchedEffect(selected?.id) {
-        detailBitmap?.takeUnless(Bitmap::isRecycled)?.recycle()
-        detailBitmap = null
-        val item = selected ?: return@LaunchedEffect
-        detailBitmap = runCatching { onLoadDetail(item) }.getOrNull()
+    val detailIds = remember(selectedId, sourceIds) {
+        visibleItems.asReversed().map(FilmstripItem::id)
     }
-    DisposableEffect(Unit) {
-        onDispose { detailBitmap?.takeUnless(Bitmap::isRecycled)?.recycle() }
-    }
+    val detailItems = detailIds.mapNotNull { id -> items.firstOrNull { it.id == id } }
     Dialog(
         onDismissRequest = { if (selected != null) selectedId = null else onDismiss() },
         properties = DialogProperties(usePlatformDefaultWidth = false),
     ) {
-        Surface(color = Color.Black, modifier = Modifier.fillMaxSize()) {
+        Surface(
+            color = if (selected != null) Color.Transparent else Color.Black,
+            modifier = Modifier.fillMaxSize(),
+        ) {
             if (selected != null) {
-                Box(Modifier.fillMaxSize()) {
-                    Image(
-                        bitmap = (detailBitmap ?: selected.thumbnail).asImageBitmap(),
-                        contentDescription = "${selected.title} detail",
-                        modifier = Modifier.fillMaxSize(),
-                        contentScale = ContentScale.Fit,
-                    )
-                    Row(
-                        modifier = Modifier.fillMaxWidth().background(Color.Black.copy(alpha = 0.65f)),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        Text(
-                            selected.importedCapture?.qualityLabel ?: selected.title,
-                            color = Color.White,
-                            modifier = Modifier.weight(1f),
-                        )
-                        if (selected.source !is CaptureAssetSource.LiveViewPlaceholder) {
-                            IconButton(onClick = { onDismiss(); onOpenLut(selected) }) {
-                                Icon(Icons.Default.Palette, "Edit photo", tint = Color.White)
-                            }
-                        }
-                        if (selected.relatedSourceIds.isNotEmpty()) {
-                            TextButton(onClick = {
-                                sourceIds = selected.relatedSourceIds.toSet()
-                                selectedId = null
-                            }) {
-                                Text("Source frames", color = Color.White)
-                            }
-                        }
-                        IconButton(onClick = { selectedId = null }) {
-                            Icon(Icons.Default.Close, "Back to gallery", tint = Color.White)
-                        }
-                    }
-                    if (selected.source is CaptureAssetSource.LiveViewPlaceholder) {
-                        Box(Modifier.align(Alignment.Center)) {
-                            DownloadProgressOverlay(selected.importedCapture?.downloadFraction)
-                        }
-                    }
-                }
+                GalleryDetailViewer(
+                    items = detailItems,
+                    initialSelectedId = selected.id,
+                    onLoadDetail = onLoadDetail,
+                    onEdit = { item ->
+                        selectedId = null
+                        onOpenLut(item)
+                    },
+                    onShowSourceFrames = { ids ->
+                        sourceIds = ids.toSet()
+                        selectedId = null
+                    },
+                    onDismiss = { selectedId = null },
+                )
             } else {
                 Column(Modifier.fillMaxSize()) {
                     Row(
@@ -2334,144 +2421,210 @@ private fun CaptureHistoryDialog(
 }
 
 @Composable
-private fun LutEditorDialog(
-    state: LutEditorUiState,
-    onSelectPreset: (LutPreset) -> Unit,
-    onSelectImported: (String) -> Unit,
-    onSetIntensity: (Float) -> Unit,
-    onSetBasicEdits: (Float, Float, Float) -> Unit,
-    onSetDenoiseEnabled: (Boolean) -> Unit,
-    onSetDenoiseStrength: (Float) -> Unit,
-    onSetSharpenEnabled: (Boolean) -> Unit,
-    onSetSharpenStrength: (Float) -> Unit,
-    onSave: () -> Unit,
+private fun GalleryDetailViewer(
+    items: List<FilmstripItem>,
+    initialSelectedId: String,
+    onLoadDetail: suspend (FilmstripItem) -> Bitmap,
+    onEdit: (FilmstripItem) -> Unit,
+    onShowSourceFrames: (List<String>) -> Unit,
     onDismiss: () -> Unit,
 ) {
-    var activeRawTool by remember(state.item.id) { mutableStateOf<String?>(null) }
-    Dialog(
-        onDismissRequest = onDismiss,
-        properties = DialogProperties(usePlatformDefaultWidth = false),
+    if (items.isEmpty()) {
+        LaunchedEffect(Unit) { onDismiss() }
+        return
+    }
+    val initialPage = remember(items, initialSelectedId) {
+        items.indexOfFirst { it.id == initialSelectedId }.coerceAtLeast(0)
+    }
+    val pagerState = rememberPagerState(initialPage = initialPage) { items.size }
+    val coroutineScope = rememberCoroutineScope()
+    val density = LocalDensity.current
+    var detailBitmap by remember { mutableStateOf<Bitmap?>(null) }
+    var detailBitmapId by remember { mutableStateOf<String?>(null) }
+    var scale by remember { mutableFloatStateOf(1f) }
+    var imageOffset by remember { mutableStateOf(Offset.Zero) }
+    var dismissOffset by remember { mutableFloatStateOf(0f) }
+    var viewportSize by remember { mutableStateOf(IntSize.Zero) }
+    var controlsVisible by remember { mutableStateOf(true) }
+    val settledItem = items.getOrNull(pagerState.settledPage) ?: items.first()
+    val activeBitmap = detailBitmap.takeIf { detailBitmapId == settledItem.id }
+        ?: settledItem.thumbnail
+
+    LaunchedEffect(pagerState) {
+        snapshotFlow { pagerState.settledPage }
+            .distinctUntilChanged()
+            .collect {
+                scale = 1f
+                imageOffset = Offset.Zero
+                dismissOffset = 0f
+            }
+    }
+    LaunchedEffect(settledItem.id, settledItem.source) {
+        detailBitmap?.takeUnless(Bitmap::isRecycled)?.recycle()
+        detailBitmap = null
+        detailBitmapId = null
+        if (settledItem.source is CaptureAssetSource.LiveViewPlaceholder) return@LaunchedEffect
+        var loaded: Bitmap? = null
+        try {
+            loaded = runCatching { onLoadDetail(settledItem) }.getOrNull()
+            detailBitmap = loaded
+            detailBitmapId = loaded?.let { settledItem.id }
+        } finally {
+            if (loaded != null && detailBitmap !== loaded) loaded.recycle()
+        }
+    }
+    DisposableEffect(Unit) {
+        onDispose { detailBitmap?.takeUnless(Bitmap::isRecycled)?.recycle() }
+    }
+
+    val transformState = rememberTransformableState { centroid, zoomChange, panChange, _ ->
+        val nextScale = clampGalleryScale(scale * zoomChange)
+        val appliedZoom = nextScale / scale
+        val focalPoint = centroid - Offset(
+            viewportSize.width / 2f,
+            viewportSize.height / 2f,
+        )
+        val transformedOffset = (imageOffset - focalPoint) * appliedZoom +
+            focalPoint + panChange
+        val clamped = clampGalleryOffset(
+            x = transformedOffset.x,
+            y = transformedOffset.y,
+            scale = nextScale,
+            viewportWidth = viewportSize.width,
+            viewportHeight = viewportSize.height,
+            imageWidth = activeBitmap.width,
+            imageHeight = activeBitmap.height,
+        )
+        scale = nextScale
+        imageOffset = Offset(clamped.x, clamped.y)
+    }
+    val dismissVelocity = with(density) { 1_200.dp.toPx() }
+    val backdropAlpha = if (viewportSize.height == 0) {
+        1f
+    } else {
+        (1f - dismissOffset / viewportSize.height).coerceIn(0.2f, 1f)
+    }
+
+    Surface(
+        color = Color.Black.copy(alpha = backdropAlpha),
+        modifier = Modifier.fillMaxSize().onSizeChanged { viewportSize = it },
     ) {
-        Surface(
-            color = MaterialTheme.colorScheme.surface,
-            modifier = Modifier.fillMaxSize(),
+        Box(
+            Modifier.fillMaxSize().draggable(
+                state = rememberDraggableState { delta ->
+                    dismissOffset = (dismissOffset + delta).coerceAtLeast(0f)
+                },
+                orientation = Orientation.Vertical,
+                enabled = scale <= 1.01f,
+                onDragStopped = { velocity ->
+                    if (
+                        shouldDismissGalleryDetail(
+                            dismissOffset,
+                            viewportSize.height,
+                            velocity,
+                            dismissVelocity,
+                        )
+                    ) {
+                        onDismiss()
+                    } else {
+                        val start = dismissOffset
+                        coroutineScope.launch {
+                            animate(start, 0f) { value, _ -> dismissOffset = value }
+                        }
+                    }
+                },
+            ),
         ) {
-            Column {
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 8.dp, end = 4.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    Text(
-                        state.item.title,
-                        style = MaterialTheme.typography.titleMedium,
-                        fontWeight = FontWeight.SemiBold,
-                        modifier = Modifier.weight(1f),
+            HorizontalPager(
+                state = pagerState,
+                key = { items[it].id },
+                userScrollEnabled = scale <= 1.01f && dismissOffset == 0f,
+                modifier = Modifier.fillMaxSize().graphicsLayer {
+                    translationY = dismissOffset
+                    val dismissScale = 1f - (dismissOffset / viewportSize.height.coerceAtLeast(1)) * 0.05f
+                    scaleX = dismissScale.coerceAtLeast(0.95f)
+                    scaleY = dismissScale.coerceAtLeast(0.95f)
+                },
+            ) { page ->
+                val item = items[page]
+                val bitmap = detailBitmap.takeIf {
+                    detailBitmapId == item.id && page == pagerState.settledPage
+                } ?: item.thumbnail
+                Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                    Image(
+                        bitmap = bitmap.asImageBitmap(),
+                        contentDescription = "${item.title} detail",
+                        modifier = Modifier.fillMaxSize()
+                            .graphicsLayer {
+                                if (page == pagerState.settledPage) {
+                                    scaleX = scale
+                                    scaleY = scale
+                                    translationX = imageOffset.x
+                                    translationY = imageOffset.y
+                                }
+                            }
+                            .transformable(
+                                state = transformState,
+                                enabled = page == pagerState.settledPage,
+                                canPan = { scale > 1.01f },
+                            )
+                            .pointerInput(item.id, scale) {
+                                detectTapGestures(
+                                    onTap = { controlsVisible = !controlsVisible },
+                                    onDoubleTap = {
+                                        scale = if (scale > 1.01f) 1f else 2.5f
+                                        imageOffset = Offset.Zero
+                                    },
+                                )
+                            },
+                        contentScale = ContentScale.Fit,
                     )
-                    state.item.appliedLutName?.let { name ->
-                        Text(
-                            "$name ${((state.item.appliedLutStrength ?: 1f) * 100).toInt()}%",
-                            style = MaterialTheme.typography.labelMedium,
-                            color = MaterialTheme.colorScheme.onSurfaceVariant,
-                            modifier = Modifier.padding(end = 8.dp),
-                        )
-                    }
-                    IconButton(onClick = onDismiss, enabled = !state.isProcessing) {
-                        Icon(Icons.Default.Close, contentDescription = "Close LUT editor")
-                    }
-                }
-                Box(
-                    modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Black),
-                    contentAlignment = Alignment.Center,
-                ) {
-                    if (state.preview != null) {
-                        Image(
-                            bitmap = state.preview.asImageBitmap(),
-                            contentDescription = "LUT preview",
-                            modifier = Modifier.fillMaxSize(),
-                            contentScale = ContentScale.Fit,
-                        )
-                    }
-                    if (state.isProcessing || state.preview == null) {
+                    if (
+                        page == pagerState.settledPage &&
+                        detailBitmapId != item.id &&
+                        item.source !is CaptureAssetSource.LiveViewPlaceholder
+                    ) {
                         CircularProgressIndicator(color = Color.White)
                     }
+                    if (item.source is CaptureAssetSource.LiveViewPlaceholder) {
+                        DownloadProgressOverlay(item.importedCapture?.downloadFraction)
+                    }
                 }
+            }
+            if (controlsVisible) {
                 Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                    modifier = Modifier.fillMaxWidth()
+                        .background(Color.Black.copy(alpha = 0.68f))
+                        .padding(start = 12.dp),
                     verticalAlignment = Alignment.CenterVertically,
                 ) {
-                    Text("Strength", style = MaterialTheme.typography.labelMedium)
-                    Slider(
-                        value = state.intensity,
-                        onValueChange = onSetIntensity,
-                        enabled = !state.isProcessing &&
-                            (state.selectedImportedLabel != null || state.preset != LutPreset.Neutral),
-                        modifier = Modifier.weight(1f).padding(start = 12.dp),
-                    )
-                    Text("${(state.intensity * 100).toInt()}%", style = MaterialTheme.typography.labelSmall)
-                }
-                BasicEditSlider("Exposure", state.exposure) {
-                    onSetBasicEdits(it, state.contrast, state.saturation)
-                }
-                BasicEditSlider("Contrast", state.contrast) {
-                    onSetBasicEdits(state.exposure, it, state.saturation)
-                }
-                BasicEditSlider("Saturation", state.saturation) {
-                    onSetBasicEdits(state.exposure, state.contrast, it)
-                }
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp, vertical = 2.dp),
-                    horizontalArrangement = Arrangement.spacedBy(8.dp),
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    FilterChip(
-                        selected = state.denoiseEnabled,
-                        onClick = {
-                            val enabled = !state.denoiseEnabled
-                            activeRawTool = "denoise".takeIf { enabled }
-                            onSetDenoiseEnabled(enabled)
-                        },
-                        label = { Text("Denoise") },
-                    )
-                    FilterChip(
-                        selected = state.sharpenEnabled,
-                        onClick = {
-                            val enabled = !state.sharpenEnabled
-                            activeRawTool = "sharpen".takeIf { enabled }
-                            onSetSharpenEnabled(enabled)
-                        },
-                        label = { Text("Deep Sharpen") },
-                    )
-                }
-                when {
-                    activeRawTool == "denoise" && state.denoiseEnabled -> EffectStrengthSlider(
-                        label = "Denoise",
-                        value = state.denoiseStrength,
-                        onValueChange = onSetDenoiseStrength,
-                    )
-                    activeRawTool == "sharpen" && state.sharpenEnabled -> EffectStrengthSlider(
-                        label = "Sharpen",
-                        value = state.sharpenStrength,
-                        onValueChange = onSetSharpenStrength,
-                    )
-                }
-                LutEditorFilmstrip(state, onSelectPreset, onSelectImported)
-                Row(
-                    modifier = Modifier.fillMaxWidth().padding(horizontal = 12.dp, vertical = 10.dp),
-                    horizontalArrangement = Arrangement.End,
-                    verticalAlignment = Alignment.CenterVertically,
-                ) {
-                    TextButton(onClick = onDismiss, enabled = !state.isProcessing) { Text("Cancel") }
-                    Spacer(Modifier.width(8.dp))
-                    Button(
-                        onClick = onSave,
-                        enabled = (
-                            state.selectedImportedLabel != null || state.preset != LutPreset.Neutral || state.exposure != 0f ||
-                                state.contrast != 0f || state.saturation != 0f || state.denoiseEnabled || state.sharpenEnabled
-                            ) && !state.isProcessing,
-                    ) {
-                        Icon(Icons.Default.Palette, contentDescription = null)
-                        Spacer(Modifier.width(7.dp))
-                        Text("Save copy")
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            settledItem.importedCapture?.qualityLabel ?: settledItem.title,
+                            color = Color.White,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        Text(
+                            "${pagerState.settledPage + 1} / ${items.size}",
+                            color = Color.LightGray,
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                    }
+                    if (settledItem.source !is CaptureAssetSource.LiveViewPlaceholder) {
+                        IconButton(onClick = { onEdit(settledItem) }) {
+                            Icon(Icons.Default.Palette, "Edit photo", tint = Color.White)
+                        }
+                    }
+                    if (settledItem.relatedSourceIds.isNotEmpty()) {
+                        TextButton(onClick = {
+                            onShowSourceFrames(settledItem.relatedSourceIds)
+                        }) {
+                            Text("Source frames", color = Color.White)
+                        }
+                    }
+                    IconButton(onClick = onDismiss) {
+                        Icon(Icons.Default.Close, "Back to gallery", tint = Color.White)
                     }
                 }
             }
@@ -2480,13 +2633,877 @@ private fun LutEditorDialog(
 }
 
 @Composable
-private fun EffectStrengthSlider(label: String, value: Float, onValueChange: (Float) -> Unit) {
+private fun LutEditorDialog(
+    state: LutEditorUiState,
+    onSelectPreset: (LutPreset) -> Unit,
+    onSelectImported: (String) -> Unit,
+    onRequestLutThumbnails: () -> Unit,
+    onSetIntensity: (Float) -> Unit,
+    onSetBasicEdits: (Float, Float, Float) -> Unit,
+    onSetDenoiseEnabled: (Boolean) -> Unit,
+    onSetDenoiseStrength: (Float) -> Unit,
+    onSetDenoiseModel: (AinrDenoiseModel) -> Unit,
+    onSetSource: (EditorImageSource) -> Unit,
+    onSetCrop: (NormalizedCrop) -> Unit,
+    onRotateQuarterTurn: (Boolean) -> Unit,
+    onSetStraighten: (Float) -> Unit,
+    onSetPerspective: (List<NormalizedPoint>) -> Unit,
+    onResetGeometry: (EditorTool) -> Unit,
+    onAutoGeometry: (Boolean) -> Unit,
+    onUndo: () -> Unit,
+    onRedo: () -> Unit,
+    onBeginGesture: () -> Unit,
+    onEndGesture: () -> Unit,
+    onSave: () -> Unit,
+    onDismiss: () -> Unit,
+    ainrProgress: AinrProgress?,
+) {
+    var confirmCancel by remember(state.item.id) { mutableStateOf(false) }
+    var controlsExpanded by remember(state.item.id) { mutableStateOf(true) }
+    var activeTool by remember(state.item.id) { mutableStateOf(EditorTool.Adjust) }
+    var pendingCrop by remember(state.item.id, state.source) {
+        mutableStateOf(state.geometry.crop)
+    }
+    var cropRatioLabel by remember(state.item.id, state.source) {
+        mutableStateOf("Free")
+    }
+    var panelDrag by remember(state.item.id) { mutableFloatStateOf(0f) }
+    var compareMode by remember(state.item.id) { mutableStateOf(false) }
+    var comparisonFraction by remember(state.item.id) { mutableFloatStateOf(0.5f) }
+    var scale by remember(state.item.id) { mutableFloatStateOf(1f) }
+    var imageOffset by remember(state.item.id) { mutableStateOf(Offset.Zero) }
+    var previewSize by remember(state.item.id) { mutableStateOf(IntSize.Zero) }
+    val requestDismiss = {
+        if (state.isProcessing || ainrProgress != null) confirmCancel = true else onDismiss()
+    }
+    val canSave = state.hasEdits && !state.isProcessing
+    val activeBitmap = if (
+        activeTool == EditorTool.Crop && !state.geometry.crop.isFullFrame
+    ) {
+        state.item.thumbnail
+    } else {
+        state.preview ?: state.originalPreview ?: state.item.thumbnail
+    }
+    val transformState = rememberTransformableState { centroid, zoomChange, panChange, _ ->
+        val nextScale = clampGalleryScale(scale * zoomChange)
+        val appliedZoom = nextScale / scale
+        val focalPoint = centroid - Offset(
+            previewSize.width / 2f,
+            previewSize.height / 2f,
+        )
+        val transformedOffset = (imageOffset - focalPoint) * appliedZoom +
+            focalPoint + panChange
+        val clamped = clampGalleryOffset(
+            x = transformedOffset.x,
+            y = transformedOffset.y,
+            scale = nextScale,
+            viewportWidth = previewSize.width,
+            viewportHeight = previewSize.height,
+            imageWidth = activeBitmap.width,
+            imageHeight = activeBitmap.height,
+        )
+        scale = nextScale
+        imageOffset = Offset(clamped.x, clamped.y)
+    }
+    LaunchedEffect(compareMode) {
+        scale = 1f
+        imageOffset = Offset.Zero
+        comparisonFraction = 0.5f
+    }
+    LaunchedEffect(state.geometry.crop, state.source, activeTool) {
+        if (activeTool != EditorTool.Crop) {
+            pendingCrop = state.geometry.crop
+            cropRatioLabel = "Free"
+        }
+    }
+    LaunchedEffect(previewSize, activeBitmap.width, activeBitmap.height, scale) {
+        val clamped = clampGalleryOffset(
+            x = imageOffset.x,
+            y = imageOffset.y,
+            scale = scale,
+            viewportWidth = previewSize.width,
+            viewportHeight = previewSize.height,
+            imageWidth = activeBitmap.width,
+            imageHeight = activeBitmap.height,
+        )
+        imageOffset = Offset(clamped.x, clamped.y)
+    }
+    Dialog(
+        onDismissRequest = requestDismiss,
+        properties = DialogProperties(usePlatformDefaultWidth = false),
+    ) {
+        Surface(
+            color = MaterialTheme.colorScheme.surface,
+            modifier = Modifier.fillMaxSize(),
+        ) {
+            Column {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(start = 16.dp, top = 6.dp, end = 4.dp),
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Column(Modifier.weight(1f)) {
+                        Text(
+                            state.item.title,
+                            style = MaterialTheme.typography.titleMedium,
+                            fontWeight = FontWeight.SemiBold,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                        state.item.appliedLutName?.let { name ->
+                            Text(
+                                "$name ${((state.item.appliedLutStrength ?: 1f) * 100).toInt()}%",
+                                style = MaterialTheme.typography.labelSmall,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                            )
+                        }
+                    }
+                    IconButton(
+                        onClick = onUndo,
+                        enabled = state.canUndo && !state.isProcessing &&
+                            pendingCrop == state.geometry.crop,
+                    ) {
+                        Icon(Icons.AutoMirrored.Filled.Undo, contentDescription = "Undo edit")
+                    }
+                    IconButton(
+                        onClick = onRedo,
+                        enabled = state.canRedo && !state.isProcessing &&
+                            pendingCrop == state.geometry.crop,
+                    ) {
+                        Icon(Icons.AutoMirrored.Filled.Redo, contentDescription = "Redo edit")
+                    }
+                    IconButton(
+                        onClick = { compareMode = !compareMode },
+                        enabled = state.originalPreview != null && state.preview != null,
+                    ) {
+                        Icon(
+                            Icons.Default.Compare,
+                            contentDescription = if (compareMode) {
+                                "Close comparison"
+                            } else {
+                                "Compare original and edited"
+                            },
+                            tint = if (compareMode) {
+                                MaterialTheme.colorScheme.primary
+                            } else {
+                                MaterialTheme.colorScheme.onSurface
+                            },
+                        )
+                    }
+                    IconButton(onClick = onSave, enabled = canSave) {
+                        Icon(Icons.Default.Check, contentDescription = "Save edited copy")
+                    }
+                    IconButton(onClick = requestDismiss) {
+                        Icon(Icons.Default.Close, contentDescription = "Close LUT editor")
+                    }
+                }
+                Box(
+                    modifier = Modifier.fillMaxWidth().weight(1f).background(Color.Black)
+                        .clipToBounds()
+                        .onSizeChanged { previewSize = it },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    if (
+                        compareMode && state.preview != null &&
+                        state.originalPreview != null
+                    ) {
+                        Image(
+                            bitmap = state.originalPreview.asImageBitmap(),
+                            contentDescription = "Original preview",
+                            modifier = Modifier.fillMaxSize(),
+                            contentScale = ContentScale.Fit,
+                        )
+                        Image(
+                            bitmap = state.preview.asImageBitmap(),
+                            contentDescription = "Edited preview",
+                            modifier = Modifier.fillMaxSize().drawWithContent {
+                                clipRect(left = size.width * comparisonFraction) {
+                                    this@drawWithContent.drawContent()
+                                }
+                            },
+                            contentScale = ContentScale.Fit,
+                        )
+                        Canvas(
+                            Modifier.fillMaxSize().draggable(
+                                state = rememberDraggableState { delta ->
+                                    comparisonFraction = updateComparisonFraction(
+                                        comparisonFraction,
+                                        delta,
+                                        previewSize.width,
+                                    )
+                                },
+                                orientation = Orientation.Horizontal,
+                            ),
+                        ) {
+                            val dividerX = size.width * comparisonFraction
+                            drawLine(
+                                color = Color.White,
+                                start = Offset(dividerX, 0f),
+                                end = Offset(dividerX, size.height),
+                                strokeWidth = 2.dp.toPx(),
+                            )
+                            drawCircle(
+                                color = Color.White,
+                                radius = 16.dp.toPx(),
+                                center = Offset(dividerX, size.height / 2f),
+                            )
+                            drawCircle(
+                                color = Color.Black,
+                                radius = 11.dp.toPx(),
+                                center = Offset(dividerX, size.height / 2f),
+                            )
+                        }
+                        Text(
+                            "Original",
+                            color = Color.White,
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.align(Alignment.TopStart)
+                                .padding(12.dp)
+                                .background(Color.Black.copy(alpha = 0.62f))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                        )
+                        Text(
+                            "Edited",
+                            color = Color.White,
+                            style = MaterialTheme.typography.labelMedium,
+                            modifier = Modifier.align(Alignment.TopEnd)
+                                .padding(12.dp)
+                                .background(Color.Black.copy(alpha = 0.62f))
+                                .padding(horizontal = 8.dp, vertical = 4.dp),
+                        )
+                    } else if (state.preview != null) {
+                        Image(
+                            bitmap = state.preview.asImageBitmap(),
+                            contentDescription = "Edited preview",
+                            modifier = Modifier.fillMaxSize()
+                                .graphicsLayer {
+                                    scaleX = scale
+                                    scaleY = scale
+                                    translationX = imageOffset.x
+                                    translationY = imageOffset.y
+                                }
+                                .transformable(
+                                    state = transformState,
+                                    enabled = activeTool !in setOf(
+                                        EditorTool.Crop,
+                                        EditorTool.Perspective,
+                                    ),
+                                    canPan = { scale > 1.01f },
+                                )
+                                .pointerInput(state.item.id, scale) {
+                                    detectTapGestures(
+                                        onDoubleTap = {
+                                            scale = if (scale > 1.01f) 1f else 2.5f
+                                            imageOffset = Offset.Zero
+                                        },
+                                    )
+                                },
+                            contentScale = ContentScale.Fit,
+                        )
+                    }
+                    if (
+                        !compareMode && state.preview != null &&
+                        activeTool in setOf(EditorTool.Crop, EditorTool.Perspective)
+                    ) {
+                        EditorGeometryOverlay(
+                            bitmap = state.preview,
+                            geometry = if (activeTool == EditorTool.Crop) {
+                                state.geometry.copy(crop = pendingCrop)
+                            } else {
+                                state.geometry
+                            },
+                            tool = activeTool,
+                            onSetCrop = { pendingCrop = it },
+                            onCropHandleMoved = { cropRatioLabel = "Free" },
+                            onSetPerspective = onSetPerspective,
+                            onPerspectiveGestureStart = onBeginGesture,
+                            onPerspectiveGestureEnd = onEndGesture,
+                        )
+                    }
+                    if (state.isProcessing || state.preview == null) {
+                        CircularProgressIndicator(color = Color.White)
+                    }
+                    ainrProgress?.let { progress ->
+                        Column(
+                            modifier = Modifier.align(Alignment.BottomCenter)
+                                .fillMaxWidth()
+                                .background(Color.Black.copy(alpha = 0.72f))
+                                .padding(12.dp),
+                        ) {
+                            Text(
+                                "${progress.detail} ${if (progress.total > 0) "${progress.completed}/${progress.total}" else ""}",
+                                color = Color.White,
+                                style = MaterialTheme.typography.labelMedium,
+                            )
+                            progress.fraction?.let { fraction ->
+                                LinearProgressIndicator(
+                                    progress = { fraction },
+                                    modifier = Modifier.fillMaxWidth().padding(top = 6.dp),
+                                )
+                            }
+                        }
+                    }
+                }
+                Box(
+                    modifier = Modifier.fillMaxWidth().height(30.dp)
+                        .background(MaterialTheme.colorScheme.surface)
+                        .draggable(
+                            state = rememberDraggableState { delta -> panelDrag += delta },
+                            orientation = Orientation.Vertical,
+                            onDragStopped = {
+                                if (panelDrag > 20f) controlsExpanded = false
+                                if (panelDrag < -20f) controlsExpanded = true
+                                panelDrag = 0f
+                            },
+                        )
+                        .clickable { controlsExpanded = !controlsExpanded },
+                    contentAlignment = Alignment.Center,
+                ) {
+                    Box(
+                        modifier = Modifier.width(42.dp).height(5.dp)
+                            .background(
+                                MaterialTheme.colorScheme.onSurfaceVariant,
+                                CircleShape,
+                            ),
+                    )
+                }
+                if (controlsExpanded) {
+                    Column(modifier = Modifier.heightIn(max = 390.dp)) {
+                        SingleChoiceSegmentedButtonRow(
+                            modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
+                        ) {
+                            EditorImageSource.entries.forEachIndexed { index, source ->
+                                SegmentedButton(
+                                    selected = state.source == source,
+                                    onClick = { onSetSource(source) },
+                                    enabled = !state.isProcessing && (
+                                        source == EditorImageSource.Processed ||
+                                            state.hasRetainedOriginal
+                                        ),
+                                    shape = SegmentedButtonDefaults.itemShape(
+                                        index,
+                                        EditorImageSource.entries.size,
+                                    ),
+                                    label = { Text(source.label) },
+                                )
+                            }
+                        }
+                        if (state.source == EditorImageSource.Processed) {
+                            Row(
+                                modifier = Modifier.fillMaxWidth()
+                                    .padding(horizontal = 16.dp, vertical = 4.dp),
+                                horizontalArrangement = Arrangement.spacedBy(8.dp),
+                            ) {
+                                state.item.appliedLutName?.let { name ->
+                                    BakedSettingBadge(
+                                        "$name ${((state.item.appliedLutStrength ?: 1f) * 100).toInt()}%",
+                                    )
+                                }
+                                state.item.appliedDenoiseModel?.let {
+                                    BakedSettingBadge(
+                                        "Denoised ${((state.item.appliedDenoiseStrength ?: 1f) * 100).toInt()}%",
+                                    )
+                                }
+                                if (state.item.appliedGeometry?.hasChanges == true) {
+                                    BakedSettingBadge("Geometry")
+                                }
+                            }
+                        }
+                        LazyRow(
+                            contentPadding = PaddingValues(horizontal = 12.dp),
+                            horizontalArrangement = Arrangement.spacedBy(8.dp),
+                        ) {
+                            items(EditorTool.entries, key = EditorTool::name) { tool ->
+                                FilterChip(
+                                    selected = activeTool == tool,
+                                    onClick = {
+                                        if (tool == EditorTool.Crop) {
+                                            pendingCrop = state.geometry.crop
+                                            cropRatioLabel = "Free"
+                                        }
+                                        if (tool == EditorTool.Lut) {
+                                            onRequestLutThumbnails()
+                                        }
+                                        activeTool = tool
+                                        compareMode = false
+                                        scale = 1f
+                                        imageOffset = Offset.Zero
+                                    },
+                                    label = { Text(tool.label) },
+                                    leadingIcon = {
+                                        Icon(
+                                            when (tool) {
+                                                EditorTool.Adjust -> Icons.Default.Tune
+                                                EditorTool.Lut -> Icons.Default.Palette
+                                                EditorTool.Denoise -> Icons.Default.AutoFixHigh
+                                                EditorTool.Crop -> Icons.Default.Crop
+                                                EditorTool.Rotate -> Icons.Default.RotateRight
+                                                EditorTool.Perspective -> Icons.Default.Transform
+                                            },
+                                            contentDescription = null,
+                                            modifier = Modifier.size(18.dp),
+                                        )
+                                    },
+                                )
+                            }
+                        }
+                        when (activeTool) {
+                            EditorTool.Adjust -> {
+                                BasicEditSlider(
+                                    "Exposure", state.exposure, onBeginGesture, onEndGesture,
+                                ) {
+                                    onSetBasicEdits(it, state.contrast, state.saturation)
+                                }
+                                BasicEditSlider(
+                                    "Contrast", state.contrast, onBeginGesture, onEndGesture,
+                                ) {
+                                    onSetBasicEdits(state.exposure, it, state.saturation)
+                                }
+                                BasicEditSlider(
+                                    "Saturation", state.saturation, onBeginGesture, onEndGesture,
+                                ) {
+                                    onSetBasicEdits(state.exposure, state.contrast, it)
+                                }
+                            }
+                            EditorTool.Lut -> {
+                                val activeLut = state.selectedImportedLabel != null ||
+                                    state.preset != LutPreset.Neutral
+                                val showingBakedLut = state.source ==
+                                    EditorImageSource.Processed &&
+                                    !activeLut && state.item.appliedLutName != null
+                                EffectStrengthSlider(
+                                    label = "Strength",
+                                    value = if (showingBakedLut) {
+                                        state.item.appliedLutStrength ?: 1f
+                                    } else {
+                                        state.intensity
+                                    },
+                                    onValueChange = onSetIntensity,
+                                    enabled = !showingBakedLut,
+                                    onGestureStart = onBeginGesture,
+                                    onGestureEnd = onEndGesture,
+                                )
+                                LutEditorFilmstrip(state, onSelectPreset, onSelectImported)
+                            }
+                            EditorTool.Denoise -> {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = 16.dp, vertical = 2.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    FilterChip(
+                                        selected = state.denoiseEnabled,
+                                        onClick = {
+                                            onSetDenoiseEnabled(!state.denoiseEnabled)
+                                        },
+                                        enabled = !state.isProcessing,
+                                        label = { Text("Denoise") },
+                                    )
+                                }
+                                if (state.denoiseEnabled) {
+                                    SingleChoiceSegmentedButtonRow(
+                                        modifier = Modifier.fillMaxWidth()
+                                            .padding(horizontal = 16.dp),
+                                    ) {
+                                        AinrDenoiseModel.entries.forEachIndexed { index, model ->
+                                            SegmentedButton(
+                                                selected = state.denoiseModel == model,
+                                                onClick = { onSetDenoiseModel(model) },
+                                                enabled = !state.isProcessing,
+                                                shape = SegmentedButtonDefaults.itemShape(
+                                                    index,
+                                                    AinrDenoiseModel.entries.size,
+                                                ),
+                                                label = { Text(model.label) },
+                                            )
+                                        }
+                                    }
+                                    EffectStrengthSlider(
+                                        label = "Amount",
+                                        value = state.denoiseStrength,
+                                        onValueChange = onSetDenoiseStrength,
+                                        onGestureStart = onBeginGesture,
+                                        onGestureEnd = onEndGesture,
+                                    )
+                                }
+                            }
+                            EditorTool.Crop -> {
+                                val imageAspect = activeBitmap.width.toFloat() /
+                                    activeBitmap.height.coerceAtLeast(1)
+                                LazyRow(
+                                    contentPadding = PaddingValues(horizontal = 12.dp),
+                                    horizontalArrangement = Arrangement.spacedBy(8.dp),
+                                ) {
+                                    val ratios = listOf(
+                                        "Free" to null,
+                                        "Original" to imageAspect,
+                                        "1:1" to 1f,
+                                        "4:3" to 4f / 3f,
+                                        "3:2" to 3f / 2f,
+                                        "16:9" to 16f / 9f,
+                                    )
+                                    items(ratios, key = { it.first }) { (label, ratio) ->
+                                        FilterChip(
+                                            selected = cropRatioLabel == label,
+                                            onClick = {
+                                                cropRatioLabel = label
+                                                if (ratio != null) {
+                                                    pendingCrop = cropPresetForAspect(
+                                                        ratio,
+                                                        imageAspect,
+                                                    )
+                                                }
+                                            },
+                                            label = { Text(label) },
+                                        )
+                                    }
+                                }
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = 16.dp),
+                                    horizontalArrangement = Arrangement.End,
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    TextButton(onClick = {
+                                        pendingCrop = NormalizedCrop()
+                                        cropRatioLabel = "Free"
+                                    }) { Text("Reset") }
+                                    TextButton(onClick = {
+                                        pendingCrop = state.geometry.crop
+                                        cropRatioLabel = "Free"
+                                        activeTool = EditorTool.Adjust
+                                    }) { Text("Cancel") }
+                                    Button(
+                                        onClick = {
+                                            onSetCrop(pendingCrop)
+                                            activeTool = EditorTool.Adjust
+                                        },
+                                        enabled = pendingCrop != state.geometry.crop &&
+                                            !state.isProcessing,
+                                    ) { Text("Apply") }
+                                }
+                            }
+                            EditorTool.Rotate -> {
+                                var straightenGestureActive by remember {
+                                    mutableStateOf(false)
+                                }
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = 12.dp),
+                                    horizontalArrangement = Arrangement.SpaceEvenly,
+                                ) {
+                                    IconButton(onClick = {
+                                        onRotateQuarterTurn(false)
+                                    }) {
+                                        Icon(Icons.Default.RotateLeft, "Rotate left")
+                                    }
+                                    IconButton(onClick = {
+                                        onRotateQuarterTurn(true)
+                                    }) {
+                                        Icon(Icons.Default.RotateRight, "Rotate right")
+                                    }
+                                    TextButton(onClick = { onAutoGeometry(false) }) {
+                                        Icon(Icons.Default.AutoFixHigh, null)
+                                        Text("Auto")
+                                    }
+                                    TextButton(onClick = {
+                                        onResetGeometry(EditorTool.Rotate)
+                                    }) { Text("Reset") }
+                                }
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = 16.dp),
+                                    verticalAlignment = Alignment.CenterVertically,
+                                ) {
+                                    Text("Straighten", style = MaterialTheme.typography.labelMedium)
+                                    Slider(
+                                        value = state.geometry.straightenDegrees,
+                                        onValueChange = {
+                                            if (!straightenGestureActive) {
+                                                straightenGestureActive = true
+                                                onBeginGesture()
+                                            }
+                                            onSetStraighten(it)
+                                        },
+                                        onValueChangeFinished = {
+                                            if (straightenGestureActive) {
+                                                straightenGestureActive = false
+                                                onEndGesture()
+                                            }
+                                        },
+                                        valueRange = -45f..45f,
+                                        modifier = Modifier.weight(1f).padding(horizontal = 12.dp),
+                                    )
+                                    Text(
+                                        "${state.geometry.straightenDegrees.roundToInt()}°",
+                                        style = MaterialTheme.typography.labelSmall,
+                                    )
+                                }
+                            }
+                            EditorTool.Perspective -> {
+                                Row(
+                                    modifier = Modifier.fillMaxWidth()
+                                        .padding(horizontal = 16.dp),
+                                    horizontalArrangement = Arrangement.SpaceEvenly,
+                                ) {
+                                    TextButton(onClick = { onAutoGeometry(true) }) {
+                                        Icon(Icons.Default.AutoFixHigh, null)
+                                        Text("Auto")
+                                    }
+                                    TextButton(onClick = {
+                                        onResetGeometry(EditorTool.Perspective)
+                                    }) { Text("Reset") }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    if (confirmCancel) {
+        AlertDialog(
+            onDismissRequest = { confirmCancel = false },
+            title = { Text("Cancel denoising?") },
+            text = { Text("The current image processing will stop and no edited copy will be saved.") },
+            confirmButton = {
+                TextButton(onClick = {
+                    confirmCancel = false
+                    onDismiss()
+                }) { Text("Cancel processing") }
+            },
+            dismissButton = {
+                TextButton(onClick = { confirmCancel = false }) { Text("Keep processing") }
+            },
+        )
+    }
+}
+
+@Composable
+private fun BakedSettingBadge(label: String) {
+    Surface(
+        color = MaterialTheme.colorScheme.secondaryContainer,
+        shape = MaterialTheme.shapes.small,
+    ) {
+        Row(
+            modifier = Modifier.padding(horizontal = 8.dp, vertical = 5.dp),
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                Icons.Default.Lock,
+                contentDescription = null,
+                modifier = Modifier.size(14.dp),
+            )
+            Text(label, style = MaterialTheme.typography.labelSmall)
+        }
+    }
+}
+
+@Composable
+private fun EditorGeometryOverlay(
+    bitmap: Bitmap,
+    geometry: EditorGeometry,
+    tool: EditorTool,
+    onSetCrop: (NormalizedCrop) -> Unit,
+    onCropHandleMoved: () -> Unit,
+    onSetPerspective: (List<NormalizedPoint>) -> Unit,
+    onPerspectiveGestureStart: () -> Unit,
+    onPerspectiveGestureEnd: () -> Unit,
+) {
+    val density = LocalDensity.current
+    val handleRadius = with(density) { 13.dp.toPx() }
+    val handleColor = MaterialTheme.colorScheme.primary
+    var activeHandle by remember(tool) { mutableStateOf<Int?>(null) }
+    Canvas(
+        modifier = Modifier.fillMaxSize().pointerInput(
+            bitmap.width,
+            bitmap.height,
+            geometry,
+            tool,
+        ) {
+            fun displayRect(): Rect = fittedImageRect(
+                viewportWidth = size.width.toFloat(),
+                viewportHeight = size.height.toFloat(),
+                imageWidth = bitmap.width,
+                imageHeight = bitmap.height,
+            )
+
+            fun displayedPoints(rect: Rect): List<Offset> {
+                val normalized = if (tool == EditorTool.Crop) {
+                    val crop = geometry.crop
+                    listOf(
+                        NormalizedPoint(crop.left, crop.top),
+                        NormalizedPoint(crop.right, crop.top),
+                        NormalizedPoint(crop.right, crop.bottom),
+                        NormalizedPoint(crop.left, crop.bottom),
+                    )
+                } else {
+                    geometry.perspective
+                }
+                return normalized.map {
+                    Offset(
+                        rect.left + it.x * rect.width,
+                        rect.top + it.y * rect.height,
+                    )
+                }
+            }
+
+            detectDragGestures(
+                onDragStart = { position ->
+                    activeHandle = displayedPoints(displayRect())
+                        .mapIndexed { index, point -> index to (point - position).getDistance() }
+                        .minByOrNull { it.second }
+                        ?.takeIf { it.second <= handleRadius * 2.5f }
+                        ?.first
+                    if (tool == EditorTool.Perspective && activeHandle != null) {
+                        onPerspectiveGestureStart()
+                    }
+                },
+                onDragCancel = {
+                    if (tool == EditorTool.Perspective && activeHandle != null) {
+                        onPerspectiveGestureEnd()
+                    }
+                    activeHandle = null
+                },
+                onDragEnd = {
+                    if (tool == EditorTool.Perspective && activeHandle != null) {
+                        onPerspectiveGestureEnd()
+                    }
+                    activeHandle = null
+                },
+            ) { change, _ ->
+                val index = activeHandle ?: return@detectDragGestures
+                change.consume()
+                val rect = displayRect()
+                val point = NormalizedPoint(
+                    ((change.position.x - rect.left) / rect.width).coerceIn(0f, 1f),
+                    ((change.position.y - rect.top) / rect.height).coerceIn(0f, 1f),
+                )
+                if (tool == EditorTool.Crop) {
+                    onCropHandleMoved()
+                    val crop = geometry.crop
+                    onSetCrop(
+                        when (index) {
+                            0 -> crop.copy(left = point.x, top = point.y)
+                            1 -> crop.copy(right = point.x, top = point.y)
+                            2 -> crop.copy(right = point.x, bottom = point.y)
+                            else -> crop.copy(left = point.x, bottom = point.y)
+                        }.normalized(),
+                    )
+                } else {
+                    onSetPerspective(
+                        geometry.perspective.toMutableList().apply {
+                            if (index in indices) this[index] = point
+                        },
+                    )
+                }
+            }
+        },
+    ) {
+        val rect = fittedImageRect(
+            viewportWidth = size.width,
+            viewportHeight = size.height,
+            imageWidth = bitmap.width,
+            imageHeight = bitmap.height,
+        )
+        val normalized = if (tool == EditorTool.Crop) {
+            val crop = geometry.crop
+            listOf(
+                NormalizedPoint(crop.left, crop.top),
+                NormalizedPoint(crop.right, crop.top),
+                NormalizedPoint(crop.right, crop.bottom),
+                NormalizedPoint(crop.left, crop.bottom),
+            )
+        } else {
+            geometry.perspective
+        }
+        val points = normalized.map {
+            Offset(
+                rect.left + it.x * rect.width,
+                rect.top + it.y * rect.height,
+            )
+        }
+        if (tool == EditorTool.Crop && points.size == 4) {
+            val shade = Color.Black.copy(alpha = 0.52f)
+            drawRect(shade, topLeft = rect.topLeft, size = androidx.compose.ui.geometry.Size(rect.width, points[0].y - rect.top))
+            drawRect(shade, topLeft = Offset(rect.left, points[3].y), size = androidx.compose.ui.geometry.Size(rect.width, rect.bottom - points[3].y))
+            drawRect(shade, topLeft = Offset(rect.left, points[0].y), size = androidx.compose.ui.geometry.Size(points[0].x - rect.left, points[3].y - points[0].y))
+            drawRect(shade, topLeft = Offset(points[1].x, points[1].y), size = androidx.compose.ui.geometry.Size(rect.right - points[1].x, points[2].y - points[1].y))
+        }
+        if (points.size == 4) {
+            points.indices.forEach { index ->
+                drawLine(
+                    Color.White,
+                    points[index],
+                    points[(index + 1) % points.size],
+                    strokeWidth = 2.dp.toPx(),
+                )
+                drawCircle(
+                    color = Color.White,
+                    radius = handleRadius,
+                    center = points[index],
+                )
+                drawCircle(
+                    color = handleColor,
+                    radius = handleRadius * 0.62f,
+                    center = points[index],
+                )
+            }
+        }
+    }
+}
+
+internal fun fittedImageRect(
+    viewportWidth: Float,
+    viewportHeight: Float,
+    imageWidth: Int,
+    imageHeight: Int,
+): Rect {
+    if (
+        viewportWidth <= 0f || viewportHeight <= 0f ||
+        imageWidth <= 0 || imageHeight <= 0
+    ) return Rect.Zero
+    val scale = minOf(viewportWidth / imageWidth, viewportHeight / imageHeight)
+    val width = imageWidth * scale
+    val height = imageHeight * scale
+    val left = (viewportWidth - width) / 2f
+    val top = (viewportHeight - height) / 2f
+    return Rect(left, top, left + width, top + height)
+}
+
+@Composable
+private fun EffectStrengthSlider(
+    label: String,
+    value: Float,
+    onValueChange: (Float) -> Unit,
+    enabled: Boolean = true,
+    onGestureStart: () -> Unit = {},
+    onGestureEnd: () -> Unit = {},
+) {
+    var gestureActive by remember { mutableStateOf(false) }
     Row(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Text(label, style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(76.dp))
-        Slider(value = value, onValueChange = onValueChange, modifier = Modifier.weight(1f))
+        Slider(
+            value = value,
+            onValueChange = {
+                if (!gestureActive) {
+                    gestureActive = true
+                    onGestureStart()
+                }
+                onValueChange(it)
+            },
+            onValueChangeFinished = {
+                if (gestureActive) {
+                    gestureActive = false
+                    onGestureEnd()
+                }
+            },
+            enabled = enabled,
+            modifier = Modifier.weight(1f),
+        )
         Text("${(value * 100).toInt()}%", style = MaterialTheme.typography.labelSmall, modifier = Modifier.width(42.dp))
     }
 }
@@ -2497,24 +3514,55 @@ private fun LutEditorFilmstrip(
     onSelectPreset: (LutPreset) -> Unit,
     onSelectImported: (String) -> Unit,
 ) {
+    val hasActiveLut = state.selectedImportedLabel != null ||
+        state.preset != LutPreset.Neutral
+    val bakedLutName = state.item.appliedLutName.takeIf {
+        state.source == EditorImageSource.Processed && !hasActiveLut
+    }
     LazyRow(
         contentPadding = androidx.compose.foundation.layout.PaddingValues(12.dp),
         horizontalArrangement = Arrangement.spacedBy(8.dp),
     ) {
         items(LutPreset.entries, key = { it.name }) { preset ->
+            val bakedSelected = bakedLutName == preset.label
+            val activeSelected = state.selectedImportedLabel == null &&
+                state.preset == preset && (
+                    preset != LutPreset.Neutral || bakedLutName == null
+                )
             Surface(
                 modifier = Modifier.width(82.dp).height(64.dp)
                     .border(
-                        if (state.selectedImportedLabel == null && state.preset == preset) 2.dp else 0.dp,
+                        if (activeSelected || bakedSelected) 2.dp else 0.dp,
                         MaterialTheme.colorScheme.primary,
                         MaterialTheme.shapes.small,
                     )
-                    .clickable(enabled = !state.isProcessing) { onSelectPreset(preset) },
+                    .clickable(
+                        enabled = !state.isProcessing && !bakedSelected,
+                    ) { onSelectPreset(preset) },
                 shape = MaterialTheme.shapes.small,
             ) {
                 Box {
                     state.lutThumbnails[preset]?.let {
                         Image(it.asImageBitmap(), preset.label, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+                    }
+                    if (
+                        state.isLutThumbnailsLoading &&
+                        state.lutThumbnails[preset] == null
+                    ) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.align(Alignment.Center).size(18.dp),
+                            strokeWidth = 2.dp,
+                        )
+                    }
+                    if (bakedSelected) {
+                        Icon(
+                            Icons.Default.Lock,
+                            contentDescription = "Baked LUT",
+                            tint = Color.White,
+                            modifier = Modifier.align(Alignment.TopEnd)
+                                .padding(4.dp)
+                                .size(16.dp),
+                        )
                     }
                     Text(
                         preset.label,
@@ -2527,19 +3575,42 @@ private fun LutEditorFilmstrip(
             }
         }
         items(state.importedLuts, key = { "editor:${it.label}" }) { imported ->
+            val bakedSelected = bakedLutName == imported.label
+            val activeSelected = state.selectedImportedLabel == imported.label
             Surface(
                 modifier = Modifier.width(82.dp).height(64.dp)
                     .border(
-                        if (state.selectedImportedLabel == imported.label) 2.dp else 0.dp,
+                        if (activeSelected || bakedSelected) 2.dp else 0.dp,
                         MaterialTheme.colorScheme.primary,
                         MaterialTheme.shapes.small,
                     )
-                    .clickable(enabled = !state.isProcessing) { onSelectImported(imported.label) },
+                    .clickable(
+                        enabled = !state.isProcessing && !bakedSelected,
+                    ) { onSelectImported(imported.label) },
                 shape = MaterialTheme.shapes.small,
             ) {
                 Box {
                     state.importedLutThumbnails[imported.label]?.let {
                         Image(it.asImageBitmap(), imported.label, Modifier.fillMaxSize(), contentScale = ContentScale.Crop)
+                    }
+                    if (
+                        state.isLutThumbnailsLoading &&
+                        state.importedLutThumbnails[imported.label] == null
+                    ) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.align(Alignment.Center).size(18.dp),
+                            strokeWidth = 2.dp,
+                        )
+                    }
+                    if (bakedSelected) {
+                        Icon(
+                            Icons.Default.Lock,
+                            contentDescription = "Baked LUT",
+                            tint = Color.White,
+                            modifier = Modifier.align(Alignment.TopEnd)
+                                .padding(4.dp)
+                                .size(16.dp),
+                        )
                     }
                     Text(
                         imported.label,
@@ -2557,7 +3628,14 @@ private fun LutEditorFilmstrip(
 }
 
 @Composable
-private fun BasicEditSlider(label: String, value: Float, onValueChange: (Float) -> Unit) {
+private fun BasicEditSlider(
+    label: String,
+    value: Float,
+    onGestureStart: () -> Unit,
+    onGestureEnd: () -> Unit,
+    onValueChange: (Float) -> Unit,
+) {
+    var gestureActive by remember { mutableStateOf(false) }
     Row(
         modifier = Modifier.fillMaxWidth().padding(horizontal = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
@@ -2565,7 +3643,19 @@ private fun BasicEditSlider(label: String, value: Float, onValueChange: (Float) 
         Text(label, style = MaterialTheme.typography.labelMedium, modifier = Modifier.width(76.dp))
         Slider(
             value = value,
-            onValueChange = onValueChange,
+            onValueChange = {
+                if (!gestureActive) {
+                    gestureActive = true
+                    onGestureStart()
+                }
+                onValueChange(it)
+            },
+            onValueChangeFinished = {
+                if (gestureActive) {
+                    gestureActive = false
+                    onGestureEnd()
+                }
+            },
             valueRange = -1f..1f,
             modifier = Modifier.weight(1f),
         )

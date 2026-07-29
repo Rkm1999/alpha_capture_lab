@@ -19,9 +19,32 @@ actor SonyCameraAPI {
         self.session = URLSession(configuration: configuration)
     }
 
-    func availableAPIs() async throws -> Set<String> {
-        let result = try await call("getAvailableApiList")
+    func availableAPIs(timeout: TimeInterval = 15) async throws -> Set<String> {
+        let result = try await call("getAvailableApiList", timeout: timeout)
         return Set((result.first as? [String]) ?? [])
+    }
+
+    func negotiateEventVersion() async throws -> String {
+        do {
+            let versions = try await call("getVersions")
+                .first as? [String] ?? []
+            guard versions.contains("1.2") else {
+                eventVersion = "1.0"
+                return eventVersion
+            }
+            let methods = try await call("getMethodTypes", params: ["1.2"])
+            let supportsExtendedEvents = methods.contains { value in
+                guard let definition = value as? [Any], definition.count >= 4 else {
+                    return false
+                }
+                return definition[0] as? String == "getEvent" &&
+                    definition[3] as? String == "1.2"
+            }
+            eventVersion = supportsExtendedEvents ? "1.2" : "1.0"
+        } catch let error as CameraRPCError where error.code == 12 || error.code == 14 {
+            eventVersion = "1.0"
+        }
+        return eventVersion
     }
 
     func startRemoteModeIfNeeded() async throws -> Set<String> {
@@ -42,10 +65,13 @@ actor SonyCameraAPI {
         _ = try await call("setPostviewImageSize", params: [quality.sonyValue])
     }
 
-    func startLiveView(availableAPIs: Set<String>) async throws -> URL {
+    func startLiveView(
+        quality: LiveViewQuality = .high,
+        availableAPIs: Set<String>
+    ) async throws -> URL {
         let result: [Any]
         if availableAPIs.contains("startLiveviewWithSize") {
-            result = try await call("startLiveviewWithSize", params: ["L"])
+            result = try await call("startLiveviewWithSize", params: [quality.rawValue])
         } else {
             result = try await call("startLiveview")
         }
@@ -61,35 +87,10 @@ actor SonyCameraAPI {
 
     func settings(availableAPIs: Set<String>) async -> [CameraSettingID: CameraSetting] {
         var output: [CameraSettingID: CameraSetting] = [:]
-        let definitions: [(CameraSettingID, String, String, String)] = [
-            (.aperture, "getAvailableFNumber", "fNumber", "fNumberCandidates"),
-            (.shutterSpeed, "getAvailableShutterSpeed", "shutterSpeed", "shutterSpeedCandidates"),
-            (.iso, "getAvailableIsoSpeedRate", "isoSpeedRate", "isoSpeedRateCandidates"),
-        ]
-        for (id, method, currentKey, candidatesKey) in definitions where availableAPIs.contains(method) {
-            if let setting = try? await stringSetting(id, method, currentKey, candidatesKey) { output[id] = setting }
-        }
-        if availableAPIs.contains("getAvailableExposureMode"),
-           let result = try? await call("getAvailableExposureMode"),
-           let current = result.first as? String, let options = result.dropFirst().first as? [String] {
-            output[.exposureMode] = CameraSetting(id: .exposureMode, current: current, options: options)
-        }
-        if availableAPIs.contains("getAvailableContShootingMode"),
-           let result = try? await call("getAvailableContShootingMode"),
-           let object = result.first as? [String: Any],
-           let current = object["contShootingMode"] as? String {
-            output[.drive] = CameraSetting(id: .drive, current: current, options: object["candidate"] as? [String] ?? [current])
-        }
-        if availableAPIs.contains("getAvailableContShootingSpeed"),
-           let result = try? await call("getAvailableContShootingSpeed"),
-           let object = result.first as? [String: Any],
-           let current = object["contShootingSpeed"] as? String {
-            output[.burstSpeed] = CameraSetting(id: .burstSpeed, current: current, options: object["candidate"] as? [String] ?? [current])
-        }
-        if availableAPIs.contains("getAvailableExposureCompensation"),
-           let result = try? await call("getAvailableExposureCompensation"), result.count >= 3,
-           let current = result[0] as? Int, let upper = result[1] as? Int, let lower = result[2] as? Int {
-            output[.exposureCompensation] = CameraSetting(id: .exposureCompensation, current: String(current), options: Array(lower...upper).map(String.init))
+        for id in CameraSettingID.allCases {
+            if let value = await setting(id, availableAPIs: availableAPIs) {
+                output[id] = value
+            }
         }
         return output
     }
@@ -130,14 +131,29 @@ actor SonyCameraAPI {
     func event(longPolling: Bool) async throws -> CameraEventSnapshot {
         let result: [Any]
         do {
-            result = try await call("getEvent", params: [longPolling], version: eventVersion, timeout: longPolling ? 40 : 15)
-        } catch is CameraRPCError where eventVersion == "1.2" {
+            result = try await call("getEvent", params: [longPolling], version: eventVersion, timeout: longPolling ? 75 : 15)
+        } catch let error as CameraRPCError where error.code == 2 {
+            // Sony reports an idle long-poll expiry as RPC error 2. It does not
+            // mean event version 1.2 is unsupported.
+            return CameraEventSnapshot()
+        } catch let error as CameraRPCError
+            where eventVersion == "1.2" && (error.code == 12 || error.code == 14) {
             eventVersion = "1.0"
-            result = try await call("getEvent", params: [longPolling], version: eventVersion, timeout: longPolling ? 40 : 15)
+            result = try await call("getEvent", params: [longPolling], version: eventVersion, timeout: longPolling ? 75 : 15)
         }
+        return Self.parseEventResult(result)
+    }
+
+    static func parseEventResult(_ result: [Any]) -> CameraEventSnapshot {
         var snapshot = CameraEventSnapshot()
-        for value in result {
-            guard let event = value as? [String: Any], let type = event["type"] as? String else { continue }
+        func visit(_ value: Any) {
+            if let values = value as? [Any] {
+                values.forEach(visit)
+                return
+            }
+            guard let event = value as? [String: Any] else { return }
+            defer { event.values.forEach(visit) }
+            guard let type = event["type"] as? String else { return }
             if type == "takePicture", let values = event["takePictureUrl"] as? [String] {
                 snapshot.urls.append(contentsOf: values.compactMap(URL.init(string:)))
             }
@@ -147,14 +163,52 @@ actor SonyCameraAPI {
                 })
             }
             if type == "cameraStatus" { snapshot.status = event["cameraStatus"] as? String }
+            if type == "availableApiList", let names = event["names"] as? [String] {
+                snapshot.availableAPIs = Set(names)
+            }
+            let settingEvent: (CameraSettingID, [String])? = switch type {
+            case "exposureMode": (.exposureMode, ["exposureMode"])
+            case "fNumber": (.aperture, ["currentFNumber", "fNumber"])
+            case "shutterSpeed": (.shutterSpeed, ["currentShutterSpeed", "shutterSpeed"])
+            case "isoSpeedRate": (.iso, ["currentIsoSpeedRate", "isoSpeedRate"])
+            case "exposureCompensation":
+                (.exposureCompensation, ["currentExposureCompensation", "exposureCompensation"])
+            case "contShootingMode": (.drive, ["contShootingMode"])
+            case "contShootingSpeed": (.burstSpeed, ["contShootingSpeed"])
+            default: nil
+            }
+            if let (id, keys) = settingEvent,
+               let settingValue = keys.lazy.compactMap({ Self.stringValue(event[$0]) }).first {
+                snapshot.settingValues[id] = settingValue
+            }
             if type == "zoomInformation" {
-                snapshot.zoomPosition = event["zoomPosition"] as? Int
-                snapshot.zoomBoxCount = event["zoomNumberBox"] as? Int
-                snapshot.zoomBoxIndex = event["zoomIndexCurrentBox"] as? Int ?? event["zoomIndexCurrent"] as? Int
+                snapshot.zoomPosition = Self.intValue(event["zoomPosition"])
+                snapshot.zoomBoxCount = Self.intValue(event["zoomNumberBox"])
+                snapshot.zoomBoxIndex = Self.intValue(event["zoomIndexCurrentBox"])
+                    ?? Self.intValue(event["zoomIndexCurrent"])
             }
             if type == "zoomSetting" { snapshot.zoomSetting = event["zoom"] as? String }
         }
+        result.forEach(visit)
         return snapshot
+    }
+
+    static func intValue(_ value: Any?) -> Int? {
+        switch value {
+        case let value as Int: value
+        case let value as NSNumber: value.intValue
+        case let value as String: Int(value)
+        default: nil
+        }
+    }
+
+    private static func stringValue(_ value: Any?) -> String? {
+        switch value {
+        case let value as String: value
+        case let value as Int: String(value)
+        case let value as NSNumber: value.stringValue
+        default: nil
+        }
     }
 
     private func call(
@@ -202,13 +256,69 @@ actor SonyCameraAPI {
         return result
     }
 
+    private func setting(
+        _ id: CameraSettingID,
+        availableAPIs: Set<String>
+    ) async -> CameraSetting? {
+        let timeout: TimeInterval = 4
+        switch id {
+        case .aperture:
+            return try? await stringSetting(id, "getAvailableFNumber", availableAPIs, timeout)
+        case .shutterSpeed:
+            return try? await stringSetting(id, "getAvailableShutterSpeed", availableAPIs, timeout)
+        case .iso:
+            return try? await stringSetting(id, "getAvailableIsoSpeedRate", availableAPIs, timeout)
+        case .exposureMode:
+            if availableAPIs.contains("getAvailableExposureMode"),
+               let result = try? await call("getAvailableExposureMode", timeout: timeout),
+               let current = result.first as? String {
+                return CameraSetting(
+                    id: id,
+                    current: current,
+                    options: result.dropFirst().first as? [String] ?? [current],
+                    writable: availableAPIs.contains("setExposureMode")
+                )
+            }
+            guard availableAPIs.contains("getExposureMode"),
+                  let result = try? await call("getExposureMode", timeout: timeout),
+                  let current = result.first as? String else { return nil }
+            return CameraSetting(id: id, current: current, options: [current], writable: false)
+        case .drive, .burstSpeed:
+            let isDrive = id == .drive
+            let method = isDrive ? "getAvailableContShootingMode" : "getAvailableContShootingSpeed"
+            guard availableAPIs.contains(method),
+                  let result = try? await call(method, timeout: timeout),
+                  let object = result.first as? [String: Any] else { return nil }
+            let key = isDrive ? "contShootingMode" : "contShootingSpeed"
+            guard let current = object[key] as? String else { return nil }
+            return CameraSetting(
+                id: id,
+                current: current,
+                options: object["candidate"] as? [String] ?? [current]
+            )
+        case .exposureCompensation:
+            guard availableAPIs.contains("getAvailableExposureCompensation"),
+                  let result = try? await call("getAvailableExposureCompensation", timeout: timeout),
+                  result.count >= 3,
+                  let current = result[0] as? Int,
+                  let upper = result[1] as? Int,
+                  let lower = result[2] as? Int else { return nil }
+            return CameraSetting(
+                id: id,
+                current: String(current),
+                options: Array(lower...upper).map(String.init)
+            )
+        }
+    }
+
     private func stringSetting(
         _ id: CameraSettingID,
         _ method: String,
-        _ currentKey: String,
-        _ candidatesKey: String
+        _ availableAPIs: Set<String>,
+        _ timeout: TimeInterval
     ) async throws -> CameraSetting? {
-        let result = try await call(method)
+        guard availableAPIs.contains(method) else { return nil }
+        let result = try await call(method, timeout: timeout)
         guard let current = result.first as? String else { return nil }
         return CameraSetting(id: id, current: current, options: result.dropFirst().first as? [String] ?? [current])
     }

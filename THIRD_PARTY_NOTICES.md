@@ -35,8 +35,22 @@ OpenCV Android SDK under `sdk/etc/licenses`.
 
 - Source: https://github.com/rymuelle/RawRefinery
 - License: MIT
-- The Android and iOS apps include the Light denoise and Deep Sharpen ONNX
-  model weights.
+- The iOS app includes the Deep Sharpen ONNX model weights.
+
+## SCUNet And Distilled AINR
+
+- SCUNet source: https://github.com/cszn/SCUNet
+- SCUNet license: Apache License 2.0
+- Alpha Capture Lab includes the official SCUNet color-real-PSNR model and a
+  width-24 mobile student distilled from that frozen teacher.
+- Shared runtime and accelerator notices are documented in
+  `ainr/THIRD_PARTY.md`. The SCUNet license text is bundled with each platform.
+
+## LiteRT
+
+- Source: https://github.com/google-ai-edge/LiteRT
+- License: Apache License 2.0
+- Android uses LiteRT 2.1.6 with GPU and supported vendor NPU backends.
 
 ## ONNX Runtime
 
@@ -51,3 +65,9 @@ OpenCV Android SDK under `sdk/etc/licenses`.
 - Swift package: https://github.com/SDWebImage/libwebp-Xcode
 - License: BSD 3-Clause
 - Used by the iOS app for WebP encoding.
+
+## ZIPFoundation
+
+- Source: https://github.com/weichsel/ZIPFoundation
+- License: MIT
+- Used by the iOS app to import `.cube` LUTs from ZIP archives.

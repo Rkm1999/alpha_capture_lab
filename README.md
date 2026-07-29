@@ -20,14 +20,18 @@ API and exposes only capabilities reported by the connected camera.
 - Immediate sequential postview downloads with Original or reduced 2M quality
   selection and determinate byte progress when the camera reports content length
 - Latest-capture control plus an accessible capture-history viewer
-- Persistent MediaStore-backed three-column gallery with EXIF-aware detail viewing during transfers
+- Persistent MediaStore-backed three-column gallery with paging, pinch/double-tap
+  zoom, swipe-down dismissal, and EXIF-aware detail viewing during transfers
 - Live-view 3D LUT preview and separate full-resolution derivatives with EXIF preservation
 - Import, preview, strength adjustment, and application of 3D `.cube` LUT files
 - Direct Lumix Lab ZIP sharing with persistent multi-LUT import
 - Persistent live-view LUT selection and an always-visible active-LUT indicator
-- Full-screen photo editor with LUT attribution, strength, exposure, contrast,
-  saturation, RawRefinery denoise/deep sharpening, and saved derivative copies
-- Optional automatic full-resolution denoise for every photo or above a selected ISO
+- Full-screen photo editor with collapsible controls, zoom/pan, draggable
+  original-versus-edited comparison, LUT attribution, basic adjustments,
+  Distilled or full SCUNet AINR, and saved derivative copies
+- Optional automatic full-resolution AINR for every photo or above a selected ISO
+- Distilled performance and SCUNet quality model selection with automatic NPU/GPU
+  acceleration, tile progress, cancellation, and accelerator fallback
 - Retained private originals so LUT-baked photos can be re-edited from camera data
 - JPEG or WebP output selection
 - Optional phone-location geotagging in the EXIF of every saved JPEG
@@ -113,33 +117,47 @@ Panorama keep the main grid focused on their final rendered results.
 
 <img src="docs/screenshots/photo-editor.png" alt="Full-screen editor with LUT strength, basic adjustments, and LUT filmstrip" width="320">
 
-Editing provides LUT strength, exposure, contrast, saturation, RawRefinery Light
-denoise, and deep-sharpen controls.
+Editing provides LUT strength, exposure, contrast, saturation, and Distilled or
+full SCUNet denoise controls. Changing models runs one
+full-strength preview; the strength slider then blends that cached result
+against the retained original without rerunning inference.
 Built-in and imported `.cube` LUTs appear in the bottom filmstrip. Photos saved
 with a LUT retain its name and strength in EXIF so the editor can restore the
-recorded selection later; edits are saved as a new copy.
+recorded selection later; edits are saved as a new copy. Editing controls can
+collapse from their drag handle for a larger zoomable preview, and Compare
+exposes a draggable original/edited split. Processed derivatives can switch
+between their baked pixels and retained private original; baked LUT and denoise
+settings remain visible without being applied twice. Crop, 90-degree rotation,
+straightening, and manual or automatic perspective correction share the same
+preview and full-resolution export geometry. Closing an edit opened from
+Gallery returns to the preserved gallery grid.
 
 ## AI NR Development
 
-The maintained standalone AI noise-reduction projects now live in [`ainr`](ainr):
+The shared AI noise-reduction implementation and standalone validation apps
+live in [`ainr`](ainr):
 
-- [`ainr/app`](ainr/app) contains the Android LiteRT implementation with GPU,
-  vendor NPU, and dynamically balanced GPU + NPU execution.
-- [`ainr/ios`](ainr/ios) contains the native SwiftUI/Core ML implementation with
-  GPU, Apple Neural Engine, and dynamically balanced GPU + ANE execution.
+- [`ainr/runtime-android`](ainr/runtime-android) contains the Android LiteRT
+  runtime, models, and vendor accelerator libraries used by both Android apps.
+- [`ainr/ios-runtime`](ainr/ios-runtime) contains the Core ML runtime and models
+  used by both iOS apps.
+- [`ainr/app`](ainr/app) and [`ainr/ios`](ainr/ios) are standalone Android and
+  iOS validation tools for model and accelerator testing.
 - [`ainr/verification`](ainr/verification) contains the 24 MP device benchmark
   documentation and retained comparison images.
 - [`ainr/README.md`](ainr/README.md) documents shared compatibility, build steps,
   accelerator behavior, and current verified performance.
 
-The standalone projects are kept separate from the camera applications while
-the accelerated SCUNet pipeline is evaluated for later editor integration. The
-Android `.tflite` model is approximately 106 MB and requires Git LFS before this
-directory can be committed to GitHub.
+Alpha Capture Lab uses the same runtimes directly. **Distilled** is the default
+automatic model and prioritizes speed. **SCUNet** uses the full official
+real-image PSNR network and prioritizes output quality. Android selects a
+supported vendor NPU automatically and otherwise uses GPU; SCUNet may balance
+tiles across GPU and NPU. iOS selects Apple Neural Engine when the model compiles
+for the connected device and otherwise uses GPU.
 
 ## Compatibility
 
-Alpha Capture Lab requires Android 10 or newer, Wi-Fi, and a Sony camera application
+Alpha Capture Lab requires Android 10 or newer, a 64-bit Arm device, Wi-Fi, and a Sony camera application
 that exposes the legacy ScalarWebAPI camera service. Compatibility is
 capability-driven: unavailable camera APIs result in unavailable or read-only UI
 controls rather than assumed support.
@@ -151,7 +169,7 @@ controls rather than assumed support.
 - Sony Smart Remote Embedded / legacy Smart Remote Control camera application
 - Still capture, physical shutter import, continuous shooting, exposure controls,
   remote zoom, Standard/High live view, Live ND, Live Composite, Panorama, LUT
-  preview/import, RawRefinery processing, paired Wi-Fi reconnect, and MediaStore saving
+  preview/import, AINR processing, paired Wi-Fi reconnect, and MediaStore saving
 
 Other Sony models using the same legacy service may work but are untested. Sony's
 newer Camera Remote SDK cameras are not automatically compatible with this app.
@@ -199,6 +217,15 @@ configured strength are applied before the downloaded JPEG is saved. Camera EXIF
 is copied to the processed image, followed by optional phone geotagging. Live ND,
 Live Composite, and Panorama source frames remain ungraded so processing operates
 on the camera data.
+
+When automatic denoise is enabled, the selected Distilled or SCUNet model runs
+at full resolution after download and before the LUT is baked. The policy can
+run for every capture or only when camera EXIF reports an ISO at or above the
+selected threshold. It applies to Photo captures and the final Live ND, Live
+Composite, or Panorama result, never to their source frames. The original camera
+JPEG and computational source frames remain in private app storage; the public
+gallery contains only the processed photo or final result. Saved JPEG edit
+metadata records the denoise model and strength so the editor restores them.
 
 The main gallery shows final photos and computational results across app
 sessions. Live ND, Composite, and Panorama source frames are hidden from the

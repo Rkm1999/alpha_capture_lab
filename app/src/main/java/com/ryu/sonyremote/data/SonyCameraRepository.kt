@@ -16,6 +16,7 @@ import com.ryu.sonyremote.model.ConnectionState
 import com.ryu.sonyremote.model.LiveViewFrame
 import com.ryu.sonyremote.model.PostviewSizePreference
 import com.ryu.sonyremote.model.OutputImageFormat
+import com.ryu.sonyremote.processing.EditorGeometry
 import com.ryu.sonyremote.model.RemoteCapture
 import com.ryu.sonyremote.model.SonyCameraDevice
 import com.ryu.sonyremote.network.CameraHttpStream
@@ -69,11 +70,19 @@ class SonyCameraRepository(context: Context) {
     private val networkProvider = WifiNetworkProvider(appContext)
     private val discovery = SsdpCameraDiscovery(appContext)
     private val descriptionParser = DeviceDescriptionParser()
-    private val mediaStore = JpegMediaStore(appContext.contentResolver)
+    private val mediaStore = JpegMediaStore(appContext)
 
     suspend fun loadSavedGallery(): List<SavedMediaItem> = mediaStore.listSaved()
-    suspend fun setLutAttribution(uri: Uri, name: String, strength: Float) =
-        mediaStore.setLutAttribution(uri, name, strength)
+    suspend fun setEditAttribution(
+        uri: Uri,
+        lutName: String?,
+        lutStrength: Float?,
+        denoiseModel: String?,
+        denoiseStrength: Float?,
+        geometry: EditorGeometry? = null,
+    ) = mediaStore.setEditAttribution(
+        uri, lutName, lutStrength, denoiseModel, denoiseStrength, geometry,
+    )
     suspend fun readEditingOriginal(uri: Uri): ByteArray? = withContext(Dispatchers.IO) {
         editingOriginalFile(uri).takeIf { it.isFile }?.readBytes()
     }
@@ -140,7 +149,10 @@ class SonyCameraRepository(context: Context) {
 
     private val sessions = CurrentSessionGate<CameraSession>()
     private val computationalCaptureImport = AtomicBoolean(false)
-    @Volatile private var downloadedImageProcessor: suspend (ByteArray) -> ByteArray = { it }
+    @Volatile private var downloadedImageProcessor:
+        suspend (ByteArray) -> DownloadedImageProcessingResult = {
+            DownloadedImageProcessingResult(it)
+        }
     @Volatile private var outputImageFormat = OutputImageFormat.Jpeg
     @Volatile private var pendingTransport: NetworkHttpTransport? = null
     @Volatile private var activeLiveViewStream: CameraHttpStream? = null
@@ -431,7 +443,12 @@ class SonyCameraRepository(context: Context) {
 
     suspend fun saveCapture(capture: DownloadedCapture, prefix: String): SavedCapture {
         val sourceJpeg = capture.jpeg
-        val jpeg = JpegValidator.normalize(downloadedImageProcessor(sourceJpeg))
+        val processing = if (computationalCaptureImport.get()) {
+            DownloadedImageProcessingResult(sourceJpeg)
+        } else {
+            downloadedImageProcessor(sourceJpeg)
+        }
+        val jpeg = JpegValidator.normalize(processing.jpeg)
         val savedUri = mediaStore.save(jpeg, prefix, outputImageFormat)
         if (!jpeg.contentEquals(sourceJpeg)) {
             runCatching { mediaStore.copyExif(sourceJpeg, savedUri) }
@@ -459,6 +476,7 @@ class SonyCameraRepository(context: Context) {
             postviewRemoteUri = capture.postviewRemoteUri,
             postviewRemoteIsOriginal = capture.originalSizeRequested,
             cameraContentId = capture.cameraContentId,
+            appliedEdits = processing.appliedEdits,
         )
     }
 
@@ -467,6 +485,7 @@ class SonyCameraRepository(context: Context) {
         prefix: String,
         sourceCount: Int,
         metadataSourceJpeg: ByteArray? = null,
+        editingOriginalJpeg: ByteArray? = null,
     ): SavedCapture {
         val normalized = JpegValidator.normalize(jpeg)
         val savedUri = mediaStore.save(normalized, prefix, outputImageFormat)
@@ -475,6 +494,15 @@ class SonyCameraRepository(context: Context) {
                 .onFailure { error ->
                     DiagnosticLog.record(
                         "processed_photo_metadata_failed",
+                        mapOf("error" to error.toUserMessage("unknown")),
+                    )
+                }
+        }
+        if (editingOriginalJpeg != null && !normalized.contentEquals(editingOriginalJpeg)) {
+            runCatching { saveEditingOriginal(savedUri, editingOriginalJpeg) }
+                .onFailure { error ->
+                    DiagnosticLog.record(
+                        "editing_original_save_failed",
                         mapOf("error" to error.toUserMessage("unknown")),
                     )
                 }
@@ -499,7 +527,9 @@ class SonyCameraRepository(context: Context) {
         geotaggingEnabled = enabled
     }
 
-    fun setDownloadedImageProcessor(processor: suspend (ByteArray) -> ByteArray) {
+    fun setDownloadedImageProcessor(
+        processor: suspend (ByteArray) -> DownloadedImageProcessingResult,
+    ) {
         downloadedImageProcessor = processor
     }
 
@@ -1374,7 +1404,12 @@ class SonyCameraRepository(context: Context) {
                         _downloadProgress.tryEmit(CaptureDownloadProgress(remoteUri, bytes, total))
                     },
                 )
-                val jpeg = JpegValidator.normalize(downloadedImageProcessor(sourceJpeg))
+                val processing = if (computationalCaptureImport.get()) {
+                    DownloadedImageProcessingResult(sourceJpeg)
+                } else {
+                    downloadedImageProcessor(sourceJpeg)
+                }
+                val jpeg = JpegValidator.normalize(processing.jpeg)
                 currentCoroutineContext().ensureActive()
                 if (!sessions.isCurrent(active)) return null
                 DiagnosticLog.record(
@@ -1412,6 +1447,7 @@ class SonyCameraRepository(context: Context) {
                         active.capabilities.contentsTransferAvailable &&
                             !remoteUri.requestsOriginalPostview()
                     },
+                    appliedEdits = processing.appliedEdits,
                 )
                 active.recentCaptureUris.add(remoteUri)
                 currentCoroutineContext().ensureActive()
@@ -1598,9 +1634,22 @@ data class SavedCapture(
     val postviewRemoteUri: URI? = null,
     val postviewRemoteIsOriginal: Boolean = originalSizeRequested,
     val cameraContentId: String? = null,
+    val appliedEdits: AppliedImageEdits = AppliedImageEdits(),
 ) {
     val bytes: Int get() = jpeg.size
 }
+
+data class AppliedImageEdits(
+    val lutName: String? = null,
+    val lutStrength: Float? = null,
+    val denoiseModel: String? = null,
+    val denoiseStrength: Float? = null,
+)
+
+data class DownloadedImageProcessingResult(
+    val jpeg: ByteArray,
+    val appliedEdits: AppliedImageEdits = AppliedImageEdits(),
+)
 
 data class ContinuousBatchResult(
     val reportedUrlCount: Int,

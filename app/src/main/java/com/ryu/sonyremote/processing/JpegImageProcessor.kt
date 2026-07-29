@@ -8,12 +8,34 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import androidx.exifinterface.media.ExifInterface
+import com.ryu.scunetdenoiser.AinrProcessor
 import java.io.ByteArrayInputStream
 import java.io.ByteArrayOutputStream
+import java.util.concurrent.atomic.AtomicBoolean
+
+enum class AinrDenoiseModel(
+    val label: String,
+    val runtimeModel: AinrProcessor.Model,
+) {
+    Distilled("Distilled", AinrProcessor.Model.DISTILLED),
+    Scunet("SCUNet", AinrProcessor.Model.SCUNET),
+}
+
+data class AinrProgress(
+    val phase: AinrProcessor.Phase,
+    val completed: Int,
+    val total: Int,
+    val detail: String,
+) {
+    val fraction: Float?
+        get() = if (total > 0) completed.toFloat() / total else null
+}
 
 class JpegImageProcessor(
-    private val rawRefineryProcessor: RawRefineryProcessor? = null,
+    private val ainrProcessor: AinrProcessor? = null,
 ) {
+    private val geometryProcessor = EditorGeometryProcessor()
+
     fun photographicSensitivity(jpeg: ByteArray): Int? = runCatching {
         ExifInterface(ByteArrayInputStream(jpeg))
             .getAttribute(ExifInterface.TAG_PHOTOGRAPHIC_SENSITIVITY)
@@ -24,16 +46,26 @@ class JpegImageProcessor(
 
     fun prepareEditorPreview(
         jpeg: ByteArray,
+        geometry: EditorGeometry = EditorGeometry(),
         denoiseStrength: Float = 0f,
-        sharpenStrength: Float = 0f,
-        denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
-    ): Bitmap = applyRawEffects(
-        decode(jpeg, maxEdge = EDITOR_PREVIEW_EDGE, mutable = true),
-        jpeg,
+        denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
+        ainrProgress: ((AinrProgress) -> Unit)? = null,
+        ainrCanceled: AtomicBoolean = AtomicBoolean(false),
+    ): Bitmap = applyDenoise(
+        geometryProcessor.apply(
+            decode(jpeg, maxEdge = EDITOR_PREVIEW_EDGE, mutable = true),
+            geometry,
+        ),
         denoiseStrength,
-        sharpenStrength,
         denoiseModel,
-    )
+        ainrProgress,
+        ainrCanceled,
+)
+
+data class LutThumbnailBatch(
+    val presets: Map<LutPreset, Bitmap>,
+    val imported: Map<String, Bitmap>,
+)
 
     fun renderEditorPreview(
         base: Bitmap,
@@ -71,10 +103,9 @@ class JpegImageProcessor(
         contrast: Float,
         saturation: Float,
         denoiseStrength: Float = 0f,
-        sharpenStrength: Float = 0f,
-        denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
+        denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
     ): Bitmap = applyBasicEdits(
-        applyLut(applyRawEffects(decode(jpeg, maxEdge = previewEdge(denoiseStrength, sharpenStrength), mutable = true), jpeg, denoiseStrength, sharpenStrength, denoiseModel), preset, intensity),
+        applyLut(applyDenoise(decode(jpeg, maxEdge = previewEdge(denoiseStrength), mutable = true), denoiseStrength, denoiseModel), preset, intensity),
         exposure,
         contrast,
         saturation,
@@ -88,11 +119,25 @@ class JpegImageProcessor(
         contrast: Float,
         saturation: Float,
         denoiseStrength: Float = 0f,
-        sharpenStrength: Float = 0f,
-        denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
+        denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
+        geometry: EditorGeometry = EditorGeometry(),
+        ainrProgress: ((AinrProgress) -> Unit)? = null,
+        ainrCanceled: AtomicBoolean = AtomicBoolean(false),
     ): ByteArray {
+        val decoded = decode(jpeg, maxEdge = exportEdge(denoiseStrength), mutable = true)
+        val transformed = geometryProcessor.apply(decoded, geometry)
         val bitmap = applyBasicEdits(
-            applyLut(applyRawEffects(decode(jpeg, maxEdge = exportEdge(denoiseStrength, sharpenStrength), mutable = true), jpeg, denoiseStrength, sharpenStrength, denoiseModel), preset, intensity),
+            applyLut(
+                applyDenoise(
+                    transformed,
+                    denoiseStrength,
+                    denoiseModel,
+                    ainrProgress,
+                    ainrCanceled,
+                ),
+                preset,
+                intensity,
+            ),
             exposure,
             contrast,
             saturation,
@@ -103,25 +148,45 @@ class JpegImageProcessor(
     fun editPreview(
         jpeg: ByteArray, lut: CubeLut, intensity: Float,
         exposure: Float, contrast: Float, saturation: Float,
-        denoiseStrength: Float = 0f, sharpenStrength: Float = 0f,
-        denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
+        denoiseStrength: Float = 0f,
+        denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
     ): Bitmap = applyBasicEdits(
-        applyLut(applyRawEffects(decode(jpeg, maxEdge = previewEdge(denoiseStrength, sharpenStrength), mutable = true), jpeg, denoiseStrength, sharpenStrength, denoiseModel), lut, intensity),
+        applyLut(applyDenoise(decode(jpeg, maxEdge = previewEdge(denoiseStrength), mutable = true), denoiseStrength, denoiseModel), lut, intensity),
         exposure, contrast, saturation,
     )
 
     fun applyEditsToJpeg(
         jpeg: ByteArray, lut: CubeLut, intensity: Float,
         exposure: Float, contrast: Float, saturation: Float,
-        denoiseStrength: Float = 0f, sharpenStrength: Float = 0f,
-        denoiseModel: RawRefineryDenoiseModel = RawRefineryDenoiseModel.Light,
+        denoiseStrength: Float = 0f,
+        denoiseModel: AinrDenoiseModel = AinrDenoiseModel.Distilled,
+        geometry: EditorGeometry = EditorGeometry(),
+        ainrProgress: ((AinrProgress) -> Unit)? = null,
+        ainrCanceled: AtomicBoolean = AtomicBoolean(false),
     ): ByteArray {
+        val decoded = decode(jpeg, maxEdge = exportEdge(denoiseStrength), mutable = true)
+        val transformed = geometryProcessor.apply(decoded, geometry)
         val bitmap = applyBasicEdits(
-            applyLut(applyRawEffects(decode(jpeg, maxEdge = exportEdge(denoiseStrength, sharpenStrength), mutable = true), jpeg, denoiseStrength, sharpenStrength, denoiseModel), lut, intensity),
+            applyLut(
+                applyDenoise(
+                    transformed,
+                    denoiseStrength,
+                    denoiseModel,
+                    ainrProgress,
+                    ainrCanceled,
+                ),
+                lut,
+                intensity,
+            ),
             exposure, contrast, saturation,
         )
         return try { encode(bitmap, JPEG_QUALITY) } finally { bitmap.recycle() }
     }
+
+    fun detectAutoGeometry(
+        bitmap: Bitmap,
+        includePerspective: Boolean,
+    ): AutoGeometrySuggestion = geometryProcessor.detect(bitmap, includePerspective)
     fun thumbnail(jpeg: ByteArray, maxEdge: Int = THUMBNAIL_EDGE): Bitmap =
         decode(jpeg, maxEdge = maxEdge, mutable = false)
 
@@ -139,6 +204,27 @@ class JpegImageProcessor(
 
     fun lutThumbnail(jpeg: ByteArray, lut: CubeLut, intensity: Float): Bitmap =
         applyLut(decode(jpeg, maxEdge = LUT_THUMBNAIL_EDGE, mutable = true), lut, intensity)
+
+    fun lutThumbnailBatch(
+        jpeg: ByteArray,
+        presets: List<LutPreset>,
+        imported: Map<String, CubeLut>,
+        intensity: Float,
+    ): LutThumbnailBatch {
+        val source = decode(jpeg, maxEdge = LUT_THUMBNAIL_EDGE, mutable = true)
+        return try {
+            LutThumbnailBatch(
+                presets = presets.associateWith { preset ->
+                    applyLut(source.copy(Bitmap.Config.ARGB_8888, true), preset, intensity)
+                },
+                imported = imported.mapValues { (_, lut) ->
+                    applyLut(source.copy(Bitmap.Config.ARGB_8888, true), lut, intensity)
+                },
+            )
+        } finally {
+            source.recycle()
+        }
+    }
 
     fun applyLutToJpeg(jpeg: ByteArray, preset: LutPreset, intensity: Float = 1f): ByteArray {
         if (preset == LutPreset.Neutral || intensity <= 0f) return jpeg.copyOf()
@@ -236,29 +322,64 @@ class JpegImageProcessor(
         return oriented
     }
 
-    private fun applyRawEffects(
+    private fun applyDenoise(
         bitmap: Bitmap,
-        jpeg: ByteArray,
         denoiseStrength: Float,
-        sharpenStrength: Float,
-        denoiseModel: RawRefineryDenoiseModel,
+        denoiseModel: AinrDenoiseModel,
+        ainrProgress: ((AinrProgress) -> Unit)? = null,
+        ainrCanceled: AtomicBoolean = AtomicBoolean(false),
     ): Bitmap {
-        if (denoiseStrength <= 0f && sharpenStrength <= 0f) return bitmap
-        val processor = checkNotNull(rawRefineryProcessor) { "RawRefinery processing is unavailable" }
-        val iso = runCatching {
-            ExifInterface(ByteArrayInputStream(jpeg)).getAttributeInt(
-                ExifInterface.TAG_PHOTOGRAPHIC_SENSITIVITY,
-                DEFAULT_MODEL_ISO,
-            )
-        }.getOrDefault(DEFAULT_MODEL_ISO)
-        return processor.apply(bitmap, iso, denoiseStrength, sharpenStrength, denoiseModel)
+        if (denoiseStrength <= 0f) return bitmap
+        val processor = checkNotNull(ainrProcessor) { "AINR processing is unavailable" }
+        val denoised = processor.process(
+            bitmap,
+            denoiseModel.runtimeModel,
+            ainrCanceled,
+        ) { phase, completed, total, detail ->
+            ainrProgress?.invoke(AinrProgress(phase, completed, total, detail))
+        }
+        return blendDenoise(bitmap, denoised, denoiseStrength)
     }
 
-    private fun previewEdge(denoiseStrength: Float, sharpenStrength: Float) =
-        if (denoiseStrength > 0f || sharpenStrength > 0f) ML_PREVIEW_EDGE else PREVIEW_EDGE
+    private fun blendDenoise(original: Bitmap, denoised: Bitmap, strength: Float): Bitmap {
+        val amount = strength.coerceIn(0f, 1f)
+        if (amount >= 1f) {
+            if (original !== denoised) original.recycle()
+            return denoised
+        }
+        if (amount <= 0f) {
+            if (denoised !== original) denoised.recycle()
+            return original
+        }
+        val output = Bitmap.createBitmap(original.width, original.height, Bitmap.Config.ARGB_8888)
+        Canvas(output).apply {
+            drawBitmap(original, 0f, 0f, null)
+            drawBitmap(denoised, 0f, 0f, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                alpha = (amount * 255f).toInt()
+            })
+        }
+        original.recycle()
+        denoised.recycle()
+        return output
+    }
 
-    private fun exportEdge(denoiseStrength: Float, sharpenStrength: Float): Int? =
-        ML_EXPORT_EDGE.takeIf { denoiseStrength > 0f || sharpenStrength > 0f }
+    fun blendEditorDenoise(original: Bitmap, denoised: Bitmap, strength: Float): Bitmap {
+        require(original.width == denoised.width && original.height == denoised.height)
+        val output = Bitmap.createBitmap(original.width, original.height, Bitmap.Config.ARGB_8888)
+        Canvas(output).apply {
+            drawBitmap(original, 0f, 0f, null)
+            drawBitmap(denoised, 0f, 0f, Paint(Paint.ANTI_ALIAS_FLAG).apply {
+                alpha = (strength.coerceIn(0f, 1f) * 255f).toInt()
+            })
+        }
+        return output
+    }
+
+    private fun previewEdge(denoiseStrength: Float) =
+        if (denoiseStrength > 0f) ML_PREVIEW_EDGE else PREVIEW_EDGE
+
+    private fun exportEdge(denoiseStrength: Float): Int? =
+        ML_EXPORT_EDGE.takeIf { denoiseStrength > 0f }
 
     private fun applyBasicEdits(
         bitmap: Bitmap,
@@ -304,6 +425,5 @@ class JpegImageProcessor(
         const val LUT_THUMBNAIL_EDGE = 200
         const val STRIPE_ROWS = 32
         const val JPEG_QUALITY = 95
-        const val DEFAULT_MODEL_ISO = 800
     }
 }

@@ -2,6 +2,7 @@ package com.ryu.sonyremote.data
 
 import android.content.ContentResolver
 import android.content.ContentValues
+import android.content.Context
 import android.net.Uri
 import android.location.Location
 import android.os.Environment
@@ -20,9 +21,17 @@ import java.time.format.DateTimeFormatter
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import com.ryu.sonyremote.model.OutputImageFormat
+import com.ryu.sonyremote.processing.EditorGeometry
+import com.ryu.sonyremote.processing.NormalizedCrop
+import com.ryu.sonyremote.processing.NormalizedPoint
 
-class JpegMediaStore(private val contentResolver: ContentResolver) {
+class JpegMediaStore(context: Context) {
+    private val contentResolver: ContentResolver = context.contentResolver
+    private val attributionPreferences =
+        context.getSharedPreferences("edit_attribution", Context.MODE_PRIVATE)
+
     suspend fun delete(uri: Uri): Boolean = withContext(Dispatchers.IO) {
+        attributionPreferences.edit().remove(uri.toString()).apply()
         contentResolver.delete(uri, null, null) > 0
     }
 
@@ -50,10 +59,12 @@ class JpegMediaStore(private val contentResolver: ContentResolver) {
                     val thumbnail = runCatching {
                         contentResolver.loadThumbnail(uri, Size(320, 320), null)
                     }.getOrNull() ?: continue
-                    val attribution = readLutAttribution(uri)
+                    val attribution = readEditAttribution(uri)
                     add(SavedMediaItem(
                         uri, cursor.getString(nameColumn), cursor.getLong(dateColumn), thumbnail,
-                        attribution?.first, attribution?.second,
+                        attribution?.lutName, attribution?.lutStrength,
+                        attribution?.denoiseModel, attribution?.denoiseStrength,
+                        attribution?.geometry,
                     ))
                 }
             }
@@ -148,38 +159,143 @@ class JpegMediaStore(private val contentResolver: ContentResolver) {
         }
     }
 
-    suspend fun setLutAttribution(destination: Uri, name: String, strength: Float) =
+    suspend fun setEditAttribution(
+        destination: Uri,
+        lutName: String?,
+        lutStrength: Float?,
+        denoiseModel: String?,
+        denoiseStrength: Float?,
+        geometry: EditorGeometry? = null,
+    ) =
         withContext(Dispatchers.IO) {
+            val value = editAttributionValue(
+                lutName,
+                lutStrength,
+                denoiseModel,
+                denoiseStrength,
+                geometry,
+            )
+            attributionPreferences.edit().putString(destination.toString(), value).apply()
             contentResolver.openFileDescriptor(destination, "rw").use { descriptor ->
                 val exif = ExifInterface(requireNotNull(descriptor).fileDescriptor)
-                val encodedName = android.util.Base64.encodeToString(
-                    name.toByteArray(), android.util.Base64.NO_WRAP or android.util.Base64.URL_SAFE,
-                )
-                exif.setAttribute(
-                    ExifInterface.TAG_USER_COMMENT,
-                    "$LUT_COMMENT_PREFIX$encodedName:${strength.coerceIn(0f, 1f)}",
-                )
+                exif.setAttribute(ExifInterface.TAG_USER_COMMENT, value)
                 exif.saveAttributes()
             }
         }
 
-    private fun readLutAttribution(uri: Uri): Pair<String, Float>? = runCatching {
+    private fun readEditAttribution(uri: Uri): EditAttribution? = runCatching {
+        val sidecar = attributionPreferences.getString(uri.toString(), null)
+        if (sidecar != null) return@runCatching parseEditAttribution(sidecar)
         contentResolver.openFileDescriptor(uri, "r").use { descriptor ->
-            val value = ExifInterface(requireNotNull(descriptor).fileDescriptor)
+            ExifInterface(requireNotNull(descriptor).fileDescriptor)
                 .getAttribute(ExifInterface.TAG_USER_COMMENT)
-                ?.takeIf { it.startsWith(LUT_COMMENT_PREFIX) }
-                ?.removePrefix(LUT_COMMENT_PREFIX) ?: return@use null
-            val encodedName = value.substringBeforeLast(':')
-            val strength = value.substringAfterLast(':').toFloat()
-            String(android.util.Base64.decode(encodedName, android.util.Base64.URL_SAFE)) to strength
+                ?.let(::parseEditAttribution)
         }
     }.getOrNull()
+
+    private fun editAttributionValue(
+        lutName: String?,
+        lutStrength: Float?,
+        denoiseModel: String?,
+        denoiseStrength: Float?,
+        geometry: EditorGeometry?,
+    ): String {
+        val encodedName = lutName?.let {
+            android.util.Base64.encodeToString(
+                it.toByteArray(),
+                android.util.Base64.NO_WRAP or android.util.Base64.URL_SAFE,
+            )
+        }.orEmpty()
+        return buildString {
+            append(EDIT_COMMENT_PREFIX_V2)
+            append(encodedName)
+            append(':')
+            append(lutStrength?.coerceIn(0f, 1f) ?: "")
+            append(';')
+            append(denoiseModel.orEmpty())
+            append(':')
+            append(denoiseStrength?.coerceIn(0f, 1f) ?: "")
+            append(";g=")
+            geometry?.normalized()?.let {
+                append(it.normalizedQuarterTurns)
+                append(',')
+                append(it.straightenDegrees)
+                append(',')
+                append(it.crop.left)
+                append(',')
+                append(it.crop.top)
+                append(',')
+                append(it.crop.right)
+                append(',')
+                append(it.crop.bottom)
+                append(',')
+                append(it.perspective.joinToString("/") { point ->
+                    "${point.x}:${point.y}"
+                })
+            }
+        }
+    }
+
+    private fun parseEditAttribution(value: String): EditAttribution? {
+        if (value.startsWith(LUT_COMMENT_PREFIX)) {
+            val legacy = value.removePrefix(LUT_COMMENT_PREFIX)
+            val encodedName = legacy.substringBeforeLast(':')
+            return EditAttribution(
+                lutName = decodeName(encodedName),
+                lutStrength = legacy.substringAfterLast(':').toFloatOrNull(),
+            )
+        }
+        val payload = when {
+            value.startsWith(EDIT_COMMENT_PREFIX_V2) ->
+                value.removePrefix(EDIT_COMMENT_PREFIX_V2)
+            value.startsWith(EDIT_COMMENT_PREFIX) ->
+                value.removePrefix(EDIT_COMMENT_PREFIX)
+            else -> return null
+        }
+        val lut = payload.substringBefore(';')
+        val denoise = payload.substringAfter(';', "").substringBefore(';')
+        val geometry = payload.substringAfter(";g=", "")
+            .takeIf(String::isNotBlank)
+            ?.let(::parseGeometry)
+        return EditAttribution(
+            lutName = lut.substringBefore(':').takeIf(String::isNotBlank)?.let(::decodeName),
+            lutStrength = lut.substringAfter(':', "").toFloatOrNull(),
+            denoiseModel = denoise.substringBefore(':').takeIf(String::isNotBlank),
+            denoiseStrength = denoise.substringAfter(':', "").toFloatOrNull(),
+            geometry = geometry,
+        )
+    }
+
+    private fun parseGeometry(value: String): EditorGeometry? = runCatching {
+        val fields = value.split(',', limit = 7)
+        require(fields.size == 7)
+        val points = fields[6].split('/').map { pair ->
+            val values = pair.split(':', limit = 2)
+            NormalizedPoint(values[0].toFloat(), values[1].toFloat())
+        }
+        EditorGeometry(
+            quarterTurns = fields[0].toInt(),
+            straightenDegrees = fields[1].toFloat(),
+            crop = NormalizedCrop(
+                fields[2].toFloat(),
+                fields[3].toFloat(),
+                fields[4].toFloat(),
+                fields[5].toFloat(),
+            ),
+            perspective = points,
+        ).normalized()
+    }.getOrNull()
+
+    private fun decodeName(value: String): String =
+        String(android.util.Base64.decode(value, android.util.Base64.URL_SAFE))
 
     private companion object {
         val CURRENT_RELATIVE_PATH = "${Environment.DIRECTORY_PICTURES}/Alpha Capture Lab"
         val LEGACY_RELATIVE_PATH = "${Environment.DIRECTORY_PICTURES}/Sony Remote"
         val FILE_PREFIX = Regex("[A-Z0-9_]{1,32}")
         const val LUT_COMMENT_PREFIX = "REMOTE_CAPTURE_LUT:"
+        const val EDIT_COMMENT_PREFIX = "ALPHA_CAPTURE_LAB_EDIT_V1:"
+        const val EDIT_COMMENT_PREFIX_V2 = "ALPHA_CAPTURE_LAB_EDIT_V2:"
         val COPIED_EXIF_TAGS = listOf(
             ExifInterface.TAG_MAKE,
             ExifInterface.TAG_MODEL,
@@ -221,4 +337,15 @@ data class SavedMediaItem(
     val thumbnail: Bitmap,
     val lutName: String? = null,
     val lutStrength: Float? = null,
+    val denoiseModel: String? = null,
+    val denoiseStrength: Float? = null,
+    val geometry: EditorGeometry? = null,
+)
+
+private data class EditAttribution(
+    val lutName: String? = null,
+    val lutStrength: Float? = null,
+    val denoiseModel: String? = null,
+    val denoiseStrength: Float? = null,
+    val geometry: EditorGeometry? = null,
 )

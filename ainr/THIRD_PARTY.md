@@ -1,7 +1,7 @@
 # Third-party accelerator components
 
 The MediaTek and Samsung LiteRT compiler and dispatch plugins in
-`app/src/main/jniLibs/arm64-v8a` were built from the official LiteRT v2.1.6
+`runtime-android/src/main/jniLibs/arm64-v8a` were built from the official LiteRT v2.1.6
 source tag (`1461b6b2def31713f5c71446eab844aae05d02e9`). LiteRT is licensed
 under Apache-2.0.
 
